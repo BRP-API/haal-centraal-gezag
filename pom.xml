@@ -22,7 +22,7 @@
         <sonar.projectKey>gezag</sonar.projectKey>
         <sonar.organization>logius</sonar.organization>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
-        <org.projectlombok.version>1.18.28</org.projectlombok.version>
+        <org.projectlombok.version>1.18.30</org.projectlombok.version>
         <wiremock.version>3.0.0-beta-10</wiremock.version>
     </properties>
 
@@ -399,24 +399,6 @@
                         </goals>
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/openapi-gmapi.yml</inputSpec>
-                            <generatorName>spring</generatorName>
-                            <configOptions>
-                                <delegatePattern>true</delegatePattern>
-                                <documentationProvider>none</documentationProvider>
-                                <implicitHeaders>true</implicitHeaders>
-                                <useOptional>true</useOptional>
-                                <useSpringBoot3>true</useSpringBoot3>
-                                <useTags>true</useTags>
-                            </configOptions>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>spring-server-persoonsgegevens</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/openapi-persoonsgegevens.yml</inputSpec>
                             <generatorName>spring</generatorName>
                             <configOptions>
                                 <delegatePattern>true</delegatePattern>

@@ -1,0 +1,102 @@
+2024-07-03 12:43:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:10 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:10 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:13 jdbc[33]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:13 jdbc[33]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:14 jdbc[43]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:14 jdbc[43]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:15 jdbc[53]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:15 jdbc[53]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:17 jdbc[63]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:17 jdbc[63]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:21 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:21 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:28 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:43:28 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:39 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:39 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:42 jdbc[33]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:42 jdbc[33]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:44 jdbc[43]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:44 jdbc[43]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:45 jdbc[53]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:45 jdbc[53]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:47 jdbc[63]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:47 jdbc[63]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:50 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:50 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:57 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column datetime_created set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column datetime_created set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]
+2024-07-03 12:47:57 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP [*]DEFAULT CURRENT_TIMESTAMP"; SQL statement:
+alter table if exists transaction alter column transaction_datetime set data type TIMESTAMP DEFAULT CURRENT_TIMESTAMP [42000-214]

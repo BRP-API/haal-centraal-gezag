@@ -6,6 +6,7 @@ import nl.rijksoverheid.mev.brpadapter.soap.BrpClient;
 import nl.rijksoverheid.mev.transaction.Transaction;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import nl.rijksoverheid.mev.exception.BrpException;
 import nl.rijksoverheid.mev.exception.GezagException;
@@ -83,18 +84,24 @@ public class BrpService {
     /**
      * Ophalen bsns van minderjarige kinderen
      *
-     * @param bsn de bsn om de persoonslijst voor op te halen
+     * @param bsns de bsn(s) om de persoonslijst voor op te halen
      * @param transaction de originele transactie
      * @return de BSNs van de kinderen
      * @throws GezagException wanneer BRP communicatie misgaat
      */
-    public List<String> getBsnsMinderjarigeKinderen(final String bsn, final Transaction transaction) throws BrpException {
-        Persoonslijst persoonslijstOuder = client.opvragenPersoonslijst(bsn, transaction);
+    public List<String> getBsnsMinderjarigeKinderen(final List<String> bsns, final Transaction transaction) throws BrpException {
+        if (bsns != null) {
+            for (String bsn : bsns) {
+                Persoonslijst persoonslijstOuder = client.opvragenPersoonslijst(bsn, transaction);
 
-        transaction.setReceivedId(persoonslijstOuder.getReceivedId());
-        transactionHandler.saveBrpServiceTransaction(BRP_SERVICE_GET_BSNS_MINDERJARIGE_KINDEREN, persoonslijstOuder.getReceivedId(), transaction);
+                transaction.setReceivedId(persoonslijstOuder.getReceivedId());
+                transactionHandler.saveBrpServiceTransaction(BRP_SERVICE_GET_BSNS_MINDERJARIGE_KINDEREN, persoonslijstOuder.getReceivedId(), transaction);
 
-        return persoonslijstOuder.getBurgerservicenummersVanMinderjarigeKinderen();
+                return persoonslijstOuder.getBurgerservicenummersVanMinderjarigeKinderen();
+            }
+        }
+
+        return Collections.EMPTY_LIST;
     }
 
     private List<Persoonslijst> ophalenKinderen(final Persoonslijst persoonslijstOuder, final Transaction transaction) throws BrpException {

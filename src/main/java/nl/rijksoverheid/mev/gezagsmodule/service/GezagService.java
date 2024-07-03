@@ -42,21 +42,27 @@ public class GezagService {
     /**
      * Bepaal gezag van kind
      *
-     * @param bsnKind de bsn
+     * @param bsns de bsn(s)
      * @param transaction de transactie zoals gemaakt bij het ontvangen van het
      * request
      * @return lijst gezagsrelaties of lijst gezagsrelatie 'N'
      */
-    public List<Gezagsrelatie> getGezag(final String bsnKind, final Transaction transaction) throws BrpException {
-        try {
-            return getGezagAfleidingsResultaat(bsnKind, transaction).getGezagsrelaties();
-        } catch (AfleidingsregelException ex) {
-            log.error("Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven", ex);
+    public List<Gezagsrelatie> getGezag(final List<String> bsns, final Transaction transaction) throws BrpException {
+        List<Gezagsrelatie> gezagRelaties = new ArrayList<>();
 
-            transactionHandler.saveGezagmoduleTransaction(null, null, null, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, null, transaction);
+        for (String bsnKind : bsns) {
+            try {
+                gezagRelaties.addAll(getGezagAfleidingsResultaat(bsnKind, transaction).getGezagsrelaties());
+            } catch (AfleidingsregelException ex) {
+                log.error("Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven", ex);
 
-            return List.of(new Gezagsrelatie(bsnKind, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, BSN_MEERDERJARIGE_LEEG));
+                transactionHandler.saveGezagmoduleTransaction(null, null, null, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, null, transaction);
+
+                gezagRelaties.add(new Gezagsrelatie(bsnKind, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, BSN_MEERDERJARIGE_LEEG));
+            }
         }
+        
+        return gezagRelaties;
     }
 
     /**

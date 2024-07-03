@@ -69,64 +69,6 @@ public class GezagsmoduleInterfaceApiDelegateService implements GezagsmoduleInte
         }
     }
 
-    /**
-     * Opvragen bevoegdheid to gezag meerderjarige
-     *
-     * @param gezagRequest de aanvraag
-     * @throws nl.rijksoverheid.mev.exception.GezagException wanneer een
-     * exceptie optreed bij BRP communcatie of bij het bepalen van gezag in de
-     * gezagmodule
-     * @return gezagrelaties of leeg
-     */
-    @Override
-    public ResponseEntity<List<Gezagsrelatie>> opvragenBevoegdheidTotGezagMeerderjarige(final GezagRequest gezagRequest) {
-        var httpServletRequest = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
-        var httpServletResponse = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getResponse();
-
-        Transaction transaction = transactionHandler.createGmApiTransaction(httpServletRequest, httpServletResponse);
-
-        try {
-            List<Gezagsrelatie> gezagsrelaties = bevoegdheidTotGezagService.bepaalBevoegdheidTotGezagMeerderjarige(gezagRequest, transaction);
-
-            transactionHandler.updateTransaction(HttpStatus.OK, transaction, httpServletRequest);
-
-            return ResponseEntity.ok(gezagsrelaties);
-        } catch (GezagException e) {
-            transactionHandler.updateTransaction(e.getStatusCode(), transaction, httpServletRequest);
-
-            throw e;
-        }
-    }
-
-    /**
-     * Opvragen bevoegdheid to gezag minderjarige
-     *
-     * @param gezagRequest de aanvraag
-     * @throws nl.rijksoverheid.mev.exception.GezagException wanneer een
-     * exceptie optreed bij BRP communcatie of bij het bepalen van gezag in de
-     * gezagmodule
-     * @return gezagrelaties of leeg
-     */
-    @Override
-    public ResponseEntity<List<Gezagsrelatie>> opvragenBevoegdheidTotGezagMinderjarige(final GezagRequest gezagRequest) {
-        var httpServletRequest = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
-        var httpServletResponse = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getResponse();
-
-        Transaction transaction = transactionHandler.createGmApiTransaction(httpServletRequest, httpServletResponse);
-
-        try {
-            List<Gezagsrelatie> gezagsrelaties = bevoegdheidTotGezagService.bepaalBevoegdheidTotGezagMinderjarige(gezagRequest, transaction);
-
-            transactionHandler.updateTransaction(HttpStatus.OK, transaction, httpServletRequest);
-
-            return ResponseEntity.ok(gezagsrelaties);
-        } catch (GezagException e) {
-            transactionHandler.updateTransaction(e.getStatusCode(), transaction, httpServletRequest);
-
-            throw e;
-        }
-    }
-
     @ExceptionHandler
     public ResponseEntity<String> handle(final GezagException e) {
         return ResponseEntity
