@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: BRP API Gezagmodule
   description: >-
@@ -50,7 +50,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Gezagsrelatie'
+                  $ref: '#/components/schemas/GezagQueryResponse'
         '503':
           description: Gegevensbron niet beschikbaar
           content:
@@ -65,35 +65,26 @@ components:
         bsns:
           type: array
           items:
-            type: string 
-    Gezagsrelatie:
-      required:
-        - bsnMinderjarige
-        - soortGezag
+            type: string
+    GezagQueryResponse:
       type: object
+      required:
+        - type
+      discriminator:
+        propertyName: type
+        mapping:
+          RaadpleegGezag: '#/components/schemas/GezagResponse'
       properties:
-        bsnMinderjarige:
+        type:
           type: string
-          example: '999999999'
-        soortGezag:
-          type: string
-          description: >-
-            OG2: Ouderlijk gezag -tweehoofdig (uitgeoefend door beide juridische
-            ouders), OG1: Ouderlijk gezag -eenhoofdig (uitgeoefend door
-            juridisch ouder), GG: Gezamenlijk gezag (uitgeoefend door een
-            juridisch ouder samen met een derde, bijv. stiefouder), V: Voogdij
-            (uitgeoefend door een of twee derden, niet zijnde de juridisch
-            ouder), G: Geen gezag (tijdelijke situatie, minderjarige behoort
-            onder gezag te staan), N: Niet te bepalen (afleidingsregels of
-            beschikbare broninformatie is onvoldoende om het gezag te bepalen)
-          example: OG1
-          enum:
-            - OG1
-            - OG2
-            - GG
-            - V
-            - G
-            - 'N'
-        bsnMeerderjarige:
-          type: string
-          example: '999999998'
+    GezagResponse:
+      allOf:
+        - $ref: '#/components/schemas/GezagQueryResponse'
+        - type: object
+          properties:
+            personen:
+              type: array
+              description: |
+                * **geslacht** - wordt gevuld met waarden voor 'Geslacht' in 'tabelwaarden.csv'.
+              items:
+                $ref: 'persoon.yaml#/components/schemas/Persoon'
