@@ -26,6 +26,7 @@ import java.util.function.Supplier;
 @Service
 @RequiredArgsConstructor
 public class GezagService {
+
     private final VragenlijstService vragenlijstService;
     private final TransactionHandler transactionHandler;
     private final BrpService brpService;
@@ -39,21 +40,24 @@ public class GezagService {
     /**
      * Bepaal gezag van kind
      *
-     * @param bsnKind de bsn
+     * @param bsns de bsn(s)
      * @param transaction de transactie zoals gemaakt bij het ontvangen van het
      * request
      * @return lijst gezagsrelaties of lijst gezagsrelatie 'N'
      */
-    public List<Gezagsrelatie> getGezag(final String bsnKind, final Transaction transaction) throws BrpException {
-        try {
-            return getGezagAfleidingsResultaat(bsnKind, transaction).getGezagsrelaties();
-        } catch (AfleidingsregelException ex) {
-            log.error("Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven", ex);
-
-            transactionHandler.saveGezagmoduleTransaction(null, null, null, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, null, transaction);
-
-            return List.of(new Gezagsrelatie(bsnKind, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, BSN_MEERDERJARIGE_LEEG));
+    public List<Gezagsrelatie> getGezag(final List<String> bsns, final Transaction transaction) throws BrpException {
+        List<Gezagsrelatie> gezagRelaties = new ArrayList<>();
+        for (String bsnKind : bsns) {
+            try {
+                gezagRelaties.addAll(getGezagAfleidingsResultaat(bsnKind, transaction).getGezagsrelaties());
+            } catch (AfleidingsregelException ex) {
+                log.error("Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven", ex);
+                transactionHandler.saveGezagmoduleTransaction(null, null, null, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, null, transaction);
+                gezagRelaties.add(new Gezagsrelatie(bsnKind, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, BSN_MEERDERJARIGE_LEEG));
+            }
         }
+
+        return gezagRelaties;
     }
 
     private Map<String, Supplier<String>> initializeVragenMap(ARVragenModel arVragenModel, ARAntwoordenModel arAntwoordenModel) {
@@ -73,12 +77,12 @@ public class GezagService {
             arAntwoordenModel.setV0103(antwoord);
             return antwoord;
         });
-        map.put("v1.3a",() -> {
+        map.put("v1.3a", () -> {
             String antwoord = arVragenModel.v13aisGeborenInBuitenland();
             arAntwoordenModel.setV0103A(antwoord);
             return antwoord;
         });
-        map.put( "v1.3b", () -> {
+        map.put("v1.3b", () -> {
             String antwoord = arVragenModel.v13bIsGeadopteerdMetNlAkte();
             arAntwoordenModel.setV0103B(antwoord);
             return antwoord;
@@ -108,7 +112,7 @@ public class GezagService {
             arAntwoordenModel.setV02A03(antwoord);
             return antwoord;
         });
-        map.put("v2b.1",() -> {
+        map.put("v2b.1", () -> {
             String antwoord = arVragenModel.v2b1IsStaandeHuwelijkOfPartnerschapGeboren();
             arAntwoordenModel.setV02B01(antwoord);
             return antwoord;
@@ -141,7 +145,7 @@ public class GezagService {
         return map;
     }
 
-    public String processVraag( Map<String, Supplier<String>> vragenMap, String vraagCode) {
+    public String processVraag(Map<String, Supplier<String>> vragenMap, String vraagCode) {
         Supplier<String> vraagProcessor = vragenMap.get(vraagCode);
         if (vraagProcessor != null) {
             return vraagProcessor.get();
@@ -154,7 +158,7 @@ public class GezagService {
         try {
             String huidigeVraag = "v1.1";
             Map<String, Map<String, String>> hoofdstroomschema = vragenlijstService.getVragenMap();
-            Map<String, Supplier<String>> vragenMap = initializeVragenMap(arVragenModel , arAntwoordenModel);
+            Map<String, Supplier<String>> vragenMap = initializeVragenMap(arVragenModel, arAntwoordenModel);
             String antwoord;
             while (!huidigeVraag.equals(EINDE)) {
                 antwoord = processVraag(vragenMap, huidigeVraag);
@@ -162,8 +166,7 @@ public class GezagService {
                 Map<String, String> antwoordEnActieParen = hoofdstroomschema.get(huidigeVraag);
                 if (antwoordEnActieParen == null) {
                     huidigeVraag = EINDE;
-                }
-                else {
+                } else {
                     // 4. De actie uitvoeren die is gekoppeld aan het antwoord en doorgaan naar de volgende vraag.
                     huidigeVraag = antwoordEnActieParen.getOrDefault(antwoord, EINDE);
                 }
@@ -228,7 +231,7 @@ public class GezagService {
         if (!gezagsdragers.isEmpty()) {
             gezagRelaties = gezagsdragers.stream().map(gezagdrager -> new Gezagsrelatie(bsnKind,
                     arAntwoordenModel.getSoortGezag(), gezagdrager)).toList();
-        } else if ( arAntwoordenModel.getSoortGezag() != null && !arAntwoordenModel.getSoortGezag().equals(SOORT_GEZAG_NVT)) {
+        } else if (arAntwoordenModel.getSoortGezag() != null && !arAntwoordenModel.getSoortGezag().equals(SOORT_GEZAG_NVT)) {
             gezagRelaties.add(new Gezagsrelatie(bsnKind, arAntwoordenModel.getSoortGezag(), BSN_MEERDERJARIGE_LEEG));
         }
 
@@ -373,12 +376,12 @@ public class GezagService {
 
     private void saveTransaction(Persoonslijst plNietOuder, Transaction originalTransaction) {
         transactionHandler.saveGezagmoduleTransaction(
-            PersoonlijstType.NIET_OUDER,
-            plNietOuder.getReceivedId(),
-            null,
-            null,
-            null,
-            originalTransaction
+                PersoonlijstType.NIET_OUDER,
+                plNietOuder.getReceivedId(),
+                null,
+                null,
+                null,
+                originalTransaction
         );
     }
 
