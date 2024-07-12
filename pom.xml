@@ -398,7 +398,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/gmapi.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/src/main/resources/brp-api-gezag.yaml</inputSpec>
                             <generatorName>spring</generatorName>
                             <configOptions>
                                 <delegatePattern>true</delegatePattern>
