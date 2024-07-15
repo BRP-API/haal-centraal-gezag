@@ -82,8 +82,6 @@ components:
       properties:
         personen:
           type: array
-          description: |
-            * **geslacht** - wordt gevuld met waarden voor 'Geslacht' in 'tabelwaarden.csv'.
           items:
             $ref: "#/components/schemas/Persoon"
     Burgerservicenummer:
@@ -184,8 +182,6 @@ components:
       minItems: 0
     Persoon:
       type: object
-      description: |
-        * **geslacht** - wordt gevuld met waarden voor 'Geslacht' in 'tabelwaarden.csv'.
       properties:
         burgerservicenummer:
           $ref: '#/components/schemas/Burgerservicenummer'
