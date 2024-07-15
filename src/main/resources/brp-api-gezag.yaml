@@ -202,5 +202,7 @@ components:
       description: |
         * **geslacht** - wordt gevuld met waarden voor 'Geslacht' in 'tabelwaarden.csv'.
       properties:
+        burgerservicenummer:
+          $ref: '#/components/schemas/Burgerservicenummer'
         gezag:
           $ref: "#/components/schemas/Gezag"
