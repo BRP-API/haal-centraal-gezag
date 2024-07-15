@@ -206,3 +206,9 @@ components:
           $ref: '#/components/schemas/Burgerservicenummer'
         gezag:
           $ref: "#/components/schemas/Gezag"
+        toelichting:
+          type: object
+          properties:
+            type:
+              type: string
+          
