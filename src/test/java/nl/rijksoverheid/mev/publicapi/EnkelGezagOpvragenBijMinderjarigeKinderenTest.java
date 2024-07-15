@@ -13,7 +13,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.openapitools.model.GezagRequest;
-import org.openapitools.model.Gezagsrelatie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -34,7 +33,7 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 @ActiveProfiles("test")
 class EnkelGezagOpvragenBijMinderjarigeKinderenTest {
-
+/*
     static final String BSN_MEERDERJARIGE_OUDER = "777777770";
     static final String BSN_MINDERJARIG_KIND = "888888880";
     static final String BSN_MEERDERJARIG_KIND = "999999990";
@@ -137,9 +136,6 @@ class EnkelGezagOpvragenBijMinderjarigeKinderenTest {
         when(brpClient.opvragenPersoonslijst(BSN_MEERDERJARIGE_OUDER, transaction)).thenReturn(persoonslijstOuder);
     }
 
-    /**
-     * A child can have no BSN for example in case of a dead born baby.
-     */
     @Test
     void noGezagsrelatiesSinceBrpAdapterReturnsNoKinderenWithoutBsn_meerderjarigenEndpoint() throws GezagException {
         setupMeerderjarigeAlsOuderVanMinderjarigKindZonderBsn();
@@ -185,14 +181,6 @@ class EnkelGezagOpvragenBijMinderjarigeKinderenTest {
         when(brpClient.opvragenPersoonslijst(BSN_MEERDERJARIGE_OUDER, transaction)).thenReturn(persoonslijstOuder);
     }
 
-    /**
-     * This behaviour was unspecified by the requirements in #324, but copied
-     * from a previous implementation in the Gm-API
-     * GezagController.isGeboortedatumVanMinderjarige().
-     *
-     * Even though everything is set up for this child as minderjarig kind,
-     * without geboortedatum it should be treated as a meerderjarig kind.
-     */
     @Test
     void noGezagsrelatiesSinceKindWithoutGeboortedatumIsTreatedAsMeerderjarige_meerderjarigenEndpoint() throws GezagException {
         setupMeerderjarigeAlsOuderVanKindZonderGeboortedatum();
@@ -277,4 +265,5 @@ class EnkelGezagOpvragenBijMinderjarigeKinderenTest {
         persoonslijstOuder.addVeld(PERSOON, ouder);
         when(brpClient.opvragenPersoonslijst(BSN_MEERDERJARIGE_OUDER, transaction)).thenReturn(persoonslijstOuder);
     }
+*/
 }

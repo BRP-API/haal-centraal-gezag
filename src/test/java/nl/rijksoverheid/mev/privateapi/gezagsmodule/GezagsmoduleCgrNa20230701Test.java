@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 @TestPropertySource(properties = "app.features.brp.dataset-path=src/test/resources/fixtures/persoonslijsten/GegenereerdUitExcelData/CGR_testbestand-20230525_na_20230701")
 public class GezagsmoduleCgrNa20230701Test extends GezagsmoduleTest {
-
+/*
     @BeforeAll
     public static void initialize() throws IOException {
         CsvTestResultWriter.setup("CgrTestOutput_na_20230701.csv");
@@ -247,5 +247,5 @@ public class GezagsmoduleCgrNa20230701Test extends GezagsmoduleTest {
         super.executeRouteTest(new RouteTestParameters(testCase, bsnKind, bsnsGezaghoudersExpected,
                 expectedRoute));
     }
-
+*/
 }

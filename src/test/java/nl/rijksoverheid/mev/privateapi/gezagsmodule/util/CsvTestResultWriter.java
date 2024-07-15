@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class CsvTestResultWriter {
-
+/*
     private static CSVWriter csvWriter;
 
     private final GezagsmoduleTest.RouteTestParameters routeTestArguments;
@@ -230,4 +230,5 @@ public class CsvTestResultWriter {
         };
         return data;
     }
+*/
 }

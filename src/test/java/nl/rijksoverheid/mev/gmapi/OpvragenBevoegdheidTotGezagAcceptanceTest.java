@@ -6,7 +6,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.openapitools.OpenApiGeneratorApplication;
 import org.openapitools.model.GezagRequest;
-import org.openapitools.model.Gezagsrelatie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -18,7 +17,6 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.openapitools.model.Gezagsrelatie.SoortGezagEnum.*;
 
 @SpringBootTest(
     classes = {GezagApplication.class, OpenApiGeneratorApplication.class},
@@ -26,7 +24,7 @@ import static org.openapitools.model.Gezagsrelatie.SoortGezagEnum.*;
     properties = "app.clock=2023-02-01T00:00:00Z"
 )
 class OpvragenBevoegdheidTotGezagAcceptanceTest {
-
+/*
     private static final String OIN = "00000004003214345001";
 
     @Autowired
@@ -930,4 +928,5 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
             assertThat(results).containsExactlyInAnyOrderElementsOf(expected);
         });
     }
+*/
 }

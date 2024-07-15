@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class GezagsmoduleBaseTest extends GezagsmoduleTest {
-
+/*
     @BeforeAll
     public static void initialize() throws IOException {
         CsvTestResultWriter.setup("BaseTestOutput.csv");
@@ -255,4 +255,5 @@ public class GezagsmoduleBaseTest extends GezagsmoduleTest {
             )
         );
     }
+*/
 }

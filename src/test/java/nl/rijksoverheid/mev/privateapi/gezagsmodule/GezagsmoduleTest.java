@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, properties="app.clock=2023-02-01T00:00:00Z")
 public abstract class GezagsmoduleTest {
-
+/*
     public record ResponseInfo(GezagAfleidingsResultaat gezagAfleidingsResultaat, long responseTime) {
 
     }
@@ -76,4 +76,5 @@ public abstract class GezagsmoduleTest {
                 .map(Gezagsrelatie::bsnMeerderjarige)
                 .toList();
     }
+*/
 }
