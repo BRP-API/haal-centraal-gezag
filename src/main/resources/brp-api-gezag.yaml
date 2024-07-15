@@ -59,9 +59,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/GezagQueryResponse"
+                $ref: "#/components/schemas/GezagResponse"
         "503":
           description: Gegevensbron niet beschikbaar
           content:
@@ -79,28 +77,15 @@ components:
             $ref: "#/components/schemas/Burgerservicenummer"
           minItems: 1
           maxItems: 20
-    GezagQueryResponse:
-      type: object
-      required:
-        - type
-      discriminator:
-        propertyName: type
-        mapping:
-          RaadpleegGezag: "#/components/schemas/GezagResponse"
-      properties:
-        type:
-          type: string
     GezagResponse:
-      allOf:
-        - $ref: "#/components/schemas/GezagQueryResponse"
-        - type: object
-          properties:
-            personen:
-              type: array
-              description: |
-                * **geslacht** - wordt gevuld met waarden voor 'Geslacht' in 'tabelwaarden.csv'.
-              items:
-                $ref: "#/components/schemas/Persoon"
+      type: object
+      properties:
+        personen:
+          type: array
+          description: |
+            * **geslacht** - wordt gevuld met waarden voor 'Geslacht' in 'tabelwaarden.csv'.
+          items:
+            $ref: "#/components/schemas/Persoon"
     Burgerservicenummer:
       type: string
       pattern: ^[0-9]{9}$
