@@ -13,7 +13,6 @@ import nl.rijksoverheid.mev.gezagsmodule.model.GezagAfleidingsResultaat;
 import nl.rijksoverheid.mev.gezagsmodule.model.Gezagsrelatie;
 import nl.rijksoverheid.mev.transaction.Transaction;
 import nl.rijksoverheid.mev.transaction.TransactionHandler;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -215,14 +214,16 @@ public class GezagService {
         }
         route = beslissingsmatrixService.findMatchingRoute(arAntwoordenModel);
         arAntwoordenModel.setRoute(route);
-        arAntwoordenModel.setSoortGezag(SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD);
-        arAntwoordenModel.setGezagOuder1(DEFAULT_NEE);
-        arAntwoordenModel.setGezagOuder2(DEFAULT_NEE);
-        arAntwoordenModel.setGezagNietOuder1(DEFAULT_NEE);
-        arAntwoordenModel.setGezagNietOuder2(DEFAULT_NEE);
-        arAntwoordenModel.setUitleg("In onderzoek velden geconstateerd");
-        if (!hasVeldenInOnderzoek) {
-            setConfiguredValues(arAntwoordenModel);
+        setConfiguredValues(arAntwoordenModel);
+
+        if (hasVeldenInOnderzoek) {
+            arAntwoordenModel.setRoute(arAntwoordenModel.getRoute() + "i");
+            arAntwoordenModel.setSoortGezag(SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD);
+            arAntwoordenModel.setGezagOuder1(DEFAULT_NEE);
+            arAntwoordenModel.setGezagOuder2(DEFAULT_NEE);
+            arAntwoordenModel.setGezagNietOuder1(DEFAULT_NEE);
+            arAntwoordenModel.setGezagNietOuder2(DEFAULT_NEE);
+            updateUitlegWithInOnderzoek(arAntwoordenModel, arVragenModel);
         }
 
         Set<String> gezagsdragers = new HashSet<>();
@@ -395,5 +396,30 @@ public class GezagService {
         arAntwoordenModel.setGezagNietOuder1(configuredARAntwoordenModel.getGezagNietOuder1());
         arAntwoordenModel.setGezagNietOuder2(configuredARAntwoordenModel.getGezagNietOuder2());
         arAntwoordenModel.setUitleg(configuredARAntwoordenModel.getUitleg());
+    }
+
+    private void updateUitlegWithInOnderzoek(final ARAntwoordenModel arAntwoordenModel, final ARVragenModel vragenModel) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(arAntwoordenModel.getUitleg());
+        sb.append("Uitspraak is gezag niet te bepalen, omdat er bij de gezagbepaling waardes in onderzoek waren gedetecteerd. Bij het bepalen van gezag werd het volgende veld gebruikt dat in onderzoek staat: ");
+        VeldenInOnderzoek veldenInOnderzoek = vragenModel.getVeldenInOnderzoek();
+        List<String> persoonInOnderzoekVelden = veldenInOnderzoek.getPersoon();
+        if (!veldenInOnderzoek.getPersoon().isEmpty()) {
+            sb.append(String.join(", ", persoonInOnderzoekVelden));
+        }
+        List<String> ouder1InOnderzoekVelden = veldenInOnderzoek.getOuder1();
+        if (!veldenInOnderzoek.getPersoon().isEmpty()) {
+            sb.append(String.join(" van ouder 1, ", ouder1InOnderzoekVelden));
+        }
+        List<String> ouder2InOnderzoekVelden = veldenInOnderzoek.getOuder2();
+        if (!veldenInOnderzoek.getPersoon().isEmpty()) {
+            sb.append(String.join(" van ouder 2, ", ouder2InOnderzoekVelden));
+        }
+        List<String> nietOuderInOnderzoekVelden = veldenInOnderzoek.getNietOuder();
+        if (!veldenInOnderzoek.getPersoon().isEmpty()) {
+            sb.append(String.join(" van niet ouder, ", nietOuderInOnderzoekVelden));
+        }
+        
+        arAntwoordenModel.setUitleg(sb.toString());
     }
 }

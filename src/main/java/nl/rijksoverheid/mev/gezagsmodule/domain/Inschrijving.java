@@ -35,6 +35,11 @@ public class Inschrijving implements PersoonslijstVeld {
         return values.get(key);
     }
 
+    @Override
+    public String get(final String key, final String fieldName) {
+        return values.get(key);
+    }
+
     public String getDatumOpschortingBijhouding() {
         return get(DATUM_OPSCHORTING_BIJHOUDING);
     }
