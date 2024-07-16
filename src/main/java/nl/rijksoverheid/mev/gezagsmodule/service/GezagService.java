@@ -53,7 +53,9 @@ public class GezagService {
             } catch (AfleidingsregelException ex) {
                 log.error("Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven", ex);
                 transactionHandler.saveGezagmoduleTransaction(null, null, null, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, null, transaction);
-                gezagRelaties.add(new Gezagsrelatie(bsnKind, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, BSN_MEERDERJARIGE_LEEG));
+                gezagRelaties.add(new Gezagsrelatie(
+                        bsnKind, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, BSN_MEERDERJARIGE_LEEG,
+                        "Gezagsrelatie kon niet worden bepaald vanwege een onverwachte exceptie, resultaat 'N' wordt als antwoord gegeven"));
             }
         }
 
@@ -230,9 +232,9 @@ public class GezagService {
 
         if (!gezagsdragers.isEmpty()) {
             gezagRelaties = gezagsdragers.stream().map(gezagdrager -> new Gezagsrelatie(bsnKind,
-                    arAntwoordenModel.getSoortGezag(), gezagdrager)).toList();
+                    arAntwoordenModel.getSoortGezag(), gezagdrager, arAntwoordenModel.getUitleg())).toList();
         } else if (arAntwoordenModel.getSoortGezag() != null && !arAntwoordenModel.getSoortGezag().equals(SOORT_GEZAG_NVT)) {
-            gezagRelaties.add(new Gezagsrelatie(bsnKind, arAntwoordenModel.getSoortGezag(), BSN_MEERDERJARIGE_LEEG));
+            gezagRelaties.add(new Gezagsrelatie(bsnKind, arAntwoordenModel.getSoortGezag(), BSN_MEERDERJARIGE_LEEG, arAntwoordenModel.getUitleg()));
         }
 
         result = new GezagAfleidingsResultaat(gezagRelaties, arAntwoordenModel, route);

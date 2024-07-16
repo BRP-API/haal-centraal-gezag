@@ -6,6 +6,7 @@ package nl.rijksoverheid.mev.gezagsmodule.model;
 public record Gezagsrelatie(
     String bsnMinderjarige,
     String soortGezag,
-    String bsnMeerderjarige
+    String bsnMeerderjarige,
+    String toelichting
 ) {
 }
