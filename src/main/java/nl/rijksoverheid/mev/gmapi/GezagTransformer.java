@@ -31,7 +31,7 @@ public class GezagTransformer {
     /**
      * Gegeven de gezagrelaties zoals deze nu uit de gezagmodule geleverd worden
      *
-     * @param gezagRelaties de gezagrelaties om te vertalen
+     * @param gezagrelaties de gezagrelaties om te vertalen
      * @return de persoon objecten met de vertaalde gezag relaties
      */
     public List<Persoon> fromGezagrelaties(final List<Gezagsrelatie> gezagrelaties) {
@@ -100,8 +100,10 @@ public class GezagTransformer {
 
                 persoon.addGezagItem(gezag);
             }
-            case "G" -> persoon.addGezagItem(new TijdelijkGeenGezag().toelichting(gezagsrelatie.toelichting()));
-            case "N" -> persoon.addGezagItem(new GezagNietTeBepalen().toelichting(gezagsrelatie.toelichting()));
+            case "G" ->
+                persoon.addGezagItem(new TijdelijkGeenGezag().toelichting(gezagsrelatie.toelichting()));
+            case "N" ->
+                persoon.addGezagItem(new GezagNietTeBepalen().toelichting(gezagsrelatie.toelichting()));
         }
     }
 }

@@ -1,6 +1,5 @@
 package nl.rijksoverheid.mev.gmapi;
 
-import java.util.ArrayList;
 import nl.rijksoverheid.mev.brpadapter.service.BrpService;
 import nl.rijksoverheid.mev.common.util.BSNValidator;
 import nl.rijksoverheid.mev.exception.GezagException;
@@ -10,7 +9,6 @@ import nl.rijksoverheid.mev.gezagsmodule.model.Gezagsrelatie;
 import org.openapitools.model.GezagRequest;
 import org.openapitools.model.Persoon;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
