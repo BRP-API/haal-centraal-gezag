@@ -6,6 +6,7 @@ import nl.rijksoverheid.mev.common.util.BSNValidator;
 import nl.rijksoverheid.mev.exception.GezagException;
 import nl.rijksoverheid.mev.gezagsmodule.service.GezagService;
 import nl.rijksoverheid.mev.transaction.Transaction;
+import nl.rijksoverheid.mev.gezagsmodule.model.Gezagsrelatie;
 import org.openapitools.model.GezagRequest;
 import org.openapitools.model.Persoon;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
-import nl.rijksoverheid.mev.gezagsmodule.model.Gezagsrelatie;
 
 /**
  * Service om te bepalen of personen <i>bevoegdheid tot gezag</i> hebben.
@@ -24,11 +24,13 @@ public class BevoegdheidTotGezagService {
 
     private final BrpService brpService;
     private final GezagService gezagService;
+    private final GezagTransformer gezagTransformer;
     private final BSNValidator bsnValidator;
 
-    public BevoegdheidTotGezagService(final BrpService brpService, final GezagService gezagService) {
+    public BevoegdheidTotGezagService(final BrpService brpService, final GezagService gezagService, final GezagTransformer gezagTransformer) {
         this.brpService = brpService;
         this.gezagService = gezagService;
+        this.gezagTransformer = gezagTransformer;
         this.bsnValidator = new BSNValidator();
     }
 
@@ -66,16 +68,17 @@ public class BevoegdheidTotGezagService {
                         vindGezagsrelatiesVoorKinderen(bsns, transaction)
                 )
                 .toList();
-        
-        List<Persoon> personen = new ArrayList<>();
-        
+
+        List<Persoon> personen = gezagTransformer.fromGezagrelaties(gezagRelaties);
+
         return personen;
     }
 
     private Stream<Gezagsrelatie> vindGezagsrelatiesVoorKinderen(final List<String> bsns, final Transaction transaction) throws GezagException {
         return brpService.getBsnsMinderjarigeKinderen(bsns, transaction).stream()
-            .map(bsn -> gezagService.getGezag(bsns, transaction))
-            .flatMap(Collection::stream)
-            .filter(gezagsrelatie -> bsns.contains(gezagsrelatie.bsnMeerderjarige()));
+                .map(bsn -> gezagService.getGezag(bsns, transaction))
+                .flatMap(Collection::stream)
+                .filter(gezagsrelatie -> bsns.contains(gezagsrelatie.bsnMeerderjarige()));
     }
+
 }

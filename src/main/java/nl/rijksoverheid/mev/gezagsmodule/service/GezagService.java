@@ -46,14 +46,14 @@ public class GezagService {
      */
     public List<Gezagsrelatie> getGezag(final List<String> bsns, final Transaction transaction) throws BrpException {
         List<Gezagsrelatie> gezagRelaties = new ArrayList<>();
-        for (String bsnKind : bsns) {
+        for (String bsn : bsns) {
             try {
-                gezagRelaties.addAll(getGezagAfleidingsResultaat(bsnKind, transaction).getGezagsrelaties());
+                gezagRelaties.addAll(getGezagAfleidingsResultaat(bsn, transaction).getGezagsrelaties());
             } catch (AfleidingsregelException ex) {
                 log.error("Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven", ex);
                 transactionHandler.saveGezagmoduleTransaction(null, null, null, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, null, transaction);
-                gezagRelaties.add(new Gezagsrelatie(
-                        bsnKind, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, BSN_MEERDERJARIGE_LEEG,
+                gezagRelaties.add(new Gezagsrelatie(bsn,
+                        bsn, SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD, BSN_MEERDERJARIGE_LEEG,
                         "Gezagsrelatie kon niet worden bepaald vanwege een onverwachte exceptie, resultaat 'N' wordt als antwoord gegeven"));
             }
         }
@@ -187,7 +187,7 @@ public class GezagService {
      * @return gezagsafleidingsresultaat
      * @throws AfleidingsregelException wanneer gezag niet kan worden bepaald
      */
-    public GezagAfleidingsResultaat getGezagAfleidingsResultaat(final String bsnKind, final Transaction transaction) throws GezagException {
+    public GezagAfleidingsResultaat getGezagAfleidingsResultaat(final String bsn, final Transaction transaction) throws GezagException {
         ARVragenModel arVragenModel = null;
         final ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         GezagAfleidingsResultaat result;
@@ -195,8 +195,8 @@ public class GezagService {
         String route;
         Persoonslijst plPersoon = null;
         try {
-            if (new BSNValidator().isValid(bsnKind)) {
-                plPersoon = brpService.getPersoonslijst(bsnKind, transaction);
+            if (new BSNValidator().isValid(bsn)) {
+                plPersoon = brpService.getPersoonslijst(bsn, transaction);
                 transactionHandler.saveGezagmoduleTransaction(
                         PersoonlijstType.PERSOON,
                         plPersoon.getReceivedId(),
@@ -232,10 +232,10 @@ public class GezagService {
         }
 
         if (!gezagsdragers.isEmpty()) {
-            gezagRelaties = gezagsdragers.stream().map(gezagdrager -> new Gezagsrelatie(bsnKind,
+            gezagRelaties = gezagsdragers.stream().map(gezagdrager -> new Gezagsrelatie(bsn, bsn,
                     arAntwoordenModel.getSoortGezag(), gezagdrager, arAntwoordenModel.getUitleg())).toList();
         } else if (arAntwoordenModel.getSoortGezag() != null && !arAntwoordenModel.getSoortGezag().equals(SOORT_GEZAG_NVT)) {
-            gezagRelaties.add(new Gezagsrelatie(bsnKind, arAntwoordenModel.getSoortGezag(), BSN_MEERDERJARIGE_LEEG, arAntwoordenModel.getUitleg()));
+            gezagRelaties.add(new Gezagsrelatie(bsn, bsn, arAntwoordenModel.getSoortGezag(), BSN_MEERDERJARIGE_LEEG, arAntwoordenModel.getUitleg()));
         }
 
         result = new GezagAfleidingsResultaat(gezagRelaties, arAntwoordenModel, route);
@@ -419,7 +419,7 @@ public class GezagService {
         if (!veldenInOnderzoek.getPersoon().isEmpty()) {
             sb.append(String.join(" van niet ouder, ", nietOuderInOnderzoekVelden));
         }
-        
+
         arAntwoordenModel.setUitleg(sb.toString());
     }
 }
