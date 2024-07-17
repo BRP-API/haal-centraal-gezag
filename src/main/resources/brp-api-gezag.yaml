@@ -95,6 +95,8 @@ components:
       properties:
         type:
           type: string
+        toelichting:
+          type: string
       discriminator:
         propertyName: type
         mapping:
@@ -187,6 +189,4 @@ components:
           $ref: '#/components/schemas/Burgerservicenummer'
         gezag:
           $ref: "#/components/schemas/Gezag"
-        toelichting:
-          type: string
           
