@@ -7,18 +7,15 @@ import nl.rijksoverheid.mev.transaction.Transaction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.openapitools.model.GezagRequest;
-import org.openapitools.model.Persoon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import nl.rijksoverheid.mev.gezagsmodule.model.Gezagsrelatie;
-
+import org.openapitools.model.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doReturn;
@@ -42,6 +39,8 @@ class BevoegdheidTotGezagServiceTest {
 
     static final String BSN_VOOGD_KIND_2 = "666666660"; // Voogd van kind #2
     static final String UITLEG = "Uitleg";
+    static final String EENHOOFDIG_OUDERLIJK_GEZAG = "EenhoofdigOuderlijkGezag";
+    static final String VOOGDIJ = "Voogdij";
 
     @Autowired
     BevoegdheidTotGezagService subject;
@@ -108,33 +107,56 @@ class BevoegdheidTotGezagServiceTest {
         // Hier worden alle gezagsrelaties voor het kind opgehaald
         GezagRequest gezagRequest = new GezagRequest().burgerservicenummer(List.of(BSN_KIND_1));
         List<Persoon> results = subject.bepaalBevoegdheidTotGezag(gezagRequest, transaction);
-
-        System.out.println(BSN_KIND_1);
-        System.out.println(results);
-
-        var gezagsrelatieKind1MetGrootouder = new Gezagsrelatie(BSN_KIND_1, BSN_KIND_1, "OG1", BSN_OUDER_VAN_MINDERJARIGE_OUDER, UITLEG);
-        var gezagsrelatieKind1MetMeerderjarigeOuder = new Gezagsrelatie(BSN_KIND_1, BSN_KIND_1, "OG1", BSN_MEERDERJARIGE_OUDER, UITLEG);
         
-        assertTrue(true);
-       // assertThat(results).containsExactlyInAnyOrder(gezagsrelatieKind1MetGrootouder,
-         //       gezagsrelatieKind1MetMeerderjarigeOuder);
+        Persoon persoon = new Persoon().burgerservicenummer(BSN_KIND_1);
+        AbstractGezagsrelatie gezagKind1MetGrootouder = new EenhoofdigOuderlijkGezag()
+                        .ouder(new GezagOuder().burgerservicenummer(BSN_OUDER_VAN_MINDERJARIGE_OUDER))
+                        .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_1))
+                        .toelichting(UITLEG)
+                        .type(EENHOOFDIG_OUDERLIJK_GEZAG);
+        persoon.addGezagItem(gezagKind1MetGrootouder);
+        
+        AbstractGezagsrelatie gezagKind1MetMeerderjarigeOuder = new EenhoofdigOuderlijkGezag()
+                        .ouder(new GezagOuder().burgerservicenummer(BSN_MEERDERJARIGE_OUDER))
+                        .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_1))
+                        .toelichting(UITLEG)
+                        .type(EENHOOFDIG_OUDERLIJK_GEZAG);
+        persoon.addGezagItem(gezagKind1MetMeerderjarigeOuder);
+        
+        assertThat(results).contains(persoon);
+        Persoon persoonResult = results.get(0);
+        assertThat(persoonResult.getGezag()).containsExactlyInAnyOrder(gezagKind1MetGrootouder,
+                gezagKind1MetMeerderjarigeOuder);
     }
-/*
+
     @Test
     void kanBevoegdheidTotGezagOpvragenVoorMinderjarigKind2() throws GezagException {
         // Hier worden alle gezagsrelaties voor het kind opgehaald
-        var gezagRequest = new GezagRequest().bsn(BSN_KIND_2);
-        var results = subject.bepaalBevoegdheidTotGezag(gezagRequest, transaction);
+        GezagRequest gezagRequest = new GezagRequest().burgerservicenummer(List.of(BSN_KIND_2));
+        List<Persoon> results = subject.bepaalBevoegdheidTotGezag(gezagRequest, transaction);
 
-        System.out.println(BSN_KIND_2);
-        System.out.println(results);
-
-        var gezagsrelatieKind2MetVoogd = new Gezagsrelatie(BSN_KIND_2, Gezagsrelatie.SoortGezagEnum.V).bsnMeerderjarige(BSN_VOOGD_KIND_2);
-        var gezagsrelatieKind2MetMeerderjarigeOuder = new Gezagsrelatie(BSN_KIND_2, Gezagsrelatie.SoortGezagEnum.OG1).bsnMeerderjarige(BSN_MEERDERJARIGE_OUDER);
-        assertThat(results).containsExactlyInAnyOrder(gezagsrelatieKind2MetVoogd,
-                gezagsrelatieKind2MetMeerderjarigeOuder);
+        Persoon persoon = new Persoon().burgerservicenummer(BSN_KIND_2);
+        AbstractGezagsrelatie gezagKind2MetVoogd = new Voogdij()
+                        .addDerdenItem(new Meerderjarige().burgerservicenummer(BSN_VOOGD_KIND_2))
+                        .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_2))
+                        .toelichting(UITLEG)
+                        .type(VOOGDIJ);
+        persoon.addGezagItem(gezagKind2MetVoogd);
+        
+        AbstractGezagsrelatie gezagKind2MetMeerderjarigeOuder = new EenhoofdigOuderlijkGezag()
+                        .ouder(new GezagOuder().burgerservicenummer(BSN_MEERDERJARIGE_OUDER))
+                        .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_2))
+                        .toelichting(UITLEG)
+                        .type(EENHOOFDIG_OUDERLIJK_GEZAG);
+        persoon.addGezagItem(gezagKind2MetMeerderjarigeOuder);
+        
+        assertThat(results).contains(persoon);
+        Persoon persoonResult = results.get(0);
+        assertThat(persoonResult.getGezag()).containsExactlyInAnyOrder(gezagKind2MetVoogd,
+                gezagKind2MetMeerderjarigeOuder);
     }
 
+    /*
     @Test
     void kanBevoegdheidTotGezagOpvragenVoorMeerderjarigeGrootouder() throws GezagException {
         // Hier worden enkel de gezagsrelaties van de kinderen van de meerderjarige opgehaald
