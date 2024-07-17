@@ -28,6 +28,13 @@ import org.openapitools.model.*;
 @Component
 public class GezagTransformer {
 
+    private static final String TYPE_TWEEHOOFDIG_OUDERLIJK_GEZAG = "TweehoofdigOuderlijkGezag";
+    private static final String TYPE_EENHOOFDIG_OUDERLIJK_GEZAG = "EenhoofdigOuderlijkGezag";
+    private static final String TYPE_GEZAMELIJK_GEZAG = "GezamenlijkGezag";
+    private static final String TYPE_VOOGDIJ = "Voogdij";
+    private static final String TYPE_TIJDELIJK_GEEN_GEZAG = "TijdelijkGeenGezag";
+    private static final String TYPE_GEZAG_NIET_TE_BEPALEN = "GezagNietTeBepalen";
+
     /**
      * Gegeven de gezagrelaties zoals deze nu uit de gezagmodule geleverd worden
      *
@@ -72,15 +79,17 @@ public class GezagTransformer {
                 AbstractGezagsrelatie gezag = new EenhoofdigOuderlijkGezag()
                         .ouder(new GezagOuder().burgerservicenummer(gezagsrelatie.bsnMeerderjarige()))
                         .minderjarige(new Minderjarige().burgerservicenummer(gezagsrelatie.bsnMinderjarige()))
-                        .toelichting(gezagsrelatie.toelichting());
-
+                        .toelichting(gezagsrelatie.toelichting())
+                        .type(TYPE_EENHOOFDIG_OUDERLIJK_GEZAG);
+                
                 persoon.addGezagItem(gezag);
             }
             case "OG2" -> {
                 AbstractGezagsrelatie gezag = new TweehoofdigOuderlijkGezag()
                         .minderjarige(new Minderjarige().burgerservicenummer(gezagsrelatie.bsnMinderjarige()))
                         .addOudersItem(new GezagOuder().burgerservicenummer(gezagsrelatie.bsnMeerderjarige()))
-                        .toelichting(gezagsrelatie.toelichting());
+                        .toelichting(gezagsrelatie.toelichting())
+                        .type(TYPE_TWEEHOOFDIG_OUDERLIJK_GEZAG);
 
                 persoon.addGezagItem(gezag);
             }
@@ -88,7 +97,8 @@ public class GezagTransformer {
                 AbstractGezagsrelatie gezag = new GezamenlijkGezag()
                         .minderjarige(new Minderjarige().burgerservicenummer(gezagsrelatie.bsnMinderjarige()))
                         .ouder(new GezagOuder().burgerservicenummer(gezagsrelatie.bsnMeerderjarige()))
-                        .toelichting(gezagsrelatie.toelichting());
+                        .toelichting(gezagsrelatie.toelichting())
+                        .type(TYPE_GEZAMELIJK_GEZAG);
 
                 persoon.addGezagItem(gezag);
             }
@@ -96,14 +106,15 @@ public class GezagTransformer {
                 AbstractGezagsrelatie gezag = new Voogdij()
                         .minderjarige(new Minderjarige().burgerservicenummer(gezagsrelatie.bsnMinderjarige()))
                         .addDerdenItem(new Meerderjarige().burgerservicenummer(gezagsrelatie.bsnMeerderjarige()))
-                        .toelichting(gezagsrelatie.toelichting());
+                        .toelichting(gezagsrelatie.toelichting())
+                        .type(TYPE_VOOGDIJ);
 
                 persoon.addGezagItem(gezag);
             }
             case "G" ->
-                persoon.addGezagItem(new TijdelijkGeenGezag().toelichting(gezagsrelatie.toelichting()));
+                persoon.addGezagItem(new TijdelijkGeenGezag().type(TYPE_TIJDELIJK_GEEN_GEZAG).toelichting(gezagsrelatie.toelichting()));
             case "N" ->
-                persoon.addGezagItem(new GezagNietTeBepalen().toelichting(gezagsrelatie.toelichting()));
+                persoon.addGezagItem(new GezagNietTeBepalen().type(TYPE_GEZAG_NIET_TE_BEPALEN).toelichting(gezagsrelatie.toelichting()));
         }
     }
 }
