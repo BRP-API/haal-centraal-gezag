@@ -112,14 +112,12 @@ class BevoegdheidTotGezagServiceTest {
         AbstractGezagsrelatie gezagKind1MetGrootouder = new EenhoofdigOuderlijkGezag()
                         .ouder(new GezagOuder().burgerservicenummer(BSN_OUDER_VAN_MINDERJARIGE_OUDER))
                         .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_1))
-                        .toelichting(UITLEG)
                         .type(EENHOOFDIG_OUDERLIJK_GEZAG);
         persoon.addGezagItem(gezagKind1MetGrootouder);
         
         AbstractGezagsrelatie gezagKind1MetMeerderjarigeOuder = new EenhoofdigOuderlijkGezag()
                         .ouder(new GezagOuder().burgerservicenummer(BSN_MEERDERJARIGE_OUDER))
                         .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_1))
-                        .toelichting(UITLEG)
                         .type(EENHOOFDIG_OUDERLIJK_GEZAG);
         persoon.addGezagItem(gezagKind1MetMeerderjarigeOuder);
         
@@ -139,14 +137,12 @@ class BevoegdheidTotGezagServiceTest {
         AbstractGezagsrelatie gezagKind2MetVoogd = new Voogdij()
                         .addDerdenItem(new Meerderjarige().burgerservicenummer(BSN_VOOGD_KIND_2))
                         .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_2))
-                        .toelichting(UITLEG)
                         .type(VOOGDIJ);
         persoon.addGezagItem(gezagKind2MetVoogd);
         
         AbstractGezagsrelatie gezagKind2MetMeerderjarigeOuder = new EenhoofdigOuderlijkGezag()
                         .ouder(new GezagOuder().burgerservicenummer(BSN_MEERDERJARIGE_OUDER))
                         .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_2))
-                        .toelichting(UITLEG)
                         .type(EENHOOFDIG_OUDERLIJK_GEZAG);
         persoon.addGezagItem(gezagKind2MetMeerderjarigeOuder);
         

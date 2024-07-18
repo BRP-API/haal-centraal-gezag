@@ -95,8 +95,6 @@ components:
       properties:
         type:
           type: string
-        toelichting:
-          type: string
       discriminator:
         propertyName: type
         mapping:
@@ -177,6 +175,10 @@ components:
     GezagNietTeBepalen:
       allOf:
         - $ref: "#/components/schemas/AbstractGezagsrelatie"
+        - type: object
+          properties:
+            toelichting:
+              type: string
     Gezag:
       type: array
       items:
