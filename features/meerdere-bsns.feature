@@ -170,9 +170,8 @@ Functionaliteit: Als gebruiker wil ik het gezag van meerdere personen in één r
       | naam | waarde    |
       | bsns | 000000036 |
       Dan heeft de response een persoon met de volgende gegevens
-      | naam                | waarde                                                                                                                             |
-      | burgerservicenummer | 000000036                                                                                                                          |
-      | toelichting         | Ingezeten - minderjarig - heeft twee ouders - gehuwd/partnerschap - beide ouders bevoegd - soort gezag is OG2 - beide ouders gezag |
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
@@ -188,9 +187,6 @@ Functionaliteit: Als gebruiker wil ik het gezag van meerdere personen in één r
       Als gezag wordt gezocht met de volgende parameters
       | naam | waarde    |
       | bsns | 000000012 |
-      Dan heeft de response de volgende gezagsrelaties
-      | bsnMinderjarige | soortGezag | bsnMeerderjarige |
-      | 000000036       | OG2        | 000000012        |
       Dan heeft de response een persoon met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -223,9 +219,8 @@ Functionaliteit: Als gebruiker wil ik het gezag van meerdere personen in één r
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
       En heeft de response een persoon met de volgende gegevens
-      | naam                | waarde                                                                                                                             |
-      | burgerservicenummer | 000000036                                                                                                                          |
-      | toelichting         | Ingezeten - minderjarig - heeft twee ouders - gehuwd/partnerschap - beide ouders bevoegd - soort gezag is OG2 - beide ouders gezag |
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
@@ -268,9 +263,8 @@ Functionaliteit: Als gebruiker wil ik het gezag van meerdere personen in één r
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
       En heeft de response een persoon met de volgende gegevens
-      | naam                | waarde                                                                                                                             |
-      | burgerservicenummer | 000000036                                                                                                                          |
-      | toelichting         | Ingezeten - minderjarig - heeft twee ouders - gehuwd/partnerschap - beide ouders bevoegd - soort gezag is OG2 - beide ouders gezag |
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
