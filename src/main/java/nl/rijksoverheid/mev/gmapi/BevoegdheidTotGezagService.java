@@ -59,15 +59,15 @@ public class BevoegdheidTotGezagService {
         if (!bsnValidator.isValid(bsns)) {
             return Collections.emptyList();
         }
-
-        List<Gezagsrelatie> gezagRelaties = Stream
+        
+        List<Gezagsrelatie> gezagsRelaties = Stream
                 .concat(
                         gezagService.getGezag(bsns, transaction).stream(),
                         vindGezagsrelatiesVoorKinderen(bsns, transaction)
                 )
                 .toList();
-
-        List<Persoon> personen = gezagTransformer.fromGezagrelaties(gezagRelaties);
+        
+        List<Persoon> personen = gezagTransformer.fromGezagrelaties(gezagsRelaties);
 
         return personen;
     }
