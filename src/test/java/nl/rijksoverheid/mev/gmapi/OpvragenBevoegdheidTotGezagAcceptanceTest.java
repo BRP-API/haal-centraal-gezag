@@ -4,27 +4,26 @@ import nl.rijksoverheid.mev.GezagApplication;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.openapitools.OpenApiGeneratorApplication;
-import org.openapitools.model.GezagRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
-
+import org.openapitools.model.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.openapitools.OpenApiGeneratorApplication;
 import java.util.stream.Stream;
-
+import nl.rijksoverheid.mev.gezagsmodule.model.Gezagsrelatie;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(
-    classes = {GezagApplication.class, OpenApiGeneratorApplication.class},
-    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-    properties = "app.clock=2023-02-01T00:00:00Z"
+        classes = {GezagApplication.class, OpenApiGeneratorApplication.class},
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        properties = "app.clock=2023-02-01T00:00:00Z"
 )
 class OpvragenBevoegdheidTotGezagAcceptanceTest {
-/*
+
     private static final String OIN = "00000004003214345001";
 
     @Autowired
@@ -32,16 +31,16 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
 
     static Stream<Arguments> opvragenBevoegdheidTotGezag() {
         return Stream.of(
-            // (testcase, input, expected)
+                // (testcase, input, expected)
 
-            // lg01_001 gehuwd, 4 minderjarige kinderen geboren vóór huwelijk, 2 minderjarige kinderen geboren ná huwelijk,
-            // 1 overleden kind, 1 meerderjarig kind, 4 kinderen onder gezag
-            meerderjarigeArguments("Lg01_001", "999998778", Set.of(
-                new Gezagsrelatie("999998316", OG2),
-                new Gezagsrelatie("999999746", OG1),
-                new Gezagsrelatie("999998341", OG2),
-                new Gezagsrelatie("999998328", OG2))),
-
+                // lg01_001 gehuwd, 4 minderjarige kinderen geboren vóór huwelijk, 2 minderjarige kinderen geboren ná huwelijk,
+                // 1 overleden kind, 1 meerderjarig kind, 4 kinderen onder gezag
+                meerderjarigeArguments("Lg01_001", "999998778", Set.of(
+                        new Gezagsrelatie("999998316", "OG2"),
+                        new Gezagsrelatie("999999746", "OG1"),
+                        new Gezagsrelatie("999998341", "OG2"),
+                        new Gezagsrelatie("999998328", "OG2")))
+/*
             // lg01_002 gehuwd, 4 minderjarige kinderen geboren vóór huwelijk, 2 minderjarige kinderen geboren ná huwelijk,
             // 1 overleden kind, 1 meerderjarig kind, 4 kinderen onder gezag
             meerderjarigeArguments("Lg01_002", "999998791", Set.of(
@@ -878,32 +877,35 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
 
 
             // lg01_215 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, vaststelling vaderschap, moeder categorie 0
-            minderjarigeArguments("Lg01_215", "999971049", OG1, List.of("999970513")));
-
+            minderjarigeArguments("Lg01_215", "999971049", OG1, List.of("999970513"))
+                */
+        );
     }
 
-    private static Arguments meerderjarigeArguments(String testcase, String commonValue, Set<Gezagsrelatie> gezagsrelaties) {
+    private static Arguments meerderjarigeArguments(final String testcase, final String commonValue, final Set<Gezagsrelatie> gezagsrelaties) {
         for (Gezagsrelatie gezagsrelatie : gezagsrelaties) {
             switch (gezagsrelatie.getSoortGezag()) {
-                case OG1, OG2, GG, V -> gezagsrelatie.setBsnMeerderjarige(commonValue);
-                default -> gezagsrelatie.setBsnMeerderjarige("");
+                case "OG1", "OG2", "GG", "V" ->
+                    gezagsrelatie.setBsnMeerderjarige(commonValue);
+                default ->
+                    gezagsrelatie.setBsnMeerderjarige("");
             }
         }
         return Arguments.of(testcase, commonValue, gezagsrelaties);
     }
 
-    private static Arguments minderjarigeArguments(String testcase, String bsnMinderjarige, Gezagsrelatie.SoortGezagEnum soortGezagEnum, List<String> bsnsMeerderjarigen) {
+    private static Arguments minderjarigeArguments(final String testcase, final String bsnMinderjarige, final String soortGezag, final List<String> bsnsMeerderjarigen) {
         Set<Gezagsrelatie> gezagsrelaties = new HashSet<>();
-        switch (soortGezagEnum) {
-            case OG2, OG1, V, GG -> {
+        switch (soortGezag) {
+            case "OG2", "OG1", "V", "GG" -> {
                 for (String bsnMeerderjarige : bsnsMeerderjarigen) {
-                    Gezagsrelatie gezagsrelatie = new Gezagsrelatie(bsnMinderjarige, soortGezagEnum);
+                    Gezagsrelatie gezagsrelatie = new Gezagsrelatie(bsnMinderjarige, soortGezag);
                     gezagsrelatie.setBsnMeerderjarige(bsnMeerderjarige);
                     gezagsrelaties.add(gezagsrelatie);
                 }
             }
             default -> {
-                Gezagsrelatie gezagsrelatie = new Gezagsrelatie(bsnMinderjarige, soortGezagEnum);
+                Gezagsrelatie gezagsrelatie = new Gezagsrelatie(bsnMinderjarige, soortGezag);
                 gezagsrelatie.setBsnMeerderjarige("");
                 gezagsrelaties.add(gezagsrelatie);
             }
@@ -913,8 +915,8 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
 
     @ParameterizedTest
     @MethodSource
-    void opvragenBevoegdheidTotGezag(String testcase, String input, Set<Gezagsrelatie> expected) {
-        var request = new GezagRequest().bsn(input);
+    void opvragenBevoegdheidTotGezag(final String testcase, final String input, final Set<Gezagsrelatie> expected) {
+        GezagRequest request = new GezagRequest().burgerservicenummer(List.of(input));
 
         webTestClient.post().uri("/api/v1/opvragenBevoegdheidTotGezag").contentType(MediaType.APPLICATION_JSON).header("OIN", OIN).bodyValue(request).exchange().expectStatus().isOk().expectHeader().contentType(MediaType.APPLICATION_JSON).expectBodyList(Gezagsrelatie.class).consumeWith(response -> {
             var results = response.getResponseBody();
@@ -928,5 +930,5 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
             assertThat(results).containsExactlyInAnyOrderElementsOf(expected);
         });
     }
-*/
+
 }
