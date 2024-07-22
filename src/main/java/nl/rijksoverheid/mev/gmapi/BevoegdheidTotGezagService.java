@@ -73,9 +73,8 @@ public class BevoegdheidTotGezagService {
     }
 
     private Stream<Gezagsrelatie> vindGezagsrelatiesVoorKinderen(final List<String> bsns, final Transaction transaction) throws GezagException {
-        return brpService.getBsnsMinderjarigeKinderen(bsns, transaction).stream()
-                .map(bsn -> gezagService.getGezag(bsns, transaction))
-                .flatMap(Collection::stream)
+        List<String> kinderen = brpService.getBsnsMinderjarigeKinderen(bsns, transaction);
+        return gezagService.getGezag(kinderen, transaction).stream()
                 .filter(gezagsrelatie -> bsns.contains(gezagsrelatie.bsnMeerderjarige()));
     }
 
