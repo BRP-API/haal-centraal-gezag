@@ -17,7 +17,7 @@ info:
 servers:
   - description: |
       Proef omgeving
-    url: https://proefomgeving.haalcentraal.nl/haalcentraal/api/brp
+    url: https://proefomgeving.haalcentraal.nl/
 tags:
   - name: Personen
 externalDocs:
