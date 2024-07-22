@@ -1,5 +1,6 @@
 package nl.rijksoverheid.mev.gmapi;
 
+import java.util.ArrayList;
 import nl.rijksoverheid.mev.GezagApplication;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -16,6 +17,8 @@ import org.openapitools.OpenApiGeneratorApplication;
 import java.util.stream.Stream;
 import nl.rijksoverheid.mev.gezagsmodule.model.Gezagsrelatie;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(
         classes = {GezagApplication.class, OpenApiGeneratorApplication.class},
@@ -25,6 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class OpvragenBevoegdheidTotGezagAcceptanceTest {
 
     private static final String OIN = "00000004003214345001";
+    private static final String UITLEG = "Uitleg";
 
     @Autowired
     WebTestClient webTestClient;
@@ -39,16 +43,15 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
                         new Gezagsrelatie("999998316", "OG2"),
                         new Gezagsrelatie("999999746", "OG1"),
                         new Gezagsrelatie("999998341", "OG2"),
-                        new Gezagsrelatie("999998328", "OG2")))
-/*
-            // lg01_002 gehuwd, 4 minderjarige kinderen geboren vóór huwelijk, 2 minderjarige kinderen geboren ná huwelijk,
-            // 1 overleden kind, 1 meerderjarig kind, 4 kinderen onder gezag
-            meerderjarigeArguments("Lg01_002", "999998791", Set.of(
-                new Gezagsrelatie("999999734", OG1),
-                new Gezagsrelatie("999998316", OG2),
-                new Gezagsrelatie("999998341", OG2),
-                new Gezagsrelatie("999998328", OG2))),
-
+                        new Gezagsrelatie("999998328", "OG2"))),
+                // lg01_002 gehuwd, 4 minderjarige kinderen geboren vóór huwelijk, 2 minderjarige kinderen geboren ná huwelijk,
+                // 1 overleden kind, 1 meerderjarig kind, 4 kinderen onder gezag
+                meerderjarigeArguments("Lg01_002", "999998791", Set.of(
+                        new Gezagsrelatie("999999734", "OG1"),
+                        new Gezagsrelatie("999998316", "OG2"),
+                        new Gezagsrelatie("999998341", "OG2"),
+                        new Gezagsrelatie("999998328", "OG2"))),
+                /*
             // lg01_003 minderjarig, ouders gehuwd op moment geboorte, geen categorie 11
             minderjarigeArguments("Lg01_003", "999998316", OG2, List.of("999998778", "999998791")),
 
@@ -71,12 +74,12 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
 
             // lg01_009 vondeling in China, juridisch geen ouders, geen categorie 11
             minderjarigeArguments("Lg01_009", "999998389", N, List.of("")),
-
-            // lg01_010 ongehuwde meerderjarige moeder met 2 minderjarige niet erkende kinderen
-            meerderjarigeArguments("Lg01_010", "999998390", Set.of(
-                new Gezagsrelatie("999999278", OG1),
-                new Gezagsrelatie("999999266", OG1))),
-
+                 */
+                // lg01_010 ongehuwde meerderjarige moeder met 2 minderjarige niet erkende kinderen
+                meerderjarigeArguments("Lg01_010", "999998390", Set.of(
+                        new Gezagsrelatie("999999278", "OG1"),
+                        new Gezagsrelatie("999999266", "OG1"))),
+                /*
             // lg01_011 minderjarige, moeder opgenomen in categorie 02, categorie 03 leeg, geen categorie 11
             minderjarigeArguments("Lg01_011", "999999266", OG1, List.of("999998390")),
 
@@ -88,33 +91,32 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
 
             // lg01_014 minderjarige, minderjarig niet erkend kind, moeder ook minderjarig, geen categorie 11
             minderjarigeArguments("Lg01_014", "999998432", G, List.of("")),
-
-            // lg01_015 ongehuwde meerderjarige moeder met 1 minderjarig niet-erkend kind,
-            // bij geboorte minderjarig inmiddels meerderjarig
-            meerderjarigeArguments("Lg01_015", "999998444", Set.of(
-                new Gezagsrelatie("999998456", OG1)
-            )),
-
+                 */
+                // lg01_015 ongehuwde meerderjarige moeder met 1 minderjarig niet-erkend kind,
+                // bij geboorte minderjarig inmiddels meerderjarig
+                meerderjarigeArguments("Lg01_015", "999998444", Set.of(
+                        new Gezagsrelatie("999998456", "OG1")
+                )),
+                /*
             // lg01_016 minderjarig niet erkend kind, moeder minderjarig, bij geboorte,
             // inmiddels meerderjarig, geen categorie 11
             minderjarigeArguments("Lg01_016", "999998456", OG1, List.of("999998444")),
-
-            // lg01_017 gehuwd, echtgenoot niet ingeschreven in Nederland, minderjarig kind geboren tijdens huwelijk
-            meerderjarigeArguments("Lg01_017", "999998468", Set.of()),
-
+                 */
+                // lg01_017 gehuwd, echtgenoot niet ingeschreven in Nederland, minderjarig kind geboren tijdens huwelijk
+                meerderjarigeArguments("Lg01_017", "999998468", Set.of()),
+                /*
             // lg01_018 minderjarig kind, geboren tijdens huwelijk ouders, geen categorie 11,
             // vader niet ingeschreven in BRP, kind Nederlandse nationaliteit + Beëindigde vreemde nationaliteit
             minderjarigeArguments("Lg01_018", "999998481", N, List.of("")),
-
-            // lg01_019 gehuwd, 3 minderjarige kinderen geboren tijdens huwelijk ouders, echtgenoot
-            // en 2 kinderen geëmigreerd (RNI), 1 kind weer teruggekeerd (immigratie)
-            meerderjarigeArguments("Lg01_019", "999998493", Set.of()),
-
-            // lg01_020 gehuwd,2 minderjarige kinderen geboren tijdens huwelijk ouders, zelf +
-            // 2 kinderen geëmigreerd (RNI), 1 kind weer teruggekeerd (immigratie).
-            meerderjarigeArguments("Lg01_020", "999998511", Set.of(
-                new Gezagsrelatie("999998511", N))),
-
+                 */
+                // lg01_019 gehuwd, 3 minderjarige kinderen geboren tijdens huwelijk ouders, echtgenoot
+                // en 2 kinderen geëmigreerd (RNI), 1 kind weer teruggekeerd (immigratie)
+                meerderjarigeArguments("Lg01_019", "999998493", Set.of()),
+                // lg01_020 gehuwd,2 minderjarige kinderen geboren tijdens huwelijk ouders, zelf +
+                // 2 kinderen geëmigreerd (RNI), 1 kind weer teruggekeerd (immigratie).
+                meerderjarigeArguments("Lg01_020", "999998511", Set.of(
+                        new Gezagsrelatie("999998511", "N"))),
+                /*
             // lg01_021 minderjarig kind, geboren tijdens huwelijk ouders, geen categorie 11, vader ingeschreven in RNI,
             // kind Nederlandse nationaliteit
             minderjarigeArguments("Lg01_021", "999998523", N, List.of("")),
@@ -126,46 +128,37 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
             // lg01_023 minderjarig kind, geboren tijdens huwelijk ouders, geen categorie 11, vader ingeschreven in de RNI,
             // kind Nederlandse nationaliteit, geëmigreerd geweest en geïmmigreerd
             minderjarigeArguments("Lg01_023", "999999175", N, List.of("")),
-
-            // lg01_024 gehuwd, echtgenoot overleden, 2 minderjarige kinderen
-            meerderjarigeArguments("lg01_024", "999998547", Set.of(
-                new Gezagsrelatie("999998560", OG1))),
-
-            // lg01_025 meerderjarige gehuwd, 2 minderjarige kinderen, overleden
-            meerderjarigeArguments("Lg01_025", "999998559", Set.of()),
-
-            // lg01_026 minderjarig kind, geboren tijdens huwelijk ouders, vader (Ouder2) overleden, onder voogdij D
-            minderjarigeArguments("Lg01_026", "999998572", V, List.of("")),
-
-            // lg01_027 minderjarig kind, geboren tijdens huwelijk ouders, vader (Ouder1) overleden, geen categorie 11
-            minderjarigeArguments("Lg01_027", "999998560", OG1, List.of("999998547")),
-
-            // lg01_028 meerderjarige gehuwd, 1 minderjarig kind erkend vóór huwelijk,
-            // 1 minderjarig kind geboren ná huwelijk, echtgenoot onder curatele
-            meerderjarigeArguments("Lg01_028", "999998584", Set.of(
-                new Gezagsrelatie("999998602", OG1),
-                new Gezagsrelatie("999998614", OG1))),
-
-            // lg01_029 meerderjarige gehuwd, 1 minderjarig kind erkend vóór huwelijk 1 minderjarig kind geboren ná huwelijk,
-            // onder curatele
-            meerderjarigeArguments("Lg01_029", "999998559", Set.of()),
-
-            // lg01_030 minderjarige kind, geboren tijdens huwelijk ouders, vader (Ouder2) onder curatele
-            minderjarigeArguments("Lg01_030", "999998602", OG1, List.of("999998584")),
-
-            // lg01_031 minderjarig erkend kind, ouders inmiddels gehuwd, vader (Ouder2) onder curatele
-            minderjarigeArguments("Lg01_031", "999998614", OG1, List.of("999998584")),
-
-            // lg01_032 meerderjarige gescheiden, 1 minderjarig kind erkend vóór huwelijk, 1 minderjarig kind tijdens huwelijk
-            meerderjarigeArguments("Lg01_032", "999998626", Set.of(
-                new Gezagsrelatie("999998663", OG2),
-                new Gezagsrelatie("999998651", OG2))),
-
-            // lg01_033 meerderjarige gescheiden, 1 minderjarig kind erkend vóór huwelijk, 1 minderjarig kind tijdens huwelijk
-            meerderjarigeArguments("lg01_033", "999998638", Set.of(
-                new Gezagsrelatie("999998663", OG2),
-                new Gezagsrelatie("999998651", OG2))),
-
+                 */
+                // lg01_024 gehuwd, echtgenoot overleden, 2 minderjarige kinderen
+                meerderjarigeArguments("lg01_024", "999998547", Set.of(
+                        new Gezagsrelatie("999998560", "OG1"))),
+                // lg01_025 meerderjarige gehuwd, 2 minderjarige kinderen, overleden
+                meerderjarigeArguments("Lg01_025", "999998559", Set.of()),
+                // lg01_026 minderjarig kind, geboren tijdens huwelijk ouders, vader (Ouder2) overleden, onder voogdij D
+                minderjarigeArguments("Lg01_026", "999998572", "V", List.of("")),
+                // lg01_027 minderjarig kind, geboren tijdens huwelijk ouders, vader (Ouder1) overleden, geen categorie 11
+                minderjarigeArguments("Lg01_027", "999998560", "OG1", List.of("999998547")),
+                // lg01_028 meerderjarige gehuwd, 1 minderjarig kind erkend vóór huwelijk,
+                // 1 minderjarig kind geboren ná huwelijk, echtgenoot onder curatele
+                meerderjarigeArguments("Lg01_028", "999998584", Set.of(
+                        new Gezagsrelatie("999998602", "OG1"),
+                        new Gezagsrelatie("999998614", "OG1"))),
+                // lg01_029 meerderjarige gehuwd, 1 minderjarig kind erkend vóór huwelijk 1 minderjarig kind geboren ná huwelijk,
+                // onder curatele
+                meerderjarigeArguments("Lg01_029", "999998559", Set.of()),
+                // lg01_030 minderjarige kind, geboren tijdens huwelijk ouders, vader (Ouder2) onder curatele
+                minderjarigeArguments("Lg01_030", "999998602", "OG1", List.of("999998584")),
+                // lg01_031 minderjarig erkend kind, ouders inmiddels gehuwd, vader (Ouder2) onder curatele
+                minderjarigeArguments("Lg01_031", "999998614", "OG1", List.of("999998584")),
+                // lg01_032 meerderjarige gescheiden, 1 minderjarig kind erkend vóór huwelijk, 1 minderjarig kind tijdens huwelijk
+                meerderjarigeArguments("Lg01_032", "999998626", Set.of(
+                        new Gezagsrelatie("999998663", "OG2"),
+                        new Gezagsrelatie("999998651", "OG2"))),
+                // lg01_033 meerderjarige gescheiden, 1 minderjarig kind erkend vóór huwelijk, 1 minderjarig kind tijdens huwelijk
+                meerderjarigeArguments("lg01_033", "999998638", Set.of(
+                        new Gezagsrelatie("999998663", "OG2"),
+                        new Gezagsrelatie("999998651", "OG2")))
+        /*
             // lg01_034 minderjarig kind, erkend ná de geboorte, ouders vervolgens gehuwd en weer gescheiden,
             // categorie 11 met 12 vóór huwelijk ouders
             minderjarigeArguments("Lg01_034", "999998651", OG2, List.of("999998626", "999998638")),
@@ -878,7 +871,7 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
 
             // lg01_215 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, vaststelling vaderschap, moeder categorie 0
             minderjarigeArguments("Lg01_215", "999971049", OG1, List.of("999970513"))
-                */
+         */
         );
     }
 
@@ -890,6 +883,8 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
                 default ->
                     gezagsrelatie.setBsnMeerderjarige("");
             }
+            gezagsrelatie.setBsnBevraagdePersoon(commonValue);
+            gezagsrelatie.setToelichting(UITLEG);
         }
         return Arguments.of(testcase, commonValue, gezagsrelaties);
     }
@@ -918,16 +913,29 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
     void opvragenBevoegdheidTotGezag(final String testcase, final String input, final Set<Gezagsrelatie> expected) {
         GezagRequest request = new GezagRequest().burgerservicenummer(List.of(input));
 
-        webTestClient.post().uri("/api/v1/opvragenBevoegdheidTotGezag").contentType(MediaType.APPLICATION_JSON).header("OIN", OIN).bodyValue(request).exchange().expectStatus().isOk().expectHeader().contentType(MediaType.APPLICATION_JSON).expectBodyList(Gezagsrelatie.class).consumeWith(response -> {
-            var results = response.getResponseBody();
+        webTestClient.post().uri("/api/v1/opvragenBevoegdheidTotGezag").contentType(MediaType.APPLICATION_JSON).header("OIN", OIN).bodyValue(request).exchange().expectStatus().isOk().expectHeader().contentType(MediaType.APPLICATION_JSON).expectBody(GezagResponse.class).consumeWith(response -> {
+            GezagResponse result = response.getResponseBody();
+            List<Persoon> personen = new ArrayList<>();
             System.out.printf("\tTestcase: %s, BSN: %s%n", testcase, input);
-            if (results != null) {
-                for (Gezagsrelatie result : results) {
-                    System.out.printf("\t\tBSN Minderjarige: %s, SoortGezag: %s, BSN Meerderjarige: %s%n", result.getBsnMinderjarige(), result.getSoortGezag(), result.getBsnMeerderjarige());
+
+            if (expected != null && !expected.isEmpty()) {
+                GezagTransformer transformer = new GezagTransformer();
+                List<Persoon> expectedPersonen = transformer.fromGezagrelaties(new ArrayList<>(expected));
+
+                Persoon expectedPerson = expectedPersonen.get(0);
+                Persoon actualPerson = result.getPersonen().get(0);
+
+                assertEquals(expectedPerson.getBurgerservicenummer(), actualPerson.getBurgerservicenummer());
+                List<AbstractGezagsrelatie> actualGezagsrelaties = new ArrayList<>(actualPerson.getGezag());
+                for (AbstractGezagsrelatie gezagsrelatie : actualPerson.getGezag()) {
+                    assertTrue(expectedPerson.getGezag().contains(gezagsrelatie));
+                    actualGezagsrelaties.remove(gezagsrelatie);
                 }
+
+                assertTrue(actualGezagsrelaties.isEmpty());
+            } else {
+                assertTrue(result.getPersonen().isEmpty());
             }
-            System.out.println();
-            assertThat(results).containsExactlyInAnyOrderElementsOf(expected);
         });
     }
 

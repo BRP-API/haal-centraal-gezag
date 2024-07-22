@@ -7,9 +7,9 @@ import lombok.Setter;
 /**
  * Gezagsrelatie tussen minderjarig en meerderjarige met soort gezag
  */
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 public class Gezagsrelatie {
 
     private String bsnBevraagdePersoon;
@@ -17,6 +17,17 @@ public class Gezagsrelatie {
     private String soortGezag;
     private String bsnMeerderjarige;
     private String toelichting;
+
+    public Gezagsrelatie(
+            final String bsnMinderjarige,
+            final String soortGezag,
+            final String bsnMeerderjarige,
+            final String toelichting) {
+        this.bsnMinderjarige = bsnMinderjarige;
+        this.soortGezag = soortGezag;
+        this.bsnMeerderjarige = bsnMeerderjarige;
+        this.toelichting = toelichting;
+    }
 
     public Gezagsrelatie(final String bsnMinderjarige,
             final String soortGezag) {

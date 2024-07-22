@@ -84,25 +84,19 @@ public class BrpService {
     /**
      * Ophalen bsns van minderjarige kinderen
      *
-     * @param bsns de bsn(s) om de persoonslijst voor op te halen
+     * @param bsn de bsn om de persoonslijst voor op te halen
      * @param transaction de originele transactie
      * @return de BSNs van de kinderen
      * @throws GezagException wanneer BRP communicatie misgaat
      */
-    public List<String> getBsnsMinderjarigeKinderen(final List<String> bsns, final Transaction transaction) throws BrpException {
-        List<String> kinderen = new ArrayList<>();
-        if (bsns != null) {
-            for (String bsn : bsns) {
-                Persoonslijst persoonslijstOuder = client.opvragenPersoonslijst(bsn, transaction);
+    public List<String> getBsnsMinderjarigeKinderen(final String bsn, final Transaction transaction) throws BrpException {
+        Persoonslijst persoonslijstOuder = client.opvragenPersoonslijst(bsn, transaction);
 
-                transaction.setReceivedId(persoonslijstOuder.getReceivedId());
-                transactionHandler.saveBrpServiceTransaction(BRP_SERVICE_GET_BSNS_MINDERJARIGE_KINDEREN, persoonslijstOuder.getReceivedId(), transaction);
+        transaction.setReceivedId(persoonslijstOuder.getReceivedId());
+        transactionHandler.saveBrpServiceTransaction(BRP_SERVICE_GET_BSNS_MINDERJARIGE_KINDEREN, persoonslijstOuder.getReceivedId(), transaction);
 
-                kinderen.addAll(persoonslijstOuder.getBurgerservicenummersVanMinderjarigeKinderen());
-            }
-        }
-        
-        return kinderen;
+
+        return persoonslijstOuder.getBurgerservicenummersVanMinderjarigeKinderen();
     }
 
     private List<Persoonslijst> ophalenKinderen(final Persoonslijst persoonslijstOuder, final Transaction transaction) throws BrpException {

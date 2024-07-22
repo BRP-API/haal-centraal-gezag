@@ -59,9 +59,9 @@ class BevoegdheidTotGezagServiceTest {
     }
 
     void setupFamilieRelaties() throws GezagException {
-        when(brpService.getBsnsMinderjarigeKinderen(List.of(BSN_OUDER_VAN_MINDERJARIGE_OUDER), transaction)).thenReturn(List.of(BSN_MINDERJARIGE_OUDER));
-        when(brpService.getBsnsMinderjarigeKinderen(List.of(BSN_MINDERJARIGE_OUDER), transaction)).thenReturn(List.of(BSN_KIND_1, BSN_KIND_2));
-        when(brpService.getBsnsMinderjarigeKinderen(List.of(BSN_MEERDERJARIGE_OUDER), transaction)).thenReturn(List.of(BSN_KIND_1, BSN_KIND_2));
+        when(brpService.getBsnsMinderjarigeKinderen(BSN_OUDER_VAN_MINDERJARIGE_OUDER, transaction)).thenReturn(List.of(BSN_MINDERJARIGE_OUDER));
+        when(brpService.getBsnsMinderjarigeKinderen(BSN_MINDERJARIGE_OUDER, transaction)).thenReturn(List.of(BSN_KIND_1, BSN_KIND_2));
+        when(brpService.getBsnsMinderjarigeKinderen(BSN_MEERDERJARIGE_OUDER, transaction)).thenReturn(List.of(BSN_KIND_1, BSN_KIND_2));
     }
 
     void setupGezagRelaties() {
@@ -166,13 +166,13 @@ class BevoegdheidTotGezagServiceTest {
         GezagRequest gezagRequest = new GezagRequest().burgerservicenummer(List.of(BSN_OUDER_VAN_MINDERJARIGE_OUDER));
         List<Persoon> results = subject.bepaalBevoegdheidTotGezag(gezagRequest, transaction);
 
-        Persoon persoon = new Persoon().burgerservicenummer(BSN_MINDERJARIGE_OUDER);
+        Persoon persoon = new Persoon().burgerservicenummer(BSN_OUDER_VAN_MINDERJARIGE_OUDER);
         AbstractGezagsrelatie gezagsMinderjarigeOuderMetDiensOuder = new EenhoofdigOuderlijkGezag()
                 .ouder(new GezagOuder().burgerservicenummer(BSN_OUDER_VAN_MINDERJARIGE_OUDER))
                 .minderjarige(new Minderjarige().burgerservicenummer(BSN_MINDERJARIGE_OUDER))
                 .type(EENHOOFDIG_OUDERLIJK_GEZAG);
         persoon.addGezagItem(gezagsMinderjarigeOuderMetDiensOuder);
-
+        
         assertThat(results).contains(persoon);
         Persoon persoonResult = results.get(0);
         assertThat(persoonResult.getGezag()).containsExactlyInAnyOrder(gezagsMinderjarigeOuderMetDiensOuder);
@@ -186,30 +186,23 @@ class BevoegdheidTotGezagServiceTest {
         GezagRequest gezagRequest = new GezagRequest().burgerservicenummer(List.of(BSN_MEERDERJARIGE_OUDER));
         List<Persoon> results = subject.bepaalBevoegdheidTotGezag(gezagRequest, transaction);
 
-        Persoon persoonKind1 = new Persoon().burgerservicenummer(BSN_KIND_1);
+        Persoon persoon = new Persoon().burgerservicenummer(BSN_MEERDERJARIGE_OUDER);
         AbstractGezagsrelatie gezagKind1MetMeerderjarigeOuder = new EenhoofdigOuderlijkGezag()
                 .ouder(new GezagOuder().burgerservicenummer(BSN_MEERDERJARIGE_OUDER))
                 .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_1))
                 .type(EENHOOFDIG_OUDERLIJK_GEZAG);
-        persoonKind1.addGezagItem(gezagKind1MetMeerderjarigeOuder);
+        persoon.addGezagItem(gezagKind1MetMeerderjarigeOuder);
 
-        Persoon persoonKind2 = new Persoon().burgerservicenummer(BSN_KIND_2);
         AbstractGezagsrelatie gezagKind2MetMeerderjarigeOuder = new EenhoofdigOuderlijkGezag()
                 .ouder(new GezagOuder().burgerservicenummer(BSN_MEERDERJARIGE_OUDER))
                 .minderjarige(new Minderjarige().burgerservicenummer(BSN_KIND_2))
                 .type(EENHOOFDIG_OUDERLIJK_GEZAG);
-        persoonKind2.addGezagItem(gezagKind2MetMeerderjarigeOuder);
+        persoon.addGezagItem(gezagKind2MetMeerderjarigeOuder);
 
-        assertThat(results).contains(persoonKind1);
-        assertThat(results).contains(persoonKind2);
-
-        for (Persoon result : results) {
-            if (result.getBurgerservicenummer().equals(Optional.of(BSN_KIND_1))) {
-                assertThat(result.getGezag()).contains(gezagKind1MetMeerderjarigeOuder);
-            } else {
-                assertThat(result.getGezag()).contains(gezagKind2MetMeerderjarigeOuder);
-            }
-        }
+        assertThat(results).contains(persoon);
+        Persoon persoonResult = results.get(0);
+        assertThat(persoonResult.getGezag()).containsExactlyInAnyOrder(gezagKind1MetMeerderjarigeOuder,
+                gezagKind2MetMeerderjarigeOuder);
     }
 
     @Test
