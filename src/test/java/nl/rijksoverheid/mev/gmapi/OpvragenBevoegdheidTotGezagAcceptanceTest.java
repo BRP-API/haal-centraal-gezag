@@ -425,228 +425,180 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
                         new Gezagsrelatie("999999989", "OG1"),
                         new Gezagsrelatie("999999977", "OG2")
                 )),
-       
-            // lg01_132 minderjarige, geboren uit huwelijk ouders wat later nietig is verklaard
-            // gaat niet goed maar levert na 01-01-2023 wel een juist resultaat op. Voor 1-1-2023 geen juist resultaat,
-            // alleen moeder gezag ipv beide ouders. Probleem is dat huwelijksdatum en huwelijksontbindingsdatum gelijk
-            // zijn en voor geboortedatum kind liggen, hierdoor wordt dit 'gelezen' als een erkenning en ongehuwde
-            // ouders en niet als een nietigverklaring huwelijk waarbij de rechtsgevolgen voor het kind niet wijzigen.
-            // Heidi legt dit voor aan Ronald met het verzoek om in dit geval van rechtswege gezag op te nemen.
-            minderjarigeArguments("Lg01_132", "999999977", "OG2", List.of("999999965","999999953")),
-            // lg01_133 minderjarige, erkend, maar erkenning is vernietigd
-            minderjarigeArguments("Lg01_133", "999999989", "OG1", List.of("999999965")),
+                // lg01_132 minderjarige, geboren uit huwelijk ouders wat later nietig is verklaard
+                // gaat niet goed maar levert na 01-01-2023 wel een juist resultaat op. Voor 1-1-2023 geen juist resultaat,
+                // alleen moeder gezag ipv beide ouders. Probleem is dat huwelijksdatum en huwelijksontbindingsdatum gelijk
+                // zijn en voor geboortedatum kind liggen, hierdoor wordt dit 'gelezen' als een erkenning en ongehuwde
+                // ouders en niet als een nietigverklaring huwelijk waarbij de rechtsgevolgen voor het kind niet wijzigen.
+                // Heidi legt dit voor aan Ronald met het verzoek om in dit geval van rechtswege gezag op te nemen.
+                minderjarigeArguments("Lg01_132", "999999977", "OG2", List.of("999999965", "999999953")),
+                // lg01_133 minderjarige, erkend, maar erkenning is vernietigd
+                minderjarigeArguments("Lg01_133", "999999989", "OG1", List.of("999999965")),
+                // lg01_134 meerderjarige gehuwd, kinderen, in onderzoek 010300, 020000, 030310, 050610, 089999, 090000, 090300
+                meerderjarigeArguments("Lg01_134", "999970008", Set.of(
+                        new Gezagsrelatie("999970008", "N"))),
+                // lg01_135 meerderjarige gehuwd, kinderen, in onderzoek 026210, 030000, 050200, 080000, 090330
+                meerderjarigeArguments("Lg01_135", "999970148", Set.of(
+                        new Gezagsrelatie("", "N"))),
+                // lg01_136 minderjarige, kind geboren tijdens huwelijk, in onderzoek 010310, 026210, 030210, 080920, 613210
+                minderjarigeArguments("Lg01_136", "999970288", "N", List.of("")),
+                // lg01_137 minderjarige, kind geboren tijdens huwelijk in onderzoek 010330, 040510, 081420, 113210
+                minderjarigeArguments("Lg01_137", "999970331", "N", List.of("")),
+                // lg01_138 minderjarige, kind geboren tijdens huwelijk, overleden, in onderzoek 018120, 028120, 038120, 060000
+                Arguments.of("Lg01_138", "999970422", Set.of()),
+                // lg01_139 minderjarige, test op inlezen in de toekomst met geboortejaar 2023 (is inlezen in toekomst mogelijk)
+                minderjarigeArguments("Lg01_139", "999970434", "N", List.of("")),
+                // lg01_140 meerderjarige gehuwd, kinderen, in onderzoek 010300, 020000, 030310, 050610, 089999, 090000, 090300
+                meerderjarigeArguments("Lg01_140", "999970008", Set.of(
+                        new Gezagsrelatie("999970008", "N"))),
+                // lg01_141 meerderjarige 3 kinderen in 2023, 1 erkend als ongeboren vrucht, 1 erkend bij geboorteaangifte,
+                // 1 erkend na geboorteaangifte
+                meerderjarigeArguments("Lg01_141", "999970446", Set.of(
+                        new Gezagsrelatie("999970471", "OG2"),
+                        new Gezagsrelatie("999970483", "OG2"),
+                        new Gezagsrelatie("999970495", "OG2"))),
+                // lg01_142 minderjarige, kind geboren uit ongehuwde ouders in 2023, erkenning na de geboorteaangifte (akteaanduiding C)
+                minderjarigeArguments("Lg01_142", "999970471", "OG2", List.of("999970446", "999970458")),
+                // lg01_143 minderjarige, kind geboren uit ongehuwde ouders in 2023, erkenning bij geboorteaangifte (akteaanduiding B)
+                minderjarigeArguments("Lg01_143", "999970483", "OG2", List.of("999970446", "999970458")),
+                // lg01_144 kind geboren uit ongehuwde ouders in januari 2023, erkenning ongeboren vrucht, geen indicatie gezag
+                minderjarigeArguments("Lg01_144", "999970495", "OG2", List.of("999970446", "999970458")),
+                // lg01_145 meerderjarige ongehuwde ouders met 6 kinderen geboren voor en na 01-01-2023, 5 kinderen erkend,
+                // 2 kinderen vaststelling vaderschap
+                meerderjarigeArguments("Lg01_145", "999970501", Set.of(
+                        new Gezagsrelatie("999970537", "OG2"),
+                        new Gezagsrelatie("999970562", "OG2"))),
+                // lg01_146 meerderjarige ongehuwde ouders met 7 kinderen geboren voor en na 01-01-2023, 5 kinderen erkend,
+                // 2 kinderen vaststelling vaderschap
+                meerderjarigeArguments("Lg01_146", "999970513", Set.of(
+                        new Gezagsrelatie("999970525", "OG1"),
+                        new Gezagsrelatie("999970562", "OG2"),
+                        new Gezagsrelatie("999970537", "OG2"),
+                        new Gezagsrelatie("999970550", "OG1"),
+                        new Gezagsrelatie("999970574", "OG1"),
+                        new Gezagsrelatie("999970549", "OG1"),
+                        new Gezagsrelatie("999971049", "OG1"))),
+                // lg01_147 minderjarige, kind geboren uit ongehuwde ouders na 01-01- 2023, erkenning ongeboren vrucht,
+                // indicatie gezag
+                minderjarigeArguments("Lg01_147", "999970525", "OG1", List.of("999970513")),
+                // lg01_148 minderjarige, kind geboren uit ongehuwde ouders na 01-01- 2023, erkenning ongeboren vrucht,
+                // geen indicatie gezag
+                minderjarigeArguments("Lg01_148", "999970537", "OG2", List.of("999970513", "999970501")),
+                // lg01_149 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, vaststelling vaderschap
+                minderjarigeArguments("Lg01_149", "999970549", "OG1", List.of("999970513")),
+                // lg01_150 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, erkenning na 01-01-2023,
+                // aantekening gezag
+                minderjarigeArguments("Lg01_150", "999970550", "OG1", List.of("999970513")),
+                // lg01_151 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, erkenning na 01-01-2023,
+                // geen aantekening gezag
+                minderjarigeArguments("Lg01_151", "999970562", "OG2", List.of("999970513", "999970501")),
+                // lg01_152 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, erkenning voor 01-01-2023,
+                // geen aantekening gezag
+                minderjarigeArguments("Lg01_152", "999970574", "OG1", List.of("999970513")),
+                // lg01_153 meerderjarige onvolledige geboortedatum, namenreeks, gehuwd, 1 minderjarig kind met namenreeks
+                meerderjarigeArguments("Lg01_153", "999970586", Set.of(
+                        new Gezagsrelatie("999970604", "OG2"))),
+                // lg01_154 meerderjarige onvolledige geboortedatum, namenreeks, gehuwd, 1 minderjarig kind met namenreeks
+                meerderjarigeArguments("Lg01_154", "999970598", Set.of(
+                        new Gezagsrelatie("999970604", "OG2"))),
+                // lg01_155 minderjarige, in Nederland geboren kind met namenreeks, ouders onvolledige geboortedatum
+                minderjarigeArguments("Lg01_155", "999970604", "OG2", List.of("999970598", "999970586")),
+                // lg01_156 meerderjarige vrouw, huwelijk met vrouw, 2 kinderen, maar echtgenote geen duomoeder,
+                // echtgenote wel gezag, echtgenote overleden, kinderen worden in 2023 erkend
+                meerderjarigeArguments("Lg01_156", "999970616", Set.of(
+                        new Gezagsrelatie("999970665", "OG2"),
+                        new Gezagsrelatie("999970641", "OG2"))),
+                // lg01_157 meerderjarige vrouw, huwelijk met vrouw, echtgenote krijgt 2 kinderen (geen anonieme donor),
+                // overleden
+                meerderjarigeArguments("Lg01_157", "999970628", Set.of()),
+                // lg01_158 minderjarige, alleen moeder, moeder wel gehuwd, maar geen anonieme donor,
+                // na overlijden huwelijkspartner moeder erkend in 2023,
+                // akteaanduiding C in actuele categorie bij persoon en ouder2
+                minderjarigeArguments("Lg01_158", "999970641", "OG2", List.of("999970616", "999970653")),
+                // lg01_159 meerderjarige erkenner van 2 kinderen waarvan de moeder gehuwd was met een vrouw die niet de meemoeder
+                // is van de kinderen (geen anonieme donor). Huwelijkspartner moeder overleden.
+                meerderjarigeArguments("Lg01_159", "999970653", Set.of(
+                        new Gezagsrelatie("999970665", "OG2"),
+                        new Gezagsrelatie("999970641", "OG2"))),
+                // lg01_160 minderjarige, alleen moeder, moeder wel gehuwd, maar geen anonieme donor,
+                // na overlijden huwelijkspartner moeder erkend in 2023,
+                // akteaanduiding C in historische categorie bij persoon en ouder2
+                minderjarigeArguments("Lg01_160", "999970665", "OG2", List.of("999970616", "999970653")),
+                // lg01_161 meerderjarige moeder van 2 erkende kinderen
+                meerderjarigeArguments("Lg01_161", "999970677", Set.of()),
+                // lg01_162 meerderjarige voogd van 2 minderjarige kinderen (1D), 1 kind door hem later erkend
+                meerderjarigeArguments("Lg01_162", "999970689", Set.of()),
+                // lg01_163 meerderjarige erkenner van minderjarig kind wat eerder onder gezag (1D) is geplaatst
+                meerderjarigeArguments("Lg01_163", "999970690", Set.of()),
+                // lg01_164 minderjarige, minderjarig kind onder gezag 1D, erkend
+                minderjarigeArguments("Lg01_164", "999970707", "V", List.of("")),
+                // lg01_165 minderjarige, minderjarig kind onder gezag 1D, erkend door voogd
+                minderjarigeArguments("Lg01_165", "999970719", "V", List.of("")),
+                // lg01_166 minderjarige, ontkenning vaderschap, juridisch geen ouder1, wel ouder2
+                minderjarigeArguments("Lg01_166", "999970021", "OG1", List.of("999999126")),
+                // lg01_167 minderjarige, vaststelling vaderschap, geen categorie 11
+                minderjarigeArguments("Lg01_167", "999970033", "OG1", List.of("999999126")),
+                // vaststelling ouderschap leidt niet tot automatisc gezag,
+                // Heidi bespreekt met Ronald of dit op te lossen is door van rechtswege gezag moeder op te nemen.
 
-            // lg01_134 meerderjarige gehuwd, kinderen, in onderzoek 010300, 020000, 030310, 050610, 089999, 090000, 090300
-            meerderjarigeArguments("Lg01_134", "999970008", Set.of(
-                new Gezagsrelatie("999970008", "N")))
- /*
-            // lg01_135 meerderjarige gehuwd, kinderen, in onderzoek 026210, 030000, 050200, 080000, 090330
-            meerderjarigeArguments("Lg01_135", "999970148", Set.of()),
-
-            // lg01_136 minderjarige, kind geboren tijdens huwelijk, in onderzoek 010310, 026210, 030210, 080920, 613210
-            minderjarigeArguments("Lg01_136", "999970288", "N", List.of("")),
-
-            // lg01_137 minderjarige, kind geboren tijdens huwelijk in onderzoek 010330, 040510, 081420, 113210
-            minderjarigeArguments("Lg01_137", "999970331", "N", List.of("")),
-
-            // lg01_138 minderjarige, kind geboren tijdens huwelijk, overleden, in onderzoek 018120, 028120, 038120, 060000
-            Arguments.of("Lg01_138", "999970422", Set.of()),
-
-            // lg01_139 minderjarige, test op inlezen in de toekomst met geboortejaar 2023 (is inlezen in toekomst mogelijk)
-            minderjarigeArguments("Lg01_139", "999970434", "N", List.of("")),
-
-            // lg01_140 meerderjarige gehuwd, kinderen, in onderzoek 010300, 020000, 030310, 050610, 089999, 090000, 090300
-            meerderjarigeArguments("Lg01_140", "999970008", Set.of(
-                new Gezagsrelatie("999970008", "N"))),
-
-            // lg01_141 meerderjarige 3 kinderen in 2023, 1 erkend als ongeboren vrucht, 1 erkend bij geboorteaangifte,
-            // 1 erkend na geboorteaangifte
-            meerderjarigeArguments("Lg01_141", "999970446", Set.of(
-                new Gezagsrelatie("999970471", "OG2"),
-                new Gezagsrelatie("999970483", "OG2"),
-                new Gezagsrelatie("999970495", "OG2"))),
-
-            // lg01_142 minderjarige, kind geboren uit ongehuwde ouders in 2023, erkenning na de geboorteaangifte (akteaanduiding C)
-            minderjarigeArguments("Lg01_142", "999970471", "OG2", List.of("999970446", "999970458")),
-
-            // lg01_143 minderjarige, kind geboren uit ongehuwde ouders in 2023, erkenning bij geboorteaangifte (akteaanduiding B)
-            minderjarigeArguments("Lg01_143", "999970483", "OG2", List.of("999970446", "999970458")),
-
-            // lg01_144 kind geboren uit ongehuwde ouders in januari 2023, erkenning ongeboren vrucht, geen indicatie gezag
-            minderjarigeArguments("Lg01_144", "999970495", "OG2", List.of("999970446", "999970458")),
-
-            // lg01_145 meerderjarige ongehuwde ouders met 6 kinderen geboren voor en na 01-01-2023, 5 kinderen erkend,
-            // 2 kinderen vaststelling vaderschap
-            meerderjarigeArguments("Lg01_145", "999970501", Set.of(
-                new Gezagsrelatie("999970537", "OG2"),
-                new Gezagsrelatie("999970562", "OG2"))),
-
-            // lg01_146 meerderjarige ongehuwde ouders met 7 kinderen geboren voor en na 01-01-2023, 5 kinderen erkend,
-            // 2 kinderen vaststelling vaderschap
-            meerderjarigeArguments("Lg01_146", "999970513", Set.of(
-                    new Gezagsrelatie("999970525", "OG1"),
-                    new Gezagsrelatie("999970562", "OG2"),
-                    new Gezagsrelatie("999970537", "OG2"),
-                    new Gezagsrelatie("999970550", "OG1"),
-                    new Gezagsrelatie("999970574", "OG1"),
-                    new Gezagsrelatie("999970549", "OG1"),
-                    new Gezagsrelatie("999971049", "OG1")))
-
-            // lg01_147 minderjarige, kind geboren uit ongehuwde ouders na 01-01- 2023, erkenning ongeboren vrucht,
-            // indicatie gezag
-            minderjarigeArguments("Lg01_147", "999970525", "OG1", List.of("999970513")),
-
-            // lg01_148 minderjarige, kind geboren uit ongehuwde ouders na 01-01- 2023, erkenning ongeboren vrucht,
-            // geen indicatie gezag
-            minderjarigeArguments("Lg01_148", "999970537", "OG2", List.of("999970513", "999970501")),
-
-            // lg01_149 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, vaststelling vaderschap
-            minderjarigeArguments("Lg01_149", "999970549", "OG1", List.of("999970513")),
-
-            // lg01_150 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, erkenning na 01-01-2023,
-            // aantekening gezag
-            minderjarigeArguments("Lg01_150", "999970550", "OG1", List.of("999970513")),
-            // lg01_151 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, erkenning na 01-01-2023,
-            // geen aantekening gezag
-            minderjarigeArguments("Lg01_151", "999970562", "OG2", List.of("999970513", "999970501")),
-
-            // lg01_152 minderjarige, kind geboren uit ongehuwde ouders voor 01-01-2023, erkenning voor 01-01-2023,
-            // geen aantekening gezag
-            minderjarigeArguments("Lg01_152", "999970574", "OG1", List.of("999970513")),
-
-            // lg01_153 meerderjarige onvolledige geboortedatum, namenreeks, gehuwd, 1 minderjarig kind met namenreeks
-            meerderjarigeArguments("Lg01_153", "999970586", Set.of(
-                new Gezagsrelatie("999970604", "OG2"))),
-
-            // lg01_154 meerderjarige onvolledige geboortedatum, namenreeks, gehuwd, 1 minderjarig kind met namenreeks
-            meerderjarigeArguments("Lg01_154", "999970598", Set.of(
-                new Gezagsrelatie("999970604", "OG2")))
- 
-            // lg01_155 minderjarige, in Nederland geboren kind met namenreeks, ouders onvolledige geboortedatum
-            minderjarigeArguments("Lg01_155", "999970604", "OG2", List.of("999970598", "999970586")),
-
-            // lg01_156 meerderjarige vrouw, huwelijk met vrouw, 2 kinderen, maar echtgenote geen duomoeder,
-            // echtgenote wel gezag, echtgenote overleden, kinderen worden in 2023 erkend
-            meerderjarigeArguments("Lg01_156", "999970616", Set.of(
-                new Gezagsrelatie("999970665", "OG2"),
-                new Gezagsrelatie("999970641", "OG2"))),
-
-            // lg01_157 meerderjarige vrouw, huwelijk met vrouw, echtgenote krijgt 2 kinderen (geen anonieme donor),
-            // overleden
-            meerderjarigeArguments("Lg01_157", "999970628", Set.of()),
-
-            // lg01_158 minderjarige, alleen moeder, moeder wel gehuwd, maar geen anonieme donor,
-            // na overlijden huwelijkspartner moeder erkend in 2023,
-            // akteaanduiding C in actuele categorie bij persoon en ouder2
-            minderjarigeArguments("Lg01_158", "999970641", "OG2", List.of("999970616", "999970653")),
-
-            // lg01_159 meerderjarige erkenner van 2 kinderen waarvan de moeder gehuwd was met een vrouw die niet de meemoeder
-            // is van de kinderen (geen anonieme donor). Huwelijkspartner moeder overleden.
-            meerderjarigeArguments("Lg01_159", "999970653", Set.of(
-                new Gezagsrelatie("999970665", "OG2"),
-                new Gezagsrelatie("999970641", "OG2"))),
-
-            // lg01_160 minderjarige, alleen moeder, moeder wel gehuwd, maar geen anonieme donor,
-            // na overlijden huwelijkspartner moeder erkend in 2023,
-            // akteaanduiding C in historische categorie bij persoon en ouder2
-            minderjarigeArguments("Lg01_160", "999970665", "OG2", List.of("999970616", "999970653"))
- 
-            // lg01_161 meerderjarige moeder van 2 erkende kinderen
-            meerderjarigeArguments("Lg01_161", "999970677", Set.of()),
-
-            // lg01_162 meerderjarige voogd van 2 minderjarige kinderen (1D), 1 kind door hem later erkend
-            meerderjarigeArguments("Lg01_162", "999970689", Set.of()),
-
-            // lg01_163 meerderjarige erkenner van minderjarig kind wat eerder onder gezag (1D) is geplaatst
-            meerderjarigeArguments("Lg01_163", "999970690", Set.of()),
-
-            // lg01_164 minderjarige, minderjarig kind onder gezag 1D, erkend
-            minderjarigeArguments("Lg01_164", "999970707", "V", List.of("")),
-
-            // lg01_165 minderjarige, minderjarig kind onder gezag 1D, erkend door voogd
-            minderjarigeArguments("Lg01_165", "999970719", "V", List.of(""))
- 
-            // lg01_166 minderjarige, ontkenning vaderschap, juridisch geen ouder1, wel ouder2
-            minderjarigeArguments("Lg01_166", "999970021", "OG1", List.of("999999126")),
-
-            // lg01_167 minderjarige, vaststelling vaderschap, geen categorie 11
-            minderjarigeArguments("Lg01_167", "999970033", "OG1", List.of("999999126")),
-            // vaststelling ouderschap leidt niet tot automatisc gezag,
-            // Heidi bespreekt met Ronald of dit op te lossen is door van rechtswege gezag moeder op te nemen.
-
-            // lg01_168 minderjarige, vaststelling vaderschap, wel categorie 11
-            minderjarigeArguments("Lg01_168", "999970045", "OG2", List.of("999999126", "999999163")),
-            // lg01_169 meerderjarige vrouw niet gehuwd/GP, 1 minderjarig kind geadopteerd, 1 minderjarig kind erkend
-            // en later erkenning vernietigd
-            meerderjarigeArguments("Lg01_163", "999970057", Set.of(
-                new Gezagsrelatie("999970070", "OG2"),
-                new Gezagsrelatie("999970082", "OG1"))),
-            // lg01_170 meerderjarige man niet gehuwd/GP, 1 minderjarig kind geadopteerd, 1 minderjarig kind erkend en
-            // later erkenning vernietigd
-            meerderjarigeArguments("Lg01_170", "999970069", Set.of(
-                new Gezagsrelatie("999970070", "OG2"))),
-            // lg01_171 minderjarige, kind, geboren uit alleen moeder, vervolgens gezag 1D, later geactualiseerd in 1,
-            // en vervolgens 1-ouder adoptie
-            minderjarigeArguments("Lg01_171", "999970070", "OG2", List.of("999970057", "999970069"))
-            // lg01_172 minderjarige, kind geboren uit alleen moeder, erkend door vader, vervolgens gezag 12
-            // en daarna vernietiging erkenning
-         minderjarigeArguments("Lg01_172", "999970082", "OG1", List.of("999970057"))
-            // lg01_173 minderjarige, minderjarige moeder, gezag niet te bepalen BSN moeder ontbreekt
-            minderjarigeArguments("Lg01_173", "999970094", "N", List.of("")),
-                
-            // lg01_174 minderjarige, minderjarige moeder, geen cateorie 11
-            minderjarigeArguments("Lg01_174", "999970100", G, List.of("")),
-            // lg01_175 minderjarige, minderjarige moeder, wel categorie 11
-            minderjarigeArguments("Lg01_175", "999970112", V, List.of("")),
-
-            // lg01_176 meerderjarige vrouw gehuwd met vrouw, 4 kinderen (2 van bekende donor tijdens huwelijken
-            // 1 voor het huwelijk en 1 na 01-01-2023 erkend voor geboorte door ander dan partner
-            meerderjarigeArguments("Lg01_176", "999970124", Set.of(
-                new Gezagsrelatie("999970409", OG2),
-                new Gezagsrelatie("999970161", Gezagsrelatie.SoortGezagEnum.GG),
-                new Gezagsrelatie("999970185", OG1))),
-
-            // lg01_177 meerderjarige huwelijkspartner van vrouw, geen meemoeder van de kinderen,
-            // bij 1 kind gezamenlijk gezag
-            meerderjarigeArguments("Lg01_177", "999970136", Set.of()),
-
-            // lg01_178 minderjarige, 1 ouder, moeder gehuwd, gezamenlijk gezag moeder en meemoeder
-            minderjarigeArguments("Lg01_178", "999970161", GG, List.of("999970124", "999970136")),
-
-            // lg01_179 minderjarige, 1 ouder, moeder gehuwd, indicatie gezag 1D geen gezamenlijk gezag moeder en meemoeder
-            minderjarigeArguments("Lg01_179", "999970173", V, List.of("")),
-
-            // lg01_180 minderjarige, 1 ouder, moeder gehuwd na geboorte kind, geen gezamenlijk gezag
-            minderjarigeArguments("Lg01_180", "999970185", OG1, List.of("999970124")),
-
-            // lg01_181 meerderjarige vrouw gehuwd met vrouw, 1 kind (bekende donor) huwelijkspartner geen meemoeder kind,
-            // onder curatele
-            meerderjarigeArguments("Lg01_181", "999970197", Set.of()),
-
-            // lg01_182 meerderjarige huwelijkspartner van vrouw, geen meemoeder van kind, eenhoofdig gezag
-            // (moeder onder curatele)
-            meerderjarigeArguments("Lg01_182", "999970203", Set.of()),
-
-            // lg01_183 minderjarige, 1 ouder, moeder gehuwd, huwelijkspartner moeder alleen gezag (moeder onder curatele)
-            minderjarigeArguments("Lg01_183", "999970215", V, List.of("999970203")),
-
-            // lg01_184 minderjarige, 1 ouder, moeder gehuwd, huwelijkspartner moeder geen gezag (moeder onder curatele, indicatie gezag 1
-            minderjarigeArguments("Lg01_184", "999970227", G, List.of("")),
-
-
-            // lg01_185 meerderjarige 1 ouder, moeder gehuwd, moeder alleen gezag, moeder overleden
-            meerderjarigeArguments("Lg01_185", "999970239", Set.of()),
-
-            // lg01_186 meerderjarige huwelijkspartner van vrouw, van rechtswege gezag
-            meerderjarigeArguments("Lg01_186", "999970240", Set.of()),
-
-            // lg01_187 minderjarige, 1 ouder, moeder gehuwd, meemoeder geen ouder, moeder overleden
-            minderjarigeArguments("Lg01_187", "999970252", V, List.of("999970240")),
-
-            // lg01_188 meerderjarige moeder van minderjarig kind, 010100 in onderzoek
-            meerderjarigeArguments("Lg01_188", "999970318", Set.of(
-                new Gezagsrelatie("999970343", OG1))),
-
+                // lg01_168 minderjarige, vaststelling vaderschap, wel categorie 11
+                minderjarigeArguments("Lg01_168", "999970045", "OG2", List.of("999999126", "999999163")),
+                // lg01_169 meerderjarige vrouw niet gehuwd/GP, 1 minderjarig kind geadopteerd, 1 minderjarig kind erkend
+                // en later erkenning vernietigd
+                meerderjarigeArguments("Lg01_163", "999970057", Set.of(
+                        new Gezagsrelatie("999970070", "OG2"),
+                        new Gezagsrelatie("999970082", "OG1"))),
+                // lg01_170 meerderjarige man niet gehuwd/GP, 1 minderjarig kind geadopteerd, 1 minderjarig kind erkend en
+                // later erkenning vernietigd
+                meerderjarigeArguments("Lg01_170", "999970069", Set.of(
+                        new Gezagsrelatie("999970070", "OG2"))),
+                // lg01_171 minderjarige, kind, geboren uit alleen moeder, vervolgens gezag 1D, later geactualiseerd in 1,
+                // en vervolgens 1-ouder adoptie
+                minderjarigeArguments("Lg01_171", "999970070", "OG2", List.of("999970057", "999970069")),
+                // lg01_172 minderjarige, kind geboren uit alleen moeder, erkend door vader, vervolgens gezag 12
+                // en daarna vernietiging erkenning
+                minderjarigeArguments("Lg01_172", "999970082", "OG1", List.of("999970057")),
+                // lg01_173 minderjarige, minderjarige moeder, gezag niet te bepalen BSN moeder ontbreekt
+                minderjarigeArguments("Lg01_173", "999970094", "N", List.of("")),
+                // lg01_174 minderjarige, minderjarige moeder, geen cateorie 11
+                minderjarigeArguments("Lg01_174", "999970100", "G", List.of("")),
+                // lg01_175 minderjarige, minderjarige moeder, wel categorie 11
+                minderjarigeArguments("Lg01_175", "999970112", "V", List.of("")),
+                // lg01_176 meerderjarige vrouw gehuwd met vrouw, 4 kinderen (2 van bekende donor tijdens huwelijken
+                // 1 voor het huwelijk en 1 na 01-01-2023 erkend voor geboorte door ander dan partner
+                meerderjarigeArguments("Lg01_176", "999970124", Set.of(
+                        new Gezagsrelatie("999970409", "OG2"),
+                        new Gezagsrelatie("999970161", "GG"),
+                        new Gezagsrelatie("999970185", "OG1"))),
+                // lg01_177 meerderjarige huwelijkspartner van vrouw, geen meemoeder van de kinderen,
+                // bij 1 kind gezamenlijk gezag
+                meerderjarigeArguments("Lg01_177", "999970136", Set.of()),
+                // lg01_178 minderjarige, 1 ouder, moeder gehuwd, gezamenlijk gezag moeder en meemoeder
+                minderjarigeArguments("Lg01_178", "999970161", "GG", List.of("999970124", "999970136")),
+                // lg01_179 minderjarige, 1 ouder, moeder gehuwd, indicatie gezag 1D geen gezamenlijk gezag moeder en meemoeder
+                minderjarigeArguments("Lg01_179", "999970173", "V", List.of("")),
+                // lg01_180 minderjarige, 1 ouder, moeder gehuwd na geboorte kind, geen gezamenlijk gezag
+                minderjarigeArguments("Lg01_180", "999970185", "OG1", List.of("999970124")),
+                // lg01_181 meerderjarige vrouw gehuwd met vrouw, 1 kind (bekende donor) huwelijkspartner geen meemoeder kind,
+                // onder curatele
+                meerderjarigeArguments("Lg01_181", "999970197", Set.of()),
+                // lg01_182 meerderjarige huwelijkspartner van vrouw, geen meemoeder van kind, eenhoofdig gezag
+                // (moeder onder curatele)
+                meerderjarigeArguments("Lg01_182", "999970203", Set.of()),
+                // lg01_183 minderjarige, 1 ouder, moeder gehuwd, huwelijkspartner moeder alleen gezag (moeder onder curatele)
+                minderjarigeArguments("Lg01_183", "999970215", "V", List.of("999970203")),
+                // lg01_184 minderjarige, 1 ouder, moeder gehuwd, huwelijkspartner moeder geen gezag (moeder onder curatele, indicatie gezag 1
+                minderjarigeArguments("Lg01_184", "999970227", "G", List.of("")),
+                // lg01_185 meerderjarige 1 ouder, moeder gehuwd, moeder alleen gezag, moeder overleden
+                meerderjarigeArguments("Lg01_185", "999970239", Set.of()),
+                // lg01_186 meerderjarige huwelijkspartner van vrouw, van rechtswege gezag
+                meerderjarigeArguments("Lg01_186", "999970240", Set.of()),
+                // lg01_187 minderjarige, 1 ouder, moeder gehuwd, meemoeder geen ouder, moeder overleden
+                minderjarigeArguments("Lg01_187", "999970252", "V", List.of("999970240")),
+                // lg01_188 meerderjarige moeder van minderjarig kind, 010100 in onderzoek
+                meerderjarigeArguments("Lg01_188", "999970318", Set.of(
+                        new Gezagsrelatie("999970343", "OG1")))
+        /*
             // lg01_189 minderjarige, minderjarig kind, 010000 in onderzoek
             minderjarigeArguments("Lg01_189", "999970264", N, List.of("")),
 
