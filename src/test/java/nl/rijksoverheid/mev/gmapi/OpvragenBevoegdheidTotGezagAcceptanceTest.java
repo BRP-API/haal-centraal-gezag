@@ -17,7 +17,6 @@ import java.util.Set;
 import org.openapitools.OpenApiGeneratorApplication;
 import java.util.stream.Stream;
 import nl.rijksoverheid.mev.gezagsmodule.model.Gezagsrelatie;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
