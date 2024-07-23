@@ -92,9 +92,11 @@ public class GezagTransformer {
                 persoon.addGezagItem(gezag);
             }
             case "GG" -> {
+                // Is er inderdaad altijd 1 ouder en 1 derde? kan het niet meerdere ouders of meerdere derde zijn?
                 AbstractGezagsrelatie gezag = new GezamenlijkGezag()
                         .minderjarige(new Minderjarige().burgerservicenummer(gezagsrelatie.getBsnMinderjarige()))
                         .ouder(new GezagOuder().burgerservicenummer(gezagsrelatie.getBsnMeerderjarige()))
+                      //  .addDerdenItem(new Meerderjarige().burgerservicenummer(gezagsrelatie.getBsnMeerderjarige())
                         .type(TYPE_GEZAMELIJK_GEZAG);
 
                 persoon.addGezagItem(gezag);
