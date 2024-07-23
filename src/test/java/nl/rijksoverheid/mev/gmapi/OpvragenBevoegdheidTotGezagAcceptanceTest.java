@@ -346,7 +346,7 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
                 meerderjarigeArguments("Lg01_101", "999999643", Set.of()),
                 // lg01_102 meerderjarige gehuwd, 3 kinderen, overleden op zelfde dag als partner (partner als eerste
                 // overleden dus huwelijksontbinding
-                  meerderjarigeArguments("Lg01_102", "999999655", Set.of()),
+                meerderjarigeArguments("Lg01_102", "999999655", Set.of()),
                 // lg01_103 minderjarige, gehuwde ouders beiden overleden, geen categorie 11
                 minderjarigeArguments("Lg01_103", "999999667", "G", List.of("")),
                 // lg01_104 minderjarige, gehuwde ouders beiden overleden, indicatie gezag 1 geplaatst vóór overlijden Ouder1
@@ -358,9 +358,9 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
                 // lg01_107 meerderjarige onder curatele
                 meerderjarigeArguments("Lg01_107", "999999709", Set.of()),
                 // lg01_108 minderjarige, vader overleden, moeder onder curatele, geen categorie 11
-                minderjarigeArguments("Lg01_108", "999999710", "G", List.of(""))
+                minderjarigeArguments("Lg01_108", "999999710", "G", List.of("")),
                 // lg01_109 minderjarige, vader overleden, moeder onder curatele, kind categorie 11 gezag bij derde
-                /*minderjarigeArguments("Lg01_109", "999999722", "V", List.of("")),
+                minderjarigeArguments("Lg01_109", "999999722", "V", List.of("")),
                 // lg01_110 minderjarige, ouders gehuwd, indicatie gezag "2"
                 minderjarigeArguments("Lg01_110", "999999734", "OG1", List.of("999998791")),
                 // lg01_111 erkend, ouders later gehuwd, indicatie gezag "1" geldig voor huwelijksdatum
@@ -425,7 +425,7 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
                         new Gezagsrelatie("999999989", "OG1"),
                         new Gezagsrelatie("999999977", "OG2")
                 )),
-        
+       
             // lg01_132 minderjarige, geboren uit huwelijk ouders wat later nietig is verklaard
             // gaat niet goed maar levert na 01-01-2023 wel een juist resultaat op. Voor 1-1-2023 geen juist resultaat,
             // alleen moeder gezag ipv beide ouders. Probleem is dat huwelijksdatum en huwelijksontbindingsdatum gelijk
@@ -438,8 +438,8 @@ class OpvragenBevoegdheidTotGezagAcceptanceTest {
 
             // lg01_134 meerderjarige gehuwd, kinderen, in onderzoek 010300, 020000, 030310, 050610, 089999, 090000, 090300
             meerderjarigeArguments("Lg01_134", "999970008", Set.of(
-                new Gezagsrelatie("999970008", "N"))),
-
+                new Gezagsrelatie("999970008", "N")))
+ /*
             // lg01_135 meerderjarige gehuwd, kinderen, in onderzoek 026210, 030000, 050200, 080000, 090330
             meerderjarigeArguments("Lg01_135", "999970148", Set.of()),
 
