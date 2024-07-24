@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class CsvTestResultWriter {
-/*
+
     private static CSVWriter csvWriter;
 
     private final GezagsmoduleTest.RouteTestParameters routeTestArguments;
@@ -79,7 +79,7 @@ public class CsvTestResultWriter {
     private static List<String> getBsnsGezaghouders(GezagAfleidingsResultaat gezagAfleidingsResultaat) {
         if (gezagAfleidingsResultaat.getGezagsrelaties() != null) {
             return gezagAfleidingsResultaat.getGezagsrelaties().stream()
-                    .map(Gezagsrelatie::bsnMeerderjarige)
+                    .map(Gezagsrelatie::getBsnMeerderjarige)
                     .toList();
         }
         return null;
@@ -230,5 +230,4 @@ public class CsvTestResultWriter {
         };
         return data;
     }
-*/
 }

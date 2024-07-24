@@ -7,14 +7,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.test.context.TestPropertySource;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Stream;
 
 @TestPropertySource(properties = "app.features.brp.dataset-path=src/test/resources/fixtures/persoonslijsten/GegenereerdUitExcelData/CGR_testbestand-20230525_Reversed")
 public class CgrTestbestand20230525ReversedTest extends GezagsmoduleTest {
-/*
+
     @BeforeAll
     public static void initialize() throws IOException {
         CsvTestResultWriter.setup("CGR_testbestand_20230525_Reversed_Compleet_Test.csv");
@@ -247,5 +246,4 @@ public class CgrTestbestand20230525ReversedTest extends GezagsmoduleTest {
         super.executeRouteTest(new RouteTestParameters(testCase, bsnKind, bsnsGezaghoudersExpected,
                 expectedRoute));
     }
-*/
 }

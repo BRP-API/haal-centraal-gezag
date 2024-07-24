@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, properties="app.clock=2023-02-01T00:00:00Z")
 public abstract class GezagsmoduleTest {
-/*
+
     public record ResponseInfo(GezagAfleidingsResultaat gezagAfleidingsResultaat, long responseTime) {
 
     }
@@ -60,7 +60,7 @@ public abstract class GezagsmoduleTest {
         if (!gezagAfleidingsResultaat.getRoute().equals("2m") && (!gezagAfleidingsResultaat.getRoute().equals("2o"))){
             assertThat(getBsnsGezaghouders(gezagAfleidingsResultaat)).containsExactlyInAnyOrderElementsOf(
                         routeTestArguments.bsnsGezaghoudersExpected);
-            assertThat(gezagAfleidingsResultaat.getGezagsrelaties().get(0).soortGezag()).isEqualTo(arAntwoordenExpected.getSoortGezag());
+            assertThat(gezagAfleidingsResultaat.getGezagsrelaties().get(0).getSoortGezag()).isEqualTo(arAntwoordenExpected.getSoortGezag());
         }
     }
 
@@ -73,8 +73,8 @@ public abstract class GezagsmoduleTest {
 
     private static List<String> getBsnsGezaghouders(GezagAfleidingsResultaat gezagAfleidingsResultaat) {
         return gezagAfleidingsResultaat.getGezagsrelaties().stream()
-                .map(Gezagsrelatie::bsnMeerderjarige)
+                .map(Gezagsrelatie::getBsnMeerderjarige)
                 .toList();
     }
-*/
+
 }
