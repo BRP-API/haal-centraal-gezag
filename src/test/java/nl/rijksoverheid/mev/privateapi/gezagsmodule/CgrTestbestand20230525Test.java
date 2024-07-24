@@ -247,4 +247,5 @@ public class CgrTestbestand20230525Test extends GezagsmoduleTest {
         super.executeRouteTest(new RouteTestParameters(testCase, bsnKind, bsnsGezaghoudersExpected,
                 expectedRoute));
     }
+
 }
