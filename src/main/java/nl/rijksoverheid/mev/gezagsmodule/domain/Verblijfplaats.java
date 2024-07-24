@@ -27,6 +27,11 @@ public class Verblijfplaats extends PotentieelInOnderzoek {
         super(Categorie.VERBLIJFPLAATS, values, clock);
     }
 
+    @Override
+    public String get(final String key) {
+        return values.get(key);
+    }
+
     public String getGemeenteVanInschrijving() {
         return get(GEMEENTE_VAN_INSCHRIJVING, "gemeente van inschrijving");
     }

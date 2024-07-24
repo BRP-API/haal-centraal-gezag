@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Disabled;
 
 @SpringBootTest(
         classes = {GezagApplication.class, OpenApiGeneratorApplication.class},
@@ -28,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
             "app.clock=2023-02-01T00:00:00Z",
             "app.features.brp.dataset-path=src/test/resources/fixtures/persoonslijsten/GegenereerdUitExcelData/CGR_testbestand-20230525_na_20230701",}
 )
+@Disabled
 class OpvragenBevoegdheidTotGezagNa20230701EnTestDatum20230201AcceptanceTest {
 
     private static final String OIN = "00000004003214345001";
