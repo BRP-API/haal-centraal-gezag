@@ -80,23 +80,28 @@ public class GezagTransformer {
                         .ouder(new GezagOuder().burgerservicenummer(gezagsrelatie.getBsnMeerderjarige()))
                         .minderjarige(new Minderjarige().burgerservicenummer(gezagsrelatie.getBsnMinderjarige()))
                         .type(TYPE_EENHOOFDIG_OUDERLIJK_GEZAG);
-                
+
                 persoon.addGezagItem(gezag);
             }
             case "OG2" -> {
-                AbstractGezagsrelatie gezag = new TweehoofdigOuderlijkGezag()
-                        .minderjarige(new Minderjarige().burgerservicenummer(gezagsrelatie.getBsnMinderjarige()))
-                        .addOudersItem(new GezagOuder().burgerservicenummer(gezagsrelatie.getBsnMeerderjarige()))
-                        .type(TYPE_TWEEHOOFDIG_OUDERLIJK_GEZAG);
+                TweehoofdigOuderlijkGezag huidigeVoorMinderjarige = getTweehoofdigOuderlijkGezagMinderjarige(persoon, gezagsrelatie);
+                if (huidigeVoorMinderjarige != null) {
+                    huidigeVoorMinderjarige.addOudersItem(new GezagOuder().burgerservicenummer(gezagsrelatie.getBsnMeerderjarige()));
+                } else {
+                    AbstractGezagsrelatie gezag = new TweehoofdigOuderlijkGezag()
+                            .minderjarige(new Minderjarige().burgerservicenummer(gezagsrelatie.getBsnMinderjarige()))
+                            .addOudersItem(new GezagOuder().burgerservicenummer(gezagsrelatie.getBsnMeerderjarige()))
+                            .type(TYPE_TWEEHOOFDIG_OUDERLIJK_GEZAG);
 
-                persoon.addGezagItem(gezag);
+                    persoon.addGezagItem(gezag);
+                }
             }
             case "GG" -> {
                 // Is er inderdaad altijd 1 ouder en 1 derde? kan het niet meerdere ouders of meerdere derde zijn?
                 AbstractGezagsrelatie gezag = new GezamenlijkGezag()
                         .minderjarige(new Minderjarige().burgerservicenummer(gezagsrelatie.getBsnMinderjarige()))
                         .ouder(new GezagOuder().burgerservicenummer(gezagsrelatie.getBsnMeerderjarige()))
-                      //  .addDerdenItem(new Meerderjarige().burgerservicenummer(gezagsrelatie.getBsnMeerderjarige())
+                        //  .addDerdenItem(new Meerderjarige().burgerservicenummer(gezagsrelatie.getBsnMeerderjarige())
                         .type(TYPE_GEZAMELIJK_GEZAG);
 
                 persoon.addGezagItem(gezag);
@@ -114,5 +119,20 @@ public class GezagTransformer {
             case "N" ->
                 persoon.addGezagItem(new GezagNietTeBepalen().type(TYPE_GEZAG_NIET_TE_BEPALEN).toelichting(gezagsrelatie.getToelichting()));
         }
+    }
+
+    public TweehoofdigOuderlijkGezag getTweehoofdigOuderlijkGezagMinderjarige(final Persoon persoon, final Gezagsrelatie gezagsrelatie) {
+        List<AbstractGezagsrelatie> currentGezagsrelaties = persoon.getGezag();
+        if (currentGezagsrelaties != null && !currentGezagsrelaties.isEmpty()) {
+            for (AbstractGezagsrelatie currentGezagsrelatie : currentGezagsrelaties) {
+                if (TYPE_TWEEHOOFDIG_OUDERLIJK_GEZAG.equals(currentGezagsrelatie.getType())) {
+                    TweehoofdigOuderlijkGezag gezag = (TweehoofdigOuderlijkGezag) currentGezagsrelatie;
+                    if (gezagsrelatie.getBsnMinderjarige().equals(gezag.getMinderjarige().get().getBurgerservicenummer())) {
+                        return gezag;
+                    }
+                }
+            }
+        }
+        return null;
     }
 }
