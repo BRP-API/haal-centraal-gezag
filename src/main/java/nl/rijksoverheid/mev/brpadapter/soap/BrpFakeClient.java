@@ -39,23 +39,21 @@ public class BrpFakeClient implements BrpClient {
         this.fixtures = new HashMap<>();
         List<Path> files = new ArrayList<>();
         try ( var stream = Files.newDirectoryStream(this.datasetPath)) {
-            for(Path entry : stream) {
-                 files.add(entry);
+            for (Path entry : stream) {
+                files.add(entry);
             }
             Collections.sort(files);
             for (Path entry : files) {
                 if (Files.isRegularFile(entry)) {
-                    var inputStream = Files.newInputStream(entry);
-                    PersoonslijstFixture fixture = readAsPersoonslijstFixture(inputStream);
+                    PersoonslijstFixture fixture = readAsPersoonslijstFixture(entry);
                     String bsn = fixture.arguments.bsn;
-                    if (!fixtures.containsKey(bsn)){
-                        fixtures.put(fixture.arguments.bsn,fixture);
-                    }
-                    else {
+                    if (!fixtures.containsKey(bsn)) {
+                        fixtures.put(fixture.arguments.bsn, fixture);
+                    } else {
                         log.error(
-                            "Duplicaat van BSN " + bsn + " gevonden in de testsets: \n" +
-                                "Bestaand: " + fixtures.get(bsn).arguments.testcase + "\n"+
-                                "Nieuw: " + fixture.arguments.testcase
+                                "Duplicaat van BSN " + bsn + " gevonden in de testsets: \n"
+                                + "Bestaand: " + fixtures.get(bsn).arguments.testcase + "\n"
+                                + "Nieuw: " + fixture.arguments.testcase
                         );
                     }
                 }
@@ -70,49 +68,56 @@ public class BrpFakeClient implements BrpClient {
         if (!new BSNValidator().isValid(bsn)) {
             return null;
         }
-        if (fixtures.containsKey(bsn)){
+        if (fixtures.containsKey(bsn)) {
             return fixtures.get(bsn).data;
         }
         log.info("Persoonslijst niet gevonden: " + bsn);
         return createEmptyPersoonslijstFixture("", bsn).data;
     }
 
-    private PersoonslijstFixture readAsPersoonslijstFixture(final InputStream inputStream) {
+    private PersoonslijstFixture readAsPersoonslijstFixture(final Path entry) {
         Persoonslijst persoonslijst = new Persoonslijst(clock);
         String bsn = null;
         String testcase = null;
-        JSONObject json = new JSONObject(new JSONTokener(inputStream));
-        if (!json.isEmpty()) {
-            JSONObject arguments = (JSONObject) json.get("arguments");
-            testcase = (String) arguments.get("testcase");
-            bsn = (String) arguments.get("bsn");
+        try (InputStream inputStream = Files.newInputStream(entry)) {
+            JSONObject json = new JSONObject(new JSONTokener(inputStream));
+            if (!json.isEmpty()) {
+                JSONObject arguments = (JSONObject) json.get("arguments");
+                testcase = (String) arguments.get("testcase");
+                bsn = (String) arguments.get("bsn");
 
-            JSONObject returned = (JSONObject) json.get("returned");
-            JSONArray names = returned.names();
-            for (int i = 0; i < names.length(); i++) {
-                String name = (String) names.get(i);
+                JSONObject returned = (JSONObject) json.get("returned");
+                JSONArray names = returned.names();
+                for (int i = 0; i < names.length(); i++) {
+                    String name = (String) names.get(i);
 
-                Object obj = returned.get(name);
-                if (obj instanceof JSONArray jsonArray) {
-                    for (int j = 0; j < jsonArray.length(); j++) {
-                        appendPersoonslijstVeld(name, jsonArray.getJSONObject(j), persoonslijst);
+                    Object obj = returned.get(name);
+                    if (obj instanceof JSONArray jsonArray) {
+                        for (int j = 0; j < jsonArray.length(); j++) {
+                            appendPersoonslijstVeld(name, jsonArray.getJSONObject(j), persoonslijst);
+                        }
+                    } else if (obj instanceof JSONObject jsonObject) {
+                        appendPersoonslijstVeld(name, jsonObject, persoonslijst);
                     }
-                } else if (obj instanceof JSONObject jsonObject) {
-                    appendPersoonslijstVeld(name, jsonObject, persoonslijst);
                 }
             }
-        }
 
-        return new PersoonslijstFixture(
-                new PersoonslijstFixture.Arguments(testcase, bsn),
-                persoonslijst,
-                null
-        );
+            return new PersoonslijstFixture(
+                    new PersoonslijstFixture.Arguments(testcase, bsn),
+                    persoonslijst,
+                    null
+            );
+        } catch (Exception e) {
+            System.out.println("Reading: " + entry);
+            throw new StubException(e);
+        }
     }
 
     private void appendPersoonslijstVeld(final String categorienummer, final JSONObject obj, final Persoonslijst persoonslijst) {
         JSONArray names = obj.names();
-        if (names == null) return;
+        if (names == null) {
+            return;
+        }
 
         Map<String, String> values = new HashMap<>();
         for (int i = 0; i < names.length(); i++) {
