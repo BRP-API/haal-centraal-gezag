@@ -25,6 +25,10 @@ Functionaliteit: Als gebruiker wil ik het gezag van meerdere personen in één r
       * heeft persoon 'P1' als ouder1 vanaf de geboorteaangifte
       * heeft persoon 'P2' als ouder2 vanaf de geboorteaangifte
       * is ingeschreven in de de BRP
+      En persoon 'P1' heeft een kind 'P3'
+      En persoon 'P1' heeft een kind 'P4'
+      En persoon 'P2' heeft een kind 'P3'
+      En persoon 'P2' heeft een kind 'P4'
 
         
       
