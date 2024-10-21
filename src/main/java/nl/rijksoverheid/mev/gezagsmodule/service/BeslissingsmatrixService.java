@@ -1,16 +1,15 @@
 package nl.rijksoverheid.mev.gezagsmodule.service;
 
 import lombok.extern.slf4j.Slf4j;
+import nl.rijksoverheid.mev.exception.AfleidingsregelException;
+import nl.rijksoverheid.mev.exception.VeldInOnderzoekException;
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 import java.util.stream.Collectors;
-import nl.rijksoverheid.mev.exception.BrpException;
-import nl.rijksoverheid.mev.exception.AfleidingsregelException;
-import nl.rijksoverheid.mev.exception.VeldInOnderzoekException;
-import org.springframework.stereotype.Component;
 
 /**
  * Service voor beslissingsmatrix
@@ -19,9 +18,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class BeslissingsmatrixService {
 
-    private Map<String, ARAntwoordenModel> routes;
+    private static final String ANTWOORDEN_MODEL_FILENAME = "/AntwoordenModel_v2_2_3.csv";
 
-    private static final String LEEG = "";
+    private Map<String, ARAntwoordenModel> routes;
 
     public BeslissingsmatrixService() {
         determineRoutes();
@@ -32,8 +31,7 @@ public class BeslissingsmatrixService {
      *
      * @param resultaat resultaat
      * @return het antwoorden model
-     * @throws AfleidingsregelException wanneer de route niet kan worden
-     * gevonden
+     * @throws AfleidingsregelException wanneer de route niet kan worden gevonden
      */
     public ARAntwoordenModel getARAntwoordenModel(final ARAntwoordenModel resultaat) throws AfleidingsregelException {
         String route = resultaat.getRoute();
@@ -41,7 +39,7 @@ public class BeslissingsmatrixService {
             return routes.get(route);
         } else {
             log.error("Route kon niet worden gevonden, route is: {} en exceptie: {}", route, resultaat.getException());
-            throw new AfleidingsregelException("Route kon niet worden gevonden in het ingelezen antwoorden model, de route is: " + route);
+            throw new AfleidingsregelException("Route kon niet worden gevonden in het ingelezen antwoorden model, de route is: " + route, "onbekend");
         }
     }
 
@@ -52,71 +50,65 @@ public class BeslissingsmatrixService {
      * @return de route of "-503i"
      */
     public String findMatchingRoute(final ARAntwoordenModel arAntwoordenModel) {
-        if ((arAntwoordenModel.getException() != null)
-                && (Objects.equals(arAntwoordenModel.getException().getClass(), BrpException.class))) {
-            return "-503i";
+        if (arAntwoordenModel.getRoute() != null) {
+            return arAntwoordenModel.getRoute();
         } else if ((arAntwoordenModel.getException() != null)
-                && (Objects.equals(arAntwoordenModel.getException().getClass(), VeldInOnderzoekException.class))) {
-            String route = getRouteFromVraagModel(arAntwoordenModel);
-
-            return route + "i";
+            && (Objects.equals(arAntwoordenModel.getException().getClass(), VeldInOnderzoekException.class))) {
+            return getRouteFromVraagModel(arAntwoordenModel);
         } else {
             return getRouteFromVraagModel(arAntwoordenModel);
         }
     }
 
     private void determineRoutes() {
-        List<String> antwoordenModelLines = new ArrayList<>();
-        try (BufferedReader antwoordenModelCsvReader = new BufferedReader(
-                new InputStreamReader(BeslissingsmatrixService.class.getResourceAsStream("/AntwoordenModel_v2_2_0.csv")))) {
-            String line;
-            while ((line = antwoordenModelCsvReader.readLine()) != null) {
-                antwoordenModelLines.add(line);
-            }
-        } catch (IOException e) {
-            throw new IllegalStateException(e);
-        }
+        var inputStream = BeslissingsmatrixService.class.getResourceAsStream(ANTWOORDEN_MODEL_FILENAME);
+        if (inputStream == null) throw new IllegalStateException("Unable to find AntwoordenModel");
+        List<String> antwoordenModelLines = new BufferedReader(new InputStreamReader(inputStream)).lines().toList();
 
         Map<String, ARAntwoordenModel> tempMap = antwoordenModelLines.stream()
-                .skip(1) // Skip the first line with labels
-                .map(line -> line.split(","))
-                .map(data -> {
-                    var route = data[17];
-                    var antwoordenModel = new ARAntwoordenModel(
-                            data[0].equals(LEEG) ? null : data[0], // v0101
-                            data[1].equals(LEEG) ? null : data[1], // v0102
-                            data[2].equals(LEEG) ? null : data[2], // v0103
-                            data[3].equals(LEEG) ? null : data[3], // v0103a
-                            data[4].equals(LEEG) ? null : data[4], // v0103b
-                            data[5].equals(LEEG) ? null : data[5], // v0104
-                            data[6].equals(LEEG) ? null : data[6], // v0201
-                            data[7].equals(LEEG) ? null : data[7], // v02A01
-                            data[8].equals(LEEG) ? null : data[8], // v02A02
-                            data[9].equals(LEEG) ? null : data[9], // v02A03
-                            data[10].equals(LEEG) ? null : data[10], // v02B01
-                            data[11].equals(LEEG) ? null : data[11], // v0301
-                            data[12].equals(LEEG) ? null : data[12], // v0302
-                            data[13].equals(LEEG) ? null : data[13], // v04A02
-                            data[14].equals(LEEG) ? null : data[14], // v04A03
-                            data[15].equals(LEEG) ? null : data[15], // v04B01
-                            data[16].equals(LEEG) ? null : new Exception(data[16]), // exception
-                            data[17].equals(LEEG) ? null : data[17], // route
-                            data[18].equals(LEEG) ? null : data[18], // soortGezag
-                            data[19].equals(LEEG) ? null : data[19], // gezag_ouder1
-                            data[20].equals(LEEG) ? null : data[20], // gezag_ouder2
-                            data[21].equals(LEEG) ? null : data[21], // gezag_niet-ouder1
-                            data[22].equals(LEEG) ? null : data[22], // gezag_niet-ouder2
-                            data[23].equals(LEEG) ? null : data[23], // index
-                            data[24].equals(LEEG) ? null : data[24] // uitleg
-                    );
-                    return Map.entry(route, antwoordenModel);
-                })
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        Map.Entry::getValue,
-                        (a, b) -> a, // Merge function to resolve potential key collisions
-                        LinkedHashMap::new // Use LinkedHashMap to preserve insertion order
-                ));
+            .skip(1) // Skip the first line with labels
+            .map(line -> line.split(","))
+            .map(data -> {
+                var exception = data[16].isEmpty() ? null : new Exception(data[16]);
+                var route = data[17];
+
+                var dataNullable = Arrays.stream(data).map(it -> it.isEmpty() ? null : it).toList();
+
+                var antwoordenModel = new ARAntwoordenModel(
+                    dataNullable.get(0), // v0101
+                    dataNullable.get(1), // v0102
+                    dataNullable.get(2), // v0103
+                    dataNullable.get(3), // v0103a
+                    dataNullable.get(4), // v0103b
+                    dataNullable.get(5), // v0104
+                    dataNullable.get(6), // v0201
+                    dataNullable.get(7), // v02A01
+                    dataNullable.get(8), // v02A02
+                    dataNullable.get(9), // v02A03
+                    dataNullable.get(10), // v02B01
+                    dataNullable.get(11), // v0301
+                    dataNullable.get(12), // v0302
+                    dataNullable.get(13), // v04A02
+                    dataNullable.get(14), // v04A03
+                    dataNullable.get(15), // v04B01
+                    exception,
+                    dataNullable.get(17), // route
+                    dataNullable.get(18), // soortGezag
+                    dataNullable.get(19), // gezag_ouder1
+                    dataNullable.get(20), // gezag_ouder2
+                    dataNullable.get(21), // gezag_niet-ouder1
+                    dataNullable.get(22), // gezag_niet-ouder2
+                    dataNullable.get(23), // index
+                    dataNullable.get(24) // uitleg
+                );
+                return Map.entry(route, antwoordenModel);
+            })
+            .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (a, b) -> a, // Merge function to resolve potential key collisions
+                LinkedHashMap::new // Use LinkedHashMap to preserve insertion order
+            ));
         routes = Collections.unmodifiableMap(tempMap);
     }
 

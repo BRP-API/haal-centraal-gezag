@@ -1,12 +1,13 @@
 package nl.rijksoverheid.mev.brpadapter.soap.persoonlijst;
 
+import lombok.Getter;
+
 import java.time.Clock;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
-import lombok.Getter;
+import java.util.Set;
 
 /**
  * Een veld in de persoonslijst die potentieel in onderzoek kan zijn
@@ -15,8 +16,8 @@ import lombok.Getter;
 public abstract class PotentieelInOnderzoek implements PersoonslijstVeld {
 
     private final String categorie;
-    private final List<String> veldenInOnderzoek;
-    
+    private final Set<String> veldenInOnderzoek;
+
     protected final Clock clock;
     protected final Map<String, String> values;
 
@@ -37,7 +38,7 @@ public abstract class PotentieelInOnderzoek implements PersoonslijstVeld {
         this.aanduidingGegevensInOnderzoek = categorie + "8310";
         this.datumIngangOnderzoek = categorie + "8320";
         this.datumEindeOnderzoek = categorie + "8330";
-        veldenInOnderzoek = new ArrayList<>();
+        veldenInOnderzoek = new HashSet<>();
     }
 
     /**
@@ -45,31 +46,44 @@ public abstract class PotentieelInOnderzoek implements PersoonslijstVeld {
      * onderzoek is
      *
      * @param key het veld om op te halen
+     * @param fieldName de leesbare naam van het op te halen veld
      */
-    protected void inOnderzoek(final String key) {
+    protected void inOnderzoek(final String key, final String fieldName) {
         String inOnderzoek = values.get(aanduidingGegevensInOnderzoek);
-        if (inOnderzoek != null && !inOnderzoek.isEmpty()) {
-            String formattedVeldName = getFormattedVeldName(inOnderzoek, key);
-            
-            if (inOnderzoek.equals(key) || inOnderzoek.equals(formattedVeldName)) {
-                String datumEindeOnderzoekValue = values.get(datumEindeOnderzoek);
-                if (datumEindeOnderzoekValue != null && !datumEindeOnderzoekValue.isEmpty()) {
-                    int datumEindeOnderzoekInt = Integer.parseInt(datumEindeOnderzoekValue);
-                    int datumVandaag = Integer.parseInt(LocalDate.now(clock).format(FORMATTER));
+        if (inOnderzoek == null) return;
+        if (inOnderzoek.isEmpty()) return;
 
-                    if (datumVandaag <= datumEindeOnderzoekInt) {
-                        veldenInOnderzoek.add(key);
-                    }
-                } else {
-                    veldenInOnderzoek.add(key);
+        String formattedVeldName = getFormattedVeldName(inOnderzoek, key);
+
+        if (inOnderzoek.equals(key) || inOnderzoek.equals(formattedVeldName)) {
+            String datumEindeOnderzoekValue = values.get(datumEindeOnderzoek);
+            String veldInOnderzoek = formattedVeldName.endsWith("0000") ? getCategorieName() : fieldName;
+
+            if (datumEindeOnderzoekValue != null && !datumEindeOnderzoekValue.isEmpty()) {
+                int datumEindeOnderzoekInt = Integer.parseInt(datumEindeOnderzoekValue);
+                int datumVandaag = Integer.parseInt(LocalDate.now(clock).format(FORMATTER));
+
+                if (datumVandaag <= datumEindeOnderzoekInt) {
+                    veldenInOnderzoek.add(veldInOnderzoek);
                 }
+            } else {
+                veldenInOnderzoek.add(veldInOnderzoek);
             }
         }
     }
 
+    protected abstract String getCategorieName();
+
     @Override
     public String get(final String key) {
-        inOnderzoek(key);
+        inOnderzoek(key, key);
+
+        return values.get(key);
+    }
+
+    @Override
+    public String get(final String key, final String fieldName) {
+        inOnderzoek(key, fieldName);
 
         return values.get(key);
     }

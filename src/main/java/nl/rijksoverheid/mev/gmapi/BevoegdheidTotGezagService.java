@@ -1,17 +1,16 @@
 package nl.rijksoverheid.mev.gmapi;
 
 import nl.rijksoverheid.mev.brpadapter.service.BrpService;
-import nl.rijksoverheid.mev.common.util.BSNValidator;
 import nl.rijksoverheid.mev.exception.GezagException;
-import nl.rijksoverheid.mev.gezagsmodule.service.GezagService;
+import nl.rijksoverheid.mev.gezagsmodule.service.gezagmodule.GezagService;
 import nl.rijksoverheid.mev.transaction.Transaction;
+import org.openapitools.model.AbstractGezagsrelatie;
 import org.openapitools.model.GezagRequest;
-import org.openapitools.model.Gezagsrelatie;
+import org.openapitools.model.Persoon;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 /**
@@ -22,12 +21,13 @@ public class BevoegdheidTotGezagService {
 
     private final BrpService brpService;
     private final GezagService gezagService;
-    private final BSNValidator bsnValidator;
 
-    public BevoegdheidTotGezagService(BrpService brpService, GezagService gezagService) {
+    public BevoegdheidTotGezagService(
+        final BrpService brpService,
+        final GezagService gezagService
+    ) {
         this.brpService = brpService;
         this.gezagService = gezagService;
-        this.bsnValidator = new BSNValidator();
     }
 
     /**
@@ -41,81 +41,41 @@ public class BevoegdheidTotGezagService {
      * gezaghebbenden van deze minderjarige terug, plus alle gezaghebbenden van
      * diens kinderen.
      *
-     * @param gezagRequest <i>burgerservicenummer</i> van de persoon van wie de
-     * <i>bevoegdheid tot gezag</i> bepaald moet worden
-     * @param transaction de transactie zoals gemaakt bij het ontvangen
-     * van de aanvraag
+     * @param gezagRequest <i>burgerservicenummer(s)</i> van de persoon/personen
+     *                     van wie de <i>bevoegdheid tot gezag</i> bepaald moet worden
+     * @param transaction  de transactie zoals gemaakt bij het ontvangen van de
+     *                     aanvraag
      * @return 0, 1 of meerdere gezagsrelaties
      * @throws nl.rijksoverheid.mev.exception.GezagException wanneer onverwacht
-     * het gezag niet kan worden bepaald
+     *                                                       het gezag niet kan worden bepaald
      */
-    public List<Gezagsrelatie> bepaalBevoegdheidTotGezag(
+    public List<Persoon> bepaalBevoegdheidTotGezag(
         final GezagRequest gezagRequest,
         final Transaction transaction
     ) throws GezagException {
-        String bsn = gezagRequest.getBsn();
-        if (!bsnValidator.isValid(bsn)) return Collections.emptyList();
+        List<String> burgerservicenummers = gezagRequest.getBurgerservicenummer();
 
-        return Stream
-            .concat(
-                gezagService.getGezag(bsn, transaction).stream().map(Gezagsrelaties::of),
-                vindGezagsrelatiesVoorKinderen(bsn, transaction)
-            )
+        return burgerservicenummers.stream()
+            .map(burgerservicenummer -> bepaalGezagVoorPersoon(burgerservicenummer, transaction))
             .toList();
     }
 
-    /**
-     * Bepaal <i>bevoegdheid tot gezag</i> over de minderjarige juridische
-     * kinderen van een persoon.
-     *
-     * @param gezagRequest <i>burgerservicenummer</i> van de persoon van wie de
-     * <i>bevoegdheid tot gezag</i> over diens minderjarige juridische kinderen
-     * bepaald moet worden
-     * @param transaction de transactie zoals gemaakt bij het ontvangen
-     * van de aanvraag
-     * @return 0, 1 of meer gezagsrelaties
-     * @throws nl.rijksoverheid.mev.exception.GezagException wanneer onverwacht
-     * het gezag niet kan worden bepaald
-     */
-    public List<Gezagsrelatie> bepaalBevoegdheidTotGezagMeerderjarige(final GezagRequest gezagRequest, final Transaction transaction) throws GezagException {
-        String bsnMeerderjarige = gezagRequest.getBsn();
-        if (bsnValidator.isValid(bsnMeerderjarige)) {
-            return vindGezagsrelatiesVoorKinderen(bsnMeerderjarige, transaction)
-                    .filter(gezagsrelatie -> bsnMeerderjarige.equals(gezagsrelatie.getBsnMeerderjarige()))
-                    .toList();
-        } else {
-            return Collections.emptyList();
-        }
+    private Persoon bepaalGezagVoorPersoon(final String burgerservicenummerPersoon, final Transaction transaction) {
+        var gezagsrelaties = Stream
+            .concat(
+                gezagService.getGezag(Set.of(burgerservicenummerPersoon), burgerservicenummerPersoon, transaction).stream(),
+                vindGezagsrelatiesVoorKinderen(burgerservicenummerPersoon, transaction)
+            )
+            .toList();
+
+        return new Persoon()
+            .burgerservicenummer(burgerservicenummerPersoon)
+            .gezag(gezagsrelaties);
     }
 
-    /**
-     * Bepaal de <i>bevoegdheid tot gezag</i> over een minderjarige.
-     *
-     * @param gezagRequest <i>burgerservicenummer</i> van de minderjarige
-     * waarover de <i>bevoegdheid tot gezag</i> bepaald moet worden
-     * @param transaction de transactie zoals gemaakt bij het ontvangen
-     * van de aanvraag
-     * @return 0, 1 of meer gezagsrelaties
-     * @throws nl.rijksoverheid.mev.exception.GezagException wanneer onverwacht
-     * het gezag niet kan worden bepaald
-     */
-    public List<Gezagsrelatie> bepaalBevoegdheidTotGezagMinderjarige(final GezagRequest gezagRequest, final Transaction transaction) throws GezagException {
-        String bsnMinderjarige = gezagRequest.getBsn();
-        if (bsnValidator.isValid(bsnMinderjarige)) {
-           return gezagService.getGezag(bsnMinderjarige, transaction).stream()
-               .map(Gezagsrelaties::of)
-               .toList();
-        } else {
-            return Collections.emptyList();
-        }
-        
-    }
+    private Stream<AbstractGezagsrelatie> vindGezagsrelatiesVoorKinderen(final String burgerservicenummerPersoon, final Transaction transaction) throws GezagException {
+        Set<String> kinderen = brpService.getBsnsMinderjarigeKinderenOuderEnPartners(burgerservicenummerPersoon, transaction);
 
-    private Stream<Gezagsrelatie> vindGezagsrelatiesVoorKinderen(final String bsnPersoon, final Transaction transaction) throws GezagException {
-        return brpService.getBsnsMinderjarigeKinderen(bsnPersoon, transaction).stream()
-            .map(bsn -> gezagService.getGezag(bsn, transaction))
-            .flatMap(Collection::stream)
-            .map(Gezagsrelaties::of)
-            .filter(gezagsrelatie -> gezagsrelatie.getBsnMeerderjarige().equals(bsnPersoon));
+        return gezagService.getGezag(kinderen, burgerservicenummerPersoon, transaction).stream();
     }
 }
