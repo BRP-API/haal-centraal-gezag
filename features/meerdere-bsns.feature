@@ -4,31 +4,27 @@ Functionaliteit: Als gebruiker wil ik het gezag van meerdere personen in één r
 
 
     Achtergrond:
-      Gegeven de persoon 'P1' met burgerservicenummer '000000012'
-      * is meerderjarig
-      * heeft geslachtsnaam gevuld
-      En de persoon 'P2' met burgerservicenummer '000000024'
-      * is meerderjarig
-      * heeft geslachtsnaam gevuld
-      En persoon 'P1' heeft geregistreerd partnerschap met persoon 'P2'
-      | datum huwelijkssluiting/aangaan geregistreerd partnerschap (06.10) |
-      | gisteren - 20 jaar                                                 |
-      En de persoon 'P3' met burgerservicenummer '000000036'
-      * is in Nederland geboren
+      Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
+      * is ingeschreven in de BRP
+      * is meerderjarig, niet overleden en staat niet onder curatele
+      En de persoon 'Aart' met burgerservicenummer '000000024'
+      * is ingeschreven in de BRP
+      * is meerderjarig, niet overleden en staat niet onder curatele
+      En 'Gerda' en 'Aart' zijn met elkaar gehuwd
+      En de persoon 'Bert' met burgerservicenummer '000000036'
+      * is ingeschreven in de BRP
       * is minderjarig
-      * heeft persoon 'P1' als ouder1 vanaf de geboorteaangifte
-      * heeft persoon 'P2' als ouder2 vanaf de geboorteaangifte
-      * is ingeschreven in de de BRP
-      En de persoon 'P4' met burgerservicenummer '000000048'
+      * is niet geëmigreerd geweest
       * is in Nederland geboren
+      * heeft 'Gerda' als ouder 1
+      * heeft 'Aart' als ouder 2
+      En de persoon 'Ernie' met burgerservicenummer '000000048'
+      * is ingeschreven in de BRP
       * is meerderjarig
-      * heeft persoon 'P1' als ouder1 vanaf de geboorteaangifte
-      * heeft persoon 'P2' als ouder2 vanaf de geboorteaangifte
-      * is ingeschreven in de de BRP
-      En persoon 'P1' heeft een kind 'P3'
-      En persoon 'P1' heeft een kind 'P4'
-      En persoon 'P2' heeft een kind 'P3'
-      En persoon 'P2' heeft een kind 'P4'
+      * is niet geëmigreerd geweest
+      * is in Nederland geboren
+      * heeft 'Gerda' als ouder 1
+      * heeft 'Aart' als ouder 2
 
         
       
