@@ -5,10 +5,10 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
 
     Achtergrond:
       Gegeven de persoon 'Lydia' met burgerservicenummer '000000012'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is meerderjarig
       En de persoon 'Hans' met burgerservicenummer '000000024'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is meerderjarig
       En 'Lydia' en 'Hans' zijn met elkaar gehuwd
 
@@ -18,11 +18,11 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
 
     Scenario: de minderjarige is geëmigreerd geweest en woont nu weer in Nederland
       Gegeven de persoon 'Nancy' met burgerservicenummer '000000036'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is in Nederland geboren
       * is minderjarig
-      * heeft persoon 'Lydia' als ouder 1
-      * heeft persoon 'Hans' als ouder 2
+      * heeft 'Lydia' als ouder 1
+      * heeft 'Hans' als ouder 2
       * is geëmigreerd geweest met de volgende gegevens
       | datum vestiging in Nederland (14.20) |
       | 20231014                             |
@@ -39,11 +39,11 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
 
     Scenario: de minderjarige is nooit geëmigreerd geweest
       Gegeven de persoon 'Nancy' met burgerservicenummer '000000036'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is in Nederland geboren
       * is minderjarig
-      * heeft persoon 'Lydia' als ouder 1
-      * heeft persoon 'Hans' als ouder 2
+      * heeft 'Lydia' als ouder 1
+      * heeft 'Hans' als ouder 2
       Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
@@ -68,11 +68,11 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
 
     Abstract Scenario: gezag kan niet bepaald worden omdat <onderzoek omschrijving> staat in onderzoek
       Gegeven de persoon 'Nancy' met burgerservicenummer '000000036'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is in Nederland geboren
       * is minderjarig
-      * heeft persoon 'Lydia' als ouder 1
-      * heeft persoon 'Hans' als ouder 2
+      * heeft 'Lydia' als ouder 1
+      * heeft 'Hans' als ouder 2
       * zijn de volgende gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
       | <aanduiding in onderzoek>       |
@@ -83,23 +83,23 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                                          |
-      | type        | GezagNietTeBepalen                                                                              |
-      | toelichting | gezag is niet te bepalen omdat de volgende relevante gegevens in onderzoek staan: <toelichting> |
+      | naam        | waarde                                                                                                                       |
+      | type        | GezagNietTeBepalen                                                                                                           |
+      | toelichting | Gezag is niet te bepalen, omdat de volgende relevante gegevens in onderzoek staan. Persoonslijst van persoon: <toelichting>. |
 
       Voorbeelden:
-      | aanduiding in onderzoek | onderzoek omschrijving | toelichting                                            |
-      | 010000                  | hele categorie persoon | geboortedatum van de persoon, geboorteland van persoon |
-      | 010300                  | hele groep geboorte    | geboortedatum van de persoon, geboorteland van persoon |
-      | 010330                  | geboorteland           | geboortedatum van de persoon                           |
+      | aanduiding in onderzoek | onderzoek omschrijving | toelichting                                         |
+      | 010000                  | hele categorie persoon | persoon                                             |
+      | 010300                  | hele groep geboorte    | geboortedatum van persoon, geboorteland van persoon |
+      | 010330                  | geboorteland           | geboorteland van persoon                            |
 
     Abstract Scenario: gezag kan wel bepaald worden ondanks dat <onderzoek omschrijving> in onderzoek staat
       Gegeven de persoon 'Nancy' met burgerservicenummer '000000036'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is in Nederland geboren
       * is minderjarig
-      * heeft persoon 'Lydia' als ouder 1
-      * heeft persoon 'Hans' als ouder 2
+      * heeft 'Lydia' als ouder 1
+      * heeft 'Hans' als ouder 2
       * zijn de volgende gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
       | <aanduiding in onderzoek>       |
@@ -129,11 +129,11 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
 
     Scenario: gezag kan wel bepaald worden omdat onderzoek naar geboorteland is beëindigd
       Gegeven de persoon 'Nancy' met burgerservicenummer '000000036'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is in Nederland geboren
       * is minderjarig
-      * heeft persoon 'Lydia' als ouder 1
-      * heeft persoon 'Hans' als ouder 2
+      * heeft 'Lydia' als ouder 1
+      * heeft 'Hans' als ouder 2
       * zijn de volgende gegevens gewijzigd
       | aanduiding in onderzoek (83.10) | datum einde onderzoek (83.30) |
       | 010330                          | 20230526                      |
@@ -160,12 +160,12 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
 
     Abstract Scenario: gezag kan niet bepaald worden omdat <onderzoek omschrijving> staat in onderzoek
       Gegeven de persoon 'Nancy' met burgerservicenummer '000000036'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is in Nederland geboren
       * is minderjarig
-      * heeft persoon 'Lydia' als ouder 1
-      * heeft persoon 'Hans' als ouder 2
-      * zijn de volgende gegevens gewijzigd
+      * heeft 'Lydia' als ouder 1
+      * heeft 'Hans' als ouder 2
+      * zijn de volgende verblijfplaats gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
       | <aanduiding in onderzoek>       |
       Als gezag wordt gezocht met de volgende parameters
@@ -175,9 +175,9 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                                          |
-      | type        | GezagNietTeBepalen                                                                              |
-      | toelichting | gezag is niet te bepalen omdat de volgende relevante gegevens in onderzoek staan: <toelichting> |
+      | naam        | waarde                                                                                                                       |
+      | type        | GezagNietTeBepalen                                                                                                           |
+      | toelichting | Gezag is niet te bepalen, omdat de volgende relevante gegevens in onderzoek staan. Persoonslijst van persoon: <toelichting>. |
 
       Voorbeelden:
       | aanduiding in onderzoek | onderzoek omschrijving        | toelichting                  |
@@ -187,12 +187,12 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
 
     Abstract Scenario: gezag kan wel bepaald worden ondanks dat <onderzoek omschrijving> in onderzoek staat
       Gegeven de persoon 'Nancy' met burgerservicenummer '000000036'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is in Nederland geboren
       * is minderjarig
-      * heeft persoon 'Lydia' als ouder 1
-      * heeft persoon 'Hans' als ouder 2
-      * de verblijfplaats heeft de volgende gegevens
+      * heeft 'Lydia' als ouder 1
+      * heeft 'Hans' als ouder 2
+      * zijn de volgende verblijfplaats gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
       | <aanduiding in onderzoek>       |
       Als gezag wordt gezocht met de volgende parameters
@@ -221,13 +221,12 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
 
     Scenario: gezag kan wel bepaald worden omdat onderzoek naar datum vestiging in Nederland is beëindigd
       Gegeven de persoon 'Nancy' met burgerservicenummer '000000036'
-      * is ingeschreven in de de BRP
+      * is ingeschreven in de BRP
       * is in Nederland geboren
       * is minderjarig
-      * heeft persoon 'Lydia' als ouder 1
-      * heeft persoon 'Hans' als ouder 2
-      * zijn de volgende gegevens gewijzigd
-      * de verblijfplaats heeft de volgende gegevens
+      * heeft 'Lydia' als ouder 1
+      * heeft 'Hans' als ouder 2
+      * zijn de volgende verblijfplaats gegevens gewijzigd
       | aanduiding in onderzoek (83.10) | datum einde onderzoek (83.30) |
       | 081420                          | 20230526                      |
       Als gezag wordt gezocht met de volgende parameters
@@ -252,13 +251,11 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
 
     Scenario: geboorteland is niet ingevuld
       Gegeven de persoon 'Nancy' met burgerservicenummer '000000036'
-      * is ingeschreven in de de BRP
-      * is in Nederland geboren
+      * is ingeschreven in de BRP
       * is minderjarig
-      * heeft persoon 'Lydia' als ouder 1
-      * heeft persoon 'Hans' als ouder 2
-      * zijn de volgende gegevens gewijzigd
-      * geboorteland heeft geen waarde
+      * heeft 'Lydia' als ouder 1
+      * heeft 'Hans' als ouder 2
+      #* geboorteland heeft geen waarde
       Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
@@ -266,6 +263,6 @@ Functionaliteit: 1.3 - Is minderjarige naar het buitenland geëmigreerd geweest?
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                                |
-      | type        | GezagNietTeBepalen                                                                    |
-      | toelichting | gezag is niet te bepalen omdat de volgende relevante gegevens ontbreken: geboorteland |
+      | naam        | waarde                                                                                                                                                                   |
+      | type        | GezagNietTeBepalen                                                                                                                                                       |
+      | toelichting | gezag is niet te bepalen. Neem contact op met RvIG via info@RvIG onder vermelding van BRP API route 3e. Vermeld de volgende foutcode: Geboorteland van bevraagde persoon |
