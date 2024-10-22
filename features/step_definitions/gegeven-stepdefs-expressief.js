@@ -148,13 +148,6 @@ Given(/^is overleden/, function () {
     );
 });
 
-Given(/^heeft de volgende gegevens$/, function (dataTable) {
-    aanvullenPersoon(
-        getPersoon(this.context, undefined),
-        dataTable
-    );
-});
-
 Given(/^zijn de volgende gegevens gewijzigd$/, function (dataTable) {
     const persoon = getPersoon(this.context, undefined);
 
@@ -379,39 +372,27 @@ Given(/^beide ouders zijn meerderjarig, niet overleden en staan niet onder curat
  * Expressieve Gegeven-stappen voor Verblijfplaats
  */
 
-function gegevenPersoonIsIngeschrevenInGemeente(context, aanduiding, dataTable) {
+
+Given(/^(?:de persoon(?: '(.*)')? )?is ingeschreven in de BRP?$/, function (_) {
+    const gemeenteVanInschrijving = '0518';
+
     createVerblijfplaats(
-        getPersoon(context, aanduiding),
-        dataTable
-    );
-}
-
-Given(/^is ingeschreven in de BRP$/, function () {
-    gegevenPersoonIsIngeschrevenInGemeente(
-        this.context,
-        undefined,
+        getPersoon(this.context, undefined),
         arrayOfArraysToDataTable([
-            ['gemeente van inschrijving (09.10)', '0518']
+            ['gemeente van inschrijving (09.10)', gemeenteVanInschrijving]
         ])
     );
 });
 
-Given(/^is ingeschreven in de BRP met de volgende gegevens$/, function (dataTable) {
-    gegevenPersoonIsIngeschrevenInGemeente(this.context, undefined, dataTable);
-});
+Given(/^(?:de persoon(?: '(.*)')? )?is ingeschreven in de RNI/, function (_) {
+    const gemeenteVanInschrijving = '1999';
 
-Given(/^is ingeschreven in de RNI$/, function () {
-    gegevenPersoonIsIngeschrevenInGemeente(
-        this.context,
-        undefined,
+    createVerblijfplaats(
+        getPersoon(this.context, undefined),
         arrayOfArraysToDataTable([
-            ['gemeente van inschrijving (09.10)', '1999']
+            ['gemeente van inschrijving (09.10)', gemeenteVanInschrijving]
         ])
     );
-});
-
-Given(/^is ingeschreven in de RNI met de volgende gegevens$/, function (dataTable) {
-    gegevenPersoonIsIngeschrevenInGemeente(this.context, undefined, dataTable);
 });
 
 Given(/^(?:de persoon(?: '(.*)')? )?is niet geëmigreerd geweest/, function (_) {
