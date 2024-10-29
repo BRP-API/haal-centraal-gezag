@@ -71,6 +71,8 @@ Functionaliteit: geboren in buitenland en niet geadopteerd
     En de persoon is ingeschreven op adres 'A1' met de volgende gegevens
     | naam                              | waarde   |
     | gemeente van inschrijving (09.10) | 518      |
+    | land vanwaar ingeschreven (14.10) | 6043     |
+    | land vanwaar ingeschreven (14.10) | 20151201 |
 
     Als gezag wordt gezocht met de volgende parameters
     | naam                 | waarde    |
