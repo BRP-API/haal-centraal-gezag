@@ -6,10 +6,6 @@
 /soaplog
 
 HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
 ### STS ###
 .apt_generated
@@ -19,6 +15,9 @@ target/
 .settings
 .springBeans
 .sts4-cache
+
+### Gradle ###
+.gradle
 
 ### IntelliJ IDEA ###
 .idea
@@ -44,3 +43,9 @@ nb-configuration.xml
 ### Configuration files with confidential information ###
 
 /src/test/resources/pre-prod-credentials.yml
+
+# Dependency directories
+
+node_modules/
+
+test-reports/
