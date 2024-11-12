@@ -158,3 +158,62 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - erkenning" 
       | ouder.burgerservicenummer        | 000000012                 |
 
     
+  Regel: Een onjuist en daarna gecorrigeerd gegeven wordt niet gebruikt
+
+    Scenario: erkenning stond eerst geregistreerd na 1-1-2023 maar is gecorrigeerd naar een datum vóór 1-1-2023  
+      Gegeven persoon 'Filip'
+      * is geboren op 25-12-2022
+      * is erkend door 'Dirk' als ouder 2 met erkenning na geboorteaangifte op 2-1-2023
+      En zijn van ouder 2 de volgende gegevens gecorrigeerd
+      | datum ingang familierechtelijke betrekking (62.10) | aktenummer (81.20) |
+      | 30-12-2022                                         | 1AC0100            |
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam                             | waarde                    |
+      | type                             | EenhoofdigOuderlijkGezag  |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | ouder.burgerservicenummer        | 000000012                 |
+
+
+    Scenario: erkenning stond eerst geregistreerd als erkenning na geboorte na 1-1-2023 maar is gecorrigeerd naar erkenning bij geboorte vóór 1-1-2023  
+      Gegeven persoon 'Filip'
+      * is geboren op 25-12-2022
+      * is erkend door 'Dirk' als ouder 2 met erkenning na geboorteaangifte op 2-1-2023
+      En zijn van ouder 2 de volgende gegevens gecorrigeerd
+      | datum ingang familierechtelijke betrekking (62.10) | aktenummer (81.20) |
+      | 25-12-2022                                         | 1AB0100            |
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam                             | waarde                    |
+      | type                             | EenhoofdigOuderlijkGezag  |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | ouder.burgerservicenummer        | 000000012                 |
+
+    Scenario: erkenning stond eerst geregistreerd als erkenning na geboorte na 1-1-2023 maar is gecorrigeerd naar erkenning bij geboorte vóór 1-1-2023  
+      Gegeven persoon 'Filip'
+      * is geboren op 25-12-2022
+      * is erkend door 'Dirk' als ouder 2 met erkenning na geboorteaangifte op 2-1-2023
+      En zijn van ouder 2 de volgende gegevens gecorrigeerd
+      | datum ingang familierechtelijke betrekking (62.10) | aktenummer (81.20) |
+      | 25-12-2022                                         | 1AB0100            |
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam                             | waarde                    |
+      | type                             | EenhoofdigOuderlijkGezag  |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | ouder.burgerservicenummer        | 000000012                 |
