@@ -164,6 +164,7 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - erkenning" 
     
   Regel: Een onjuist en daarna gecorrigeerd gegeven wordt niet gebruikt
 
+    # Volgende feature geeft Internal Server Error
     Scenario: erkenning stond eerst geregistreerd na 1-1-2023 maar is gecorrigeerd naar een datum vóór 1-1-2023  
       Gegeven persoon 'Filip'
       * is geboren op 25-12-2022
@@ -183,6 +184,7 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - erkenning" 
       | minderjarige.burgerservicenummer | 000000036                 |
       | ouder.burgerservicenummer        | 000000012                 |
 
+    # Volgende feature geeft Internal Server Error
     Scenario: erkenning stond eerst geregistreerd als erkenning na geboorte na 1-1-2023 maar is gecorrigeerd naar erkenning bij geboorte vóór 1-1-2023  
       Gegeven persoon 'Filip'
       * is geboren op 25-12-2022
@@ -202,6 +204,7 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - erkenning" 
       | minderjarige.burgerservicenummer | 000000036                 |
       | ouder.burgerservicenummer        | 000000012                 |
 
+    # Volgende feature geeft Internal Server Error
     Scenario: erkenning stond eerst geregistreerd als erkenning na geboorte voor 1-1-2023 maar is gecorrigeerd naar erkenning bij geboorte na 1-1-2023  
       Gegeven persoon 'Filip'
       * is geboren op 25-12-2022
