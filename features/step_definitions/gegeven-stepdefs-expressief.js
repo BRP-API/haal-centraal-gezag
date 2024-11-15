@@ -13,7 +13,8 @@ const { createPersoon,
         createVerblijfplaats,
         wijzigVerblijfplaats,
         aanvullenInschrijving,
-        createOverlijden
+        createOverlijden,
+        wijzigOverlijden
 } = require('./persoon-2');
 const { toDbColumnName } = require('./brp');
 
@@ -163,6 +164,27 @@ Given(/^voor '(.*)' is een gerechtelijke uitspraak over het gezag gedaan met de 
     );
 });
 
+Given(/^in een gerechtelijke uitspraak is het gezag toegewezen aan '(.*)'$/, function (omschrijvingGezag) {
+    switch (omschrijvingGezag) {
+        case 'ouder 1': indicatieGezag = '1'; break;
+        case 'ouder 2': indicatieGezag = '2'; break;
+        case 'ouder 1 en ouder 2': indicatieGezag = '12'; break;
+        case 'ouder 1 en een derde': indicatieGezag = '1D'; break;
+        case 'ouder 2 en een derde': indicatieGezag = '2D'; break;
+        case 'een derde': indicatieGezag = 'D'; break;
+        default:
+            indicatieGezag = omschrijvingGezag;
+    }
+
+    createGezagsverhouding(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['indicatie gezag minderjarige (32.10)', indicatieGezag],
+            ['ingangsdatum geldigheid (85.10)', 'gisteren - 2 jaar']
+        ])
+    );
+});
+
 Given(/^'(.*)' is onder curatele gesteld$/, function (aanduiding) {
     const curateleRegisterIndicatie = '1';
 
@@ -181,6 +203,38 @@ Given(/^is onder curatele gesteld/, function () {
         getPersoon(this.context, undefined),
         arrayOfArraysToDataTable([
             ['indicatie curateleregister (33.10)', curateleRegisterIndicatie]
+        ])
+    );
+});
+
+Given(/^de curatele is beëindigd/, function () {
+    aanvullenGezagsverhouding(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['indicatie curateleregister (33.10)', null]
+        ])
+    );
+});
+
+Given(/^curatele staat in onderzoek met aanduiding '(.*)'/, function (aanduidingOnderzoek) {
+    aanvullenGezagsverhouding(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['aanduiding in onderzoek (83.10)', aanduidingOnderzoek.toString()],
+            ['datum ingang onderzoek (83.20)', 'gisteren - 1 jaar'],
+            ['indicatie curateleregister (33.10)', '1']
+        ])
+    );
+});
+
+Given(/^curatele onderzoek met aanduiding '(.*)' is beëindigd/, function (aanduidingOnderzoek) {
+    aanvullenGezagsverhouding(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['aanduiding in onderzoek (83.10)', aanduidingOnderzoek.toString()],
+            ['datum ingang onderzoek (83.20)', 'gisteren - 1 jaar'],
+            ['datum einde onderzoek (83.30)', 'gisteren'],
+            ['indicatie curateleregister (33.10)', '1']
         ])
     );
 });
@@ -217,6 +271,39 @@ Given(/^(?:'(.*)' )?is overleden$/, function (aanduiding) {
             ['reden ontbinding huwelijk/geregistreerd partnerschap (07.40)', redenOpschortingBijhouding]
         ])
     );
+});
+
+
+Given(/^(?:'(.*)' )?het overlijden is gecorrigeerd$/, function (aanduiding) {
+    const datumCorrectie = 'gisteren - 1 jaar';
+
+    aanvullenInschrijving(
+        getPersoon(this.context, aanduiding),
+        arrayOfArraysToDataTable([
+            ['datum opschorting bijhouding (67.10)', null],
+            ['reden opschorting bijhouding (67.20)', null]
+        ])
+    );
+
+    wijzigOverlijden(
+        getPersoon(this.context, aanduiding),
+        arrayOfArraysToDataTable([
+            ['datum ingang geldigheid (85.10)', datumCorrectie],
+            ['gemeente document (82.10)', '518'],
+            ['datum document (82.20)', datumCorrectie],
+            ['beschrijving document (82.30)', 'Verklaring van ingezetene']
+        ]),
+        true
+    )
+
+    createOntbindingPartnerschap(this.context, aanduiding,
+        arrayOfArraysToDataTable([
+            ['burgerservicenummer (01.20)', getBsn(getPersoon(this.context, aanduiding))],
+            ['geslachtsnaam (02.40)', getGeslachtsnaam(getPersoon(this.context, aanduiding))],
+            ['datum huwelijkssluiting/aangaan geregistreerd partnerschap (06.10)', getPartner(getPersoon(this.context, aanduiding)).relatie_start_datum]
+        ])
+    );
+
 });
 
 Given(/^'(.*)' is overleden met de volgende gegevens$/, function (aanduiding, dataTable) {

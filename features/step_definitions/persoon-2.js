@@ -215,6 +215,17 @@ function createOverlijden(persoon, dataTable) {
     persoon.overlijden.push(overlijden);
 }
 
+function wijzigOverlijden(persoon, dataTable, isCorrectie) {
+    persoon.overlijden?.forEach(p => {
+        p.volg_nr = Number(p.volg_nr) + 1 + '';
+        if(isCorrectie && p.volg_nr === '1') {
+            p.onjuist_ind = 'O';
+        }
+    });
+
+    createOverlijden(persoon, dataTable)
+}
+
 module.exports = {
     createPersoon,
     aanvullenPersoon,
@@ -229,5 +240,6 @@ module.exports = {
     createVerblijfplaats,
     wijzigVerblijfplaats,
     createOverlijden,
+    wijzigOverlijden,
     aanvullenInschrijving
 }
