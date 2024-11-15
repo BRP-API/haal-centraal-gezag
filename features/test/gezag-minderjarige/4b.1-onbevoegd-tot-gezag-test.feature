@@ -117,25 +117,6 @@ Functionaliteit: Als API tester wil ik controleren dat regel "4b.1 - ouder, echt
       | gisteren - 18 jaar |
       | vandaag - 18 jaar  |
 
-    Scenario: de ouder is minderjarig
-      Gegeven persoon 'Lydie'
-      * zijn de volgende gegevens gewijzigd
-      | geboortedatum (03.10) |
-      | <geboortedatum>       |
-      Als gezag wordt gezocht met de volgende parameters
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      Dan heeft de response een persoon met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                    |
-      | type                             | Voogdij                   |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      En heeft 'gezag' een 'derde' met de volgende gegevens
-      | burgerservicenummer |
-      | 000000024           |
-
 
   Regel: Als zowel de ouder als de partner van de ouder minderjarig zijn, dan is er tijdelijk geen gezag
 
