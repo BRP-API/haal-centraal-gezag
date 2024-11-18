@@ -499,8 +499,24 @@ function gegevenHeeftPersoonAlsOuder(context, aanduiding, ouderType, dataTable) 
 }
 
 Given(/^heeft '(.*)' als ouder ([1-2])$/, function (aanduiding, ouderType) {
+    // deze stap betekent dat deze persoon als ouder staat op de geboorteakte
+    // dus 3e positie van aktenummer is een 'A' en datum ingang familierechtelijke betrekking is gelijk aan de geboortedatum
+
+    const persoon = getPersoon(this.context, null);
+    const geboorteDatum = getGeboortedatum(persoon)
+
     const ouderData = arrayOfArraysToDataTable([
-        ['datum ingang familierechtelijke betrekking (62.10)', 'gisteren - 17 jaar']
+        ['datum ingang familierechtelijke betrekking (62.10)', (geboorteDatum) ? geboorteDatum : 'gisteren - 17 jaar' ],
+        ['aktenummer (81.20)', '1XA01GB']
+    ]);
+
+    gegevenHeeftPersoonAlsOuder(this.context, aanduiding, ouderType, ouderData);
+});
+
+Given(/^heeft persoon '(.*)' als ouder ([1-2]) met aktenummer '(.*)' op (\d*)-(\d*)-(\d*)$/, function (aanduiding, ouderType, aktenummer, dag, maand, jaar) {
+    const ouderData = arrayOfArraysToDataTable([
+        ['datum ingang familierechtelijke betrekking (62.10)', toBRPDate(dag, maand, jaar)],
+        ['aktenummer (81.20)', aktenummer]
     ]);
 
     gegevenHeeftPersoonAlsOuder(this.context, aanduiding, ouderType, ouderData);
