@@ -558,7 +558,8 @@ function gegevenIsGeadopteerdDoorPersoonAlsOuder(context, aanduidingKind, aandui
 
 Given(/^'(.*)' is geadopteerd door '(.*)' als ouder ([1-2])$/, function (aanduidingKind, aanduidingOuder, ouderType) {
     const adoptieOuderData = arrayOfArraysToDataTable([
-        ['datum ingang familierechtelijke betrekking (62.10)', 'morgen - 4 jaar']
+        ['datum ingang familierechtelijke betrekking (62.10)', 'morgen - 4 jaar'],
+        ['aktenummer (81.20)', '1AQ0100']
     ]);
 
     gegevenIsGeadopteerdDoorPersoonAlsOuder(this.context, aanduidingKind, aanduidingOuder, ouderType, adoptieOuderData);
@@ -566,6 +567,15 @@ Given(/^'(.*)' is geadopteerd door '(.*)' als ouder ([1-2])$/, function (aanduid
 
 Given(/^'(.*)' is geadopteerd door '(.*)' als ouder ([1-2]) met de volgende gegevens$/, function (aanduidingKind, aanduidingOuder, ouderType, dataTable) {
     gegevenIsGeadopteerdDoorPersoonAlsOuder(this.context, aanduidingKind, aanduidingOuder, ouderType, dataTable);
+});
+
+Given(/^'(.*)' is geadopteerd door '(.*)' als ouder ([1-2]) sinds (\d*)-(\d*)-(\d*)$/, function (aanduidingKind, aanduidingOuder, ouderType, dag, maand, jaar) {
+    const adoptieOuderData = arrayOfArraysToDataTable([
+        ['datum ingang familierechtelijke betrekking (62.10)', 'morgen - 4 jaar'],
+        ['aktenummer (81.20)', '1AQ0100']
+    ]);
+
+    gegevenIsGeadopteerdDoorPersoonAlsOuder(this.context, aanduidingKind, aanduidingOuder, ouderType, adoptieOuderData);
 });
 
 Given(/^zijn van ouder ([1-2]) de volgende gegevens gewijzigd$/, function (ouderType, dataTable) {
@@ -603,10 +613,22 @@ Given(/^beide ouders zijn meerderjarig, niet overleden en staan niet onder curat
  */
 
 function gegevenPersoonIsIngeschrevenInGemeente(context, aanduiding, dataTable) {
-    createVerblijfplaats(
-        getPersoon(context, aanduiding),
-        dataTable
-    );
+    const persoon = getPersoon(context, aanduiding);
+
+    if (!persoon.verblijfplaats) {
+        createVerblijfplaats(
+            getPersoon(context, aanduiding),
+            dataTable
+        );
+    } else {
+        wijzigVerblijfplaats(
+            getPersoon(context, aanduiding),
+            dataTable,
+            false
+        );
+    }
+    
+    
 }
 
 Given(/^is ingeschreven in de BRP$/, function () {
@@ -624,13 +646,21 @@ Given(/^is ingeschreven in de BRP met de volgende gegevens$/, function (dataTabl
 });
 
 Given(/^is ingeschreven in de RNI$/, function () {
-    gegevenPersoonIsIngeschrevenInGemeente(
-        this.context,
-        undefined,
-        arrayOfArraysToDataTable([
-            ['gemeente van inschrijving (09.10)', '1999']
-        ])
-    );
+    const persoon = getPersoon(this.context, undefined);
+
+    if (persoon.verblijfplaats) {
+        const verblijfplaatsData = { ...persoon.verblijfplaats.at(-1) };
+        verblijfplaatsData.inschrijving_gemeente_code = '1999';
+        wijzigVerblijfplaats(persoon, objectToDataTable(verblijfplaatsData));
+    } else {
+        gegevenPersoonIsIngeschrevenInGemeente(
+            this.context,
+            undefined,
+            arrayOfArraysToDataTable([
+                ['gemeente van inschrijving (09.10)', '1999']
+            ])
+        );
+    }
 });
 
 Given(/^is ingeschreven in de RNI met de volgende gegevens$/, function (dataTable) {
@@ -654,6 +684,20 @@ Given(/^(?:de persoon(?: '(.*)')? )?is geëmigreerd geweest?$/, function (_) {
         arrayOfArraysToDataTable([
             ['datum vestiging in Nederland (14.20)', datumVestiging],
             ['gemeente van inschrijving (09.10)', gemeenteVanInschrijving]
+        ]),
+        false
+    );
+});
+
+Given(/^(?:'(.*)' )?is geëmigreerd$/, function (aanduidingPersoon) {
+    const gemeenteVanInschrijving = '0518';
+    const vertrekLand = '5010';
+
+    wijzigVerblijfplaats(
+        getPersoon(this.context, aanduidingPersoon),
+        arrayOfArraysToDataTable([
+            ['gemeente van inschrijving (09.10)', gemeenteVanInschrijving],
+            ['land (13.10)', vertrekLand]
         ]),
         false
     );
