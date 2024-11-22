@@ -88,8 +88,8 @@ Functionaliteit: Als API tester wil ik controleren dat regel "1.2 - Is persoon n
       | burgerservicenummer | 000000024 |
 
     # Het volgende scenario geeft geen gezag, want interpreteert een waarde voor datum opschorting bijhouding als "is overleden"
-    # Het is mij onduidelijk of we in dit geval wel een gezaguitspraak zouden kunnen doen. Bijhouding is immers opgeschort.
-    # Mogelijk is dan gezag niet te bepalen het juiste antwoord.
+    # Ik weet niet zeker of we in dit geval wel een gezaguitspraak zouden kunnen doen. Bijhouding is immers opgeschort en de verblijfplaats is onbekend.
+    # Het scenario gaat er vanuit dat gezag niet te bepalen het juiste antwoord is (de toelichting heb ik zelf verzonnen).
     Scenario: De persoon is NAVO militair en mag volgens ministerieel besluit niet langer als ingezetene geregistreerd zijn
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is in Nederland geboren
@@ -109,15 +109,44 @@ Functionaliteit: Als API tester wil ik controleren dat regel "1.2 - Is persoon n
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | naam        | waarde                                                                     |
+      | type        | GezagNietTeBepalen                                                         |
+      | toelichting | gezag is niet te bepalen omdat minderjarige een diplomatieke status heeft. |
+
+    # Wanneer een ouder NAVO militair wordt bijhouding opgeschort en wordt de verblijfplaats volledig onbekend gemaakt
+    # Dit geldt dan voor de militair, de echtgenoot/geregistreerde partner en inwonende minderjarige kinderen.
+    # Volgens regel 1.2 en regels 4a en 4b worden dan alle gezinsleden dan beschouwd als overleden en wordt dus geen gezag gegeven
+    # Dit speelt dus niet alleen bij vraag 1.2, maar ook in vragen 4a en 4b.
+    # Het scenario gaat er vanuit dat gezag niet te bepalen het juiste antwoord is (de toelichting heb ik zelf verzonnen).
+    Scenario: De ouder is NAVO militair en mag volgens ministerieel besluit niet langer als ingezetene geregistreerd zijn
+      Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
+      * is in Nederland geboren
+      * is minderjarig
+      * is ingeschreven in de BRP
+      * heeft 'Gerda' als ouder 1
+      * heeft 'Aart' als ouder 2
+      # heeft niet de Nederlandse nationaliteit
+      # de verblijfplaats van 'Bert' is gewijzigd naar volledig onbekend
+      En bijhouding van de persoonsgegevens van 'Bert' is opgeschort met de volgende gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | gisteren - 2 jaar                    | M                                    |
+      En bijhouding van de persoonsgegevens van 'Gerda' is opgeschort met de volgende gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | gisteren - 2 jaar                    | M                                    |
+      En bijhouding van de persoonsgegevens van 'Bert' is opgeschort met de volgende gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | gisteren - 2 jaar                    | M                                    |
+      Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
-      | burgerservicenummer | 000000012 |
-      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
       | naam                | waarde    |
-      | burgerservicenummer | 000000024 |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam        | waarde                                                                     |
+      | type        | GezagNietTeBepalen                                                         |
+      | toelichting | gezag is niet te bepalen omdat minderjarige een diplomatieke status heeft. |
+
 
     # voor volgende scenario is alleen inschrijving RNI als gemeente van inschrijving relevant
     # opschorting bijhouding en emigratie (verblijfplaats met vertrek land gevuld) worden niet gebruikt
