@@ -59,9 +59,9 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - bepalen geb
 
 
   Regel: wanneer geen van de ouders op de geboorteakte stond, dan is ouder 2 de geboortemoeder
-    # Ik denk dat deze regel niet correct is.
-    # Maar het is de vraag of dit voor kan komen. Staat niet altijd ten minste de geboortemoeder op de geboorteakte?
-    # Of is deze situatie wel mogelijk (bijvoorbeeld vondeling die later toch erkend wordt door een ouder)?
+    # Ik denk dat deze regel niet correct is. Maar dat is niet erg want deze situatie kan niet voorkomen
+    # Wanneer na geboorte moeder het kind erkend (bijv. kind was eerst vondeling) dan wordt achteraf met terugwerkende kracht nieuwe geboorteakte gemaakt
+    # Situatie voorgelegd aan werkgroep afleidingsregels. Zijn er andere situaties mogelijk waarin dit doorkomt?
 
     Abstract Scenario: De geboortemoeder bij erkenning van minderjarige door <omschrijving>
       Gegeven persoon 'Filip'
@@ -90,7 +90,7 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - bepalen geb
 
   Regel: Wanneer beide ouders op de geboorteakte staan, is niet te bepalen welke van deze ouders de geboortemoeder is
 
-    Abstract Scenario: De geboortemoeder kan niet bepaald worden bij erkenning van minderjarige door <omschrijving>
+    Abstract Scenario: De geboortemoeder kan niet bepaald worden bij erkenning voor 1-1-2023 van minderjarige door <omschrijving>
       Gegeven persoon 'Filip'
       * heeft persoon 'Lotte' als ouder 1 met aktenummer '<aktenummer ouder 1>' op <datum ouder 1>
       * heeft persoon 'Dirk' als ouder 2 met aktenummer '<aktenummer ouder 2>' op <datum ouder 2>
