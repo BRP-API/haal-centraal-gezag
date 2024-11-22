@@ -80,12 +80,9 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - erkenning" 
       | 1-3-2023      | gerechtelijke vaststelling ouderschap op 2-9-2023 | geboren en erkend met gerechtelijke vaststelling na 1-1-2023               |
 
 
-  Regel: Bij erkenning van de ongeboren vrucht is gezag niet te bepalen
+  Regel: Bij erkenning van de ongeboren vrucht voor 1-1-2023 is gezag niet te bepalen
     In geval van erkenning van ongeboren vrucht staan beide ouders op de geboorteakte. De 3e positie van het aktenummer is dan A bij beide ouders.
     In dit geval is gezag niet te bepalen, omdat niet duidelijk is welke van de twee ouders de geboortemoeder is. Ze staan immers beide op de geboorteakte.
-
-    # Waarom is bij erkenning ongeboren vrucht na 1-1-2023 geen sprake van tweehoofdig ouderlijk gezag?
-    # Of waarom moet de geboortemoeder worden bepaald bij tweehoofdig ouderlijk gezag?
 
     Abstract Scenario: Het kind is erkend als ongeboren vrucht <omschrijving>
       Gegeven persoon 'Filip'
@@ -103,10 +100,34 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - erkenning" 
       | toelichting | <toelichting>      |
 
       Voorbeelden:
-      | geboortedatum | omschrijving  | toelichting                                                                                                                                                                            |
-      | 1-12-2022     | vóór 1-1-2023 | gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is.                                                                                      |
-      | 1-1-2023      | op 1-1-2023   | gezag kan niet worden bepaald omdat bij het bepalen van erkenning relevante gegevens ontbreken. Het gaat om de volgende gegevens: Geboortemoeder van bevraagde persoon niet te bepalen |
-      | 3-4-2024      | na 1-1-2023   | gezag kan niet worden bepaald omdat bij het bepalen van erkenning relevante gegevens ontbreken. Het gaat om de volgende gegevens: Geboortemoeder van bevraagde persoon niet te bepalen |
+      | geboortedatum | omschrijving  | toelichting                                                                                       |
+      | 1-12-2022     | vóór 1-1-2023 | gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is. |
+      
+    Abstract Scenario: Het kind is erkend als ongeboren vrucht <omschrijving>
+      Gegeven persoon 'Filip'
+      * is geboren op <geboortedatum>
+      * heeft 'Dirk' als ouder 2
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam                             | waarde                    |
+      | type                             | TweehoofdigOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000012 |
+      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000024 |
+
+      Voorbeelden:
+      | geboortedatum | omschrijving | toelichting                                                                                                                                                                            |
+      | 1-1-2023      | op 1-1-2023  | gezag kan niet worden bepaald omdat bij het bepalen van erkenning relevante gegevens ontbreken. Het gaat om de volgende gegevens: Geboortemoeder van bevraagde persoon niet te bepalen |
+      | 3-4-2024      | na 1-1-2023  | gezag kan niet worden bepaald omdat bij het bepalen van erkenning relevante gegevens ontbreken. Het gaat om de volgende gegevens: Geboortemoeder van bevraagde persoon niet te bepalen |
 
 
   Regel: Erkenning kan ook in historische categorie zitten en moet dan gebruikt worden
@@ -164,14 +185,13 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - erkenning" 
     
   Regel: Een onjuist en daarna gecorrigeerd gegeven wordt niet gebruikt
 
-    # Volgende feature geeft Internal Server Error
     Scenario: erkenning stond eerst geregistreerd na 1-1-2023 maar is gecorrigeerd naar een datum vóór 1-1-2023  
       Gegeven persoon 'Filip'
       * is geboren op 25-12-2022
       * is erkend door 'Dirk' als ouder 2 met erkenning na geboorteaangifte op 2-1-2023
       En zijn van ouder 2 de volgende gegevens gecorrigeerd
       | datum ingang familierechtelijke betrekking (62.10) | aktenummer (81.20) |
-      | 30-12-2022                                         | 1AC0100            |
+      | 20221230                                           | 1AC0100            |
       Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
@@ -184,14 +204,13 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - erkenning" 
       | minderjarige.burgerservicenummer | 000000036                 |
       | ouder.burgerservicenummer        | 000000012                 |
 
-    # Volgende feature geeft Internal Server Error
     Scenario: erkenning stond eerst geregistreerd als erkenning na geboorte na 1-1-2023 maar is gecorrigeerd naar erkenning bij geboorte vóór 1-1-2023  
       Gegeven persoon 'Filip'
       * is geboren op 25-12-2022
       * is erkend door 'Dirk' als ouder 2 met erkenning na geboorteaangifte op 2-1-2023
       En zijn van ouder 2 de volgende gegevens gecorrigeerd
       | datum ingang familierechtelijke betrekking (62.10) | aktenummer (81.20) |
-      | 25-12-2022                                         | 1AB0100            |
+      | 20221225                                           | 1AB0100            |
       Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
@@ -204,14 +223,13 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2a.3 - erkenning" 
       | minderjarige.burgerservicenummer | 000000036                 |
       | ouder.burgerservicenummer        | 000000012                 |
 
-    # Volgende feature geeft Internal Server Error
     Scenario: erkenning stond eerst geregistreerd als erkenning na geboorte voor 1-1-2023 maar is gecorrigeerd naar erkenning bij geboorte na 1-1-2023  
       Gegeven persoon 'Filip'
       * is geboren op 25-12-2022
       * is erkend door 'Dirk' als ouder 2 met erkenning na geboorteaangifte op 29-12-2022
       En zijn van ouder 2 de volgende gegevens gecorrigeerd
       | datum ingang familierechtelijke betrekking (62.10) | aktenummer (81.20) |
-      | 2-1-2023                                           | 1AB0100            |
+      | 20230102                                           | 1AB0100            |
       Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
