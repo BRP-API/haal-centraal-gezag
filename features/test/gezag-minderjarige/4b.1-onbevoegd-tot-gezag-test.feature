@@ -230,6 +230,103 @@ Functionaliteit: Als API tester wil ik controleren dat regel "4b.1 - ouder, echt
       | type                             | TijdelijkGeenGezag |
 
 
+  Regel: Als de ouder of partner van de ouder NAVO militair is, is er tijdelijk geen gezag voor de meerderjarige kinderen
+    Wanneer iemand NAVO militair is en niet de Nederlandse nationaliteit heeft, dan wordt via ministerieel besluit bijhouding opgeschort en wordt het adres volledig onbekend gemaakt.
+    Dit geldt dan voor de meerderjarige, de echtgenoot/geregistreerde partner en inwonende minderjarige kinderen.
+  
+    # Het volgende scenario levert TijdelijkGeenGezag. Ik denk dat deze onjuist is. De ouders hebben nog steeds gezag, alleen kunnen we dat niet meer bepalen.
+    # In dit voorbeeld is opschorting niet opgenomen voor de minderjarige, omdat er anders al bij vraag 1.2 uitval is (minderjarige wordt beschouwd als overleden)
+    # Deze situatie kan voorkomen wanneer de minderjarige niet inwoont bij de ouders
+    # Het scenario gaat er vanuit dat gezag niet te bepalen het juiste antwoord is (de toelichting heb ik zelf verzonnen).
+    Scenario: de ouder is NAVO militair en zodoende is bijhouding na ministerieel besluit opgeschort
+      Gegeven bijhouding van de persoonsgegevens van 'Lydie' is opgeschort met de volgende gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | gisteren - 1 jaar                    | M                                    |
+      En bijhouding van de persoonsgegevens van 'Hans' is opgeschort met de volgende gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | gisteren - 1 jaar                    | M                                    |
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam        | waarde                                                                     |
+      | type        | GezagNietTeBepalen                                                         |
+      | toelichting | gezag is niet te bepalen omdat minderjarige een diplomatieke status heeft. |
+
+
+  Regel: Als de ouder geëmigreerd is, dan kan er geen gezag bepaald worden
+
+    Abstract Scenario: <omschrijving>
+      Gegeven bijhouding van de persoonsgegevens van 'Lydie' is opgeschort met de volgende gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | gisteren - 1 jaar                    | <reden opschorting>                  |
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam        | waarde                                                                                                                                                                                                             |
+      | type        | GezagNietTeBepalen                                                                                                                                                                                                 |
+      | toelichting | gezag is niet te bepalen omdat bij het bepalen van huwelijk/partnerschap van de ouder(s) relevante gegevens ontbreken. Het gaat om de volgende gegevens: ouder1 van bevraagde persoon is niet in BRP geregistreerd |
+
+      Voorbeelden:
+      | reden opschorting | omschrijving                                                        |
+      | E                 | de ouder is zojuist geëmigreerd en nog niet ingeschreven in het RNI |
+      | R                 | de ouder is ingeschreven in het RNI                                 |
+
+    Abstract Scenario: <omschrijving>
+      Gegeven bijhouding van de persoonsgegevens van 'Lydie' is opgeschort met de volgende gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | gisteren - 1 jaar                    | <reden opschorting>                  |
+      Gegeven bijhouding van de persoonsgegevens van 'Hans' is opgeschort met de volgende gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | gisteren - 1 jaar                    | <reden opschorting>                  |
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam        | waarde                                                                                                                                                                                                             |
+      | type        | GezagNietTeBepalen                                                                                                                                                                                                 |
+      | toelichting | gezag is niet te bepalen omdat bij het bepalen van huwelijk/partnerschap van de ouder(s) relevante gegevens ontbreken. Het gaat om de volgende gegevens: ouder1 van bevraagde persoon is niet in BRP geregistreerd |
+
+      Voorbeelden:
+      | reden opschorting | omschrijving                                                                        |
+      | E                 | de ouder en de partner zijn zojuist geëmigreerd en nog niet ingeschreven in het RNI |
+      | R                 | de ouder en de partner zijn ingeschreven in het RNI                                 |
+
+
+  Regel: Als de partner van de ouder geëmigreerd is en de ouder zelf niet, dan is sprake van eenhoofdig ouderlijk gezag
+
+    Abstract Scenario: <omschrijving>
+      Gegeven bijhouding van de persoonsgegevens van 'Hans' is opgeschort met de volgende gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | gisteren - 1 jaar                    | <reden opschorting>                  |
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam                             | waarde                    |
+      | type                             | EenhoofdigOuderlijkGezag  |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | ouder.burgerservicenummer        | 000000012                 |
+
+      Voorbeelden:
+      | reden opschorting | omschrijving                                                                       |
+      | E                 | de partner van de ouder is zojuist geëmigreerd en nog niet ingeschreven in het RNI |
+      | R                 | de partner van de ouder is ingeschreven in het RNI                                 |
+
+  
   Regel: Als de ouder onder curatele staat en de partner van de ouder staat niet onder curatele, dan is sprake van voogdij
 
     Scenario: de ouder staat onder curatele
@@ -319,10 +416,9 @@ Functionaliteit: Als API tester wil ik controleren dat regel "4b.1 - ouder, echt
       | type                             | TijdelijkGeenGezag |
 
 
-  Regel: Wanneer de ouder en de partner van de ouder beide niet bevoegd tot gezag, dan is er tijdelijk geen gezag
+  Regel: Wanneer de ouder en de partner van de ouder beide niet bevoegd zijn tot gezag, dan is er tijdelijk geen gezag
 
-    Abstract Scenario: de ouder en de partner van de ouder staan beide onder curatele
-      Gegeven persoon 'Lydie'
+    Abstract Scenario: de ouder <gebeurtenis voor de ouder> en de partner van de ouder <gebeurtenis voor de partner>
       * <gebeurtenis voor de ouder>
       En persoon 'Hans'
       * <gebeurtenis voor de partner>
