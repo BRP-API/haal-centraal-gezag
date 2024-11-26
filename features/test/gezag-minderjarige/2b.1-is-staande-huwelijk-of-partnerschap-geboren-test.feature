@@ -211,3 +211,23 @@ Functionaliteit: Als API tester wil ik controleren dat regel "2b.1 - is staande 
       | type                             | EenhoofdigOuderlijkGezag  |
       | minderjarige.burgerservicenummer | 000000036                 |
       | ouder.burgerservicenummer        | 000000012                 |
+
+
+  Regel: Als de partner van de ouder niet staat in geschreven in de BRP of RNI, dan ...
+    Dit is het geval wanneer er wel een partner bij de ouder staat, maar zonder burgerservicenummer
+
+    Scenario: Ouder had bij geboorte van minderjarige partner die niet in de BRP of het RNI staat ingeschreven
+      Gegeven 'Saskia' is gehuwd met de volgende gegevens
+      | datum huwelijkssluiting/aangaan geregistreerd partnerschap (06.10) | geslachtsnaam (02.40) | geboortedatum (03.10) |
+      | 20221014                                                           | Serge                 | 20010928              |
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam        | waarde                                                                                                                               |
+      | type        | GezagNietTeBepalen                                                                                                                   |
+      | toelichting | Gezag is niet te bepalen, omdat de volgende relevante gegevens in onderzoek staan. Persoonslijst van ouder 1: ... |
+

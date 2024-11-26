@@ -3,12 +3,34 @@
 Functionaliteit: Als API tester wil ik controleren dat regels "1.3" voor uitsluiten gezag onder buitenlands recht correct werkt
   Wanneer een persoon verhuist naar een ander land, neemt deze het gezag mee naar het nieuwe land.
   Daarom is het gezag niet te bepalen van een minderjarige die uit een ander land  is geëmigreerd.
-  Er is dan immers niet duidelijk welk gezag de persoon in het andere land had en meegenomen heeft .
+  Er is dan immers niet duidelijk welk gezag de persoon in het andere land had en meegenomen heeft.
 
   Na immigratie (of remigratie) kan in Nederland (onder Nederlands recht) een beslissing worden genomen over gezag, 
   zoals adoptie of een gerechtelijke uitspraak over gezag.
 
-  Deze feature test de werking zoals beschreven in de afleidingsregels voor gezag
+  Alleen wanneer het gezag zeker onder Nederlands recht valt kan een gezaguitspraak gedaan worden.
+
+  Er zijn verschillende gebeurtenissen die hier relevant zijn:
+  1. geboren worden in Nederland en inschrijven als ingezetene
+  2. voor het eerst inschrijven als niet-ingezetene in het RNI (persoon verblijft buiten Nederland)
+  2. voor het eerst inschrijven als ingezetene in Nederland vanuit het buitenland (persoon is buiten Nederland geboren)
+  3. emigreren en inschrijven als niet-ingezetene in het RNI
+  4. herinschrijven als ingezetene in Nederland (persoon is geëmigreerd geweest)
+  5. adoptie in Nederland
+  6. gerechtelijke uitspraak tot gezag
+
+  Alleen de gebeurtenis die het laatste (meest recent) is gebeurd bepaalt of het gezag onder Nederlands recht valt 
+  of mogelijk onder buitenlands recht valt.
+
+  Voor het bepalen van de meest recente gebeurtenis wordt op datum gesorteerd, waarbij de volgende datums worden gebruikt:
+  1. Geboorte in Nederland: Geboortedatum
+  2. Inschrijving in het RNI: Datum eerste inschrijving BRP/RNI
+  3. Eerste inschrijving van in het buitenland geboren persoon: Datum vestiging in Nederland
+  4. Emigratie naar het buitenland: Datum aanvang adres buitenland
+  5. Herinschrijven van eerder geëmigreerd persoon: Datum vestiging in Nederland
+  6. Adoptie in Nederland: Datum ingang familierechtelijke betrekking bij de adoptieouder
+  7. Gerechtelijke uitspraak tot gezag: Datum ingang geldigheid van de gezagsverhouding
+
   
     Achtergrond:
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
@@ -18,7 +40,80 @@ Functionaliteit: Als API tester wil ik controleren dat regels "1.3" voor uitslui
       En 'Gerda' en 'Aart' zijn met elkaar gehuwd
 
 
-  Regel: Als minderjarige in Nederland is geboren en geëmigreerd is geweest, is het gezag niet te bepalen
+  Regel: Als de meest recente gebeurtenis is geboorte in Nederland, dan kan het gezag onder Nederlands recht worden bepaald
+    # Hoe werkt het als Nederlandse ouders bijv. op vakantie kind geboren wordt in het buitenland
+    # Maar het kind nooit in het buitenland gewoond heeft?
+    # Is geboorteland dus echt bepalend?
+
+
+  Regel: Als de persoon op dit moment ingeschreven staat in het RNI, dan is het gezag niet te bepalen
+
+    Scenario: Minderjarige is ingeschreven in het RNI en heeft nooit in Nederland verbleven
+
+    Scenario: Minderjarige is ingeschreven in het RNI na emigratie uit Nederland
+
+
+  Regel: Als de meest recente gebeurtenis is inschrijven vanuit het buitenland, dan is het gezag niet te bepalen
+
+    Scenario: Minderjarige is buiten Nederland geboren
+      Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
+      * is geboren in het buitenland
+      * is minderjarig
+      * heeft 'Gerda' als ouder 1
+      * heeft 'Aart' als ouder 2
+      * is op 15-5-2014 geïmmigreerd 
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam        | waarde                                                                                                               |
+      | type        | GezagNietTeBepalen                                                                                                   |
+      | toelichting | gezag is niet te bepalen omdat minderjarige in het buitenland is geboren en geen Nederlandse adoptie-akte bekend is. |
+
+    Scenario: Minderjarige is buiten Nederland geboren, is eerst ingeschreven in het RNI en daarna geëmigreerd naar Nederland
+      Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
+      * is geboren in het buitenland
+      * is minderjarig
+      * heeft 'Gerda' als ouder 1
+      * heeft 'Aart' als ouder 2
+      * is op 14-10-2011 ingeschreven in het RNI
+      * is op 15-5-2014 geïmmigreerd 
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam        | waarde                                                                                                               |
+      | type        | GezagNietTeBepalen                                                                                                   |
+      | toelichting | gezag is niet te bepalen omdat minderjarige in het buitenland is geboren en geen Nederlandse adoptie-akte bekend is. |
+
+    Scenario: Minderjarige is buiten Nederland geboren en is daarna geëmigreerd geweest
+      Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
+      * is geboren in het buitenland
+      * is minderjarig
+      * heeft 'Gerda' als ouder 1
+      * heeft 'Aart' als ouder 2
+      * is op 15-5-2014 geïmmigreerd 
+      * is op 14-10-2018 geëmigreerd
+      * is op 30-7-2023 geremigreerd 
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam        | waarde                                                                                                               |
+      | type        | GezagNietTeBepalen                                                                                                   |
+      | toelichting | gezag is niet te bepalen omdat minderjarige in het buitenland is geboren en geen Nederlandse adoptie-akte bekend is. |
+
+
+  Regel: Als de meest recente gebeurtenis is herinschrijven in Nederland na emigratie, dan is het gezag niet te bepalen
 
     Scenario: Minderjarige is in Nederland geboren en heeft nooit in het buitenland verbleven
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
@@ -64,48 +159,7 @@ Functionaliteit: Als API tester wil ik controleren dat regels "1.3" voor uitslui
       | toelichting | gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven. |
 
 
-  Regel: Als minderjarige in het buitenland is geboren, is het gezag niet te bepalen
-
-    Scenario: Minderjarige is buiten Nederland geboren
-      Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
-      * is geboren in het buitenland
-      * is minderjarig
-      * heeft 'Gerda' als ouder 1
-      * heeft 'Aart' als ouder 2
-      * is op 15-5-2014 geïmmigreerd 
-      Als gezag wordt gezocht met de volgende parameters
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      Dan heeft de response een persoon met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                                                               |
-      | type        | GezagNietTeBepalen                                                                                                   |
-      | toelichting | gezag is niet te bepalen omdat minderjarige in het buitenland is geboren en geen Nederlandse adoptie-akte bekend is. |
-
-    Scenario: Minderjarige is buiten Nederland geboren en is daarna geëmigreerd geweest
-      Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
-      * is geboren in het buitenland
-      * is minderjarig
-      * heeft 'Gerda' als ouder 1
-      * heeft 'Aart' als ouder 2
-      * is op 15-5-2014 geïmmigreerd 
-      * is op 14-10-2018 geëmigreerd
-      * is op 30-7-2023 geremigreerd 
-      Als gezag wordt gezocht met de volgende parameters
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      Dan heeft de response een persoon met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                                                               |
-      | type        | GezagNietTeBepalen                                                                                                   |
-      | toelichting | gezag is niet te bepalen omdat minderjarige in het buitenland is geboren en geen Nederlandse adoptie-akte bekend is. |
-
-
-  Regel: Als een minderjarige in het buitenland is geboren en daarna is geadopteerd, is het gezag wel te bepalen
+  Regel: Als de meest recente gebeurtenis is adoptie in Nederland, dan kan het gezag onder Nederlands recht worden bepaald
 
     Scenario: Minderjarige is buiten Nederland geboren en is geadopteerd met Nederlandse akte
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
@@ -210,7 +264,7 @@ Functionaliteit: Als API tester wil ik controleren dat regels "1.3" voor uitslui
       | toelichting | gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven. |
 
 
-  Regel: Een gerechtelijke uitspraak over gezag leidt niet tot kunnen doen van een uitspraak over gezag voor een minderjarige die in het buitenland geboren is
+  Regel: Als de meest recente gebeurtenis is een gerechtelijke uitspraak over gezag, dan kan het gezag onder Nederlands recht worden bepaald
 
     # Het volgende scenario toont verwachte uitkomst volgens afleidingsregels (stroomschema).
     # Maar ik denk dat dit niet correct is. Ik had hier verwacht dat gezag wel te bepalen is.

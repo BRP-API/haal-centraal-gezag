@@ -303,7 +303,7 @@ Functionaliteit: Als API tester wil ik controleren dat regel "4b.1 - ouder, echt
       | R                 | de ouder en de partner zijn ingeschreven in het RNI                                 |
 
 
-  Regel: Als de partner van de ouder geëmigreerd is en de ouder zelf niet, dan is sprake van eenhoofdig ouderlijk gezag
+  Regel: Als de partner van de ouder geëmigreerd is of nooit in Nederland gewoond heeft en de ouder zelf niet, dan is sprake van eenhoofdig ouderlijk gezag
 
     Abstract Scenario: <omschrijving>
       Gegeven bijhouding van de persoonsgegevens van 'Hans' is opgeschort met de volgende gegevens
