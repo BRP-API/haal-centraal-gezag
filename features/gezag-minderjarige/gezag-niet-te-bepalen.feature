@@ -1,70 +1,38 @@
 #language: nl
 
-Functionaliteit: Als gebruiker wil ik alleen een gezaguitspraak krijgen wanneer die met zekerheid te bepalen is
-
+Functionaliteit: Gezag is niet te bepalen over een minderjarige die mogelijk niet onder Nederlands valt
   Gezag is alleen met zekerheid te bepalen wanneer het gezag van de minderjarige onder Nederlands recht wordt bepaald.
 
   Wanneer een minderjarige verhuist naar een ander land, neemt deze het gezag mee naar het nieuwe land.
-  Daarom is het gezag niet te bepalen van een minderjarige die uit een ander land is geimmigreerd.
+  Daarom is het gezag niet te bepalen van een minderjarige die uit een ander land is geïmmigreerd.
   Bij de Nederlandse overheid is niet bekend welk gezag de minderjarige uit het buitenland heeft meegenomen.
 
 
-    Achtergrond:
-      Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
-      * is meerderjarig
-      En de persoon 'Aart' met burgerservicenummer '000000024'
-      * is meerderjarig
-      En 'Gerda' en 'Aart' zijn met elkaar gehuwd
-
-
-  Regel: Gezag is niet te bepalen als de minderjarige in het RNI staat ingeschreven
+  Regel: Gezag is niet te bepalen als de minderjarige in de RNI staat ingeschreven
 
     Scenario: Minderjarige verblijft in het buitenland
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
-      * is ingeschreven in de RNI
-      Als gezag wordt gezocht met de volgende parameters
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      Dan heeft de response een persoon met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                            |
-      | type        | GezagNietTeBepalen                                                                |
-      | toelichting | gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont. |
+      * is ingeschreven in de RNI met een verblijfplaats in België
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'GezagNietTeBepalen' 
+      * met toelichting 'gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
     Scenario: Minderjarige verblijft tijdelijk in Nederland
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
-      * is ingeschreven in de RNI
-      # En heeft een tijdelijk verblijfsadres in Nederland
-      Als gezag wordt gezocht met de volgende parameters
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      Dan heeft de response een persoon met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                            |
-      | type        | GezagNietTeBepalen                                                                |
-      | toelichting | gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont. |
+      * is ingeschreven in de RNI met een tijdelijk verblijfsadres in Nederland
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'GezagNietTeBepalen' 
+      * met toelichting 'gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
     Scenario: Verblijfplaats van minderjarige is onbekend
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
-      * is ingeschreven in de RNI
-      # heeft een volledig onbekende verblijfplaats
-      Als gezag wordt gezocht met de volgende parameters
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      Dan heeft de response een persoon met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                            |
-      | type        | GezagNietTeBepalen                                                                |
-      | toelichting | gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont. |
+      * is ingeschreven in de RNI met een volledig onbekende verblijfplaats
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'GezagNietTeBepalen' 
+      * met toelichting 'gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
   
   Regel: Gezag is niet te bepalen als is vastgesteld dat de minderjarige niet meer op het geregistreerde adres woont, dan is het gezag niet te bepalen
@@ -72,40 +40,94 @@ Functionaliteit: Als gebruiker wil ik alleen een gezaguitspraak krijgen wanneer 
     Scenario: Er is vastgesteld dat de minderjarige niet meer op het adres verblijft
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
-      * is ingeschreven in de BRP
+      * is ingeschreven in een Nederlandse gemeente
       En er loopt onderzoek waarin is vastgesteld dat de minderjarige niet op het adres verblijft
-      Als gezag wordt gezocht met de volgende parameters
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      Dan heeft de response een persoon met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                                                 |
-      | type        | GezagNietTeBepalen                                                                                     |
-      | toelichting | gezag is niet te bepalen omdat is vastgesteld dat minderjarige niet op het geregistreerde adres woont. |
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'GezagNietTeBepalen' 
+      * met toelichting 'gezag is niet te bepalen omdat is vastgesteld dat minderjarige niet op het geregistreerde adres woont.'
 
 
   Regel: Gezag is niet te bepalen als de meest recente gebeurtenis voor gezag vestiging van minderjarige in Nederland vanuit het buitenland is
 
-    Scenario: Minderjarige is geïmmigreerd naar Nederland
+    Scenario: Minderjarige is geboren in het buitenland en geïmmigreerd naar Nederland
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
-      * is ingeschreven in de RNI
-      En is op 15-5-2014 geïmmigreerd 
-      Als gezag wordt gezocht met de volgende parameters
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      Dan heeft de response een persoon met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000036 |
-      En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam        | waarde                                                                        |
-      | type        | GezagNietTeBepalen                                                            |
-      | toelichting | gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven. |
+      * is geboren in België
+      En is op 15-5-2014 geïmmigreerd
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'GezagNietTeBepalen' 
+      * met toelichting 'gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven.'
+
+    Scenario: Minderjarige is geëmigreerd geweest
+      Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
+      * is minderjarig
+      En 'Bert' is 1 jaar geleden geëmigreerd naar België
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'GezagNietTeBepalen' 
+      * met toelichting 'gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven.'
 
 
-  Regel: Gezag kan worden bepaald als de meest recente gebeurtenis voor gezag adoptie van de minderjarige met Nederlandse akte is
+  Regel: Gezag kan worden bepaald als de meest recente gebeurtenis voor gezag adoptie van de minderjarige in Nederland
+
+    Scenario: Minderjarige is geïmmigreerd naar Nederland en daarna geadopteerd in Nederland
+      Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
+      * is meerderjarig
+      En de persoon 'Aart' met burgerservicenummer '000000024'
+      * is meerderjarig
+      En de persoon 'Bert' met burgerservicenummer '000000036'
+      * is minderjarig
+      * is ingeschreven in een Nederlandse gemeente
+      En 'Bert' is 1 jaar geleden geïmmigreerd naar Nederland
+      En 'Bert' is vorige maand geadopteerd in Nederland door 'Gerda' en 'Aart'
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'TweehoofdigOuderlijkGezag'
+      * met ouders 'Gerda' en 'Aart'
+
+    Scenario: Minderjarige is geadopteerd in Nederland en daarna geëmigreerd geweest
+      Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
+      * is meerderjarig
+      En de persoon 'Aart' met burgerservicenummer '000000024'
+      * is meerderjarig
+      En de persoon 'Bert' met burgerservicenummer '000000036'
+      * is minderjarig
+      * is ingeschreven in een Nederlandse gemeente
+      En 'Bert' is 2 jaar geleden geadopteerd in Nederland door 'Gerda' en 'Aart'
+      En 'Bert' is 1 jaar geleden geëmigreerd naar België
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'GezagNietTeBepalen' 
+      * met toelichting 'gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven.'
 
 
   Regel: Gezag kan worden bepaald als de meest recente gebeurtenis voor gezag een gerechtelijke uitspraak over het gezag van minderjarige is
+
+    Scenario: Minderjarige is geïmmigreerd naar Nederland en daarna geadopteerd in Nederland
+      Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
+      * is meerderjarig
+      En de persoon 'Aart' met burgerservicenummer '000000024'
+      * is meerderjarig
+      En de persoon 'Bert' met burgerservicenummer '000000036'
+      * is minderjarig
+      * is ingeschreven in een Nederlandse gemeente
+      * heeft 'Gerda' en 'Aart' als ouders
+      En 'Bert' is 1 jaar geleden geïmmigreerd naar Nederland
+      En er is vorige maand een gerechtelijke uitspraak over het gezag geweest waarbij het gezag over 'Bert' is toegewezen aan 'Gerda'
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'EenhoofdigOuderlijkGezag'
+      * met ouder 'Gerda'
+
+    Scenario: Minderjarige is geadopteerd in Nederland en daarna geëmigreerd geweest
+      Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
+      * is meerderjarig
+      En de persoon 'Aart' met burgerservicenummer '000000024'
+      * is meerderjarig
+      En de persoon 'Bert' met burgerservicenummer '000000036'
+      * is minderjarig
+      * is ingeschreven in een Nederlandse gemeente
+      En er is 2 jaar geleden een gerechtelijke uitspraak over het gezag geweest waarbij het gezag over 'Bert' is toegewezen aan 'Gerda'
+      En 'Bert' is 1 jaar geleden geëmigreerd naar België
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Dan is het antwoord 'GezagNietTeBepalen' 
+      * met toelichting 'gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven.'
