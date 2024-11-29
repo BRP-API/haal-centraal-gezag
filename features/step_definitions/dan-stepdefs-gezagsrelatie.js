@@ -33,3 +33,9 @@ Then(/^heeft de persoon geen gezag$/, function () {
 Then(/^heeft ?(?:het)? 'gezag' geen derden$/, function () {
     createSubSubCollectieObjectenInLastSubCollectieObjectInLastCollectieObject(this.context, 'persoon', 'gezag', 'derde');
 });
+
+Then(/^heeft deze persoon geen gezaghouder$/, function () {
+    this.context.verifyResponse = true;
+
+    createCollectieObjectMetSubCollectieObject(this.context, 'persoon', 'gezag');
+});
