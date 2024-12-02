@@ -1,6 +1,6 @@
 #language: nl
 
-Functionaliteit: Gezag bepalen voor een minderjarige met twee ouders die na de geboorte van het kind getrouwd zijn of waren of partnerschap hebben of hadden
+Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders die na de geboorte van het kind getrouwd zijn of waren of partnerschap hebben of hadden
     
     
     Achtergrond:
