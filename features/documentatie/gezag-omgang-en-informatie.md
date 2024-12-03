@@ -74,7 +74,7 @@ De vader van een kind is volgens de wet:
 - De man van wie het ouderschap gerechtelijk is vastgesteld.
 Met niet-ouder bedoelen we de partner van één van de ouders, of een voogd.
 
-## 3 [Ouderlijk gezag door één of twee ouders](gezag-omgang-en-informatie.md)
+## 3 [Ouderlijk gezag door één of twee ouders](ouderlijk-gezag-door-een-of-twee-ouders.feature)
 
 Ouderlijk gezag is het gezag van ouders over hun kinderen. Ouders moeten hun kinderen verzorgen en opvoeden. Ze zijn
 wettelijk vertegenwoordiger van het kind en beheren het geld en de spullen. Ook hebben ze een onderhoudsplicht totdat de
