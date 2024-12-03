@@ -70,3 +70,6 @@ Functionaliteit: Gezag niet te bepalen wanneer gegeven in onderzoek dat gebruikt
       | 010310     | geboortedatum     | Persoonslijst van persoon: geboortedatum van persoon                           |
       | 010330     | geboorteland      | Persoonslijst van persoon: geboorteland van persoon                            |
       | 010300     | groep geboorte    | Persoonslijst van persoon: geboortedatum van persoon, geboorteland van persoon |
+
+
+  # To Do: in onderzoek historische categorie persoon
