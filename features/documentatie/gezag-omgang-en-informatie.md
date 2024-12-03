@@ -74,17 +74,19 @@ De vader van een kind is volgens de wet:
 - De man van wie het ouderschap gerechtelijk is vastgesteld.
 Met niet-ouder bedoelen we de partner van één van de ouders, of een voogd.
 
-## 3 [Ouderlijk gezag door één of twee ouders](ouderlijk-gezag-door-een-of-twee-ouders.feature)
+## 3 Ouderlijk gezag door één of twee ouders
 
 Ouderlijk gezag is het gezag van ouders over hun kinderen. Ouders moeten hun kinderen verzorgen en opvoeden. Ze zijn
 wettelijk vertegenwoordiger van het kind en beheren het geld en de spullen. Ook hebben ze een onderhoudsplicht totdat de
 kinderen 21 jaar worden.
 
-### Bent u getrouwd of hebt u een geregistreerd partnerschap?
+### [Bent u getrouwd of hebt u een geregistreerd partnerschap?](getrouwd-of-een-geregistreerd-partnerschap.feature)
 Als u getrouwd bent, hebt u als ouders samen het gezag over uw kinderen. Heeft u een geregistreerd partnerschap, dan
 heeft u als ouders ook samen het gezag.
 
-### Gaat u scheiden of uit elkaar?
+[Bekijk voorbeelden van deze situatie](getrouwd-of-een-geregistreerd-partnerschap.feature)
+
+### [Gaat u scheiden of uit elkaar?](scheiden-of-uit-elkaar.feature)
 Dan houdt u samen het gezag. Wilt u dit niet? Dan moet u aan de rechter vragen of één van u het gezag kan krijgen. 
 Hiervoor hebt u een advocaat nodig. U kunt samen of alleen aan de rechter vragen of één van u het gezag kan krijgen. 
 De rechter zal dit alleen in bijzondere situaties toestaan.
@@ -92,6 +94,8 @@ De rechter zal dit alleen in bijzondere situaties toestaan.
 Houdt u wel samen het gezag? Dan blijft u gezamenlijk verantwoordelijk voor de kinderen. U maakt samen afspraken over de 
 opvoeding. Ook belangrijke beslissingen over het kind neemt u samen. Al die afspraken komen in het ouderschapsplan. 
 Komt u er samen niet uit? Dan kunt u de rechter vragen om een beslissing te nemen.
+
+[Bekijk voorbeelden van deze situatie](scheiden-of-uit-elkaar.feature)
 
 #### Krijgt één van u het gezag?
 Vraagt u aan de rechter of één van u het gezag kan krijgen? Dan bepaalt de rechter wie van u het gezag krijgt. Hebt u meerdere 
