@@ -573,6 +573,21 @@ Given(/^is ingeschreven in de RNI$/, function () {
     );
 });
 
+Given(/^is ingeschreven in de RNI met een verblijfplaats in België$/, function () {
+    const codeVanGemeente = '1999';
+    const codeVanLand = '5010';
+
+    gegevenPersoonIsIngeschrevenInGemeente(
+        this.context,
+        undefined,
+        arrayOfArraysToDataTable([
+            ['gemeente van inschrijving (09.10)', codeVanGemeente],
+            ['land adres buitenland (13.10)', codeVanLand]
+        ])
+    );
+});
+
+
 Given(/^is ingeschreven in de RNI met de volgende gegevens$/, function (dataTable) {
     gegevenPersoonIsIngeschrevenInGemeente(this.context, undefined, dataTable);
 });
