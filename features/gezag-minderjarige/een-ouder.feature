@@ -42,7 +42,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met één juridische ouder
       * met derde 'Aart'
 
 
-  Regel: Als de minderjarige één juridische ouder heeft en het kind is niet staande huwelijk of partnerschap geboren, dan heeft de ouder eenhoofdig ouderlijk gezag
+  Regel: Als de minderjarige niet tijdens een huwelijk of partnerschap van de juridische ouder geboren is, dan heeft de ouder eenhoofdig ouderlijk gezag
 
     Scenario: De ouder is alleenstaand
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
