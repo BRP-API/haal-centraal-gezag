@@ -17,18 +17,18 @@ Daarna leest u wat er gebeurt na een scheiding en hoe een procedure bij de recht
 Waar in de tekst van dit informatieblad ‘hij’ staat, kunt u ook ‘zij’ lezen.
 
 In dit document
-1 [Wat is gezag?](#wat-is-gezag?)
-2 [Wat bedoelen we met ouders?](#wat-bedoelen-we-met-ouders?)
-3 [Ouderlijk gezag door één of twee ouders](#ouderlijk-gezag-door-een-of-twee-ouders)
-4 [Gezamenlijk gezag van ouder en niet-ouder](#gezamelijk-gezag-van-ouder-en-niet-ouder)
-5 [Voogdij](#voogdij)
-6 [Gezamenlijke voogdij](#gezamenlijke-voogdij)
-7 [Wat gebeurt er als u geen gezag (meer) hebt over uw kind?](#wat-gebeurt-er-als-u-geen-gezag-meer-hebt-over-uw-kind?)
-8 [Na een scheiding: omgang en informatie](#na-een-scheiding:-omgang-en-informatie)
-9 [Hoe gaat een procedure bij de rechtbank?](#hoe-gaat-een-procedure-bij-de-rechtbank?)
-10 [Hoeveel kost een procedure?](#hoeveel-kost-een-procedure?)
-11 [Waar kunt u terecht als u vragen hebt?](#waar-kunt-u-terecht-als-u-vragen-hebt?)
-12 [Waar kunt u terecht voor meer informatie of hulp?](#waar-kunt-u-terecht-voor-meer-informatie-of-hulp?)
+1. [Wat is gezag?](#1-wat-is-gezag?)
+2. [Wat bedoelen we met ouders?](#wat-bedoelen-we-met-ouders?)
+3. [Ouderlijk gezag door één of twee ouders](#ouderlijk-gezag-door-een-of-twee-ouders)
+4. [Gezamenlijk gezag van ouder en niet-ouder](#gezamelijk-gezag-van-ouder-en-niet-ouder)
+5. [Voogdij](#voogdij)
+6. [Gezamenlijke voogdij](#gezamenlijke-voogdij)
+7. [Wat gebeurt er als u geen gezag (meer) hebt over uw kind?](#wat-gebeurt-er-als-u-geen-gezag-meer-hebt-over-uw-kind?)
+8. [Na een scheiding: omgang en informatie](#na-een-scheiding-omgang-en-informatie)
+9. [Hoe gaat een procedure bij de rechtbank?](#hoe-gaat-een-procedure-bij-de-rechtbank?)
+10. [Hoeveel kost een procedure?](#hoeveel-kost-een-procedure?)
+11. [Waar kunt u terecht als u vragen hebt?](#waar-kunt-u-terecht-als-u-vragen-hebt?)
+12. [Waar kunt u terecht voor meer informatie of hulp?](#waar-kunt-u-terecht-voor-meer-informatie-of-hulp?)
 
 ## 1 Wat is gezag?
 
