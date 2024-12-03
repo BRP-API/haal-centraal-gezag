@@ -2,20 +2,25 @@
 
 Functionaliteit: Over meerderjarige of overleden personen wordt geen gezag geleverd
 
+Achtergrond:
+ Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
+  * is meerderjarig
+  * is in Nederland geboren
+  * is ingeschreven in de BRP
+  Dan heeft de response een persoon met de volgende gegevens
+    | naam                | waarde    |
+    | burgerservicenummer | 000000036 |
 
   Regel: Als de persoon meerderjarig is, dan is er geen sprake van gezag
 
     Scenario: De persoon is meerderjarig
-      Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
-      * is meerderjarig
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan heeft deze persoon geen gezaghouder
-
 
   Regel: Als de persoon overleden is, dan is er geen sprake van gezag
 
     Scenario: De persoon is overleden
-      Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
+      Gegeven persoon 'Bert'
       * is overleden
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan heeft deze persoon geen gezaghouder
