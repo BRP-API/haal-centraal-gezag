@@ -14,7 +14,8 @@ const { createPersoon,
         wijzigVerblijfplaats,
         aanvullenInschrijving,
         createOverlijden,
-        wijzigOverlijden
+        wijzigOverlijden,
+        aanvullenCategorie
 } = require('./persoon-2');
 const { toDbColumnName } = require('./brp');
 
@@ -249,6 +250,21 @@ Given(/^curatele onderzoek met aanduiding '(.*)' is beëindigd/, function (aandu
             ['indicatie curateleregister (33.10)', '1']
         ])
     );
+});
+
+Given(/^er loopt onderzoek naar de (.*) gegevens met aanduiding '(.*)'/, function (categorie, aanduidingOnderzoek) {
+    const onderzoekGegevens = arrayOfArraysToDataTable([
+        ['aanduiding in onderzoek (83.10)', aanduidingOnderzoek.toString()],
+        ['datum ingang onderzoek (83.20)', 'gisteren - 1 jaar']
+    ])
+    const persoon = getPersoon(this.context, undefined)
+
+    aanvullenCategorie(persoon, categorie, onderzoekGegevens)
+    
+    switch (categorie) {
+        case 'persoon': aanvullenPersoon(persoon, onderzoekGegevens); break;
+        case 'verblijfplaats': aanvullenCategorie(persoon, categorie, onderzoekGegevens); break;
+    }
 });
 
 Given(/^(?:'(.*)' )?is overleden$/, function (aanduiding) {

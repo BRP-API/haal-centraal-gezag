@@ -60,6 +60,10 @@ function aanvullenPartner(persoon, dataTable) {
     mapDataTableToEntiteit(persoon.partner.at(-1), dataTable);
 }
 
+function aanvullenCategorie(persoon, categorie, dataTable) {
+    mapDataTableToEntiteit(persoon[categorie].at(-1), dataTable);
+}
+
 function aanvullenGezagsverhouding(persoon, dataTable) {
     if(!persoon.gezagsverhouding) {
         persoon.gezagsverhouding = [];
@@ -241,5 +245,6 @@ module.exports = {
     wijzigVerblijfplaats,
     createOverlijden,
     wijzigOverlijden,
-    aanvullenInschrijving
+    aanvullenInschrijving,
+    aanvullenCategorie
 }
