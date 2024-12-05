@@ -35,7 +35,7 @@ Functionaliteit: Gezag is niet te bepalen over een minderjarige die mogelijk nie
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
       * is ingeschreven in een Nederlandse gemeente
-      En er loopt onderzoek waarin is vastgesteld dat de minderjarige niet op het adres verblijft
+      de gemeente heeft vastgesteld dat de minderjarige niet op het adres verblijft
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan is het gezag voor 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat is vastgesteld dat minderjarige niet op het geregistreerde adres woont.'
 
