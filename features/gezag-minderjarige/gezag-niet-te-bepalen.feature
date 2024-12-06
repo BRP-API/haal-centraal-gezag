@@ -127,6 +127,6 @@ Functionaliteit: Gezag is niet te bepalen over een minderjarige die mogelijk nie
     Scenario: Minderjarige is geboren na 1 januari 2023 en is als ongeboren vrucht erkend door andere ouder die niet in Nederland staat ingeschreven
       Gegeven 'Bert' is gisteren geboren
       * heeft 'Gerda' als ouder
-      * heeft 'Luciano' als niet ingeschreven ouder
+      * heeft 'Luciano' als ouder die niet met burgerservicenummer is ingeschreven in de BRP
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'Gezag is niet te bepalen omdat de gegevens van een ouder niet worden bijgehouden.'
