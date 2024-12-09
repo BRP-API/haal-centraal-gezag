@@ -1,6 +1,8 @@
 # language: nl
 
-Functionaliteit: gezag scenarios bij getrouwd zijn of geregistreerd partnerschap hebben
+Functionaliteit: gezag scenarios bij getrouwd zijn of een geregistreerd partnerschap hebben
+
+  Onderstaand vindt u uitgewerkte scenarios die van toepassing zijn bij de bepaling van gezag binnen een huwelijk of geregistreerd partnerschap. 
 
   Scenario: wanneer een kind geboren is tijdens het huwelijk van twee ouders hebben beide ouders gezag over het kind 
     Gegeven de persoon 'Hendrik' met burgerservicenummer '000000012'
