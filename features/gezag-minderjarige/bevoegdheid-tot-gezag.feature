@@ -26,7 +26,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
       En 'Gerda' staat onder curatele
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Aart'
 
 
