@@ -18,7 +18,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige waarover gerechtelijke uits
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
       En in een gerechtelijke uitspraak is het gezag toegewezen aan 'Aart'
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Aart'
 
 
@@ -29,7 +29,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige waarover gerechtelijke uits
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
       En in een gerechtelijke uitspraak is het gezag toegewezen beide ouders
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
 
@@ -40,7 +40,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige waarover gerechtelijke uits
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
       En in een gerechtelijke uitspraak is het gezag toegewezen aan een voogdijinstelling
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' voogdij
 
     Scenario: het gezag is toegewezen aan een derde
@@ -48,7 +48,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige waarover gerechtelijke uits
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
       En in een gerechtelijke uitspraak is het gezag toegewezen aan een derde
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' voogdij
 
 
@@ -59,5 +59,5 @@ Functionaliteit: Gezag bepalen voor een minderjarige waarover gerechtelijke uits
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
       En in een gerechtelijke uitspraak is het gezag toegewezen aan ouder 'Gerda' en een derde
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' gezamenlijk gezag met ouder 'Gerda'

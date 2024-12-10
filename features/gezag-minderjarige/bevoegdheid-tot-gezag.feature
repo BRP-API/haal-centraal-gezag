@@ -38,7 +38,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       * heeft 'Aart' als ouder
       En 'Gerda' <bevoegdheid Gerda>
       En 'Aart' <bevoegdheid Aart>
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is er tijdelijk geen gezag over 'Bert' met de toelichting '<toelichting>'
 
       Voorbeelden:
@@ -57,7 +57,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       En 'Gerda' is overleden
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat de ouder overleden is'
 
 
@@ -69,7 +69,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       * is geboren op 1-1-2012
       * heeft 'Gerda' als ouder
       En 'Gerda' staat onder curatele
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' voogdij met derde 'Ariana'
 
 
@@ -81,7 +81,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       * heeft 'Aart' als ouder
       En in een gerechtelijke uitspraak is het gezag toegewezen aan ouder 'Gerda' en een derde
       En 'Gerda' is overleden
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' voogdij
 
 
@@ -93,7 +93,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       * is geboren op 1-1-2012
       * heeft 'Gerda' als ouder
       En 'Ariana' staat onder curatele
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
 
@@ -106,5 +106,5 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       * heeft 'Gerda' als ouder
       En 'Gerda' staat onder curatele
       En 'Ariana' staat onder curatele
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat beide ouders onder curate staan'

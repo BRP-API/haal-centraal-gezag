@@ -14,27 +14,27 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
     Scenario: Beide ouders zijn getrouwd voor geboorte van het kind en zijn dat nog steeds
       Gegeven 'Bert' is 7 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 8 jaar geleden getrouwd
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Scenario: Beide ouders zijn getrouwd na geboorte van het kind en zijn dat nog steeds
       Gegeven 'Bert' is 7 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 5 jaar geleden getrouwd
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Scenario: Beide ouders waren getrouwd voor geboorte van het kind en zijn na geboorte gescheiden
       Gegeven 'Bert' is 7 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 8 jaar geleden getrouwd
       En 'Gerda' en 'Bert' zijn 2 jaar geleden gescheiden
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Scenario: Beide ouders waren getrouwd na geboorte van het kind en zijn na geboorte gescheiden
       Gegeven 'Bert' is 7 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 5 jaar geleden getrouwd
       En 'Gerda' en 'Bert' zijn 2 jaar geleden gescheiden
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Scenario: Beide ouders zijn met elkaar getrouwd en een ouder is geëmigreerd
@@ -43,5 +43,5 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       En 'Gerda' en 'Aart' zijn met elkaar gehuwd
       En persoon 'Aart'
       * is ingeschreven in de RNI met een verblijfplaats in Italië
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'

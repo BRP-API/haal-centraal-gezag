@@ -13,13 +13,13 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
 
     Scenario: Minderjarige is geadopteerd door beide ouders
       Gegeven 'Bert' is geadopteerd door 'Gerda' en 'Aart'
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Scenario: Minderjarige is geadopteerd door de stiefouder
       Gegeven 'Gerda' is ouder van 'Bert'
       En 'Bert' is geadopteerd door 'Aart'
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
 
@@ -28,14 +28,14 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
     Scenario: Minderjarige is als ongeboren vrucht erkend na 1 januari 2023
       Gegeven 'Bert' is gisteren geboren
       * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Scenario: Minderjarige is erkend na 1 januari 2023
       Gegeven 'Bert' is geboren op 29-12-2022
       * heeft 'Gerda' als ouder vanaf de geboortedatum
       En 'Bert' is erkend door 'Aart' op 3-1-2023
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
 
@@ -45,7 +45,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       Gegeven 'Bert' is geboren op 30-11-2022
       * heeft 'Gerda' als ouder vanaf de geboortedatum
       En 'Bert' is erkend door 'Aart' op 29-12-2022
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
     Scenario: Minderjarige is als ongeboren vrucht erkend voor 1 januari 2023
@@ -55,7 +55,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       * is een man
       En 'Bert' is geboren op 30-11-2022
       * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
     Scenario: Minderjarige is geboren voor 1 januari 2023 en is als ongeboren vrucht erkend door andere ouder
@@ -66,5 +66,5 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       * is een vrouw
       En 'Bert' is geboren op 30-11-2022
       * heeft 'Ariana' en 'Gerda' als ouders vanaf de geboortedatum
-      Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
+      Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is.'
