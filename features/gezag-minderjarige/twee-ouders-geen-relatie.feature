@@ -39,9 +39,9 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
 
-  Regel: Als de minderjarige is erkend voor 1 januari 2023 dan heeft de geboortemoeder eenhoofdig ouderlijk gezag
+  Regel: Als de ouders na de geboorte van minderjarige niet met elkaar gehuwd zijn (geweest) en geen partnerschap hebben (gehad) en de minderjarige is erkend voor 1 januari 2023 dan heeft de geboortemoeder eenhoofdig ouderlijk gezag
 
-    Scenario: Minderjarige is erkend voor 1 januari 2023
+    Scenario: Ouders zijn nooit met elkaar getrouwd geweest en minderjarige is erkend voor 1 januari 2023
       Gegeven 'Bert' is geboren op 30-11-2022
       * heeft 'Gerda' als ouder vanaf de geboortedatum
       En 'Bert' is erkend door 'Aart' op 29-12-2022
@@ -49,17 +49,30 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
     Scenario: Minderjarige is als ongeboren vrucht erkend voor 1 januari 2023
-      Gegeven de persoon 'Gerda'
+      Gegeven persoon 'Gerda'
       * is een vrouw
-      En de persoon 'Aart'
+      En persoon 'Aart'
       * is een man
       En 'Bert' is geboren op 30-11-2022
       * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
+    Scenario: Ouders waren met elkaar getrouwd en zijn voor geboorte van de minderjarige gescheiden
+      Gegeven persoon 'Gerda'
+      * is een vrouw
+      En persoon 'Aart'
+      * is een man
+      En 'Gerda' en 'Aart' zijn op 1-6-2015 getrouwd
+      En 'Gerda' en 'Bert' zijn op 1-7-2020 gescheiden
+      En persoon 'Bert'
+      * is geboren op 30-11-2022
+      * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
+
     Scenario: Minderjarige is geboren voor 1 januari 2023 en is als ongeboren vrucht erkend door andere ouder
-      Gegeven de persoon 'Gerda'
+      Gegeven persoon 'Gerda'
       * is een vrouw
       En de persoon 'Ariana' met burgerservicenummer '000000024'
       * is meerderjarig

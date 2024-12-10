@@ -11,6 +11,15 @@ Functionaliteit: Gezag bepalen voor een minderjarige waarover gerechtelijke uits
     En de persoon 'Bert' met burgerservicenummer '000000036'
     * is minderjarig
 
+  Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, en de ouders zijn daarna met elkaar hertrouwd, dan is er tweehoofdig ouderlijk gezag
+
+
+  Regel: Als er een gerechtelijke uitspraak is, en daarna is de minderjarige geadopteerd, dan wordt het gezag bepaald van rechtswege
+
+
+  Regel: Als er een gerechtelijke uitspraak is dat één ouder of beide ouders gezag hebben, en het ouderschap is ontkend, dan heeft de overgebleven ouder eenhoofdig ouderlijk gezag
+
+
   Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, dan is er eenhoofdig ouderlijk gezag
 
     Scenario: het gezag is toegewezen aan één van de twee ouders
@@ -61,3 +70,14 @@ Functionaliteit: Gezag bepalen voor een minderjarige waarover gerechtelijke uits
       En in een gerechtelijke uitspraak is het gezag toegewezen aan ouder 'Gerda' en een derde
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' gezamenlijk gezag met ouder 'Gerda'
+
+
+
+  1. geen gezag
+  2. gezag niet te bepalen
+  3. is er een nu geldige gerechtelijke spraak
+    3a. gerechtelijke uitspraak
+    3b. geboorte minderjarige, adoptie, hertrouwen of ontkenning >>> hoeveel ouders?
+        0 ouders
+        1 ouder
+        2 ouders

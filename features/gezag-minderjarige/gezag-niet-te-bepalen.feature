@@ -30,6 +30,16 @@ Functionaliteit: Gezag is niet te bepalen over een minderjarige die mogelijk nie
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
+    Scenario: Gezag kan wel worden bepaald als een ouder in RNI staat ingeschreven
+      Gegeven persoon 'Bert'
+      * is minderjarig
+      * is ingeschreven in een Nederlandse gemeente
+      En 'Gerda' en 'Aart' zijn met elkaar gehuwd
+      En persoon 'Aart'
+      * is ingeschreven in de RNI met een verblijfplaats in Italië
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+
 
   Regel: Gezag is niet te bepalen als is vastgesteld dat de minderjarige niet meer op het geregistreerde adres woont, dan is het gezag niet te bepalen
 
@@ -93,7 +103,7 @@ Functionaliteit: Gezag is niet te bepalen over een minderjarige die mogelijk nie
 
   Regel: Gezag kan worden bepaald als de meest recente gebeurtenis voor gezag een gerechtelijke uitspraak over het gezag van minderjarige is
 
-    Scenario: Minderjarige is geïmmigreerd naar Nederland en daarna geadopteerd in Nederland
+    Scenario: Minderjarige is geïmmigreerd naar Nederland en daarna is een gerechtelijke uitspraak over gezag gedaan in Nederland
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
       * is meerderjarig
       En de persoon 'Aart' met burgerservicenummer '000000024'
@@ -107,7 +117,7 @@ Functionaliteit: Gezag is niet te bepalen over een minderjarige die mogelijk nie
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
-    Scenario: Minderjarige is geadopteerd in Nederland en daarna geëmigreerd geweest
+    Scenario: Over minderjarige is een gerechtelijke uitspraak over het gezag gedaan en is daarna geëmigreerd geweest
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
       * is meerderjarig
       En de persoon 'Aart' met burgerservicenummer '000000024'
