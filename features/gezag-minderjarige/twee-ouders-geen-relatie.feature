@@ -25,16 +25,16 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
 
   Regel: Als de minderjarige is erkend na 1 januari 2023 dan hebben de ouders samen tweehoofdig ouderlijk gezag
 
-    Scenario: Minderjarige is geboren voor 1 januari 2023 en erkend door andere ouder na 1 januari 2023
-      Gegeven 'Bert' is geboren op 29-12-2022
-      * heeft 'Gerda' als ouder op de geboorteakte
-      En 'Bert' is erkend door 'Aart' op 3-1-2023
+    Scenario: Minderjarige is als ongeboren vrucht erkend na 1 januari 2023
+      Gegeven 'Bert' is gisteren geboren
+      * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Minderjarige is geboren na 1 januari 2023 en is als ongeboren vrucht erkend door andere ouder
-      Gegeven 'Bert' is gisteren geboren
-      * heeft 'Aart' en 'Gerda' als ouders op de geboorteakte
+    Scenario: Minderjarige is erkend na 1 januari 2023
+      Gegeven 'Bert' is geboren op 29-12-2022
+      * heeft 'Gerda' als ouder vanaf de geboortedatum
+      En 'Bert' is erkend door 'Aart' op 3-1-2023
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
@@ -43,18 +43,18 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
 
     Scenario: Minderjarige is erkend voor 1 januari 2023
       Gegeven 'Bert' is geboren op 30-11-2022
-      * heeft 'Gerda' als ouder op de geboorteakte
+      * heeft 'Gerda' als ouder vanaf de geboortedatum
       En 'Bert' is erkend door 'Aart' op 29-12-2022
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
-    Scenario: Minderjarige is geboren voor 1 januari 2023 en is als ongeboren vrucht erkend door andere ouder
+    Scenario: Minderjarige is als ongeboren vrucht erkend voor 1 januari 2023
       Gegeven de persoon 'Gerda'
       * is een vrouw
       En de persoon 'Aart'
       * is een man
       En 'Bert' is geboren op 30-11-2022
-      * heeft 'Aart' en 'Gerda' als ouders op de geboorteakte
+      * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
@@ -65,6 +65,6 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       * is meerderjarig
       * is een vrouw
       En 'Bert' is geboren op 30-11-2022
-      * heeft 'Ariana' en 'Gerda' als ouders op de geboorteakte
+      * heeft 'Ariana' en 'Gerda' als ouders vanaf de geboortedatum
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is.'

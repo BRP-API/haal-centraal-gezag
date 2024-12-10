@@ -1,8 +1,7 @@
 # language: nl
 
-Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders niet bevoegd zijn tot gezag
+Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders zijn overleden of niet bevoegd zijn tot gezag
   Een persoon is onbevoegd tot gezag wanneer die:
-  - is overleden
   - onder curatele staat
   - is minderjarig
 
@@ -54,10 +53,9 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
 
   Regel: Er is tijdelijk geen gezag als de ouder met eenhoofdig ouderlijk gezag overleden of niet bevoegd is
   
-    Scenario: Minderjarige is erkend voor 1 januari 2023 en de geboortemoeder is overleden
-      Gegeven 'Bert' is geboren op 30-11-2022
-      * heeft 'Gerda' als ouder op de geboorteakte
-      En 'Bert' is erkend door 'Aart' op 29-12-2022
+    Scenario: Er is één ouder en die is overleden
+      Gegeven persoon 'Bert'
+      * heeft 'Gerda' als ouder
       En 'Gerda' is overleden
       Als gezag wordt gevraagd met het burgerservicenummer van 'Bert'
       Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat de ouder overleden is'
