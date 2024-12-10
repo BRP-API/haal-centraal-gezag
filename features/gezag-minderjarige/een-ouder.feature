@@ -48,14 +48,14 @@ Functionaliteit: Gezag bepalen voor een minderjarige met één juridische ouder
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
-    Scenario: De ouder was getrouwd en is gescheiden voor de geboorte van minderjarige
+    Scenario: De ouder was gehuwd en is gescheiden voor de geboorte van minderjarige
       Gegeven 'Gerda' en 'Aart' zijn 7 jaar geleden gehuwd
       En 'Gerda' en 'Aart' zijn 5 jaar geleden gescheiden
       En 'Bert' is 2 jaar geleden geboren
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
-    Scenario: De ouder is getrouwd na geboorte van minderjarige
+    Scenario: De ouder is gehuwd na geboorte van minderjarige
       Gegeven 'Bert' is 7 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 6 jaar geleden gehuwd
       Als gezag wordt gevraagd van 'Bert'
@@ -65,7 +65,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met één juridische ouder
   Regel: Als de minderjarige tijdens het huwelijk of partnerschap van de juridische ouder is geadopteerd, dan heeft de ouder eenhoofdig ouderlijk gezag en diens (toenmalige) partner gezamenlijk gezag
     De ouder was immers bij geboorte nog geen ouder. We moeten dus kijken naar de aanvang familierechtelijke betrekking en niet naar geboortedatum
   
-    Scenario: adoptieouder was getrouwd op geboortedatum van de minderjarige maar niet getrouwd ten tijde van de adoptiedatum
+    Scenario: adoptieouder was gehuwd op geboortedatum van de minderjarige maar niet gehuwd ten tijde van de adoptiedatum
       Gegeven 'Gerda' en 'Aart' zijn 6 jaar geleden gehuwd en 2 jaar geleden gescheiden
       En 'Bert' is 3 jaar geleden als vondeling geboren
       En 'Bert' is 1 jaar geleden geadopteerd door 'Gerda'

@@ -1,5 +1,5 @@
 # language: nl
-Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders die na de geboorte van het kind getrouwd zijn of waren of partnerschap hebben of hadden
+Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders die na de geboorte van het kind gehuwd zijn of waren of partnerschap hebben of hadden
 
     Voor de situatie dat de ouders na de geboorte van minderjarige niet met elkaar gehuwd zijn (geweest) 
     en geen partnerschap hebben (gehad), wordt het gezag bepaald volgens feature [twee-ouders-geen-relatie](twee-ouders-geen-relatie.feature).
@@ -16,36 +16,36 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
 
   Regel: Als de ouders na de geboorte van minderjarige een periode met elkaar gehuwd zijn (geweest) of partnerschap hebben (gehad), dan hebben de ouders samen tweehoofdig ouderlijk gezag
 
-    Scenario: Beide ouders zijn getrouwd voor geboorte van het kind en zijn dat nog steeds
+    Scenario: Beide ouders zijn gehuwd voor geboorte van het kind en zijn dat nog steeds
       Gegeven 'Bert' is 7 jaar geleden geboren
-      En 'Gerda' en 'Aart' zijn 8 jaar geleden getrouwd
+      En 'Gerda' en 'Aart' zijn 8 jaar geleden gehuwd
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Beide ouders zijn getrouwd na geboorte van het kind en zijn dat nog steeds
+    Scenario: Beide ouders zijn gehuwd na geboorte van het kind en zijn dat nog steeds
       Gegeven 'Bert' is 7 jaar geleden geboren
-      En 'Gerda' en 'Aart' zijn 5 jaar geleden getrouwd
+      En 'Gerda' en 'Aart' zijn 5 jaar geleden gehuwd
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Beide ouders waren getrouwd voor geboorte van het kind en zijn na geboorte gescheiden
+    Scenario: Beide ouders waren gehuwd voor geboorte van het kind en zijn na geboorte gescheiden
       Gegeven 'Bert' is 7 jaar geleden geboren
-      En 'Gerda' en 'Aart' zijn 8 jaar geleden getrouwd
+      En 'Gerda' en 'Aart' zijn 8 jaar geleden gehuwd
       En 'Gerda' en 'Bert' zijn 2 jaar geleden gescheiden
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Beide ouders waren getrouwd en zijn gescheiden voor geboorte van het kind en zijn na geboorte hertrouwd
+    Scenario: Beide ouders waren gehuwd en zijn gescheiden voor geboorte van het kind en zijn na geboorte hertrouwd
       Gegeven 'Bert' is 5 jaar geleden geboren
-      En 'Gerda' en 'Aart' zijn 8 jaar geleden getrouwd
+      En 'Gerda' en 'Aart' zijn 8 jaar geleden gehuwd
       En 'Gerda' en 'Bert' zijn 6 jaar geleden gescheiden
-      En 'Gerda' en 'Aart' zijn 2 jaar geleden getrouwd
+      En 'Gerda' en 'Aart' zijn 2 jaar geleden gehuwd
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Beide ouders waren getrouwd na geboorte van het kind en zijn na geboorte gescheiden
+    Scenario: Beide ouders waren gehuwd na geboorte van het kind en zijn na geboorte gescheiden
       Gegeven 'Bert' is 7 jaar geleden geboren
-      En 'Gerda' en 'Aart' zijn 5 jaar geleden getrouwd
+      En 'Gerda' en 'Aart' zijn 5 jaar geleden gehuwd
       En 'Gerda' en 'Bert' zijn 2 jaar geleden gescheiden
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'

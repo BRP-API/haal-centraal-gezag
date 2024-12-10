@@ -20,7 +20,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
   Regel: Er is sprake van eenhoofdig ouderlijk gezag als één van de ouders met tweehoofdig ouderlijk gezag overleden of niet bevoegd is
   
     Scenario: Minderjarige heeft twee ouders en één van de ouders staat onder curatele
-      Gegeven 'Gerda' en 'Aart' zijn getrouwd
+      Gegeven 'Gerda' en 'Aart' zijn gehuwd
       En persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -32,7 +32,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
   Regel: Er is tijdelijk geen gezag als beide ouders met tweehoofdig ouderlijk gezag overleden of niet bevoegd zijn
   
     Abstract Scenario: Minderjarige heeft twee ouders en beide ouders staan onder curatele
-      Gegeven 'Gerda' en 'Aart' zijn getrouwd
+      Gegeven 'Gerda' en 'Aart' zijn gehuwd
       En persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
