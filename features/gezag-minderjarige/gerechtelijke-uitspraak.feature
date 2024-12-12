@@ -73,11 +73,4 @@ Functionaliteit: Gezag bepalen voor een minderjarige waarover gerechtelijke uits
 
 
 
-  1. geen gezag
-  2. gezag niet te bepalen
-  3. is er een nu geldige gerechtelijke spraak
-    3a. gerechtelijke uitspraak
-    3b. geboorte minderjarige, adoptie, hertrouwen of ontkenning >>> hoeveel ouders?
-        0 ouders
-        1 ouder
-        2 ouders
+  
