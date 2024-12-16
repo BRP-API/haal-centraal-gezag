@@ -39,7 +39,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       En 'Gerda' <bevoegdheid Gerda>
       En 'Aart' <bevoegdheid Aart>
       Als gezag wordt gevraagd van 'Bert'
-      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting '<toelichting>'
+      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting '<toelichting>.'
 
       Voorbeelden:
       | bevoegdheid Gerda    | bevoegdheid Aart     | toelichting                                                                                    |
@@ -58,7 +58,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       * heeft 'Gerda' als ouder
       En 'Gerda' is overleden
       Als gezag wordt gevraagd van 'Bert'
-      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat de ouder overleden is'
+      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat de ouder overleden is.'
 
 
   Regel: De partner heeft voogdij als de ouder met gezamenlijk gezag overleden of niet bevoegd is
@@ -107,4 +107,4 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       En 'Gerda' staat onder curatele
       En 'Ariana' staat onder curatele
       Als gezag wordt gevraagd van 'Bert'
-      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat beide ouders onder curate staan'
+      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat beide ouders onder curate staan.'
