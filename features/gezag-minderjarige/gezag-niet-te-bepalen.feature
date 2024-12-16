@@ -31,6 +31,7 @@ Functionaliteit: Gezag is niet te bepalen over een minderjarige over wie het gez
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
+    # bespreken
     Scenario: Gezag kan wel worden bepaald als een ouder in RNI staat ingeschreven.
       Gegeven persoon 'Bert'
       * is minderjarig
@@ -102,6 +103,7 @@ Functionaliteit: Gezag is niet te bepalen over een minderjarige over wie het gez
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven.'
 
 
+  # bespreken
   Regel: Gezag kan worden bepaald als de meest recente gebeurtenis voor gezag een gerechtelijke uitspraak over het gezag van minderjarige is.
 
     Scenario: Minderjarige is geïmmigreerd naar Nederland en daarna is een gerechtelijke uitspraak over gezag gedaan in Nederland.
@@ -141,3 +143,10 @@ Functionaliteit: Gezag is niet te bepalen over een minderjarige over wie het gez
       * heeft 'Luciano' als ouder die niet met burgerservicenummer is ingeschreven in de BRP
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'Gezag is niet te bepalen omdat de gegevens van een ouder niet worden bijgehouden.'
+
+
+  # bespreken
+  Regel: Gezag als er sprake is van opschorting bijhouding ministerieel besluit
+
+    Scenario: Bijhouding is opgeschort voor minderjarig kind van NAVO militair of diplomaat
+      ...
