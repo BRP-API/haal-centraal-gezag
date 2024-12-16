@@ -13,7 +13,14 @@ Functionaliteit: Gezag bepalen voor een minderjarige met één juridische ouder
     * is minderjarig
     * heeft 'Gerda' als ouder
 
+Bij minderjarigen met één ouder kan er sprake zijn van gezamenlijk gezag. Gezamenlijk gezag is het gezag van een ouder en een niet ouder samen. Zij kunnen dit gezag op twee manieren krijgen: automatisch of via de rechter.
 
+Er is automatisch sprake van gezamenlijk gezag als:
+- Het kind is tijdens het huwelijk of geregistreerd partnerschap van de ouder geboren.
+- Een van beide vrouwelijke partners geen ouder is geworden omdat er van een onbekende donor gebruik is gemaakt en het kind is geboren voor 1 april 2014. Als het kind is geboren op of na 1 april 2014, dan was de "meemoeder" juridisch ouder geworden.
+
+In alle andere gevallen is gezamenlijk gezag aangevraagd bij de rechter. Als rechter dit heeft toegekend is er sprake van gezamenlijk gezag via een gerechtelijke uitspraak. Zie 
+[feature gerechtelijke uitspraak](gerechtelijke-uitspraak.feature)
   Regel: Als de minderjarige tijdens het huwelijk of partnerschap van de juridische ouder geboren is, dan hebben de ouder en diens (toenmalige) partner gezamenlijk gezag
 
     Scenario: Minderjarige heeft ouder die gehuwd is met een meemoeder
