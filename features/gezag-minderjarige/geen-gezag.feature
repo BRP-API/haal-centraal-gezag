@@ -1,8 +1,7 @@
 #language: nl
 
-Gezag over een minderjarige stopt als het kind 18 jaar wordt of is overleden. 
-
 Functionaliteit: Over meerderjarige of overleden personen wordt geen gezag geleverd
+  Gezag over een minderjarige stopt als het kind 18 jaar wordt of is overleden. 
 
     Achtergrond:
     Gegeven de persoon 'Bert' met burgerservicenummer '000000036'

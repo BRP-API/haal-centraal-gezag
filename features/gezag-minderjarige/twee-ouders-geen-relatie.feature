@@ -1,4 +1,5 @@
 # language: nl
+
 Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders die na de geboorte van het kind niet getrouwd zijn of waren en geen partnerschap hebben of hadden
 
   Achtergrond:

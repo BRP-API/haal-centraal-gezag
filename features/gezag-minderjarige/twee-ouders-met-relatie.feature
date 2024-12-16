@@ -1,4 +1,5 @@
 # language: nl
+
 Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders die na de geboorte van het kind gehuwd zijn of waren of partnerschap hebben of hadden
 
     Voor de situatie dat de ouders na de geboorte van minderjarige niet met elkaar gehuwd zijn (geweest) 
@@ -35,7 +36,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Beide ouders waren gehuwd en zijn gescheiden voor geboorte van het kind en zijn na geboorte hertrouwd
+    Scenario: Beide ouders waren gehuwd en zijn gescheiden voor geboorte van het kind en zijn na geboorte opnieuw gehuwd
       Gegeven 'Bert' is 5 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 8 jaar geleden gehuwd
       En 'Gerda' en 'Bert' zijn 6 jaar geleden gescheiden

@@ -10,14 +10,73 @@ Functionaliteit: Gezag bepalen voor een minderjarige waarover gerechtelijke uits
     * is meerderjarig
     En de persoon 'Bert' met burgerservicenummer '000000036'
     * is minderjarig
+    En de persoon 'Ariana' met burgerservicenummer '000000048'
+    * is meerderjarig
+    En de persoon 'Gerard' met burgerservicenummer '000000061'
+    * is meerderjarig
 
-  Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, en de ouders zijn daarna met elkaar hertrouwd, dan is er tweehoofdig ouderlijk gezag
+
+  Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, en de ouders zijn daarna (opnieuw) met elkaar gehuwd, dan is er tweehoofdig ouderlijk gezag
+
+    Scenario: ouders zijn opnieuw met elkaar gehuwd (reparatiehuwelijk) na de gerechtelijke uitspraak
+      Gegeven persoon 'Bert'
+      * heeft 'Gerda' als ouder
+      * heeft 'Aart' als ouder
+      En 'Gerda' en 'Aart' zijn 20 jaar geleden gehuwd
+      En 'Gerda' en 'Aart' zijn 7 jaar geleden gescheiden
+      En 6 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan 'Aart'
+      En 'Gerda' en 'Aart' zijn 2 jaar geleden opnieuw gehuwd
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+
+    # bespreken
+    Scenario: ouders zijn voor het eerst met elkaar gehuwd na de gerechtelijke uitspraak
+      Gegeven persoon 'Bert'
+      * heeft 'Gerda' als ouder
+      * heeft 'Aart' als ouder
+      En 6 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan 'Aart'
+      En 'Gerda' en 'Aart' zijn 2 jaar geleden gehuwd
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+
+    Scenario: ouders zijn met een ander gehuwd na de gerechtelijke uitspraak
+      Gegeven persoon 'Bert'
+      * heeft 'Gerda' als ouder
+      * heeft 'Aart' als ouder
+      En 'Gerda' en 'Aart' zijn 20 jaar geleden gehuwd
+      En 'Gerda' en 'Aart' zijn 7 jaar geleden gescheiden
+      En 6 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan 'Aart'
+      En 'Gerda' en 'Gerard' zijn 2 jaar geleden opnieuw gehuwd
+      En 'Aart' en 'Ariana' zijn 1 jaar geleden opnieuw gehuwd
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Aart'
 
 
   Regel: Als er een gerechtelijke uitspraak is, en daarna is de minderjarige geadopteerd, dan wordt het gezag bepaald van rechtswege
 
+    Scenario: na de gerechtelijke uitspraak is de minderjarige geadopteerd
+      Gegeven 6 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan een voogdijinstelling
+      En 'Bert' is 2 jaar geleden geadopteerd door 'Gerda' en 'Aart'
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+
+    Scenario: na adoptie is er gerechtelijke uitspraak over gezag
+      Gegeven 'Bert' is 6 jaar geleden geadopteerd door 'Gerda' en 'Aart'
+      En 2 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan een voogdijinstelling
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' voogdij
+      
 
   Regel: Als er een gerechtelijke uitspraak is dat één ouder of beide ouders gezag hebben, en het ouderschap is ontkend, dan heeft de overgebleven ouder eenhoofdig ouderlijk gezag
+
+    Scenario: na uitspraak over gezag heeft een ouder ouderschap ontkend
+      Gegeven persoon 'Bert'
+      * heeft 'Gerda' als ouder
+      * heeft 'Aart' als ouder
+      En 6 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan 'Aart'
+      En 4 jaar geleden heeft 'Aart' het ouderschap ontkend
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
 
   Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, dan is er eenhoofdig ouderlijk gezag
