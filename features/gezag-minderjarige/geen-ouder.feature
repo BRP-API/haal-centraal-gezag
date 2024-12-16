@@ -1,4 +1,6 @@
 # language: nl
+Soms komt het voor dat één of beide gezagshouders plotseling wegvallen. Er kan dan een situatie ontstaan dat er geen gezag is over de minderjarige. Deze situatie is altijd tijdelijk.
+
 
 Functionaliteit: Gezag bepalen voor een minderjarige zonder juridische ouder en nog geen voogdij toegewezen
 
