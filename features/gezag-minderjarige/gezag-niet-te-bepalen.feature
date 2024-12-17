@@ -72,7 +72,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven.'
 
 
-  Regel: Gezag kan worden bepaald als de meest recente gebeurtenis voor gezag adoptie van de minderjarige in Nederland is.
+  Regel: Gezag kan worden bepaald als de minderjarige na verblijf in het buitenland in Nederland is geadopteerd. 
 
     Scenario: Minderjarige is geïmmigreerd naar Nederland en daarna geadopteerd in Nederland.
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
