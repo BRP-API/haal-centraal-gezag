@@ -103,7 +103,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
 
 
   # bespreken
-  Regel: Gezag kan worden bepaald als de meest recente gebeurtenis voor gezag een gerechtelijke uitspraak over het gezag van minderjarige is.
+  Regel: Gezag kan worden bepaald als over minderjarige na verblijf in het buitenland een gerechtelijke uitspraak over het gezag is gedaan.
 
     Scenario: Minderjarige is geïmmigreerd naar Nederland en daarna is een gerechtelijke uitspraak over gezag gedaan in Nederland.
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
