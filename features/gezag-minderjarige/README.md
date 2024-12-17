@@ -4,7 +4,7 @@
 Iedereen in Nederland die jonger is dan 18 jaar staat onder gezag. Dit betekent dat zij sommige beslissingen niet zelfstandig mogen nemen. Iemand die gezag heeft over een kind is verantwoordelijk voor de verzorging en opvoeding van het kind en beheert het geld en de spullen van het kind. De gezaghouder is ook de wettelijk vertegenwoordiger van het kind. Kinderen mogen vaak niet zelf officiële handelingen doen. De wettelijk vertegenwoordiger doet dit dan voor het kind, bijvoorbeeld door een handtekening te zetten.
 De wettelijk vertegenwoordiger is ook vaak wettelijk aansprakelijk voor wat het kind doet. Gezag is dus uitgebreider dan alleen een recht op omgang. De ouder met gezag mag namelijk belangrijke beslissingen nemen over het leven van het kind, zoals een schoolkeuze, medische beslissingen, een verhuizing, een vakantie naar het buitenland of het aanvragen van een reisdocument. Een moeder die alleen het gezag heeft, heeft bij het nemen van deze beslissingen dus geen toestemming nodig van de andere (juridische) ouder zonder gezag.
 
-Iedereen die 18 jaar of ouder is en niet onder curatele staat of een geestelijke stoornis heeft kan gezag hebben.  Meestal hebben de ouders het gezag. Het gezag stopt automatisch als het kind 18 jaar wordt. 
+Iedereen die 18 jaar of ouder is en niet onder curatele staat of een geestelijke stoornis heeft kan gezag hebben. Meestal hebben de ouders het gezag. Het gezag stopt automatisch als het kind 18 jaar wordt. 
 Er zijn verschillende soorten gezag:
 - Ouderlijk gezag door één of twee ouders;
 - Gezamenlijk gezag van een ouder en een niet-ouder;
