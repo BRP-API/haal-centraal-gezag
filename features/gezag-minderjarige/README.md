@@ -11,7 +11,7 @@ Er zijn verschillende soorten gezag:
 - Voogdij.
 
 **Wat bedoelen we met ouders?**
-Met ‘ouders’ bedoelen we de juridische ouders volgens de wet. Meestal bedoelen mensen met ‘ouders’ de biologische ouders. Dat is wat anders dan de ouders volgens de wet. 
+Met ‘ouders’ bedoelen we de juridische ouders volgens de wet. Meestal bedoelen mensen met ‘ouders’ de biologische ouders. Hieronder staat hoe iemand juridisch ouder kan worden.
 
 De moeder van een kind is volgens de wet:
 - De vrouw uit wie het kind geboren is;
