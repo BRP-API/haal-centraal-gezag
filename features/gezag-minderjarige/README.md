@@ -6,7 +6,7 @@ De wettelijk vertegenwoordiger is ook vaak wettelijk aansprakelijk voor wat het 
 
 Iedereen die 18 jaar of ouder is en niet onder curatele staat of een geestelijke stoornis heeft kan gezag hebben. Meestal hebben de ouders het gezag. Het gezag stopt automatisch als het kind 18 jaar wordt. 
 Er zijn verschillende soorten gezag:
-- Ouderlijk gezag door één of twee ouders;
+- Ouderlijk gezag door één ouder (éénhoofdig ouderlijk gezag) of twee ouders (tweehoofdig ouderlijk gezag);
 - Gezamenlijk gezag van een ouder en een niet-ouder;
 - Voogdij.
 
