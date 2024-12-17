@@ -1,5 +1,5 @@
 #language: nl
-Functionaliteit: Gezag is niet te bepalen over een minderjarige over wie het gezag mogelijk in het buitenland ontstaan is.
+Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mogelijk in het buitenland ontstaan is en het gezag na het verblijf in het buitenland niet onder Nederlands recht is vastgesteld door adoptie of een gerechtelijke uitspraak. De meest recente gebeurtenis is bepalend voor het gezag.
   Gezag kan alleen worden bepaald wanneer het gezag van de minderjarige uitsluitend onder Nederlands recht kan worden vastgesteld. 
   Wanneer een minderjarige verhuist naar een ander land, neemt deze het gezag mee naar het nieuwe land.
   Daarom kan het gezag over een geïmmigreerde of een geremigreerde minderjarige niet worden bepaald.
