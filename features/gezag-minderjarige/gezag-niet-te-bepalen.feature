@@ -4,7 +4,7 @@ Functionaliteit: Gezag is niet te bepalen over een minderjarige over wie het gez
   Wanneer een minderjarige verhuist naar een ander land, neemt deze het gezag mee naar het nieuwe land.
   Daarom kan het gezag over een geïmmigreerde of een geremigreerde minderjarige niet worden bepaald.
   Bij de Nederlandse overheid is nu niet bekend welk gezag de minderjarige uit het buitenland heeft meegenomen.
-  Echter, als een minderjarige na de immigratie of remigratie in Nederland is geadopteerd of als over minderjarige een gerechtelijke uitspraak over gezag is gedaan, dan kan gezag wel worden bepaald. Het gezag is dan immers onder Nederlandse recht opnieuw vastgesteld of gewijzigd. Zie hiervoor gerechtelijke-uitspraak.feature.
+  Echter, als een minderjarige na de immigratie of remigratie in Nederland is geadopteerd of als over minderjarige in Nederland een gerechtelijke uitspraak over gezag is gedaan, dan kan gezag wel worden bepaald. Het gezag is dan immers onder Nederlandse recht opnieuw vastgesteld of gewijzigd. Zie hiervoor gerechtelijke-uitspraak.feature.
 
 
   Regel: Gezag is niet te bepalen als de minderjarige in de RNI is ingeschreven
