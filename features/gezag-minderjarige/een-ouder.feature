@@ -7,7 +7,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met één juridische ouder
   - Het kind is tijdens het huwelijk of geregistreerd partnerschap van de ouder geboren.
   - Een van beide vrouwelijke partners geen ouder is geworden omdat er van een onbekende donor gebruik is gemaakt en het kind is geboren voor 1 april 2014. Als het kind is geboren op of na 1 april 2014, dan was de "meemoeder" juridisch ouder geworden.
 
-  In alle andere gevallen is gezamenlijk gezag aangevraagd bij de rechter. Als rechter dit heeft toegekend is er sprake van gezamenlijk gezag via een gerechtelijke uitspraak. Zie 
+  In alle andere gevallen is gezamenlijk gezag aangevraagd bij de rechter. Als de rechter dit heeft toegekend is er sprake van gezamenlijk gezag via een gerechtelijke uitspraak. Zie 
   [feature gerechtelijke uitspraak](gerechtelijke-uitspraak.feature)
 
   Achtergrond:
@@ -52,7 +52,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met één juridische ouder
 
   Regel: Als de minderjarige niet tijdens een huwelijk of partnerschap van de juridische ouder geboren is, dan heeft de ouder eenhoofdig ouderlijk gezag
 
-    Voorbeeld: De ouder is alleenstaand
+    Voorbeeld: De ouder is niet gehuwd en heeft geen geregistreerd partnerschap bij geboorte
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
@@ -70,9 +70,16 @@ Functionaliteit: Gezag bepalen voor een minderjarige met één juridische ouder
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
 
-  Regel: Als de minderjarige tijdens het huwelijk of partnerschap van de juridische ouder is geadopteerd, dan heeft de ouder eenhoofdig ouderlijk gezag en diens (toenmalige) partner gezamenlijk gezag
+  Regel: Als de minderjarige tijdens het huwelijk of partnerschap van de juridische ouder is geadopteerd, dan hebben de ouder en diens (toenmalige) partner gezamenlijk gezag
     De ouder was immers bij geboorte nog geen ouder. We moeten dus kijken naar de aanvang familierechtelijke betrekking en niet naar geboortedatum
   
+    Voorbeeld: adoptieouder was niet gehuwd op geboortedatum van de minderjarige maar wel gehuwd ten tijde van de adoptiedatum
+      Gegeven 'Gerda' en 'Aart' zijn 6 jaar geleden gehuwd en 2 jaar geleden gescheiden
+      En 'Bert' is 7 jaar geleden als vondeling geboren
+      En 'Bert' is 5 jaar geleden geadopteerd door 'Gerda'
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk gezag met ouder 'Gerda' en derde 'Aart' 
+
     Voorbeeld: adoptieouder was gehuwd op geboortedatum van de minderjarige maar niet gehuwd ten tijde van de adoptiedatum
       Gegeven 'Gerda' en 'Aart' zijn 6 jaar geleden gehuwd en 2 jaar geleden gescheiden
       En 'Bert' is 3 jaar geleden als vondeling geboren
