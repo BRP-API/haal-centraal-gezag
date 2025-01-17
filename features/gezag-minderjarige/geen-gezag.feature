@@ -7,7 +7,7 @@ Functionaliteit: Over meerderjarige of overleden personen wordt geen gezag gelev
     Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is meerderjarig
       * is in Nederland geboren
-      * is ingeschreven in de BRP
+      * is ingeschreven in een Nederlandse gemeente
       Dan heeft de response een persoon met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000036 |
