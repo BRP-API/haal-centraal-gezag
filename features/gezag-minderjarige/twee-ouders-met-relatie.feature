@@ -17,26 +17,26 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
 
   Regel: Als de ouders na de geboorte van minderjarige een periode met elkaar gehuwd zijn (geweest) of partnerschap hebben (gehad), dan hebben de ouders samen tweehoofdig ouderlijk gezag
 
-    Scenario: Beide ouders zijn gehuwd voor geboorte van het kind en zijn dat nog steeds
+    Voorbeeld: Beide ouders zijn gehuwd voor geboorte van het kind en zijn dat nog steeds
       Gegeven 'Bert' is 7 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 8 jaar geleden gehuwd
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Beide ouders zijn gehuwd na geboorte van het kind en zijn dat nog steeds
+    Voorbeeld: Beide ouders zijn gehuwd na geboorte van het kind en zijn dat nog steeds
       Gegeven 'Bert' is 7 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 5 jaar geleden gehuwd
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Beide ouders waren gehuwd voor geboorte van het kind en zijn na geboorte gescheiden
+    Voorbeeld: Beide ouders waren gehuwd voor geboorte van het kind en zijn na geboorte gescheiden
       Gegeven 'Bert' is 7 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 8 jaar geleden gehuwd
       En 'Gerda' en 'Bert' zijn 2 jaar geleden gescheiden
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Beide ouders waren gehuwd en zijn gescheiden voor geboorte van het kind en zijn na geboorte opnieuw gehuwd
+    Voorbeeld: Beide ouders waren gehuwd en zijn gescheiden voor geboorte van het kind en zijn na geboorte opnieuw gehuwd
       Gegeven 'Bert' is 5 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 8 jaar geleden gehuwd
       En 'Gerda' en 'Bert' zijn 6 jaar geleden gescheiden
@@ -44,7 +44,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Beide ouders waren gehuwd na geboorte van het kind en zijn na geboorte gescheiden
+    Voorbeeld: Beide ouders waren gehuwd na geboorte van het kind en zijn na geboorte gescheiden
       Gegeven 'Bert' is 7 jaar geleden geboren
       En 'Gerda' en 'Aart' zijn 5 jaar geleden gehuwd
       En 'Gerda' en 'Bert' zijn 2 jaar geleden gescheiden

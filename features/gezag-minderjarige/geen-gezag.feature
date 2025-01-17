@@ -15,14 +15,14 @@ Functionaliteit: Over meerderjarige of overleden personen wordt geen gezag gelev
 
   Regel: Als de persoon meerderjarig is, dan is er geen sprake van gezag
 
-    Scenario: De persoon is meerderjarig
+    Voorbeeld: De persoon is meerderjarig
       Als gezag wordt gevraagd van 'Bert'
       Dan heeft 'Bert' geen gezaghouder
 
 
   Regel: Als de persoon overleden is, dan is er geen sprake van gezag
 
-    Scenario: De persoon is overleden
+    Voorbeeld: De persoon is overleden
       Gegeven persoon 'Bert'
       * is overleden
       Als gezag wordt gevraagd van 'Bert'

@@ -9,21 +9,21 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
 
   Regel: Gezag is niet te bepalen als de minderjarige niet in Nederland woont
 
-    Scenario: Minderjarige verblijft in het buitenland.
+    Voorbeeld: Minderjarige verblijft in het buitenland.
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
       * is ingeschreven als niet-ingezetene met een verblijfplaats in België
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'Gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
-    Scenario: Minderjarige verblijft tijdelijk in Nederland.
+    Voorbeeld: Minderjarige verblijft tijdelijk in Nederland.
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
       * is ingeschreven als niet-ingezetene met een tijdelijk verblijfsadres in Nederland
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
-    Scenario: Verblijfplaats van minderjarige is onbekend.
+    Voorbeeld: Verblijfplaats van minderjarige is onbekend.
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
       * is ingeschreven als niet-ingezetene met een volledig onbekende verblijfplaats
@@ -31,7 +31,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
     # bespreken
-    Scenario: Gezag kan wel worden bepaald als een ouder in RNI staat ingeschreven.
+    Voorbeeld: Gezag kan wel worden bepaald als een ouder in RNI staat ingeschreven.
       Gegeven persoon 'Bert'
       * is minderjarig
       * is ingeschreven in een Nederlandse gemeente
@@ -44,7 +44,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
 
   Regel: Gezag is niet te bepalen als is vastgesteld dat de minderjarige niet meer op het geregistreerde adres woont.
 
-    Scenario: Er is vastgesteld dat de minderjarige niet meer op het adres verblijft
+    Voorbeeld: Er is vastgesteld dat de minderjarige niet meer op het adres verblijft
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
       * is ingeschreven in een Nederlandse gemeente
@@ -55,7 +55,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
 
   Regel: Gezag is niet te bepalen als de meest recente gebeurtenis voor gezag vestiging van minderjarige in Nederland vanuit het buitenland is.
 
-    Scenario: Minderjarige is geboren in het buitenland en geïmmigreerd naar Nederland.
+    Voorbeeld: Minderjarige is geboren in het buitenland en geïmmigreerd naar Nederland.
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
       * is geboren in België
@@ -63,7 +63,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven.'
 
-    Scenario: Minderjarige is geëmigreerd geweest.
+    Voorbeeld: Minderjarige is geëmigreerd geweest.
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
       En 'Bert' is 1 jaar geleden geëmigreerd naar België
@@ -74,7 +74,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
 
   Regel: Gezag kan worden bepaald als de minderjarige na verblijf in het buitenland in Nederland is geadopteerd. 
 
-    Scenario: Minderjarige is geïmmigreerd naar Nederland en daarna geadopteerd in Nederland.
+    Voorbeeld: Minderjarige is geïmmigreerd naar Nederland en daarna geadopteerd in Nederland.
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
       * is meerderjarig
       En de persoon 'Aart' met burgerservicenummer '000000024'
@@ -87,7 +87,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: Minderjarige is geadopteerd in Nederland en daarna geëmigreerd geweest.
+    Voorbeeld: Minderjarige is geadopteerd in Nederland en daarna geëmigreerd geweest.
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
       * is meerderjarig
       En de persoon 'Aart' met burgerservicenummer '000000024'
@@ -105,7 +105,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
   # bespreken
   Regel: Gezag kan worden bepaald als over minderjarige na verblijf in het buitenland een gerechtelijke uitspraak over het gezag is gedaan.
 
-    Scenario: Minderjarige is geïmmigreerd naar Nederland en daarna is een gerechtelijke uitspraak over gezag gedaan in Nederland.
+    Voorbeeld: Minderjarige is geïmmigreerd naar Nederland en daarna is een gerechtelijke uitspraak over gezag gedaan in Nederland.
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
       * is meerderjarig
       En de persoon 'Aart' met burgerservicenummer '000000024'
@@ -119,7 +119,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
-    Scenario: Over minderjarige is een gerechtelijke uitspraak over het gezag gedaan en minderjarige is daarna geëmigreerd geweest.
+    Voorbeeld: Over minderjarige is een gerechtelijke uitspraak over het gezag gedaan en minderjarige is daarna geëmigreerd geweest.
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
       * is meerderjarig
       En de persoon 'Aart' met burgerservicenummer '000000024'
@@ -136,7 +136,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
 
   Regel: Gezag is niet te bepalen als één of beide ouders niet zijn ingeschreven.
 
-    Scenario: Minderjarige is geboren na 1 januari 2023 en is als ongeboren vrucht erkend door andere ouder die niet in Nederland staat ingeschreven
+    Voorbeeld: Minderjarige is geboren na 1 januari 2023 en is als ongeboren vrucht erkend door andere ouder die niet in Nederland staat ingeschreven
       Gegeven 'Bert' is gisteren geboren
       * heeft 'Gerda' als ouder
       * heeft 'Luciano' als ouder die niet met burgerservicenummer is ingeschreven in de BRP
@@ -147,5 +147,5 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
   # bespreken
   Regel: Gezag als er sprake is van opschorting bijhouding ministerieel besluit
 
-    Scenario: Bijhouding is opgeschort voor minderjarig kind van NAVO militair of diplomaat
+    Voorbeeld: Bijhouding is opgeschort voor minderjarig kind van NAVO militair of diplomaat
       ...

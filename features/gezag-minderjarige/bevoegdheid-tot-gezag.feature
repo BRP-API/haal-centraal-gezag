@@ -19,7 +19,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
 
   Regel: Er is sprake van eenhoofdig ouderlijk gezag als één van de ouders met tweehoofdig ouderlijk gezag overleden of niet bevoegd is
   
-    Scenario: Minderjarige heeft twee ouders en één van de ouders staat onder curatele
+    Voorbeeld: Minderjarige heeft twee ouders en één van de ouders staat onder curatele
       Gegeven 'Gerda' en 'Aart' zijn gehuwd
       En persoon 'Bert'
       * heeft 'Gerda' als ouder
@@ -31,7 +31,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
 
   Regel: Er is tijdelijk geen gezag als beide ouders met tweehoofdig ouderlijk gezag overleden of niet bevoegd zijn
   
-    Abstract Scenario: Minderjarige heeft twee ouders en beide ouders staan onder curatele
+    Abstract Voorbeeld: Minderjarige heeft twee ouders en beide ouders staan onder curatele
       Gegeven 'Gerda' en 'Aart' zijn gehuwd
       En persoon 'Bert'
       * heeft 'Gerda' als ouder
@@ -53,7 +53,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
 
   Regel: Er is tijdelijk geen gezag als de ouder met eenhoofdig ouderlijk gezag overleden of niet bevoegd is
   
-    Scenario: Er is één ouder en die is overleden
+    Voorbeeld: Er is één ouder en die is overleden
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       En 'Gerda' is overleden
@@ -63,7 +63,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
 
   Regel: De partner heeft voogdij als de ouder met gezamenlijk gezag overleden of niet bevoegd is
   
-    Scenario: Minderjarige heeft ouder die gehuwd is en de ouder staat onder curatele
+    Voorbeeld: Minderjarige heeft ouder die gehuwd is en de ouder staat onder curatele
       Gegeven 'Gerda' en 'Ariana' zijn een geregistreerd partnerschap aangegaan op 1-3-2010
       En persoon 'Bert'
       * is geboren op 1-1-2012
@@ -75,7 +75,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
 
   Regel: Er is sprake van voogdij als de ouder met gezamenlijk gezag met een derde overleden of niet bevoegd is
 
-    Scenario: Het gezag is toegewezen aan een van de ouders met een derde en de ouder met gezag is overleden
+    Voorbeeld: Het gezag is toegewezen aan een van de ouders met een derde en de ouder met gezag is overleden
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -87,7 +87,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
 
   Regel: Er is sprake van eenhoofdig ouderlijk gezag als de partner met gezamenlijk gezag overleden of niet bevoegd is
 
-    Scenario: Minderjarige heeft ouder die gehuwd is en de partner staat onder curatele
+    Voorbeeld: Minderjarige heeft ouder die gehuwd is en de partner staat onder curatele
       Gegeven 'Gerda' en 'Ariana' zijn een geregistreerd partnerschap aangegaan op 1-3-2010
       En persoon 'Bert'
       * is geboren op 1-1-2012
@@ -99,7 +99,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
 
   Regel: Er is tijdelijk geen gezag als de ouder en de partner met gezamenlijk gezag overleden of niet bevoegd zijn
 
-    Scenario: Minderjarige heeft ouder die gehuwd is en zowel de partner als de ouder staan onder curatele
+    Voorbeeld: Minderjarige heeft ouder die gehuwd is en zowel de partner als de ouder staan onder curatele
       Gegeven 'Gerda' en 'Ariana' zijn een geregistreerd partnerschap aangegaan op 1-3-2010
       En persoon 'Bert'
       * is geboren op 1-1-2012

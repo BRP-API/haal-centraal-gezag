@@ -18,7 +18,7 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
 
   Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, en de ouders zijn daarna (opnieuw) met elkaar gehuwd, dan is er tweehoofdig ouderlijk gezag
 
-    Scenario: ouders zijn opnieuw met elkaar gehuwd (reparatiehuwelijk) na de gerechtelijke uitspraak
+    Voorbeeld: ouders zijn opnieuw met elkaar gehuwd (reparatiehuwelijk) na de gerechtelijke uitspraak
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -30,7 +30,7 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     # bespreken
-    Scenario: ouders zijn voor het eerst met elkaar gehuwd na de gerechtelijke uitspraak
+    Voorbeeld: ouders zijn voor het eerst met elkaar gehuwd na de gerechtelijke uitspraak
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -39,7 +39,7 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: ouders zijn met een ander gehuwd na de gerechtelijke uitspraak
+    Voorbeeld: ouders zijn met een ander gehuwd na de gerechtelijke uitspraak
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -54,13 +54,13 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
 
   Regel: Als er een gerechtelijke uitspraak is, en daarna is de minderjarige geadopteerd, dan wordt het gezag bepaald van rechtswege
 
-    Scenario: na de gerechtelijke uitspraak is de minderjarige geadopteerd
+    Voorbeeld: na de gerechtelijke uitspraak is de minderjarige geadopteerd
       Gegeven 6 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan een voogdijinstelling
       En 'Bert' is 2 jaar geleden geadopteerd door 'Gerda' en 'Aart'
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-    Scenario: na adoptie is er gerechtelijke uitspraak over gezag
+    Voorbeeld: na adoptie is er gerechtelijke uitspraak over gezag
       Gegeven 'Bert' is 6 jaar geleden geadopteerd door 'Gerda' en 'Aart'
       En 2 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan een voogdijinstelling
       Als gezag wordt gevraagd van 'Bert'
@@ -69,7 +69,7 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
 
   Regel: Als er een gerechtelijke uitspraak is dat één ouder of beide ouders gezag hebben, en het ouderschap is ontkend, dan heeft de overgebleven ouder eenhoofdig ouderlijk gezag
 
-    Scenario: na uitspraak over gezag heeft een ouder ouderschap ontkend
+    Voorbeeld: na uitspraak over gezag heeft een ouder ouderschap ontkend
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -81,7 +81,7 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
 
   Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, dan is er eenhoofdig ouderlijk gezag
 
-    Scenario: het gezag is toegewezen aan één van de twee ouders
+    Voorbeeld: het gezag is toegewezen aan één van de twee ouders
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -92,7 +92,7 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
 
   Regel: Als er een gerechtelijke uitspraak is dat beide ouders het gezag hebben, dan is er tweehoofdig ouderlijk gezag
 
-    Scenario: het gezag is toegewezen aan beide ouders
+    Voorbeeld: het gezag is toegewezen aan beide ouders
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -103,7 +103,7 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
 
   Regel: Als er een gerechtelijke uitspraak is dat een voogd gezag heeft, dan is er sprake is van voogdij
 
-    Scenario: het gezag is toegewezen aan een voogdijinstelling
+    Voorbeeld: het gezag is toegewezen aan een voogdijinstelling
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -111,7 +111,7 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' voogdij
 
-    Scenario: het gezag is toegewezen aan een derde
+    Voorbeeld: het gezag is toegewezen aan een derde
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
@@ -122,7 +122,7 @@ Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gez
 
   Regel: Als er een gerechtelijke uitspraak is dat één van de ouders gezag heeft samen met een derde, dan is er sprake van gezamenlijk gezag
 
-    Scenario: het gezag is toegewezen aan een van de ouders en een derde
+    Voorbeeld: het gezag is toegewezen aan een van de ouders en een derde
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
