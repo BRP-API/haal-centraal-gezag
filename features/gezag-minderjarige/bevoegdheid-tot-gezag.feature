@@ -26,8 +26,8 @@ Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Aart'
 
   Regel: Er is tijdelijk geen gezag als beide ouders met tweehoofdig ouderlijk gezag overleden of niet bevoegd zijn
-    #Bespreken: een ouder of beide ouderss minderjarig met meerderjarigheidsverklaring - kunnnen we meerderjarigheidsverklaring herkennen of aannemen in de BRP?
-
+    
+    #Bespreken: een ouder of beide ouders minderjarig met meerderjarigheidsverklaring - kunnnen we meerderjarigheidsverklaring herkennen of aannemen in de BRP?
     Voorbeeld: Minderjarige heeft twee ouders en beide ouders staan onder curatele
       Gegeven 'Gerda' en 'Aart' zijn gehuwd
       En persoon 'Bert'
