@@ -7,26 +7,26 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
   Echter, als een minderjarige na de immigratie of remigratie in Nederland is geadopteerd of als over minderjarige in Nederland een gerechtelijke uitspraak over gezag is gedaan, dan kan gezag wel worden bepaald. Het gezag is dan immers onder Nederlandse recht opnieuw vastgesteld of gewijzigd. Zie hiervoor gerechtelijke-uitspraak.feature.
 
 
-  Regel: Gezag is niet te bepalen als de minderjarige in de RNI is ingeschreven
+  Regel: Gezag is niet te bepalen als de minderjarige niet in Nederland woont
 
     Scenario: Minderjarige verblijft in het buitenland.
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
-      * is ingeschreven in de RNI met een verblijfplaats in België
+      * is ingeschreven als niet-ingezetene met een verblijfplaats in België
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'Gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
     Scenario: Minderjarige verblijft tijdelijk in Nederland.
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
-      * is ingeschreven in de RNI met een tijdelijk verblijfsadres in Nederland
+      * is ingeschreven als niet-ingezetene met een tijdelijk verblijfsadres in Nederland
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
     Scenario: Verblijfplaats van minderjarige is onbekend.
       Gegeven de persoon 'Bert' met burgerservicenummer '000000036'
       * is minderjarig
-      * is ingeschreven in de RNI met een volledig onbekende verblijfplaats
+      * is ingeschreven als niet-ingezetene met een volledig onbekende verblijfplaats
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige niet of tijdelijk in Nederland woont.'
 
@@ -37,7 +37,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
       * is ingeschreven in een Nederlandse gemeente
       En 'Gerda' en 'Aart' zijn met elkaar gehuwd
       En persoon 'Aart'
-      * is ingeschreven in de RNI met een verblijfplaats in Italië
+      * is ingeschreven als niet-ingezetene met een verblijfplaats in Italië
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
