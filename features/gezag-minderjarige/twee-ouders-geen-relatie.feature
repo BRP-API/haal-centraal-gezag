@@ -79,7 +79,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       En persoon 'Aart'
       * is een man
       En 'Gerda' en 'Aart' zijn op 1-6-2015 gehuwd
-      En 'Gerda' en 'Bert' zijn op 1-7-2020 gescheiden
+      En 'Gerda' en 'Aart' zijn op 1-7-2020 gescheiden
       En persoon 'Bert'
       * is geboren op 30-11-2022
       * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
