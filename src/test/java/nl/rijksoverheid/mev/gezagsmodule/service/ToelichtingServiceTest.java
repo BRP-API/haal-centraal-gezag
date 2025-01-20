@@ -17,7 +17,7 @@ class ToelichtingServiceTest {
 
     private static final String BASE_TOELICHTING = "mock";
     private static final String BASE_MISSENDE_VELDEN_TOELICHTING = "missende gegevens: %s";
-    private static final String EXPECTED = "Gezag is niet te bepalen, omdat de volgende relevante gegevens in onderzoek staan. %s";
+    private static final String EXPECTED = "Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. %s";
     private static final String FIELD_1 = "field 1";
     private static final String FIELD_2 = "field 2";
 
