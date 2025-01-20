@@ -30,6 +30,7 @@ class GezagsrelatieServiceTest {
     private static final String BURGERSERVICENUMMER_ONE = "000000012";
     private static final String BURGERSERVICENUMMER_TWO = "000000024";
     private static final String BURGERSERVICENUMMER_THREE = "000000036";
+    private static final String UITLEG = "uitleg";
 
     @BeforeEach
     public void setup() {
@@ -61,6 +62,7 @@ class GezagsrelatieServiceTest {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(OG1);
         arAntwoordenModel.setGezagOuder1(INDICATION_GEZAG);
+        arAntwoordenModel.setUitleg(UITLEG);
         GezagsBepaling gezagsBepaling = gezagsBepalingMock;
 
         List<AbstractGezagsrelatie> gezagsRelaties = classUnderTest.bepaalGezagsrelaties(arAntwoordenModel, gezagsBepaling);
@@ -73,7 +75,7 @@ class GezagsrelatieServiceTest {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(OG1);
         arAntwoordenModel.setGezagOuder1(INDICATION_GEZAG);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         when(gezagsBepalingMock.getBurgerservicenummer()).thenReturn(minderjarige);
@@ -90,7 +92,7 @@ class GezagsrelatieServiceTest {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(OG1);
         arAntwoordenModel.setGezagOuder1(INDICATION_GEZAG);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         String ouder1 = BURGERSERVICENUMMER_TWO;
@@ -112,7 +114,7 @@ class GezagsrelatieServiceTest {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(OG1);
         arAntwoordenModel.setGezagOuder1(INDICATION_GEZAG);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         String ouder2 = BURGERSERVICENUMMER_TWO;
@@ -130,7 +132,7 @@ class GezagsrelatieServiceTest {
     void bepaalGezagsrelatiesWithAntwoordenModelOG2AndHavingNoParents() {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(OG2);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         when(gezagsBepalingMock.getBurgerservicenummer()).thenReturn(minderjarige);
@@ -148,7 +150,7 @@ class GezagsrelatieServiceTest {
     void bepaalGezagsrelatiesWithAntwoordenModelOG2AndHavingOneParentAsOuder1() {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(OG2);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         String ouder1 = BURGERSERVICENUMMER_TWO;
@@ -169,7 +171,7 @@ class GezagsrelatieServiceTest {
     void bepaalGezagsrelatiesWithAntwoordenModelOG2AndHavingTwoParents() {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(OG2);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         String ouder1 = BURGERSERVICENUMMER_TWO;
@@ -194,7 +196,7 @@ class GezagsrelatieServiceTest {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(V);
         arAntwoordenModel.setGezagNietOuder1(INDICATION_GEZAG);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         String ouder1 = BURGERSERVICENUMMER_TWO;
@@ -215,7 +217,7 @@ class GezagsrelatieServiceTest {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(V);
         arAntwoordenModel.setGezagNietOuder1(INDICATION_GEZAG);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         String nietOuder = BURGERSERVICENUMMER_TWO;
@@ -237,7 +239,7 @@ class GezagsrelatieServiceTest {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         arAntwoordenModel.setSoortGezag(V);
         arAntwoordenModel.setGezagNietOuder2(INDICATION_GEZAG);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         String nietOuder = BURGERSERVICENUMMER_TWO;
@@ -260,7 +262,7 @@ class GezagsrelatieServiceTest {
         arAntwoordenModel.setSoortGezag(GG);
         arAntwoordenModel.setGezagOuder1(INDICATION_GEZAG);
         arAntwoordenModel.setGezagNietOuder1(INDICATION_GEZAG);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         String ouder1 = BURGERSERVICENUMMER_TWO;
@@ -283,7 +285,7 @@ class GezagsrelatieServiceTest {
         arAntwoordenModel.setSoortGezag(GG);
         arAntwoordenModel.setGezagOuder1(INDICATION_GEZAG);
         arAntwoordenModel.setGezagNietOuder1(INDICATION_GEZAG);
-
+        arAntwoordenModel.setUitleg(UITLEG);
         String minderjarige = BURGERSERVICENUMMER_ONE;
         String bevraagdePersoon = minderjarige;
         String ouder1 = BURGERSERVICENUMMER_TWO;

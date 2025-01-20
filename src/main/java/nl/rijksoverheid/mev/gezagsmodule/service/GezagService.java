@@ -3,7 +3,6 @@ package nl.rijksoverheid.mev.gezagsmodule.service;
 import lombok.RequiredArgsConstructor;
 import nl.rijksoverheid.mev.exception.AfleidingsregelException;
 import nl.rijksoverheid.mev.exception.GezagException;
-import nl.rijksoverheid.mev.exception.VeldInOnderzoekException;
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Leeftijd;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
@@ -91,26 +90,11 @@ public class GezagService {
         } catch (AfleidingsregelException ex) {
             arAntwoordenModel.setException(ex);
         }
-        boolean hasVeldenInOnderzoek = gezagsBepaling != null && gezagsBepaling.warenVeldenInOnderzoek();
-        if (hasVeldenInOnderzoek) {
-            arAntwoordenModel.setException(new VeldInOnderzoekException("Preconditie: Velden mogen niet in onderzoek staan"));
-        }
+
+        String unformattedUitleg = arAntwoordenModel.getUitleg();
         route = (route == null ? beslissingsmatrixService.findMatchingRoute(arAntwoordenModel, gezagsBepaling) : route);
         arAntwoordenModel.setRoute(route);
         setConfiguredValues(arAntwoordenModel, plPersoon.isPresent());
-
-        String unformattedUitleg = arAntwoordenModel.getUitleg();
-
-        if (hasVeldenInOnderzoek) {
-            route = route + "i";
-            arAntwoordenModel.setRoute(arAntwoordenModel.getRoute() + "i");
-            arAntwoordenModel.setSoortGezag(SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD);
-            arAntwoordenModel.setGezagOuder1(DEFAULT_NEE);
-            arAntwoordenModel.setGezagOuder2(DEFAULT_NEE);
-            arAntwoordenModel.setGezagNietOuder1(DEFAULT_NEE);
-            arAntwoordenModel.setGezagNietOuder2(DEFAULT_NEE);
-            arAntwoordenModel.setUitleg(toelichtingService.decorateToelichting(unformattedUitleg, gezagsBepaling.getVeldenInOnderzoek(), null));
-        }
 
         if (gezagsBepaling != null) {
             List<String> missendeGegegevens = gezagsBepaling.getMissendeGegegevens();
@@ -119,8 +103,8 @@ public class GezagService {
             if (errorTraceCode != null) {
                 String toelichting = toelichtingService.setErrorReferenceToelichting(unformattedUitleg, errorTraceCode.toString());
                 arAntwoordenModel.setUitleg(toelichting);
-            } else if (!missendeGegegevens.isEmpty()) {
-                String toelichting = toelichtingService.decorateToelichting(unformattedUitleg, null, missendeGegegevens);
+            } else if (!missendeGegegevens.isEmpty() || gezagsBepaling.warenVeldenInOnderzoek()) {
+                String toelichting = toelichtingService.decorateToelichting(unformattedUitleg, gezagsBepaling.getVeldenInOnderzoek(), missendeGegegevens);
                 arAntwoordenModel.setUitleg(toelichting);
             }
 

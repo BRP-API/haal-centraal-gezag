@@ -1,7 +1,6 @@
 package nl.rijksoverheid.mev.gezagsmodule.service;
 
 import nl.rijksoverheid.mev.exception.AfleidingsregelException;
-import nl.rijksoverheid.mev.exception.VeldInOnderzoekException;
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
 import nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag.GezagsBepaling;
 import org.slf4j.Logger;
@@ -60,9 +59,6 @@ public class BeslissingsmatrixService {
     public String findMatchingRoute(final ARAntwoordenModel arAntwoordenModel, final GezagsBepaling gezagsBepaling) {
         if (arAntwoordenModel.getRoute() != null) {
             return arAntwoordenModel.getRoute();
-        } else if ((arAntwoordenModel.getException() != null)
-            && (Objects.equals(arAntwoordenModel.getException().getClass(), VeldInOnderzoekException.class))) {
-            return getRouteFromVraagModel(arAntwoordenModel);
         } else {
             String route = getRouteFromVraagModel(arAntwoordenModel);
             if (gezagsBepaling != null && ERROR_ROUTE.equals(route)

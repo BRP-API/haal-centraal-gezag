@@ -54,11 +54,13 @@ public class GezagsrelatieService {
                     burgerservicenummerOuder2,
                     burgerservicenummer,
                     burgerservicenummerPersoon,
+                    arAntwoordenModel.getUitleg(),
                     gezagsrelaties);
                 case "OG2" -> createTweehoofdigOuderlijkGezag(
                     burgerservicenummer,
                     burgerservicenummerOuder1,
                     burgerservicenummerOuder2,
+                    arAntwoordenModel.getUitleg(),
                     gezagsrelaties);
                 case "GG" -> createGezamenlijkGezag(
                     burgerservicenummer,
@@ -66,6 +68,7 @@ public class GezagsrelatieService {
                     arAntwoordenModel.hasOuder1Gezag(),
                     burgerservicenummerOuder1,
                     burgerservicenummerOuder2,
+                    arAntwoordenModel.getUitleg(),
                     gezagsrelaties);
                 case "V" -> createVoogdij(
                     bevraagdePersoonIsDeMinderjarige,
@@ -73,6 +76,7 @@ public class GezagsrelatieService {
                     burgerservicenummerNietOuder,
                     burgerservicenummer,
                     arAntwoordenModel.hasNietOuderGezag(),
+                    arAntwoordenModel.getUitleg(),
                     gezagsrelaties);
                 case "G" ->
                     createTijdelijkeGeenGezag(bevraagdePersoonIsDeMinderjarige, burgerservicenummer, arAntwoordenModel.getUitleg(), gezagsrelaties);
@@ -100,11 +104,13 @@ public class GezagsrelatieService {
         final String burgerservicenummerOuder2,
         final String burgerservicenummer,
         final String burgerservicenummerPersoon,
+        final String uitleg,
         final List<AbstractGezagsrelatie> gezagsrelaties) {
         if (arAntwoordenModel.hasOuder1Gezag() && burgerservicenummerOuder1 != null && (bevraagdePersoonIsDeMinderjarige || burgerservicenummerPersoon.equals(burgerservicenummerOuder1))) {
             AbstractGezagsrelatie gezag = new EenhoofdigOuderlijkGezag()
                 .ouder(new GezagOuder().burgerservicenummer(burgerservicenummerOuder1))
                 .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
+                .toelichting(uitleg)
                 .type(TYPE_EENHOOFDIG_OUDERLIJK_GEZAG);
             gezagsrelaties.add(gezag);
         }
@@ -112,6 +118,7 @@ public class GezagsrelatieService {
             AbstractGezagsrelatie gezag = new EenhoofdigOuderlijkGezag()
                 .ouder(new GezagOuder().burgerservicenummer(burgerservicenummerOuder2))
                 .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
+                .toelichting(uitleg)
                 .type(TYPE_EENHOOFDIG_OUDERLIJK_GEZAG);
             gezagsrelaties.add(gezag);
         }
@@ -121,11 +128,13 @@ public class GezagsrelatieService {
         final String burgerservicenummer,
         final String burgerservicenummerOuder1,
         final String burgerservicenummerOuder2,
+        final String uitleg,
         final List<AbstractGezagsrelatie> gezagsrelaties) {
         AbstractGezagsrelatie gezag = new TweehoofdigOuderlijkGezag()
             .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
             .addOudersItem(new GezagOuder().burgerservicenummer(burgerservicenummerOuder1))
             .addOudersItem(new GezagOuder().burgerservicenummer(burgerservicenummerOuder2))
+            .toelichting(uitleg)
             .type(TYPE_TWEEHOOFDIG_OUDERLIJK_GEZAG);
 
         gezagsrelaties.add(gezag);
@@ -137,9 +146,11 @@ public class GezagsrelatieService {
         final boolean ouder1Gezag,
         final String burgerservicenummerOuder1,
         final String burgerservicenummerOuder2,
+        final String uitleg,
         final List<AbstractGezagsrelatie> gezagsrelaties) {
         GezamenlijkGezag gezag = new GezamenlijkGezag()
             .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
+            .toelichting(uitleg)
             .type(TYPE_GEZAMELIJK_GEZAG);
 
         if (burgerservicenummerNietOuder != null) {
@@ -161,10 +172,12 @@ public class GezagsrelatieService {
         final String burgerservicenummerNietOuder,
         final String burgerservicenummer,
         final boolean nietOuderGezag,
+        final String uitleg,
         final List<AbstractGezagsrelatie> gezagsrelaties) {
         if (bevraagdePersoonIsDeMinderjarige || burgerservicenummerPersoon.equals(burgerservicenummerNietOuder)) {
             Voogdij gezag = new Voogdij()
                 .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
+                .toelichting(uitleg)
                 .type(TYPE_VOOGDIJ);
 
             if (nietOuderGezag && burgerservicenummerNietOuder != null) {

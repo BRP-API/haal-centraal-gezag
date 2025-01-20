@@ -95,6 +95,8 @@ components:
       properties:
         type:
           type: string
+        toelichting:
+          type: string
       discriminator:
         propertyName: type
         mapping:
@@ -176,8 +178,6 @@ components:
           properties:
             minderjarige:
               $ref: "#/components/schemas/Minderjarige"
-            toelichting:
-              type: string
     GezagNietTeBepalen:
       allOf:
         - $ref: "#/components/schemas/AbstractGezagsrelatie"
@@ -185,8 +185,6 @@ components:
           properties:
             minderjarige:
               $ref: "#/components/schemas/Minderjarige"
-            toelichting:
-              type: string
     Gezag:
       type: array
       items:
