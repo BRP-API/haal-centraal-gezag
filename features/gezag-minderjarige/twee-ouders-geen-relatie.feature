@@ -17,13 +17,13 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
     Voorbeeld: Minderjarige is geadopteerd door beide ouders
       Gegeven 'Bert' is geadopteerd door 'Gerda' en 'Aart'
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Voorbeeld: Minderjarige is geadopteerd door de stiefouder
       Gegeven 'Gerda' is ouder van 'Bert'
       En 'Bert' is geadopteerd door 'Aart'
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
 
   Regel: Als de minderjarige is erkend na 1 januari 2023 dan hebben de ouders samen tweehoofdig ouderlijk gezag
@@ -32,14 +32,14 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       Gegeven 'Bert' is gisteren geboren
       * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Voorbeeld: Minderjarige is erkend na 1 januari 2023
       Gegeven 'Bert' is geboren op 29-12-2022
       * heeft 'Gerda' als ouder vanaf de geboortedatum
       En 'Bert' is erkend door 'Aart' op 3-1-2023
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
 
   Regel: Als de minderjarige is erkend na 1 januari 2023 en de geboortemoeder was bij geboorte gehuwd en er is een bekende donor, dan ...
@@ -51,7 +51,7 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       En 'Bert' is 1 jaar geleden geboren
       * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Ariana'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Ariana'
 
 
   Regel: Als de ouders na de geboorte van minderjarige niet met elkaar gehuwd zijn (geweest) en geen partnerschap hebben (gehad) en de minderjarige is erkend voor 1 januari 2023 dan heeft de geboortemoeder eenhoofdig ouderlijk gezag

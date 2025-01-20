@@ -45,14 +45,14 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
       En persoon 'Bert'
       * is ingeschreven in een Nederlandse gemeente
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Voorbeeld: Er is vastgesteld dat de minderjarige niet meer op het adres verblijft
       Gegeven persoon 'Bert'
       * is ingeschreven in een Nederlandse gemeente
       * de gemeente heeft vastgesteld dat de minderjarige niet op het adres verblijft
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
 
   Regel: Gezag is niet te bepalen als de meest recente gebeurtenis voor gezag vestiging van minderjarige in Nederland vanuit het buitenland is.
@@ -77,7 +77,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
       Gegeven 'Bert' is 1 jaar geleden geïmmigreerd naar Nederland
       En 'Bert' is vorige maand geadopteerd in Nederland door 'Gerda' en 'Aart'
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' tweehoofdig ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Voorbeeld: Minderjarige is geadopteerd in Nederland en daarna geëmigreerd geweest.
       Gegeven 'Bert' is 2 jaar geleden geadopteerd in Nederland door 'Gerda' en 'Aart'
