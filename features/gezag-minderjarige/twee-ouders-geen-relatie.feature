@@ -90,7 +90,6 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       Gegeven persoon 'Gerda'
       * is een vrouw
       En de persoon 'Ariana' met burgerservicenummer '000000024'
-      * is meerderjarig
       * is een vrouw
       En 'Bert' is geboren op 30-11-2022
       * heeft 'Ariana' en 'Gerda' als ouders vanaf de geboortedatum

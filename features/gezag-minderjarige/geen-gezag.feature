@@ -8,9 +8,6 @@ Functionaliteit: Over meerderjarige of overleden personen wordt geen gezag gelev
       * is meerderjarig
       * is in Nederland geboren
       * is ingeschreven in een Nederlandse gemeente
-      Dan heeft de response een persoon met de volgende gegevens
-        | naam                | waarde    |
-        | burgerservicenummer | 000000036 |
 
 
   Regel: Als de persoon meerderjarig is, dan is er geen sprake van gezag

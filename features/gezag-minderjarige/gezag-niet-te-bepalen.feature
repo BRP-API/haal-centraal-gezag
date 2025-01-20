@@ -41,7 +41,7 @@ Functionaliteit: Gezag over een minderjarige is niet te bepalen als het gezag mo
     # bespreken
     Voorbeeld: Gezag kan wel worden bepaald als een ouder als niet-ingezetene staat ingeschreven.
       Gegeven persoon 'Aart'
-      * is ingeschreven als niet-ingezetene met een verblijfplaats in Italië
+      * is ingeschreven als niet-ingezetene met een verblijfplaats in België
       En persoon 'Bert'
       * is ingeschreven in een Nederlandse gemeente
       Als gezag wordt gevraagd van 'Bert'
