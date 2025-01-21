@@ -1,6 +1,10 @@
 # language: nl
-@stap-documentatie
+@integratie @stap-documentatie
 Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
+
+  Achtergrond:
+    Gegeven de tabellen 'lo3_pl' bevat geen rijen
+    
 
   Regel: Een persoon benoemen we functioneel met een naam en technisch met een burgerservicenummer
     Standaard is een persoon in Nederland geboren met een Nederlandse geboorteakte.
