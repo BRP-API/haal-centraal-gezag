@@ -1,5 +1,9 @@
 # language: nl
-Functionaliteit: Gezag bepalen voor een minderjarige wanneer een of beide ouders zijn overleden of niet bevoegd zijn tot gezag
+
+Functionaliteit: Bevoegdheid tot gezag
+
+  Gezag bepalen voor een minderjarige wanneer een of beide ouders zijn overleden of niet bevoegd zijn tot gezag.
+  
   Een persoon is onbevoegd tot gezag wanneer die:
   - onder curatele staat
   - minderjarig is

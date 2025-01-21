@@ -1,6 +1,8 @@
 # language: nl
 
-Functionaliteit: Voor een minderjarige waarover gerechtelijke uitspraak over gezag is gedaan, is de uitspraak alleen bepalend voor gezag als er geen ontkenning vaderschap, adoptie of (reparatie)huwelijk na de uitspraak heeft plaatsgevonden. De meest recente gebeurtenis is bepalend voor het gezag.
+Functionaliteit: Gerechtelijke uitspraak
+  
+  Voor een minderjarige waarover gerechtelijke uitspraak over gezag is gedaan, is de uitspraak alleen bepalend voor gezag als er geen ontkenning vaderschap, adoptie of (reparatie)huwelijk na de uitspraak heeft plaatsgevonden. De meest recente gebeurtenis is bepalend voor het gezag.
 
 
   Achtergrond:

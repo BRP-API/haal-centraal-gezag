@@ -4,7 +4,7 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
 
   Achtergrond:
     Gegeven de tabellen 'lo3_pl' bevat geen rijen
-    
+
 
   Regel: Een persoon benoemen we functioneel met een naam en technisch met een burgerservicenummer
     Standaard is een persoon in Nederland geboren met een Nederlandse geboorteakte.
@@ -85,8 +85,8 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         | pl_id | geheim_ind |
         |     1 |          0 |
       En heeft de persoon 'Tosca' de volgende rijen in tabel 'lo3_pl_persoon'
-        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code | akte_nr |
-        |     1 | P            |         0 |       0 |         000000012 | Tosca          |               5010 |         |
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code |
+        |     1 | P            |         0 |       0 |         000000012 | Tosca          |               5010 |
 
   Regel: Inschrijving, immigratie en emigratie wordt vastgelegd in de verblijfplaats
 
@@ -157,8 +157,8 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         | pl_id | geheim_ind |
         |     1 |          0 |
       En heeft de persoon 'Tosca' de volgende rijen in tabel 'lo3_pl_persoon'
-        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code | akte_nr |
-        |     1 | P            |         0 |       0 |         000000012 | Tosca          |               5010 |         |
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code |
+        |     1 | P            |         0 |       0 |         000000012 | Tosca          |               5010 |
       En heeft de persoon 'Tosca' de volgende rijen in tabel 'lo3_pl_verblijfplaats'
         | pl_id | volg_nr | inschrijving_gemeente_code | vestiging_datum   |
         |     1 |       0 |                       0518 | <vestiging datum> |
@@ -176,8 +176,8 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         | pl_id | geheim_ind |
         |     1 |          0 |
       En heeft de persoon 'Tosca' de volgende rijen in tabel 'lo3_pl_persoon'
-        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code | akte_nr |
-        |     1 | P            |         0 |       0 |         000000012 | Tosca          |               5010 |         |
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code |
+        |     1 | P            |         0 |       0 |         000000012 | Tosca          |               5010 |
       En heeft de persoon 'Tosca' de volgende rijen in tabel 'lo3_pl_verblijfplaats'
         | pl_id | volg_nr | inschrijving_gemeente_code | vestiging_datum   |
         |     1 |       0 |                       0518 | <relatieve datum> |
