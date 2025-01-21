@@ -38,6 +38,19 @@ runs:
         ./scripts/verify-functional-specification.sh
       shell: bash
 
+    - name: Genereer step summary
+      if: always()
+      run: |
+        node ./scripts/generate-step-summary.js
+      shell: bash
+        
+    - name: Voeg test summary toe aan Github Step Summary
+      if: always()
+      run: |
+        echo "### Cucumber Test Reports" >> $GITHUB_STEP_SUMMARY
+        cat test-reports/cucumber-js/gezag/step-summary.txt >> $GITHUB_STEP_SUMMARY
+      shell: bash
+
     - name: Stop containers
       if: always()
       run: |
