@@ -1,7 +1,5 @@
 # language: nl
-
 Functionaliteit: Bevoegdheid tot gezag
-
   Gezag bepalen voor een minderjarige wanneer een of beide ouders zijn overleden of niet bevoegd zijn tot gezag.
   
   Een persoon is onbevoegd tot gezag wanneer die:
@@ -30,8 +28,8 @@ Functionaliteit: Bevoegdheid tot gezag
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Aart'
 
   Regel: Er is tijdelijk geen gezag als beide ouders met tweehoofdig ouderlijk gezag overleden of niet bevoegd zijn
-    
     #Bespreken: een ouder of beide ouders minderjarig met meerderjarigheidsverklaring - kunnnen we meerderjarigheidsverklaring herkennen of aannemen in de BRP?
+
     Voorbeeld: Minderjarige heeft twee ouders en beide ouders staan onder curatele
       Gegeven 'Gerda' en 'Aart' zijn gehuwd
       En persoon 'Bert'

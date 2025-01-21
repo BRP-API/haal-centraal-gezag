@@ -1,6 +1,6 @@
 # language: nl
-
-Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders die na de geboorte van het kind niet gehuwd zijn of waren en geen partnerschap hebben of hadden
+Functionaliteit: Twee ouders geen relatie
+  Gezag bepalen voor een minderjarige met twee juridische ouders die na de geboorte van het kind niet gehuwd zijn of waren en geen partnerschap hebben of hadden.
 
   Achtergrond:
     Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
@@ -25,7 +25,6 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-
   Regel: Als de minderjarige is erkend na 1 januari 2023 dan hebben de ouders samen tweehoofdig ouderlijk gezag
 
     Voorbeeld: Minderjarige is als ongeboren vrucht erkend na 1 januari 2023
@@ -41,18 +40,16 @@ Functionaliteit: Gezag bepalen voor een minderjarige met twee juridische ouders 
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
-
   Regel: Als de minderjarige is erkend na 1 januari 2023 en de geboortemoeder was bij geboorte gehuwd en er is een bekende donor, dan ...
-
     # bespreken
     # als geboortemoeder bij geboorte gehuwd is, wordt bekende donor dan als ouder geregistreerd of de partner van moeder?
+
     Voorbeeld: Minderjarige is na 1 januari 2023 erkend door bekende donor en moeder is gehuwd
       Gegeven 'Gerda' en 'Ariana' zijn 2 jaar geleden gehuwd
       En 'Bert' is 1 jaar geleden geboren
       * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Ariana'
-
 
   Regel: Als de ouders na de geboorte van minderjarige niet met elkaar gehuwd zijn (geweest) en geen partnerschap hebben (gehad) en de minderjarige is erkend voor 1 januari 2023 dan heeft de geboortemoeder eenhoofdig ouderlijk gezag
 

@@ -1,5 +1,3 @@
-# language: nl
-
 **Wat is gezag?** 
 Iedereen in Nederland die jonger is dan 18 jaar staat onder gezag. Dit betekent dat zij sommige beslissingen niet zelfstandig mogen nemen. Iemand die gezag heeft over een kind is verantwoordelijk voor de verzorging en opvoeding van het kind en beheert het geld en de spullen van het kind. De gezaghouder is ook de wettelijk vertegenwoordiger van het kind. Kinderen mogen vaak niet zelf officiële handelingen doen. De wettelijk vertegenwoordiger doet dit dan voor het kind, bijvoorbeeld door een handtekening te zetten.
 De wettelijk vertegenwoordiger is ook vaak wettelijk aansprakelijk voor wat het kind doet. Gezag gaat veel verder dan alleen een recht op omgang. De ouder met gezag mag namelijk belangrijke beslissingen nemen over het leven van het kind, zoals een schoolkeuze, medische beslissingen, een verhuizing, een vakantie naar het buitenland of het aanvragen van een reisdocument. Een ouder die alleen het gezag uitoefent, heeft bij het nemen van deze beslissingen geen toestemming nodig van de andere (juridische) ouder zonder gezag.
@@ -46,12 +44,12 @@ Een kind kan automatisch of via de rechter een voogd krijgen:
 **Leeswijzer features**
 
 Gezag wordt bepaald door afleidingsregels (rules) in onderstaande volgorde toe te passen:
-1. Rules waarmee wordt vastgesteld dat er geen gezag is (zie de geen-gezag.feature)
-2. Rules waarmee wordt vastgesteld dat het gezag niet te bepalen is (zie de gezag-niet-te-bepalen.feature)
-3. Rules waarmee wordt vastgesteld of er een geldige gerechtelijke uitspraak is over gezag, en of deze wordt herzien door adoptie, een reparatiehuwelijk of ontkenning (zie de gerechtelijke-uitspraak.feature) 
+1. Rules waarmee wordt vastgesteld dat er geen gezag is (zie de [Geen gezag functionaliteit](geen-gezag.feature))
+2. Rules waarmee wordt vastgesteld dat het gezag niet te bepalen is (zie de [Gezag niet te bepalen functionaliteit](gezag-niet-te-bepalen.feature))
+3. Rules waarmee wordt vastgesteld of er een geldige gerechtelijke uitspraak is over gezag, en of deze wordt herzien door adoptie, een reparatiehuwelijk of ontkenning (zie de [Gerechtelijke uitspraak functionaliteit](gerechtelijke-uitspraak-feature)) 
 4. Rules waarmee het gezag wordt bepaald van een minderjarige:
-    - met twee ouders met een relatie met elkaar (zie de twee-ouders-met-relatie.feature)
-    - met twee ouders zonder een relatie met elkaar (zie de twee-ouders-geen-relatie.feature)
-    - met één ouder (zie de één-ouder.feature)
-    - zonder ouders (zie de geen-ouder.feature)
-5. Rules waarmee het gezag wordt bepaald wanneer gezaghouder(s) niet bevoegd of overleden zijn (zie de bevoegdheid-tot-gezag.feature).
+    - met twee ouders met een relatie met elkaar (zie de [Twee ouders met relatie](twee-ouders-met-relatie.feature))
+    - met twee ouders zonder een relatie met elkaar (zie de [Twee ouders geen relatie](twee-ouders-geen-relatie.feature))
+    - met één ouder (zie de [Eén ouder functionaliteit](één-ouder.feature))
+    - zonder ouders (zie de [Geen ouder functionaliteit](geen-ouder.feature))
+5. Rules waarmee het gezag wordt bepaald wanneer gezaghouder(s) niet bevoegd of overleden zijn (zie de [Bevoegdheid tot gezag functionaliteit](bevoegdheid-tot-gezag.feature)).
