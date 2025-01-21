@@ -43,6 +43,7 @@ public class GezagsrelatieService {
         String burgerservicenummerOuder2 = gezagsBepaling.getBurgerservicenummerOuder2();
         String burgerservicenummerNietOuder = gezagsBepaling.getBurgerservicenummerNietOuder();
 
+        boolean warenVeldenInOnderzoek = gezagsBepaling.warenVeldenInOnderzoek();
         boolean bevraagdePersoonIsDeMinderjarige = burgerservicenummer.equals(burgerservicenummerPersoon);
         if (tenminsteEenRelatieMetPersoon(bevraagdePersoonIsDeMinderjarige, burgerservicenummerPersoon, burgerservicenummerOuder1, burgerservicenummerOuder2, burgerservicenummerNietOuder)) {
             String soortGezag = arAntwoordenModel.getSoortGezag();
@@ -54,13 +55,13 @@ public class GezagsrelatieService {
                     burgerservicenummerOuder2,
                     burgerservicenummer,
                     burgerservicenummerPersoon,
-                    arAntwoordenModel.getUitleg(),
+                    (warenVeldenInOnderzoek ? arAntwoordenModel.getUitleg() : ""),
                     gezagsrelaties);
                 case "OG2" -> createTweehoofdigOuderlijkGezag(
                     burgerservicenummer,
                     burgerservicenummerOuder1,
                     burgerservicenummerOuder2,
-                    arAntwoordenModel.getUitleg(),
+                    (warenVeldenInOnderzoek ? arAntwoordenModel.getUitleg() : ""),
                     gezagsrelaties);
                 case "GG" -> createGezamenlijkGezag(
                     burgerservicenummer,
@@ -68,7 +69,7 @@ public class GezagsrelatieService {
                     arAntwoordenModel.hasOuder1Gezag(),
                     burgerservicenummerOuder1,
                     burgerservicenummerOuder2,
-                    arAntwoordenModel.getUitleg(),
+                    (warenVeldenInOnderzoek ? arAntwoordenModel.getUitleg() : ""),
                     gezagsrelaties);
                 case "V" -> createVoogdij(
                     bevraagdePersoonIsDeMinderjarige,
@@ -76,7 +77,7 @@ public class GezagsrelatieService {
                     burgerservicenummerNietOuder,
                     burgerservicenummer,
                     arAntwoordenModel.hasNietOuderGezag(),
-                    arAntwoordenModel.getUitleg(),
+                    (warenVeldenInOnderzoek ? arAntwoordenModel.getUitleg() : ""),
                     gezagsrelaties);
                 case "G" ->
                     createTijdelijkeGeenGezag(bevraagdePersoonIsDeMinderjarige, burgerservicenummer, arAntwoordenModel.getUitleg(), gezagsrelaties);

@@ -29,12 +29,11 @@ public class ToelichtingService {
      */
     public String decorateToelichting(final String baseToelichting, final VeldenInOnderzoek veldenInOnderzoek, final List<String> missendeGegevens) {
         StringBuilder sb = new StringBuilder();
-        if (baseToelichting != null && !baseToelichting.isEmpty()) {
-            if (veldenInOnderzoek != null && veldenInOnderzoek.hasValues()) {
-                setInOnderzoek(sb, veldenInOnderzoek);
-            } else if (missendeGegevens != null && !missendeGegevens.isEmpty()) {
-                setMissendeGegevens(sb, baseToelichting, missendeGegevens);
-            }
+        if (veldenInOnderzoek != null && veldenInOnderzoek.hasValues()) {
+            setInOnderzoek(sb, veldenInOnderzoek);
+        } else if (baseToelichting != null && !baseToelichting.isEmpty() &&
+            missendeGegevens != null && !missendeGegevens.isEmpty()) {
+            setMissendeGegevens(sb, baseToelichting, missendeGegevens);
         }
 
         return sb.toString();
