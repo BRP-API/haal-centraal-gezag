@@ -287,3 +287,46 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
           | 036210               | datum ingang familierechtelijke betrekking | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 2. |
           | 038120               | aktenummer                                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: aktenummer van ouder 2.                     |
           | 030000               | hele groep                                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: ouder 2.                                    |
+
+    Scenario: gezag wordt bepaald met gegeven geslachtsnaam van ouder 1 in onderzoek, er is sprake van EenhoofdigOuderlijkGezag
+      Gegeven persoon 'Nandy'
+      * heeft 'Jorine' als ouder 1 met de volgende gegevens
+        | geslachtsaanduiding (04.10)     | datum ingang familierechtelijke betrekking (62.10)  | aanduiding in onderzoek (83.10)  |
+        | V                               | gisteren - 17 jaar                                  | 020410                           |  
+      * heeft 'Bastiaan' als ouder 2 met de volgende gegevens
+        | geslachtsaanduiding (04.10)     | datum ingang familierechtelijke betrekking (62.10)  |
+        | M                               | gisteren - 17 jaar                                  |
+      Als gezag wordt gezocht met de volgende parameters
+        | naam                | waarde    |
+        | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+        | naam                | waarde    |
+        | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+        | naam                             | waarde                                                                                                                                        | 
+        | type                             | EenhoofdigOuderlijkGezag                                                                                                                      |
+        | ouder.burgerservicenummer        | 000000012                                                                                                                                     |
+        | minderjarige.burgerservicenummer | 000000036                                                                                                                                     |
+        | toelichting                      | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: geslachts aanduiding van ouder 1. |
+    
+    Scenario: gezag wordt bepaald met gegeven geslachtsnaam van ouder 2 in onderzoek, er is sprake van EenhoofdigOuderlijkGezag
+      Gegeven persoon 'Nandy'
+      * heeft 'Jorine' als ouder 1 met de volgende gegevens
+        | geslachtsaanduiding (04.10)     | datum ingang familierechtelijke betrekking (62.10)  |
+        | V                               | gisteren - 17 jaar                                  | 
+      * heeft 'Bastiaan' als ouder 2 met de volgende gegevens
+        | geslachtsaanduiding (04.10)     | datum ingang familierechtelijke betrekking (62.10)  | aanduiding in onderzoek (83.10)  |
+        | M                               | gisteren - 17 jaar                                  | 030410                           |
+      Als gezag wordt gezocht met de volgende parameters
+        | naam                | waarde    |
+        | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+        | naam                | waarde    |
+        | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+        | naam                             | waarde                                                                                                                                        | 
+        | type                             | EenhoofdigOuderlijkGezag                                                                                                                      |
+        | ouder.burgerservicenummer        | 000000012                                                                                                                                     |
+        | minderjarige.burgerservicenummer | 000000036                                                                                                                                     |
+        | toelichting                      | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: geslachts aanduiding van ouder 2. |
+    

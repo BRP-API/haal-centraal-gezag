@@ -372,7 +372,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
 
   Regel: Als datum familierechtelijke betrekking in onderzoek staat is het gezag niet te bepalen
 
-    Abstract Scenario: gezag kan niet worden bepaald wanneer <omschrijving> in onderzoek staat er is sprake van GezagNietTeBepalen
+    Abstract Scenario: gezag wordt bepaald wanneer <omschrijving> in onderzoek staat er is sprake van TweehoofdigOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | D                                    | gisteren - 5 jaar               |
@@ -389,21 +389,27 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                                                                                                                       |
-      | type                             | GezagNietTeBepalen                                                                                                           |
-      | minderjarige.burgerservicenummer | 000000036                                                                                                                    |
-      | toelichting                      | Gezag is niet te bepalen, omdat de volgende relevante gegevens in onderzoek staan. Persoonslijst van persoon: <toelichting>. |
+      | naam                             | waarde                    |
+      | type                             | TweehoofdigOuderlijkGezag |
+      | toelichting                      | <toelichting>             |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000012 |
+      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | aanduiding onderzoek Gerda | aanduiding onderzoek Aart | omschrijving                                           | toelichting                                |
-      | 020000                     |                           | hele categorie ouder 1                                 | ouder 1                                    |
-      | 026200                     |                           | hele groep familierechtelijke betrekking van ouder 1   | datum ingang familiebetrekking van ouder 1 |
-      | 026210                     |                           | datum ingang familierechtelijke betrekking van ouder 1 | datum ingang familiebetrekking van ouder 1 |
-      |                            | 030000                    | hele categorie ouder 2                                 | ouder 2                                    |
-      |                            | 036200                    | hele groep familierechtelijke betrekking van ouder 2   | datum ingang familiebetrekking van ouder 2 |
-      |                            | 036210                    | datum ingang familierechtelijke betrekking van ouder 2 | datum ingang familiebetrekking van ouder 2 |
+      | aanduiding onderzoek Gerda | aanduiding onderzoek Aart | omschrijving                                           | toelichting                                                                                                                                              |
+      | 020000                     |                           | hele categorie ouder 1                                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: ouder 1.                                     |
+      | 026200                     |                           | hele groep familierechtelijke betrekking van ouder 1   | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 1.  |
+      | 026210                     |                           | datum ingang familierechtelijke betrekking van ouder 1 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 1.  |
+      |                            | 030000                    | hele categorie ouder 2                                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: ouder 2.                                     |
+      |                            | 036200                    | hele groep familierechtelijke betrekking van ouder 2   | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 2.  |
+      |                            | 036210                    | datum ingang familierechtelijke betrekking van ouder 2 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 2.  |
 
-    Scenario: gezag kan wel worden bepaald als het onderzoek op de familierechtelijke betrekking is beëindigd er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: gezag wordt bepaald als het onderzoek op de familierechtelijke betrekking is beëindigd er is sprake van TweehoofdigOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | D                                    | gisteren - 5 jaar               |
@@ -430,7 +436,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
 
-    Abstract Scenario: gezag kan niet worden bepaald als het onderzoek op de familierechtelijke betrekking is beëindigd voor een ouder en niet beëindigd voor de andere ouder er is sprake van GezagNietTeBepalen
+    Abstract Scenario: gezag kan worden bepaald wanneer het onderzoek op de familierechtelijke betrekking is beëindigd voor een ouder en niet beëindigd voor de andere ouder er is sprake van TweehoofdigOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | D                                    | gisteren - 5 jaar               |
@@ -447,19 +453,25 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                                                                                                                       |
-      | type                             | GezagNietTeBepalen                                                                                                           |
-      | minderjarige.burgerservicenummer | 000000036                                                                                                                    |
-      | toelichting                      | Gezag is niet te bepalen, omdat de volgende relevante gegevens in onderzoek staan. Persoonslijst van persoon: <toelichting>. |
+      | naam                             | waarde                    |
+      | type                             | TweehoofdigOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | toelichting                      | <toelichting>             |
+      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000012 |
+      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | einde onderzoek Gerda | einde onderzoek Aart | toelichting                                |
-      | gisteren               |                      | datum ingang familiebetrekking van ouder 2 |
-      |                        | gisteren             | datum ingang familiebetrekking van ouder 1 |
+      | einde onderzoek Gerda | einde onderzoek Aart | toelichting                                                                                                                                             |
+      | gisteren              |                      | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 2. |
+      |                       | gisteren             | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 1. |
 
   Regel: Als indicatie gezag of ingangsdatum gezagsverhouding in onderzoek staan, is het gezag niet te bepalen
 
-    Abstract Scenario: gezag kan niet worden bepaald wanneer <omschrijving> in onderzoek staat er is sprake van GezagNietTeBepalen
+    Abstract Scenario: gezag kan worden bepaald wanneer <omschrijving> in onderzoek staat er is sprake van Voogdij
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) | aanduiding in onderzoek (83.10) |
       | D                                    | gisteren - 5 jaar               | <aanduiding onderzoek>          |
@@ -470,10 +482,11 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                                | waarde                                                                                                                       |
-      | type                                | GezagNietTeBepalen                                                                                                           |
-      | minderjarige.burgerservicenummer    | 000000036                                                                                                                    |
-      | toelichting                         | Gezag is niet te bepalen, omdat de volgende relevante gegevens in onderzoek staan. Persoonslijst van persoon: <toelichting>. |
+      | naam                                | waarde                                                                                                                     |
+      | type                                | Voogdij                                                                                                                    |
+      | minderjarige.burgerservicenummer    | 000000036                                                                                                                  |
+      | toelichting                         | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: <toelichting>. |
+      En heeft 'gezag' geen derden
 
       Voorbeelden:
       | aanduiding onderzoek | omschrijving                    | toelichting                   |
