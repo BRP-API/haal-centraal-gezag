@@ -104,7 +104,7 @@ public class GezagService {
                 toelichting = toelichtingService.setErrorReferenceToelichting(toelichting, errorTraceCode.toString());
             } else if (!missendeGegegevens.isEmpty()) {
                 toelichting = toelichtingService.decorateToelichting(toelichting, null, missendeGegegevens);
-            } else if(gezagsBepaling.warenVeldenInOnderzoek()) {
+            } else if(gezagsBepaling.warenVeldenInOnderzoek() && !"N".equals(arAntwoordenModel.getSoortGezag()) && !"G".equals(arAntwoordenModel.getSoortGezag())) {
                 toelichting = toelichtingService.decorateToelichting(toelichting, gezagsBepaling.getVeldenInOnderzoek(), missendeGegegevens);
             }
             arAntwoordenModel.setUitleg(toelichting);
