@@ -111,16 +111,24 @@ public class GezagsrelatieService {
             AbstractGezagsrelatie gezag = new EenhoofdigOuderlijkGezag()
                 .ouder(new GezagOuder().burgerservicenummer(burgerservicenummerOuder1))
                 .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
-                .toelichting(uitleg)
                 .type(TYPE_EENHOOFDIG_OUDERLIJK_GEZAG);
+
+            if(!uitleg.isEmpty()) {
+                gezag.toelichting(uitleg);
+            }
+
             gezagsrelaties.add(gezag);
         }
         if (arAntwoordenModel.hasOuder2Gezag() && burgerservicenummerOuder2 != null && (bevraagdePersoonIsDeMinderjarige || burgerservicenummerPersoon.equals(burgerservicenummerOuder2))) {
             AbstractGezagsrelatie gezag = new EenhoofdigOuderlijkGezag()
                 .ouder(new GezagOuder().burgerservicenummer(burgerservicenummerOuder2))
                 .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
-                .toelichting(uitleg)
                 .type(TYPE_EENHOOFDIG_OUDERLIJK_GEZAG);
+
+            if(!uitleg.isEmpty()) {
+                gezag.toelichting(uitleg);
+            }
+
             gezagsrelaties.add(gezag);
         }
     }
@@ -135,8 +143,11 @@ public class GezagsrelatieService {
             .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
             .addOudersItem(new GezagOuder().burgerservicenummer(burgerservicenummerOuder1))
             .addOudersItem(new GezagOuder().burgerservicenummer(burgerservicenummerOuder2))
-            .toelichting(uitleg)
             .type(TYPE_TWEEHOOFDIG_OUDERLIJK_GEZAG);
+
+        if(!uitleg.isEmpty()) {
+            gezag.toelichting(uitleg);
+        }
 
         gezagsrelaties.add(gezag);
     }
@@ -151,7 +162,6 @@ public class GezagsrelatieService {
         final List<AbstractGezagsrelatie> gezagsrelaties) {
         GezamenlijkGezag gezag = new GezamenlijkGezag()
             .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
-            .toelichting(uitleg)
             .type(TYPE_GEZAMELIJK_GEZAG);
 
         if (burgerservicenummerNietOuder != null) {
@@ -162,6 +172,10 @@ public class GezagsrelatieService {
             gezag.ouder(new GezagOuder().burgerservicenummer(burgerservicenummerOuder1));
         } else {
             gezag.ouder(new GezagOuder().burgerservicenummer(burgerservicenummerOuder2));
+        }
+
+        if(!uitleg.isEmpty()) {
+            gezag.toelichting(uitleg);
         }
 
         gezagsrelaties.add(gezag);
@@ -178,11 +192,14 @@ public class GezagsrelatieService {
         if (bevraagdePersoonIsDeMinderjarige || burgerservicenummerPersoon.equals(burgerservicenummerNietOuder)) {
             Voogdij gezag = new Voogdij()
                 .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
-                .toelichting(uitleg)
                 .type(TYPE_VOOGDIJ);
 
             if (nietOuderGezag && burgerservicenummerNietOuder != null) {
                 gezag.addDerdenItem(new Meerderjarige().burgerservicenummer(burgerservicenummerNietOuder));
+            }
+
+            if(!uitleg.isEmpty()) {
+                gezag.toelichting(uitleg);
             }
 
             gezagsrelaties.add(gezag);
