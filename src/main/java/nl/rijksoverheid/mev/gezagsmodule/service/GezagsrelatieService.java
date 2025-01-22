@@ -165,7 +165,7 @@ public class GezagsrelatieService {
             .type(TYPE_GEZAMELIJK_GEZAG);
 
         if (burgerservicenummerNietOuder != null) {
-            gezag.setDerde(Optional.of(new Meerderjarige().burgerservicenummer(burgerservicenummerNietOuder)));
+            gezag.setDerde(new Meerderjarige().burgerservicenummer(burgerservicenummerNietOuder));
         }
 
         if (ouder1Gezag && burgerservicenummerOuder1 != null) {
