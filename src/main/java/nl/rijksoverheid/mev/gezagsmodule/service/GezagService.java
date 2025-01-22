@@ -91,7 +91,6 @@ public class GezagService {
             arAntwoordenModel.setException(ex);
         }
 
-        String unformattedUitleg = arAntwoordenModel.getUitleg();
         route = (route == null ? beslissingsmatrixService.findMatchingRoute(arAntwoordenModel, gezagsBepaling) : route);
         arAntwoordenModel.setRoute(route);
         setConfiguredValues(arAntwoordenModel, plPersoon.isPresent());
@@ -100,13 +99,15 @@ public class GezagService {
             List<String> missendeGegegevens = gezagsBepaling.getMissendeGegegevens();
             UUID errorTraceCode = gezagsBepaling.getErrorTraceCode();
 
+            String toelichting = arAntwoordenModel.getUitleg();
             if (errorTraceCode != null) {
-                String toelichting = toelichtingService.setErrorReferenceToelichting(unformattedUitleg, errorTraceCode.toString());
-                arAntwoordenModel.setUitleg(toelichting);
-            } else if (!missendeGegegevens.isEmpty() || gezagsBepaling.warenVeldenInOnderzoek()) {
-                String toelichting = toelichtingService.decorateToelichting(unformattedUitleg, gezagsBepaling.getVeldenInOnderzoek(), missendeGegegevens);
-                arAntwoordenModel.setUitleg(toelichting);
+                toelichting = toelichtingService.setErrorReferenceToelichting(toelichting, errorTraceCode.toString());
+            } else if (!missendeGegegevens.isEmpty()) {
+                toelichting = toelichtingService.decorateToelichting(toelichting, null, missendeGegegevens);
+            } else if(gezagsBepaling.warenVeldenInOnderzoek()) {
+                toelichting = toelichtingService.decorateToelichting(toelichting, gezagsBepaling.getVeldenInOnderzoek(), missendeGegegevens);
             }
+            arAntwoordenModel.setUitleg(toelichting);
 
             gezagsRelaties = gezagsrelatieService.bepaalGezagsrelaties(arAntwoordenModel, gezagsBepaling);
         }
