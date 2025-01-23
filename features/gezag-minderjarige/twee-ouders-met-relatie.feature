@@ -3,7 +3,7 @@ Functionaliteit: Twee ouders met relatie
   Gezag bepalen voor een minderjarige met twee juridische ouders die na de geboorte van het kind gehuwd zijn of waren of partnerschap hebben of hadden
 
   Voor de situatie dat de ouders na de geboorte van minderjarige niet met elkaar gehuwd zijn (geweest) 
-  en geen partnerschap hebben (gehad), wordt het gezag bepaald volgens feature [twee-ouders-geen-relatie](twee-ouders-geen-relatie.feature).
+  en geen partnerschap hebben (gehad), wordt het gezag bepaald volgens de [Twee ouders geen relatie functionaliteit](twee-ouders-geen-relatie.feature).
 
   Achtergrond:
     Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
@@ -13,7 +13,7 @@ Functionaliteit: Twee ouders met relatie
     En de persoon 'Bert' met burgerservicenummer '000000036'
     * heeft 'Aart' en 'Gerda' als ouders
 
-  Regel: Als de ouders na de geboorte van minderjarige een periode met elkaar gehuwd zijn (geweest) of partnerschap hebben (gehad), dan hebben de ouders samen tweehoofdig ouderlijk gezag
+  Regel: Als de ouders na de geboorte van minderjarige een periode met elkaar gehuwd zijn (geweest) of partnerschap hebben (gehad), dan hebben de ouders gezamenlijk ouderlijk gezag
 
     Voorbeeld: Beide ouders zijn gehuwd voor geboorte van het kind en zijn dat nog steeds
       Gegeven 'Bert' is 7 jaar geleden geboren

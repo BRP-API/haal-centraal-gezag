@@ -14,7 +14,9 @@ Functionaliteit: Gerechtelijke uitspraak
     En de persoon 'Gerard' met burgerservicenummer '000000061'
     * is meerderjarig
 
-  Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, en de ouders zijn daarna (opnieuw) met elkaar gehuwd, dan is er tweehoofdig ouderlijk gezag
+  Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, en de ouders zijn daarna (opnieuw) met elkaar gehuwd, dan is er gezamenlijk ouderlijk gezag
+    # bespreken
+    # opmerking Heidi: dit is niet altijd zo. als het gezag is beëindigd door een gezagsbeëindigende maatregel van de kinderrechter, dan herstelt het reparatiehuwelijk het gezag niet
 
     Voorbeeld: ouders zijn opnieuw met elkaar gehuwd (reparatiehuwelijk) na de gerechtelijke uitspraak
       Gegeven persoon 'Bert'
@@ -26,7 +28,6 @@ Functionaliteit: Gerechtelijke uitspraak
       En 'Gerda' en 'Aart' zijn 2 jaar geleden opnieuw gehuwd
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
-    # bespreken
 
     Voorbeeld: ouders zijn voor het eerst met elkaar gehuwd na de gerechtelijke uitspraak
       Gegeven persoon 'Bert'
@@ -64,16 +65,25 @@ Functionaliteit: Gerechtelijke uitspraak
       Dan is het gezag over 'Bert' voogdij
   #Bespreken
 
-  Regel: Als er een gerechtelijke uitspraak is dat één ouder of beide ouders gezag hebben, en het ouderschap is ontkend, dan heeft de overgebleven ouder eenhoofdig ouderlijk gezag
+  Regel: Als er een gerechtelijke uitspraak is dat beide ouders gezag hebben, en het ouderschap is ontkend, dan heeft de overgebleven ouder eenhoofdig ouderlijk gezag
 
-    Voorbeeld: na uitspraak over gezag heeft een ouder ouderschap ontkend
+    Voorbeeld: na uitspraak over gezag aan beide ouders heeft vader ouderschap ontkend
+      Gegeven persoon 'Bert'
+      * heeft 'Gerda' als ouder
+      * heeft 'Aart' als ouder
+      En 6 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan beide ouders
+      En 4 jaar geleden heeft 'Aart' het ouderschap ontkend
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
+
+    Voorbeeld: na uitspraak over gezag aan vader heeft vader ouderschap ontkend
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
       En 6 jaar geleden is in een gerechtelijke uitspraak het gezag toegewezen aan 'Aart'
       En 4 jaar geleden heeft 'Aart' het ouderschap ontkend
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
+      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat ouderschap door de gezagshouder is ontkend.'
 
   Regel: Als er een gerechtelijke uitspraak is dat één ouder het gezag heeft, dan is er eenhoofdig ouderlijk gezag
 
@@ -85,7 +95,7 @@ Functionaliteit: Gerechtelijke uitspraak
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Aart'
 
-  Regel: Als er een gerechtelijke uitspraak is dat beide ouders het gezag hebben, dan is er tweehoofdig ouderlijk gezag
+  Regel: Als er een gerechtelijke uitspraak is dat beide ouders het gezag hebben, dan is er gezamenlijk ouderlijk gezag
 
     Voorbeeld: het gezag is toegewezen aan beide ouders
       Gegeven persoon 'Bert'
@@ -101,7 +111,7 @@ Functionaliteit: Gerechtelijke uitspraak
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
-      En in een gerechtelijke uitspraak is het gezag toegewezen aan een voogdijinstelling
+      En in een gerechtelijke uitspraak is een voogdijinstelling tot voogd benoemd
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' voogdij
 
@@ -109,7 +119,7 @@ Functionaliteit: Gerechtelijke uitspraak
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
-      En in een gerechtelijke uitspraak is het gezag toegewezen aan een derde
+      En in een gerechtelijke uitspraak een derde tot voogd benoemd
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' voogdij
 
@@ -121,4 +131,4 @@ Functionaliteit: Gerechtelijke uitspraak
       * heeft 'Aart' als ouder
       En in een gerechtelijke uitspraak is het gezag toegewezen aan ouder 'Gerda' en een derde
       Als gezag wordt gevraagd van 'Bert'
-      Dan is het gezag over 'Bert' gezamenlijk gezag met ouder 'Gerda'
+      Dan is het gezag over 'Bert' gezamenlijk gezag met ouder 'Gerda' en een onbekende derde

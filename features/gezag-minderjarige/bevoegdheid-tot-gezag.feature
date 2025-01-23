@@ -16,7 +16,7 @@ Functionaliteit: Bevoegdheid tot gezag
     En de persoon 'Bert' met burgerservicenummer '000000048'
     * is minderjarig
 
-  Regel: Er is sprake van eenhoofdig ouderlijk gezag als één van de ouders met tweehoofdig ouderlijk gezag overleden of niet bevoegd is
+  Regel: Er is sprake van eenhoofdig ouderlijk gezag als één van de ouders met gezamenlijk ouderlijk gezag overleden of niet bevoegd is
 
     Voorbeeld: Minderjarige heeft twee ouders en één van de ouders staat onder curatele
       Gegeven 'Gerda' en 'Aart' zijn gehuwd
@@ -27,7 +27,7 @@ Functionaliteit: Bevoegdheid tot gezag
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Aart'
 
-  Regel: Er is tijdelijk geen gezag als beide ouders met tweehoofdig ouderlijk gezag overleden of niet bevoegd zijn
+  Regel: Er is tijdelijk geen gezag als beide ouders met gezamenlijk ouderlijk gezag overleden of niet bevoegd zijn
     #Bespreken: een ouder of beide ouders minderjarig met meerderjarigheidsverklaring - kunnnen we meerderjarigheidsverklaring herkennen of aannemen in de BRP?
 
     Voorbeeld: Minderjarige heeft twee ouders en beide ouders staan onder curatele
