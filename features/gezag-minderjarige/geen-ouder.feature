@@ -12,4 +12,4 @@ Functionaliteit: Geen ouder
 
     Voorbeeld: Er is geen juridische ouder en geen gerechtelijke uitspraak over gezag
       Als gezag wordt gevraagd van 'Bert'
-      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat ouders onbekend zijn'
+      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat beide ouders onbekend zijn'
