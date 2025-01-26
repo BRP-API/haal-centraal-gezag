@@ -253,12 +253,14 @@ Functionaliteit: Tg020 - Carolussen-Charbon
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000024        |
       | derde.burgerservicenummer        | 000000012        |
+      | derde.type                       | Derde            |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde           |
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000048        |
       | ouder.burgerservicenummer        | 000000024        |
       | derde.burgerservicenummer        | 000000012        |
+      | derde.type                       | Derde            |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
@@ -285,12 +287,14 @@ Functionaliteit: Tg020 - Carolussen-Charbon
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000024        |
       | derde.burgerservicenummer        | 000000012        |
+      | derde.type                       | Derde            |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde           |
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000048        |
       | ouder.burgerservicenummer        | 000000024        |
       | derde.burgerservicenummer        | 000000012        |
+      | derde.type                       | Derde            |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
@@ -316,6 +320,7 @@ Functionaliteit: Tg020 - Carolussen-Charbon
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000024        |
       | derde.burgerservicenummer        | 000000012        |
+      | derde.type                       | Derde            |
 
   Scenario: Lg01_117 - ouders geregistreerd partnerschap vóór 01-04-204, alleen Ouder2 gevuld
     # Route: 41 - Wie heeft gezag?: Ouder2 + partner (GG)
@@ -331,6 +336,7 @@ Functionaliteit: Tg020 - Carolussen-Charbon
       | minderjarige.burgerservicenummer | 000000048        |
       | ouder.burgerservicenummer        | 000000024        |
       | derde.burgerservicenummer        | 000000012        |
+      | derde.type                       | Derde            |
 
   Scenario: Lg01_118 - ouders geregistreerd partnerschap na 01-04-2014, 2 ouders
     # Route: 49 - Wie heeft gezag?: beide ouders (OG2)

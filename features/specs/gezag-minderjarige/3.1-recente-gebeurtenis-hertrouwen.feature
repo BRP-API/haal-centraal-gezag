@@ -277,7 +277,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | <ouder>          |
-      En heeft 'gezag' geen derden
+      | derde.type                       | OnbekendeDerde   |
 
       Voorbeelden:
       | indicatie gezag | omschrijving uitspraak | ouder     |

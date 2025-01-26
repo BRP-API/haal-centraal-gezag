@@ -867,7 +867,7 @@ Functionaliteit: Tg001 - Adema-Arendsen - Gehuwd met kinderen geboren voor en na
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000103        |
       | ouder.burgerservicenummer        | 000000012        |
-    En heeft 'gezag' geen derden
+      | derde.type                       | OnbekendeDerde   |
 
   Scenario: Lg01_113 - erkend, ouders later gehuwd, indicatie gezag "1D" geldig voor huwelijksdatum
     # Route: 4 - Wie heeft gezag?: niet te bepalen (V)
@@ -882,4 +882,4 @@ Functionaliteit: Tg001 - Adema-Arendsen - Gehuwd met kinderen geboren voor en na
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000115        |
       | ouder.burgerservicenummer        | 000000012        |
-    En heeft 'gezag' geen derden
+      | derde.type                       | OnbekendeDerde   |

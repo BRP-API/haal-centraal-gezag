@@ -167,4 +167,4 @@ Functionaliteit: Tg032 - Oostingh - Alleen maar minderjarigen incl. moeder
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000012        |
-    En heeft 'gezag' geen derden
+      | derde.type                       | OnbekendeDerde   |

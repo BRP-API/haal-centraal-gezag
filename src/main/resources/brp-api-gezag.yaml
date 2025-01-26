@@ -148,6 +148,28 @@ components:
       properties:
         burgerservicenummer:
           $ref: "#/components/schemas/Burgerservicenummer"
+    AbstractDerde:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+      discriminator:
+        propertyName: type
+        mapping:
+          Derde: '#/components/schemas/Derde'
+          OnbekendeDerde: '#/components/schemas/OnbekendeDerde'
+    Derde:
+      allOf:
+        - $ref: '#/components/schemas/AbstractDerde'
+        - type: object
+          properties:
+            burgerservicenummer:
+              $ref: "#/components/schemas/Burgerservicenummer"
+    OnbekendeDerde:
+      allOf:
+        - $ref: '#/components/schemas/AbstractDerde'
     GezamenlijkGezag:
       allOf:
         - $ref: "#/components/schemas/AbstractGezagsrelatie"
@@ -156,7 +178,7 @@ components:
             ouder:
               $ref: "#/components/schemas/GezagOuder"
             derde:
-              $ref: "#/components/schemas/Meerderjarige"
+              $ref: '#/components/schemas/AbstractDerde'
             minderjarige:
               $ref: "#/components/schemas/Minderjarige"
     Voogdij:
