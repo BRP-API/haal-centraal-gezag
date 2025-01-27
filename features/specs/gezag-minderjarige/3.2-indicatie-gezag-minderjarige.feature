@@ -152,7 +152,8 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000091        |
       | ouder.burgerservicenummer        | 000000061        |
-      | derde.type                       | OnbekendeDerde   |
+      | derde.burgerservicenummer        | 000000085        |
+      | derde.type                       | Derde            |
 
   Scenario: De vader heeft samen met een voogd gezamelijk gezag over het kind resulteerd in Voogdij
     Gegeven voor 'Nathan' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
@@ -201,7 +202,8 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000091        |
       | ouder.burgerservicenummer        | 000000085        |
-      | derde.type                       | OnbekendeDerde   |
+      | derde.burgerservicenummer        | 000000061        |
+      | derde.type                       | Derde            |
 
   Regel: Uitspraak gezag met indicatie dat er sprake is van voogdij opgenomen vanuit het Gezagsregister
 
