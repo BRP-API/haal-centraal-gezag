@@ -89,6 +89,7 @@ Functionaliteit: 2a.2 - adoptief ouders
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -111,6 +112,7 @@ Functionaliteit: 2a.2 - adoptief ouders
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -134,6 +136,7 @@ Functionaliteit: 2a.2 - adoptief ouders
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -157,6 +160,7 @@ Functionaliteit: 2a.2 - adoptief ouders
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                     |
 
   Scenario: het kind is geadopteerd door een alleenstaand persoon als ouder 2 er is sprake van EenhoofdigOuderlijkGezag
     Gegeven persoon 'Jaimy'
@@ -172,6 +176,7 @@ Functionaliteit: 2a.2 - adoptief ouders
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
 
   Scenario: het kind is geadopteerd door een persoon die is gehuwd er is sprake van EenhoofdigOuderlijkGezag
     Gegeven 'Ingrid' en 'Henk' zijn met elkaar gehuwd met de volgende gegevens
@@ -190,6 +195,7 @@ Functionaliteit: 2a.2 - adoptief ouders
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Regel: Een kind heeft al een ouder en wordt geadopteerd door een persoon
 
@@ -212,6 +218,7 @@ Functionaliteit: 2a.2 - adoptief ouders
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -235,6 +242,7 @@ Functionaliteit: 2a.2 - adoptief ouders
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -264,6 +272,7 @@ Functionaliteit: 2a.2 - adoptief ouders
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |

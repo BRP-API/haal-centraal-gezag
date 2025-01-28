@@ -60,6 +60,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -96,6 +97,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -128,6 +130,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
       En heeft 'gezag' geen derden
 
     Abstract Scenario: Een kind is geadopteerd vóór de gerechtelijke uitspraak en de gegevens van het kind zijn na de uitspraak gewijzigd <omschrijving> er is sprake van Voogdij
@@ -153,6 +156,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
       En heeft 'gezag' geen derden
       
       Voorbeelden:
@@ -184,6 +188,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
       En heeft 'gezag' geen derden
 
   Regel: Als de datum van de gerechtelijke uitspraak over gezag onbekend is kan er geen gezag uitspraak worden gedaan
@@ -208,6 +213,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde                                                                                                                  |
       | type                             | GezagNietTeBepalen                                                                                                      |
       | minderjarige.burgerservicenummer | 000000036                                                                                                               |
+      | inOnderzoek                      | false                                                                                                                   |
       | toelichting                      | gezag is niet te bepalen omdat de volgende relevante gegevens ontbreken: ingangsdatum geldigheid van gezagsverhouding   |
 
   Regel: Als de datum van de gerechtelijke uitspraak over gezag gedeeltelijk onbekend is, wordt de eerste dag van de maand van de onzekerheidsperiode aangenomen
@@ -232,6 +238,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -266,6 +273,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
       En heeft 'gezag' geen derden
 
       Voorbeelden:
@@ -295,6 +303,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
       En heeft 'gezag' geen derden
 
       Voorbeelden:
@@ -325,6 +334,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -359,6 +369,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
       En heeft 'gezag' geen derden
 
       Voorbeelden:
@@ -391,7 +402,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | toelichting                      | <toelichting>             |
+      | inOnderzoek                      | true                      |
       | minderjarige.burgerservicenummer | 000000036                 |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -401,13 +412,13 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | aanduiding onderzoek Gerda | aanduiding onderzoek Aart | omschrijving                                           | toelichting                                                                                                                                              |
-      | 020000                     |                           | hele categorie ouder 1                                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: ouder 1.                                     |
-      | 026200                     |                           | hele groep familierechtelijke betrekking van ouder 1   | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 1.  |
-      | 026210                     |                           | datum ingang familierechtelijke betrekking van ouder 1 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 1.  |
-      |                            | 030000                    | hele categorie ouder 2                                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: ouder 2.                                     |
-      |                            | 036200                    | hele groep familierechtelijke betrekking van ouder 2   | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 2.  |
-      |                            | 036210                    | datum ingang familierechtelijke betrekking van ouder 2 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 2.  |
+      | aanduiding onderzoek Gerda | aanduiding onderzoek Aart | omschrijving                                           | 
+      | 020000                     |                           | hele categorie ouder 1                                 | 
+      | 026200                     |                           | hele groep familierechtelijke betrekking van ouder 1   |
+      | 026210                     |                           | datum ingang familierechtelijke betrekking van ouder 1 |
+      |                            | 030000                    | hele categorie ouder 2                                 |
+      |                            | 036200                    | hele groep familierechtelijke betrekking van ouder 2   |
+      |                            | 036210                    | datum ingang familierechtelijke betrekking van ouder 2 |
 
     Scenario: gezag wordt bepaald als het onderzoek op de familierechtelijke betrekking is beëindigd er is sprake van TweehoofdigOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
@@ -429,6 +440,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -456,7 +468,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
-      | toelichting                      | <toelichting>             |
+      | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -465,9 +477,9 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | einde onderzoek Gerda | einde onderzoek Aart | toelichting                                                                                                                                             |
-      | gisteren              |                      | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 2. |
-      |                       | gisteren             | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: datum ingang familiebetrekking van ouder 1. |
+      | einde onderzoek Gerda | einde onderzoek Aart | 
+      | gisteren              |                      | 
+      |                       | gisteren             | 
 
   Regel: Als indicatie gezag of ingangsdatum gezagsverhouding in onderzoek staan, is het gezag niet te bepalen
 
@@ -482,19 +494,19 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                                | waarde                                                                                                                     |
-      | type                                | Voogdij                                                                                                                    |
-      | minderjarige.burgerservicenummer    | 000000036                                                                                                                  |
-      | toelichting                         | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: <toelichting>. |
+      | naam                                | waarde           |
+      | type                                | Voogdij          |
+      | minderjarige.burgerservicenummer    | 000000036        |
+      | inOnderzoek                         | true             |
       En heeft 'gezag' geen derden
 
       Voorbeelden:
-      | aanduiding onderzoek | omschrijving                    | toelichting                   |
-      | 110000               | hele categorie gezagsverhouding | gezagsverhouding              |
-      | 113200               | hele groep gezag minderjarige   | indicatie gezag minderjarige  |
-      | 113210               | indicatie gezag minderjarige    | indicatie gezag minderjarige  |
-      | 118500               | hele groep geldigheid           | ingangsdatum geldigheid gezag |
-      | 118510               | datum ingang geldigheid         | ingangsdatum geldigheid gezag |
+      | aanduiding onderzoek | omschrijving                    | 
+      | 110000               | hele categorie gezagsverhouding | 
+      | 113200               | hele groep gezag minderjarige   |
+      | 113210               | indicatie gezag minderjarige    | 
+      | 118500               | hele groep geldigheid           | 
+      | 118510               | datum ingang geldigheid         | 
 
     Scenario: gezag kan wel worden bepaald als het onderzoek op de gezagsverhouding is beëindigd er is sprake van Voogdij
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
@@ -510,4 +522,5 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
       En heeft 'gezag' geen derden

@@ -34,6 +34,7 @@ Functionaliteit: gezag van een meerderjarige die niet in de BRP staat ingeschrev
       | type                             | GezagNietTeBepalen                                                   |
       | minderjarige.burgerservicenummer | 000000036                                                            |
       | toelichting                      | gezag is niet te bepalen omdat minderjarige niet in Nederland woont. |
+      | inOnderzoek                      | false                                                                |
       
     Scenario: een meerderjarig persoon in RNI en zonder kinderen 
       Gegeven de persoon 'Mees' met burgerservicenummer '000000036'
@@ -76,6 +77,7 @@ Functionaliteit: gezag van een meerderjarige die niet in de BRP staat ingeschrev
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000048 |
@@ -110,6 +112,7 @@ Functionaliteit: gezag van een meerderjarige die niet in de BRP staat ingeschrev
       | type                             | GezagNietTeBepalen                                                   |
       | minderjarige.burgerservicenummer | 000000036                                                            |
       | toelichting                      | gezag is niet te bepalen omdat minderjarige niet in Nederland woont. |
+      | inOnderzoek                      | false                                                                |
 
       Voorbeelden:
       | geboortedatum            | leeftijd      | omschrijving                                                                             |

@@ -27,8 +27,6 @@ import static net.logstash.logback.argument.StructuredArguments.value;
 @RequiredArgsConstructor
 public class GezagService {
     private static final Logger logger = LoggerFactory.getLogger(GezagService.class);
-    private static final String DEFAULT_NEE = "Nee";
-    private static final String SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD = "N";
     private static final String ROUTE_MEERDERJARIG = "2m";
     private static final String TOELICHTING_ONBEKEND_PERSOON = "Voor het opgegeven burgerservicenummer kon geen persoonslijst worden gevonden";
 
@@ -103,9 +101,7 @@ public class GezagService {
             if (errorTraceCode != null) {
                 toelichting = toelichtingService.setErrorReferenceToelichting(toelichting, errorTraceCode.toString());
             } else if (!missendeGegegevens.isEmpty()) {
-                toelichting = toelichtingService.decorateToelichting(toelichting, null, missendeGegegevens);
-            } else if(gezagsBepaling.warenVeldenInOnderzoek() && !"N".equals(arAntwoordenModel.getSoortGezag()) && !"G".equals(arAntwoordenModel.getSoortGezag())) {
-                toelichting = toelichtingService.decorateToelichting(toelichting, gezagsBepaling.getVeldenInOnderzoek(), missendeGegegevens);
+                toelichting = toelichtingService.decorateToelichting(toelichting, missendeGegegevens);
             }
             arAntwoordenModel.setUitleg(toelichting);
 

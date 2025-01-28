@@ -113,6 +113,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Vader is overleden er is sprake van EenhoofdigOuderlijkGezag voor de moeder
     Gegeven persoon 'Kees'
@@ -128,6 +129,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Regel: Beide ouders zijn overleden
 
@@ -147,6 +149,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000036                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
+      | inOnderzoek                      | false                                                   |
 
   Regel: Eén van de ouders is minderjarig
 
@@ -172,6 +175,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000073                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Vader is minderjarig er is sprake van EenhoofdigOuderlijkGezag voor de moeder
     Gegeven de persoon 'Lieve' met burgerservicenummer '000000061'
@@ -195,6 +199,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000061                |
+      | inOnderzoek                      | false                    |
 
   Regel: Beide ouders zijn minderjarig
 
@@ -220,6 +225,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                        |
       | minderjarige.burgerservicenummer | 000000048                                                 |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders minderjarig zijn. |
+      | inOnderzoek                      | false                                                     |
 
   Regel: Eén van de ouders is onder curatele gesteld
 
@@ -236,6 +242,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Vader is onder curatele gesteld er is sprake van EenhoofdigOuderlijkGezag voor de moeder
     Gegeven 'Kees' is onder curatele gesteld
@@ -250,6 +257,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Regel: Beide van de ouders zijn onder curatele gesteld
 
@@ -267,6 +275,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                            |
       | minderjarige.burgerservicenummer | 000000036                                                     |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders onder curatele staan. |
+      | inOnderzoek                      | false                                                         |
 
   Regel: Eén van de ouders is als minderjarige overleden
 
@@ -293,6 +302,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000073                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Vader is minderjarig en overleden er is sprake van EenhoofdigOuderlijkGezag voor de moeder
     Gegeven de persoon 'Lieve' met burgerservicenummer '000000061'
@@ -317,6 +327,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000061                |
+      | inOnderzoek                      | false                    |
 
   Regel: Beide ouders zijn als minderjarige overleden
 
@@ -344,6 +355,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000048                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
+      | inOnderzoek                      | false                                                   |
 
   Regel: Eén van de ouders is onder curatele gesteld en overleden
 
@@ -362,6 +374,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Vader is onder curatele gesteld en overleden er is sprake van EenhoofdigOuderlijkGezag voor de moeder
     Gegeven persoon 'Kees'
@@ -378,6 +391,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Regel: Beide ouders zijn onder curatele gesteld en overleden
 
@@ -399,6 +413,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000036                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
+      | inOnderzoek                      | false                                                   |
 
   Regel: Eén van de ouders is onder curatele gesteld, overleden en minderjarig
 
@@ -426,6 +441,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000073                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Vader is minderjarig, overleden en onder curatele er is sprake van EenhoofdigOuderlijkGezag voor de moeder
     Gegeven de persoon 'Lieve' met burgerservicenummer '000000061'
@@ -451,6 +467,7 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000061                |
+      | inOnderzoek                      | false                    |
 
   Regel: Beide ouders zijn onder curatele gesteld, overleden en minderjarig
 
@@ -480,3 +497,4 @@ Functionaliteit: 4a.2 - Ouders overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000048                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
+      | inOnderzoek                      | false                                                   |

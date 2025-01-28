@@ -46,6 +46,7 @@ Functionaliteit: 1.3 - is naar buitenland geëmigreerd geweest
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -68,4 +69,5 @@ Functionaliteit: 1.3 - is naar buitenland geëmigreerd geweest
       | naam                             | waarde                                                                        |
       | type                             | GezagNietTeBepalen                                                            |
       | minderjarige.burgerservicenummer | 000000036                                                                     |
+      | inOnderzoek                      | false                                                                         |
       | toelichting                      | gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven. |

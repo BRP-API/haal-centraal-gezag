@@ -82,6 +82,7 @@ openApiGenerate {
     configOptions.put("delegatePattern", "true")
     configOptions.put("documentationProvider", "none")
     configOptions.put("implicitHeaders", "true")
+    configOptions.put("useOptional", "true")
     configOptions.put("useSpringBoot3", "true")
     configOptions.put("useTags", "true")
 }

@@ -62,6 +62,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -86,6 +87,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Alleen de vader heeft gezag over het kind
     Gegeven voor 'Nathan' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
@@ -102,6 +104,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
 
   Regel: Uitspraak gezag met indicatie dat er sprake is van gezamelijk gezag is opgenomen vanuit het Gezagsregister
 
@@ -125,6 +128,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
     En heeft 'gezag' geen derden
 
   Scenario: De moeder heeft samen met de vader als niet ouder gezamelijk gezag over het kind resulteerd in Voogdij
@@ -162,6 +166,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000091 |
+      | inOnderzoek                      | false     |
     En heeft 'gezag' geen derden
 
   Scenario: De vader heeft samen met een voogd gezamelijk gezag over het kind resulteerd in Voogdij
@@ -184,6 +189,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
     En heeft 'gezag' geen derden
 
   Scenario: De vader als niet ouder heeft gezag over het kind resulteerd in Voogdij
@@ -221,6 +227,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000091 |
+      | inOnderzoek                      | false     |
     En heeft 'gezag' geen derden
 
   Regel: Uitspraak gezag met indicatie dat er sprake is van voogdij opgenomen vanuit het Gezagsregister
@@ -239,4 +246,5 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
     En heeft 'gezag' geen derden

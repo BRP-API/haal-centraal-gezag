@@ -71,6 +71,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - ontkenning
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | <ouder bsn>              |
+      | inOnderzoek                      | false                    |
 
       Voorbeelden:
       | ouder | naam ouder | soort wijziging | ouder bsn |
@@ -104,6 +105,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - ontkenning
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
       En heeft 'gezag' geen derden
 
       Voorbeelden:

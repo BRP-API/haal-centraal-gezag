@@ -42,7 +42,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
-      | toelichting                      | <toelichting>             |
+      | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -53,6 +53,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -63,6 +64,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000061                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -91,7 +93,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
-      | toelichting                      | <toelichting>             |
+      | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -102,7 +104,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                 |
-      | toelichting                      | <toelichting>             |
+      | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -113,7 +115,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000061                 |
-      | toelichting                      | <toelichting>             |
+      | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |

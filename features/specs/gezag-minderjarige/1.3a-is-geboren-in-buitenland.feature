@@ -44,6 +44,7 @@ Functionaliteit: 1.3a - is geboren in het buitenland
       | naam                             | waarde                                                                    |
       | type                             | GezagNietTeBepalen                                                        |
       | minderjarige.burgerservicenummer | 000000036                                                                 |
+      | inOnderzoek                      | false                                                                     |
       | toelichting                      | gezag is niet te bepalen omdat minderjarige in het buitenland is geboren. |
 
   Scenario: Een in Nederland geboren kind met twee ouders heeft tweehoofdig ouder gezag
@@ -59,6 +60,7 @@ Functionaliteit: 1.3a - is geboren in het buitenland
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -77,4 +79,5 @@ Functionaliteit: 1.3a - is geboren in het buitenland
       | naam                             | waarde                                                                                                                                                                                                 |
       | type                             | GezagNietTeBepalen                                                                                                                                                                                     |
       | minderjarige.burgerservicenummer | 000000036                                                                                                                                                                                              |
+      | inOnderzoek                      | false                                                                                                                                                                                                  |
       | toelichting                      | gezag is niet te bepalen omdat niet kan worden vastgesteld of de persoon naar het buitenland geëmigreerd geweest is omdat de volgende relevante gegevens ontbreken: Geboorteland van bevraagde persoon |

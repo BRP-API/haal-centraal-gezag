@@ -49,6 +49,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | GezagNietTeBepalen                                                                                |
         | minderjarige.burgerservicenummer | 000000036                                                                                         |
         | toelichting                      | gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is. |
+        | inOnderzoek                      | false                                                                                             |
 
     Scenario: Voor een kind waarvan beide ouders een onbekende geslachtsaanduiding hebben, kan niet worden bepaald wie gezag heeft er is sprake van GezagNietTeBepalen
       Gegeven persoon 'Vanessa'
@@ -69,7 +70,8 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | GezagNietTeBepalen                                                                                |
         | minderjarige.burgerservicenummer | 000000036                                                                                         |
         | toelichting                      | gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is. |
-      
+        | inOnderzoek                      | false                                                                                             |
+
     Scenario: Voor een kind waarvan een ouder de geslachtsaanduiding vrouw heeft, kan worden bepaald wie gezag heeft er is sprake van EenhoofdigOuderlijkGezag
       Gegeven persoon 'Vanessa'
       * heeft 'Noah' als ouder 1 met de volgende gegevens
@@ -87,6 +89,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | EenhoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                |
         | ouder.burgerservicenummer        | 000000012                |
+        | inOnderzoek                      | false                    |
 
     Scenario: Voor een kind waarvan de tweede ouder de geslachtsaanduiding vrouw heeft, kan worden bepaald wie gezag heeft er is sprake van EenhoofdigOuderlijkGezag
       Gegeven persoon 'Vanessa'
@@ -105,6 +108,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | EenhoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                |
         | ouder.burgerservicenummer        | 000000024                |
+        | inOnderzoek                      | false                    |
 
     Scenario: Voor een kind waarvan een ouder de geslachtsaanduiding vrouw heeft en de andere man, kan worden bepaald wie gezag heeft er is sprake van EenhoofdigOuderlijkGezag
       Gegeven persoon 'Vanessa'
@@ -125,6 +129,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | EenhoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                |
         | ouder.burgerservicenummer        | 000000012                |
+        | inOnderzoek                      | false                    |
 
     Scenario: Voor een kind waarvan beide ouders de geslachtsaanduiding vrouw hebben en geen overeenkomende geslachtsnaam, kan niet worden bepaald wie gezag heeft er is sprake van GezagNietTeBepalen
       Gegeven persoon 'Vanessa'
@@ -145,6 +150,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | GezagNietTeBepalen                                                                                                                                                                     |
         | minderjarige.burgerservicenummer | 000000036                                                                                                                                                                              |
         | toelichting                      | gezag kan niet worden bepaald omdat bij het bepalen van erkenning relevante gegevens ontbreken. Het gaat om de volgende gegevens: Geboortemoeder van bevraagde persoon niet te bepalen |
+        | inOnderzoek                      | false                                                                                                                                                                                  |
     
     Scenario: Voor een kind waarvan beide ouders de geslachtsaanduiding vrouw hebben en een ouder een overeenkomstige geslachtsnaam, kan worden bepaald wie gezag heeft er is sprake van EenhoofdigOuderlijkGezag
       Gegeven persoon 'Vanessa'
@@ -168,6 +174,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | EenhoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                |
         | ouder.burgerservicenummer        | 000000012                |
+        | inOnderzoek                      | false                    |
 
     Scenario: Voor een kind waarvan beide ouders de geslachtsaanduiding vrouw hebben en dezelfde overeenkomende geslachtsnaam, kan niet worden bepaald wie gezag heeft er is sprake van GezagNietTeBepalen
       Gegeven persoon 'Vanessa'
@@ -188,7 +195,8 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | GezagNietTeBepalen                                                                                                                                                                     |
         | minderjarige.burgerservicenummer | 000000036                                                                                                                                                                              |
         | toelichting                      | gezag kan niet worden bepaald omdat bij het bepalen van erkenning relevante gegevens ontbreken. Het gaat om de volgende gegevens: Geboortemoeder van bevraagde persoon niet te bepalen |
-    
+        | inOnderzoek                      | false            |
+
   Regel: een kind geboren na 01-01-2023
     
     Scenario: Voor een kind waarvan beide ouders geen geslachtsaanduiding hebben, kan gezag worden bepaald er is sprake van TweehoofdigOuderlijkGezag
@@ -210,6 +218,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -236,6 +245,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -262,6 +272,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -288,6 +299,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -314,6 +326,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -340,6 +353,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -369,6 +383,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -395,6 +410,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |

@@ -83,6 +83,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Scenario: De vader (ouder 2 van 'Thea') is niet overleden, minderjarig of onder curatele er is sprake van EenhoofdigOuderlijkGezag
     Als gezag wordt gezocht met de volgende parameters
@@ -96,6 +97,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000061                |
       | ouder.burgerservicenummer        | 000000036                |
+      | inOnderzoek                      | false                    |
 
   Regel: De ouder is overleden
 
@@ -113,6 +115,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000024                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
+      | inOnderzoek                      | false                                             |
 
   Scenario: De vader (ouder 2 van 'Thea') is overleden er is TijdelijkGeenGezag
     Gegeven persoon 'Rik'
@@ -128,6 +131,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000061                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
+      | inOnderzoek                      | false                                             |
 
   Regel: De ouder is minderjarig
 
@@ -145,6 +149,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                  |
       | minderjarige.burgerservicenummer | 000000024                                           |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder minderjarig is. |
+      | inOnderzoek                      | false                                               |
 
   Scenario: De vader (ouder 2 van 'Thea') is minderjarig er is TijdelijkGeenGezag
     Gegeven persoon 'Rik'
@@ -160,6 +165,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                  |
       | minderjarige.burgerservicenummer | 000000061                                           |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder minderjarig is. |
+      | inOnderzoek                      | false                                               |
 
   Regel: De ouder is onder curatele gesteld
 
@@ -177,6 +183,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                        |
       | minderjarige.burgerservicenummer | 000000024                                                 |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder onder curatele staat. |
+      | inOnderzoek                      | false                                                     |
 
   Scenario: De vader (ouder 2 van 'Thea') is onder curatele er is TijdelijkGeenGezag
     Gegeven persoon 'Rik'
@@ -192,6 +199,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                        |
       | minderjarige.burgerservicenummer | 000000061                                                 |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder onder curatele staat. |
+      | inOnderzoek                      | false                                                     |
 
   Regel: De ouder is als minderjarige overleden
 
@@ -210,6 +218,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000024                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
+      | inOnderzoek                      | false                                             |
 
   Scenario: De vader (ouder 2 van 'Thea') is als minderjarige overleden er is TijdelijkGeenGezag
     Gegeven persoon 'Rik'
@@ -226,6 +235,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000061                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
+      | inOnderzoek                      | false                                             |
 
   Regel: De ouder is onder curatele gesteld en overleden
 
@@ -244,6 +254,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000024                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
+      | inOnderzoek                      | false                                             |
 
   Scenario: De vader (ouder 2 van 'Thea') is onder curatele en overleden er is TijdelijkGeenGezag
     Gegeven persoon 'Rik'
@@ -260,6 +271,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000061                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
+      | inOnderzoek                      | false                                             |
 
   Regel: De ouder is onder curatele gesteld, overleden en minderjarig
 
@@ -279,6 +291,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000024                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
+      | inOnderzoek                      | false                                             |
 
   Scenario: De vader (ouder 2 van 'Thea') is onder curatele, overleden en minderjarig er is TijdelijkGeenGezag
     Gegeven persoon 'Rik'
@@ -296,6 +309,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000061                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
+      | inOnderzoek                      | false                                             |
 
   Regel: Wanneer de gezaghebbende ouder overlijdt of onbevoegd wordt tot gezag, krijgt de andere ouder niet het gezag
 
@@ -317,3 +331,4 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                             |
       | minderjarige.burgerservicenummer | 000000024                                                      |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden of onbevoegd is. |
+      | inOnderzoek                      | false                                                          |

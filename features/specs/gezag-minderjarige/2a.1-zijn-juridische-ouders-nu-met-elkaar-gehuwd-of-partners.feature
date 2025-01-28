@@ -95,6 +95,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | type                             | GezagNietTeBepalen                                                                                |
       | minderjarige.burgerservicenummer | 000000036                                                                                         |
       | toelichting                      | gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is. |
+      | inOnderzoek                      | false                                                                                             |
 
   Regel: Ouders zijn gehuwd geweest voor het kind is geboren
 
@@ -115,6 +116,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
@@ -140,6 +142,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
@@ -165,6 +168,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Regel: Ouders zijn gehuwd geweest en gescheiden na de geboorte van het kind
 
@@ -185,6 +189,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
@@ -210,6 +215,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
@@ -235,6 +241,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Regel: Ouders waren en zijn nogsteeds gehuwd
 
@@ -252,6 +259,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
@@ -283,6 +291,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
@@ -312,6 +321,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
@@ -342,6 +352,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
@@ -371,6 +382,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
@@ -401,6 +413,7 @@ Functionaliteit: 2a.1 - Zijn juridische ouders nu met elkaar gehuwd of partners
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |

@@ -78,6 +78,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -113,6 +114,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -144,6 +146,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
     Scenario: geen 'recente gebeurtenis' omdat de ouders na het 'herstelhuwelijk' weer zijn gescheiden er is sprake van EenhoofdigOuderlijkGezag
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens 
@@ -168,6 +171,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -202,6 +206,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
     Scenario: geen 'recente gebeurtenis' omdat de ouders al voor de uitspraak met elkaar hertrouwd zijn er is sprake van EenhoofdigOuderlijkGezag
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
@@ -227,6 +232,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
     Scenario: geen 'recente gebeurtenis' omdat de gerechtelijke uitspraak tot gezag <omschrijving uitspraak> is er is sprake van Voogdij
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
@@ -251,6 +257,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
       En heeft 'gezag' geen derden
 
       Voorbeelden:
@@ -290,6 +297,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
     Scenario: geen 'recente gebeurtenis' wanneer het eerste huwelijk met een correctie volledig is verwijderd er is sprake van EenhoofdigOuderlijkGezag
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens 
@@ -317,6 +325,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
     Scenario: geen 'recente gebeurtenis' wanneer de datum huwelijkssluiting van het eerste en enige huwelijk is gecorrigeerd er is sprake van EenhoofdigOuderlijkGezag
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens 
@@ -339,6 +348,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Regel: Als het huwelijk of partnerschap in staat onderzoek, is het gezag wel te bepalen
 
@@ -365,6 +375,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | false                     |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -403,7 +414,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
-      | toelichting                      | <toelichting>             |
+      | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -412,8 +423,8 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | burgerservicenummer | 000000024 |
       
       Voorbeelden:
-      | aanduiding onderzoek | omschrijving                                | toelichting                                                                                                                                                                                                              |
-      | 050120               | burgerservicenummer partner                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 1: burgerservicenummer partner van relatie. Persoonslijst van ouder 2: burgerservicenummer partner van relatie. |
-      | 050000               | hele categorie partnerschap                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 1: relatie. Persoonslijst van ouder 2: relatie.                                                                 |
-      | 050600               | hele groep aangaan huwelijk of partnerschap | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 1: datum voltrokken van relatie. Persoonslijst van ouder 2: datum voltrokken van relatie.                       |
-      | 050610               | datum aangaan huwelijk of partnerschap      | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 1: datum voltrokken van relatie. Persoonslijst van ouder 2: datum voltrokken van relatie.                       |     
+      | aanduiding onderzoek | omschrijving                                |
+      | 050120               | burgerservicenummer partner                 | 
+      | 050000               | hele categorie partnerschap                 | 
+      | 050600               | hele groep aangaan huwelijk of partnerschap | 
+      | 050610               | datum aangaan huwelijk of partnerschap      |
