@@ -259,6 +259,7 @@ Functionaliteit: Tg006 - Elbertsen-Eizenga
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_025 - gehuwd, 2 minderjarige kinderen, overleden
     # Meerderjarig
@@ -283,6 +284,7 @@ Functionaliteit: Tg006 - Elbertsen-Eizenga
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
     En heeft 'gezag' geen derden
 
   Scenario: Lg01_027 - minderjarig kind, geboren tijdens huwelijk ouders, vader (Ouder1) overleden, geen categorie 11
@@ -298,3 +300,4 @@ Functionaliteit: Tg006 - Elbertsen-Eizenga
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | false                    |

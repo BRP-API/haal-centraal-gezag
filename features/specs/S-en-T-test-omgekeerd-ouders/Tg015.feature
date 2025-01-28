@@ -111,3 +111,4 @@ Functionaliteit: Tg015 - Oei
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000024                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
+      | inOnderzoek                      | false                                             |

@@ -394,6 +394,7 @@ Functionaliteit: Tg019 - Aa-Abels - Ouders overleden zelfde dag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000036                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
+      | inOnderzoek                      | false                                                   |
 
   Scenario: Lg01_104 - gehuwde ouders beiden overleden, indicatie gezag 1 geplaatst vóór overlijden Ouder1
     # Route: 12 - Wie heeft gezag?: geen gezag (G)
@@ -408,6 +409,7 @@ Functionaliteit: Tg019 - Aa-Abels - Ouders overleden zelfde dag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000048                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
+      | inOnderzoek                      | false                                                   |
 
   Scenario: Lg01_105 - gehuwde ouders beiden overleden, indicatie D geplaatst ná overlijden Ouders
     # Route: 6 - Wie heeft gezag?: voogdij (V)
@@ -421,4 +423,5 @@ Functionaliteit: Tg019 - Aa-Abels - Ouders overleden zelfde dag
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000061 |
+      | inOnderzoek                      | false     |
     En heeft 'gezag' geen derden
