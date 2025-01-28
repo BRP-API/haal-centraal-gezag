@@ -792,6 +792,7 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000073                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -813,10 +814,12 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000061                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000073                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -828,16 +831,19 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000097                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000127                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000139                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_057 - onder gezag derde, geldigheid vóór scheiding ouders
     # Route: 6 - Wie heeft gezag?: Derde heeft gezag (V)
@@ -851,6 +857,7 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
+      | inOnderzoek                      | false     |
     En heeft 'gezag' geen derden
 
   Scenario: Lg01_058 - gezag ouder1, datum geldigheid standaardwaarde
@@ -866,6 +873,7 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | type                             | GezagNietTeBepalen                                                                                                    |
       | minderjarige.burgerservicenummer | 000000048                                                                                                             |
       | toelichting                      | gezag is niet te bepalen omdat de volgende relevante gegevens ontbreken: ingangsdatum geldigheid van gezagsverhouding |
+      | inOnderzoek                      | false                                                                                                                 |
 
   Scenario: Lg01_059 - gezag ouder2, geldigheid ná datum reparatiehuwelijk
     # Route: 13 - Wie heeft gezag?: moeder (OG1)
@@ -880,6 +888,7 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000061                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_060 - gezag ouder1, datum geldigheid vóór reparatiehuwelijk
     # Route: 27 - Wie heeft gezag?: beide ouders (OG2)
@@ -893,6 +902,7 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000073                 |
+      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -924,6 +934,7 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000097                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_063 - gescheiden, 1 minderjarig kind
     # Meerderjarig
@@ -939,6 +950,7 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000115                |
       | ouder.burgerservicenummer        | 000000103                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_064 - ouders gescheiden, moeder gezag vóór scheiding
     # Route: 13 - Wie heeft gezag?: moeder (OG1)
@@ -953,6 +965,7 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000115                |
       | ouder.burgerservicenummer        | 000000103                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_207 - geboren tussen verschillende (ontbonden) huwelijken moeder, juridisch 1 ouder. Moeder in categorie 02
     # Route: 40o1 - Wie heeft gezag?: moeder (OG1)
@@ -967,6 +980,7 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000127                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_208 - geboren tussen verschillende (ontbonden) huwelijken moeder, juridisch 1 ouder. Moeder in categorie 03
     # Route: 40o2 - Wie heeft gezag?: moeder (OG1)
@@ -981,3 +995,4 @@ Functionaliteit: Tg011 - Kornelissen-Krabben-Krelissen
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000139                |
       | ouder.burgerservicenummer        | 000000024                |
+      | inOnderzoek                      | false                    |
