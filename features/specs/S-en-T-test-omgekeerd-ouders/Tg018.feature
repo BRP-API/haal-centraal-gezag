@@ -45,4 +45,3 @@ Functionaliteit: Tg018 - Vondeling - Kind zonder ouders
       | type                             | TijdelijkGeenGezag                                     |
       | minderjarige.burgerservicenummer | 000000012                                              |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders onbekend zijn. |
-      | inOnderzoek                      | false                                                  |

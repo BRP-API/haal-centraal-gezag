@@ -86,8 +86,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000024        |
       | ouder.burgerservicenummer        | 000000012        |
-      | derde.burgerservicenummer        | 000000036        |
-      | inOnderzoek                      | false            |
+      | derde.burgerservicenummer        | 000000036        |      
 
   Regel: De ouder of partner is overleden
 
@@ -107,7 +106,6 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000024 |
-      | inOnderzoek                      | false     |
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | burgerservicenummer |
       | 000000036           |
@@ -128,8 +126,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
 
   Regel: Zowel de ouder als partner zijn overleden
 
@@ -151,7 +148,6 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000024                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
-      | inOnderzoek                      | false                                                   |
 
   Regel: De ouder of partner is minderjarig
 
@@ -169,8 +165,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000024 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000024 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | burgerservicenummer |
       | 000000036           |
@@ -190,8 +185,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
 
   Regel: Zowel de ouder als partner zijn minderjarig
 
@@ -211,7 +205,6 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                        |
       | minderjarige.burgerservicenummer | 000000024                                                 |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders minderjarig zijn. |
-      | inOnderzoek                      | false                                                     |
 
   Regel: De ouder of partner staat onder curatele
 
@@ -230,8 +223,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000024 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000024 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | burgerservicenummer |
       | 000000036           |
@@ -252,8 +244,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
 
   Regel: Zowel de ouder als partner zijn onder curatele
 
@@ -275,7 +266,6 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                            |
       | minderjarige.burgerservicenummer | 000000024                                                     |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders onder curatele staan. |
-      | inOnderzoek                      | false                                                         |
 
   Regel: De ouder of partner is minderjarig en overleden
 
@@ -294,8 +284,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000024 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000024 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | burgerservicenummer |
       | 000000036           |
@@ -316,8 +305,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
 
   Regel: De ouder en partner zijn minderjarig en overleden
 
@@ -339,7 +327,6 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000024                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
-      | inOnderzoek                      | false                                                   |
 
   Regel: De ouder of partner is minderjarig en onder curatele
 
@@ -359,7 +346,6 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000024 |
-      | inOnderzoek                      | false     |
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | burgerservicenummer |
       | 000000036           |
@@ -380,8 +366,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
 
   Regel: De ouder en partner zijn minderjarig en onder curatele gesteld
 
@@ -403,7 +388,6 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                            |
       | minderjarige.burgerservicenummer | 000000024                                                     |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders onder curatele staan. |
-      | inOnderzoek                      | false                                                         |
 
   Regel: De ouder of partner is onder curatele en overleden
 
@@ -423,8 +407,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000024 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000024 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | burgerservicenummer |
       | 000000036           |
@@ -446,8 +429,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
 
   Regel: De ouder en partner zijn onder curatele gesteld en overleden
 
@@ -471,7 +453,6 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000024                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
-      | inOnderzoek                      | false                                                   |
 
   Regel: De ouder of partner is minderjarig, onder curatele en overleden
 
@@ -491,8 +472,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000024 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000024 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | burgerservicenummer |
       | 000000036           |
@@ -515,7 +495,6 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
       | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
 
   Regel: De ouder en partner zijn minderjarig, onder curatele gesteld en overleden
 
@@ -539,4 +518,3 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000024                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
-      | inOnderzoek                      | false                                                   |

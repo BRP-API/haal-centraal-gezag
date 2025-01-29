@@ -589,7 +589,6 @@ Functionaliteit: Tg016 - Petersen-Perquin & Peereboom-Peek & Pauwels-Platje
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000036                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
-      | inOnderzoek                      | false                                                   |
 
   Scenario: Lg01_090 - niet erkend minderjarig kind, moeder geregistreerd partnerschap voor 01-04-2014, zowel moeder als geregistreerd partner moeder overleden, gezag 1D opgenomen vóór overlijden moeder
     # Route: 4 - Wie heeft gezag?: voogdij (V)
@@ -602,8 +601,7 @@ Functionaliteit: Tg016 - Petersen-Perquin & Peereboom-Peek & Pauwels-Platje
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000048 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000048 |      
     En heeft 'gezag' geen derden
 
   Scenario: Lg01_091 - huwelijk tussen 2 vrouwen vóór 01-04-2014, huwelijkspartner niet automatisch ouder van kind, partner overleden
@@ -619,8 +617,7 @@ Functionaliteit: Tg016 - Petersen-Perquin & Peereboom-Peek & Pauwels-Platje
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000085                |
-      | ouder.burgerservicenummer        | 000000061                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000061                |      
 
   Scenario: Lg01_092 - huwelijk tussen 2 vrouwen vóór 01-04-2014, huwelijkspartner niet automatisch ouder van kind, overleden
     # Meerderjarig
@@ -645,8 +642,7 @@ Functionaliteit: Tg016 - Petersen-Perquin & Peereboom-Peek & Pauwels-Platje
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000085                |
-      | ouder.burgerservicenummer        | 000000061                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000061                |      
 
   Scenario: Lg01_094 - gehuwd, overleden
     # Meerderjarig
@@ -683,4 +679,3 @@ Functionaliteit: Tg016 - Petersen-Perquin & Peereboom-Peek & Pauwels-Platje
       | type                             | TijdelijkGeenGezag                                      |
       | minderjarige.burgerservicenummer | 000000115                                               |
       | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
-      | inOnderzoek                      | false                                                   |

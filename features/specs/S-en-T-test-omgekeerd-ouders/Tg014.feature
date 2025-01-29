@@ -342,8 +342,7 @@ Functionaliteit: Tg014 - Nicolaesen-Niemandsverdiet-Nijman
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000036 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -360,7 +359,6 @@ Functionaliteit: Tg014 - Nicolaesen-Niemandsverdiet-Nijman
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
-      | inOnderzoek                      | false     |
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -379,7 +377,6 @@ Functionaliteit: Tg014 - Nicolaesen-Niemandsverdiet-Nijman
       | type                             | EenhoofdigOuderlijkGezag      |
       | minderjarige.burgerservicenummer | 000000073                     |
       | ouder.burgerservicenummer        | 000000048                     |
-      | inOnderzoek                      | false                         |
 
   Scenario: Lg01_082 - huwelijk personen gelijk geslacht (V), echtgenote 1 minderjarig kind erkend als ongeboren vrucht door vader
     # Meerderjarig
@@ -404,4 +401,3 @@ Functionaliteit: Tg014 - Nicolaesen-Niemandsverdiet-Nijman
       | type                             | EenhoofdigOuderlijkGezag      |
       | minderjarige.burgerservicenummer | 000000073                     |
       | ouder.burgerservicenummer        | 000000048                     |
-      | inOnderzoek                      | false                         |

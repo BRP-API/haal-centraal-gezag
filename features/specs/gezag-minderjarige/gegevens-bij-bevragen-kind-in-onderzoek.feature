@@ -100,12 +100,12 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | aanduiding onderzoek | omschrijving                                | toelichting                                                                                                                                                                                                              |
-      | 050120               | burgerservicenummer partner                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 1: burgerservicenummer partner van relatie. Persoonslijst van ouder 2: burgerservicenummer partner van relatie. |
-      | 050000               | hele categorie partnerschap                 | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 1: relatie. Persoonslijst van ouder 2: relatie.                                                                 |
-      | 050600               | hele groep aangaan huwelijk of partnerschap | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 1: datum voltrokken van relatie. Persoonslijst van ouder 2: datum voltrokken van relatie.                       |
-      | 050610               | datum aangaan huwelijk of partnerschap      | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 1: datum voltrokken van relatie. Persoonslijst van ouder 2: datum voltrokken van relatie.                       |    
-      | 050710               | datum ontbinding huwelijk of partnerschap   | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 1: datum ontbinding van relatie. Persoonslijst van ouder 2: datum ontbinding van relatie.                       |    
+      | aanduiding onderzoek | omschrijving                                | 
+      | 050120               | burgerservicenummer partner                 | 
+      | 050000               | hele categorie partnerschap                 | 
+      | 050600               | hele groep aangaan huwelijk of partnerschap | 
+      | 050610               | datum aangaan huwelijk of partnerschap      | 
+      | 050710               | datum ontbinding huwelijk of partnerschap   | 
 
     Abstract Scenario: gezag wordt bepaald met gegeven van huwelijk bij scheiding: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
       Gegeven 'Jorine' en 'Bastiaan' zijn met elkaar gehuwd

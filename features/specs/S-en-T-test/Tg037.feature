@@ -221,8 +221,7 @@ Functionaliteit: Tg037 - Reijmersma-Rozenburg - Ouders met een vernietigd huweli
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000024                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000024                |      
 
   Scenario: Lg01_202 - geboren tijdens huwelijk ouders, huwelijk ouders nietig, categorie 03 aangepast in juridisch geen ouder
     # Route: 40o1 - Wie heeft gezag?: moeder (OG1)
@@ -236,5 +235,4 @@ Functionaliteit: Tg037 - Reijmersma-Rozenburg - Ouders met een vernietigd huweli
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000024                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000024                |      

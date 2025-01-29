@@ -354,8 +354,7 @@ Functionaliteit: Tg030 - Leeuwen-Luiten-Leijten - Cat.11 en latere erkenning
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000048 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000048 |      
     En heeft 'gezag' geen derden
 
   Scenario: Lg01_165 - minderjarig kind onder gezag 1D, erkend  door voogd
@@ -369,6 +368,5 @@ Functionaliteit: Tg030 - Leeuwen-Luiten-Leijten - Cat.11 en latere erkenning
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000061 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000061 |      
     En heeft 'gezag' geen derden

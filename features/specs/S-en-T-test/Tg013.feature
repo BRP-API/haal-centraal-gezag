@@ -871,7 +871,6 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_071 - ongehuwde man met vernietiging erkenning
     # Meerderjarig
@@ -897,7 +896,6 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_073 - ongehuwde man met erkend kind
     # Meerderjarig
@@ -924,24 +922,20 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000085                |
       | ouder.burgerservicenummer        | 000000061                |
-      | inOnderzoek                      | false                    |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000103                |
       | ouder.burgerservicenummer        | 000000061                |
-      | inOnderzoek                      | false                    |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000115                |
       | ouder.burgerservicenummer        | 000000061                |
-      | inOnderzoek                      | false                    |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000127                 |
-      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000061 |
@@ -973,7 +967,6 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000085                |
       | ouder.burgerservicenummer        | 000000061                |
-      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_077 - latere vestiging in Nederland, gescheiden, vaderschap ontkend van 2 minderjarige kinderen, bij 2 kinderen ouderschap vastgesteld
     # Meerderjarig
@@ -988,7 +981,6 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000127                 |
-      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000061 |
@@ -1009,7 +1001,6 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000103                |
       | ouder.burgerservicenummer        | 000000061                |
-      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_167 - vaststelling ouderschap, geen categorie 11
     # Route: 54v1 - Wie heeft gezag?: moeder (OG1)
@@ -1024,7 +1015,6 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000115                |
       | ouder.burgerservicenummer        | 000000061                |
-      | inOnderzoek                      | false                    |
 
   Scenario: Lg01_168 - vaststelling ouderschap, wel categorie 11
     # Route: 7 - Wie heeft gezag?: beide ouders (OG2)
@@ -1038,7 +1028,6 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000127                 |
-      | inOnderzoek                      | false                     |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000061 |

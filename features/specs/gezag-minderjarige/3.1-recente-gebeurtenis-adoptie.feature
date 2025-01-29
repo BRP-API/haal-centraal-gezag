@@ -59,8 +59,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -96,8 +95,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -129,8 +127,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' geen derden
 
     Abstract Scenario: Een kind is geadopteerd vóór de gerechtelijke uitspraak en de gegevens van het kind zijn na de uitspraak gewijzigd <omschrijving> er is sprake van Voogdij
@@ -155,8 +152,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' geen derden
       
       Voorbeelden:
@@ -187,8 +183,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' geen derden
 
   Regel: Als de datum van de gerechtelijke uitspraak over gezag onbekend is kan er geen gezag uitspraak worden gedaan
@@ -213,7 +208,6 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                             | waarde                                                                                                                  |
       | type                             | GezagNietTeBepalen                                                                                                      |
       | minderjarige.burgerservicenummer | 000000036                                                                                                               |
-      | inOnderzoek                      | false                                                                                                                   |
       | toelichting                      | gezag is niet te bepalen omdat de volgende relevante gegevens ontbreken: ingangsdatum geldigheid van gezagsverhouding   |
 
   Regel: Als de datum van de gerechtelijke uitspraak over gezag gedeeltelijk onbekend is, wordt de eerste dag van de maand van de onzekerheidsperiode aangenomen
@@ -237,8 +231,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -272,8 +265,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' geen derden
 
       Voorbeelden:
@@ -302,8 +294,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' geen derden
 
       Voorbeelden:
@@ -333,8 +324,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -368,8 +358,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' geen derden
 
       Voorbeelden:
@@ -439,8 +428,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -521,6 +509,5 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' geen derden

@@ -317,27 +317,23 @@ Functionaliteit: Tg039 - Tubbergen-Tintelen – 2 vrouwen met geregistreerd part
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000061 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000061 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000073 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000073 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -365,8 +361,7 @@ Functionaliteit: Tg039 - Tubbergen-Tintelen – 2 vrouwen met geregistreerd part
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
 
   Scenario: Lg01_212 - juridisch alleen moeder, geregistreerd partner van moeder overleden, moeder categorie 03
     # Route: 42no2 - Wie heeft gezag?: moeder (OG1)
@@ -380,8 +375,7 @@ Functionaliteit: Tg039 - Tubbergen-Tintelen – 2 vrouwen met geregistreerd part
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
-      | ouder.burgerservicenummer        | 000000012                |
-      | inOnderzoek                      | false                    |
+      | ouder.burgerservicenummer        | 000000012                |      
 
   Scenario: Lg01_213 - juridisch alleen moeder, moeder overleden, geregistreerd partner moeder geen ouder wel gezag, moeder categorie 02
     # Route: 43o1 - Wie heeft gezag?: partner moeder (V)
@@ -394,8 +388,7 @@ Functionaliteit: Tg039 - Tubbergen-Tintelen – 2 vrouwen met geregistreerd part
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000061 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000061 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -411,8 +404,7 @@ Functionaliteit: Tg039 - Tubbergen-Tintelen – 2 vrouwen met geregistreerd part
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000073 |
-      | inOnderzoek                      | false     |
+      | minderjarige.burgerservicenummer | 000000073 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |

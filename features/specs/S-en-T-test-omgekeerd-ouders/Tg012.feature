@@ -312,8 +312,7 @@ Functionaliteit: Tg012 - Loon-Liebeek
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -323,8 +322,7 @@ Functionaliteit: Tg012 - Loon-Liebeek
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000048                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -344,8 +342,7 @@ Functionaliteit: Tg012 - Loon-Liebeek
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -355,8 +352,7 @@ Functionaliteit: Tg012 - Loon-Liebeek
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000048                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -368,7 +364,6 @@ Functionaliteit: Tg012 - Loon-Liebeek
       | type                             | EenhoofdigOuderlijkGezag      |
       | minderjarige.burgerservicenummer | 000000061                     |
       | ouder.burgerservicenummer        | 000000024                     |
-      | inOnderzoek                      | false                         |
       
   Scenario: Lg01_067 - geboorte uit ongehuwde vrouw, adoptie met terugwerkende kracht tot geboortedatum door duo-moeder
     # Route: 55 - Wie heeft gezag?: beide ouders (OG2)
@@ -381,8 +376,7 @@ Functionaliteit: Tg012 - Loon-Liebeek
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -401,8 +395,7 @@ Functionaliteit: Tg012 - Loon-Liebeek
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000048                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -422,4 +415,3 @@ Functionaliteit: Tg012 - Loon-Liebeek
       | type                             | EenhoofdigOuderlijkGezag      |
       | minderjarige.burgerservicenummer | 000000061                     |
       | ouder.burgerservicenummer        | 000000024                     |
-      | inOnderzoek                      | false                         |

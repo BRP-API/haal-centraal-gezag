@@ -52,8 +52,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000048                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -63,8 +62,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000061                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000061                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -73,10 +71,10 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | aanduiding onderzoek | omschrijving             | toelichting                                                                                                                                |
-      | 010310               | geboortedatum            | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: geboortedatum van persoon.     |
-      | 010330               | geboorteland             | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: geboorteland van persoon.      |
-      | 010000               | hele categorie           | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van persoon: persoon.                       |
+      | aanduiding onderzoek | omschrijving             | 
+      | 010310               | geboortedatum            |
+      | 010330               | geboorteland             | 
+      | 010000               | hele categorie           | 
 
     Abstract Scenario: gezag wordt bepaald met gegeven van 1 van de kinderen: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
       Gegeven persoon 'Roel'
@@ -124,5 +122,5 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | aanduiding onderzoek | omschrijving             | toelichting                                                                                                                                |
-      | 010000               | hele categorie           | Bij de uitspraak zijn de volgende relevante gegevens in onderzoek geconstateerd. Persoonslijst van ouder 2: persoon.                       |
+      | aanduiding onderzoek | omschrijving             | 
+      | 010000               | hele categorie           | 

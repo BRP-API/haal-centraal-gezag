@@ -190,8 +190,7 @@ Functionaliteit: Tg021 - Doornenbal-Doodewaard
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000024        |
-      | derde.burgerservicenummer        | 000000012        |
-      | inOnderzoek                      | false            |
+      | derde.burgerservicenummer        | 000000012        |      
 
   Scenario: Lg01_120 - geregistreerd partnerschap omgezet in huwelijk
     # Meerderjarig
@@ -208,8 +207,7 @@ Functionaliteit: Tg021 - Doornenbal-Doodewaard
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000024        |
       | derde.burgerservicenummer        | 000000012        |
-      | inOnderzoek                      | false            |
-
+      
   Scenario: Lg01_121 - ouders geregistreerd partnerschap vóór 01-04-2014, alleen Ouder1 gevuld. Na geboorte kind hebben ouders geregistreerd partnerschap omgezet in een huwelijk.
     # Route: 41 - Wie heeft gezag?: moeder en partner (GG)
     Als gezag wordt gezocht met de volgende parameters
@@ -223,5 +221,4 @@ Functionaliteit: Tg021 - Doornenbal-Doodewaard
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000024        |
-      | derde.burgerservicenummer        | 000000012        |
-      | inOnderzoek                      | false            |
+      | derde.burgerservicenummer        | 000000012        |      

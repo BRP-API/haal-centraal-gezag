@@ -456,7 +456,6 @@ Functionaliteit: Tg005 - Donkers-Dangor-Dass - Gezag kan niet bepaald worden
       | type                             | GezagNietTeBepalen                                                                                                                                                                                                 |
       | minderjarige.burgerservicenummer | 000000024                                                                                                                                                                                                          |
       | toelichting                      | gezag is niet te bepalen omdat bij het bepalen van huwelijk/partnerschap van de ouder(s) relevante gegevens ontbreken. Het gaat om de volgende gegevens: ouder2 van bevraagde persoon is niet in BRP geregistreerd |
-      | inOnderzoek                      | false                                                                                                                                                                                                              |
 
   Scenario: Lg01_019 - gehuwd, 3 minderjarige kinderen geboren tijdens huwelijk ouders, echtgenoot en 2 kinderen geëmigreerd (RNI), 1 kind weer teruggekeerd (immigratie)
     # Meerderjarig
@@ -493,7 +492,6 @@ Functionaliteit: Tg005 - Donkers-Dangor-Dass - Gezag kan niet bepaald worden
       | type                             | GezagNietTeBepalen                                                                                                                                                                                                 |
       | minderjarige.burgerservicenummer | 000000061                                                                                                                                                                                                          |
       | toelichting                      | gezag is niet te bepalen omdat bij het bepalen van huwelijk/partnerschap van de ouder(s) relevante gegevens ontbreken. Het gaat om de volgende gegevens: ouder1 van bevraagde persoon is niet in BRP geregistreerd |
-      | inOnderzoek                      | false                                                                                                                                                                                                              |
 
   Scenario: Lg01_022 - minderjarig kind, geboren tijdens huwelijk ouders, geen categorie 11, geëmigreerd, ingeschreven in RNI evenals vader
     # Route: 1 - Wie heeft gezag?:  (N)
@@ -508,7 +506,6 @@ Functionaliteit: Tg005 - Donkers-Dangor-Dass - Gezag kan niet bepaald worden
       | type                             | GezagNietTeBepalen                                                   |
       | minderjarige.burgerservicenummer | 000000073                                                            |
       | toelichting                      | gezag is niet te bepalen omdat minderjarige niet in Nederland woont. |
-      | inOnderzoek                      | false                                                                |
 
   Scenario: Lg01_023 - minderjarig kind, geboren tijdens huwelijk ouders, geen categorie 11, vader ingeschreven in de RNI, kind Nederlandse nationaliteit, geëmigreerd geweest en geïmmigreerd
     # Route: 3 - Wie heeft gezag?:  (N)
@@ -523,7 +520,6 @@ Functionaliteit: Tg005 - Donkers-Dangor-Dass - Gezag kan niet bepaald worden
       | type                             | GezagNietTeBepalen                                                            |
       | minderjarige.burgerservicenummer | 000000085                                                                     |
       | toelichting                      | gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven. |
-      | inOnderzoek                      | false                                                                         |
 
   Scenario: Lg01_197 - minderjarig kind, geboren in Nederland, moeder ingezetene, vader RNI
     # Route: 45e - Wie heeft gezag?: niet te bepalen (N)
@@ -538,4 +534,3 @@ Functionaliteit: Tg005 - Donkers-Dangor-Dass - Gezag kan niet bepaald worden
       | type                             | GezagNietTeBepalen                                                                                                                                                                                                 |
       | minderjarige.burgerservicenummer | 000000097                                                                                                                                                                                                          |
       | toelichting                      | gezag is niet te bepalen omdat bij het bepalen van huwelijk/partnerschap van de ouder(s) relevante gegevens ontbreken. Het gaat om de volgende gegevens: ouder2 van bevraagde persoon is niet in BRP geregistreerd |
-      | inOnderzoek                      | false                                                                                                                                                                                                              |

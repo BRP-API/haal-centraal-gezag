@@ -342,8 +342,7 @@ Functionaliteit: Tg023 - Egberts-Ederveen Cat.11 = 12
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -353,8 +352,7 @@ Functionaliteit: Tg023 - Egberts-Ederveen Cat.11 = 12
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000061                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000061                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -374,8 +372,7 @@ Functionaliteit: Tg023 - Egberts-Ederveen Cat.11 = 12
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -385,8 +382,7 @@ Functionaliteit: Tg023 - Egberts-Ederveen Cat.11 = 12
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000061                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000061                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -405,8 +401,7 @@ Functionaliteit: Tg023 - Egberts-Ederveen Cat.11 = 12
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -427,7 +422,6 @@ Functionaliteit: Tg023 - Egberts-Ederveen Cat.11 = 12
       | type                             | GezagNietTeBepalen                                                                                                                 |
       | minderjarige.burgerservicenummer | 000000048                                                                                                                          |
       | toelichting                      | gezag is niet te bepalen omdat de volgende relevante gegevens ontbreken: ouder2 van bevraagde persoon is niet in BRP geregistreerd |
-      | inOnderzoek                      | false                                                                                                                              |
 
   Scenario: Lg01_129 - erkend categorie 03 op PL kind met Anr/BSN, categorie 09 ontbreekt bij vader, indicatie gezag 12
     # Route: 7 - Wie heeft gezag?: beide ouders (OG2)
@@ -440,8 +434,7 @@ Functionaliteit: Tg023 - Egberts-Ederveen Cat.11 = 12
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000061                 |
-      | inOnderzoek                      | false                     |
+      | minderjarige.burgerservicenummer | 000000061                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
