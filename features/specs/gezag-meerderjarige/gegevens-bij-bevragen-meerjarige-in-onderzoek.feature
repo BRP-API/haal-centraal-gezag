@@ -76,7 +76,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | 010330               | geboorteland             | 
       | 010000               | hele categorie           | 
 
-    Abstract Scenario: gezag wordt bepaald met gegeven van 1 van de kinderen: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt bepaald met gegeven van de ouder 2: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
       Gegeven persoon 'Roel'
       * zijn de volgende gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
