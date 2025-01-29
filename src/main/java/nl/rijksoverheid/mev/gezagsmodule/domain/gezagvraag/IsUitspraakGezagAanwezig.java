@@ -5,14 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * v1_4 Antwoord: "Ja" of "Nee" (of evt. "IN_ONDERZOEK" indien je dat in de toekomst wilt
- * toevoegen).
+ * v1_4 Antwoord: "Ja" of "Nee"
  */
 @Component
 public class IsUitspraakGezagAanwezig implements GezagVraag {
 
-    private static final Logger logger = LoggerFactory.getLogger(
-            IsUitspraakGezagAanwezig.class);
+    private static final Logger logger = LoggerFactory.getLogger(IsUitspraakGezagAanwezig.class);
     private static final String QUESTION_ID = "v1.4";
     private static final String V1_4_JA = "Ja";
     private static final String V1_4_NEE = "Nee";
@@ -25,16 +23,11 @@ public class IsUitspraakGezagAanwezig implements GezagVraag {
     @Override
     public GezagVraagResult perform(final GezagsBepaling gezagsBepaling) {
         final var plPersoon = gezagsBepaling.getPlPersoon();
-        if (plPersoon == null) {
-            // Kies je eigen manier van foutafhandeling (exception, null-result, etc.)
-            throw new IllegalStateException("Persoonslijst ontbreekt in GezagsBepaling");
-        }
+
         final var answer = plPersoon.heefIndicatieGezag() ? V1_4_JA : V1_4_NEE;
-        // Logging
-        logger.debug("1.4 Uitspraak gezag aanwezig? -> {}", answer);
-        // (Optioneel) mutatie in het bestaande 'gezagsBepaling' model:
+
+        logger.debug("1.4 Uitspraak gezag aanwezig? {}", answer);
         gezagsBepaling.getArAntwoordenModel().setV0104(answer);
-        // Retourneer een functioneel resultaat
         return new GezagVraagResult(QUESTION_ID, answer);
     }
 }

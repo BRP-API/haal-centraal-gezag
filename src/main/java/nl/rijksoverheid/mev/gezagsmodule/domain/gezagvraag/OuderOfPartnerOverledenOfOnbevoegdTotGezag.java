@@ -13,8 +13,7 @@ import java.util.Map;
 @Component
 public class OuderOfPartnerOverledenOfOnbevoegdTotGezag implements GezagVraag {
 
-    private static final Logger logger = LoggerFactory.getLogger(
-            OuderOfPartnerOverledenOfOnbevoegdTotGezag.class);
+    private static final Logger logger = LoggerFactory.getLogger(OuderOfPartnerOverledenOfOnbevoegdTotGezag.class);
     private static final String QUESTION_ID = "v4b.1";
     private static final String V4B_1_NEE = "Nee";
     private static final String V4B_1_JA_BEIDEN = "Ja_beiden";
@@ -76,17 +75,12 @@ public class OuderOfPartnerOverledenOfOnbevoegdTotGezag implements GezagVraag {
         final var optionalIsNietOuderOverledenOfOnbevoegdToken =
                 persoonslijstNietOuder.isOverledenOfOnbevoegdEncoded();
         final var isNietOuderOverledenOfOnbevoegd = optionalIsNietOuderOverledenOfOnbevoegdToken.isPresent();
-        if (persoonslijstOuder1 != null) {
-            final var key = "ouder1,"
-                    + persoonslijstOuder1.isOverledenOfOnbevoegd() + ","
-                    + isNietOuderOverledenOfOnbevoegd;
-            answer = ouderOfPartnerOverledenOfOnbevoegdTotGezagMap.get(key);
-        } else {
-            final var key = "ouder2,"
-                    + persoonslijstOuder2.isOverledenOfOnbevoegd() + ","
-                    + isNietOuderOverledenOfOnbevoegd;
-            answer = ouderOfPartnerOverledenOfOnbevoegdTotGezagMap.get(key);
-        }
+
+        String key = persoonslijstOuder1 != null
+            ? "ouder1," + persoonslijstOuder1.isOverledenOfOnbevoegd() + "," + isNietOuderOverledenOfOnbevoegd
+            : "ouder2," + persoonslijstOuder2.isOverledenOfOnbevoegd() + "," + isNietOuderOverledenOfOnbevoegd;
+        answer = ouderOfPartnerOverledenOfOnbevoegdTotGezagMap.get(key);
+
         if (V4B_1_JA_BEIDEN.equals(answer)) {
             final var persoonslijstOuder =
                     (persoonslijstOuder1 != null) ? persoonslijstOuder1 : persoonslijstOuder2;
@@ -95,12 +89,10 @@ public class OuderOfPartnerOverledenOfOnbevoegdTotGezag implements GezagVraag {
                     .orElseThrow();
             final var isNietOuderOverledenOfOnbevoegdToken =
                     optionalIsNietOuderOverledenOfOnbevoegdToken.orElseThrow();
-            final var key2 =
-                    "" + isOuderOverledenOfOnbevoegdToken + isNietOuderOverledenOfOnbevoegdToken;
-            answer = JA_BEIDEN_ANTWOORDEN.get(key2);
+            answer = JA_BEIDEN_ANTWOORDEN.get(isOuderOverledenOfOnbevoegdToken + isNietOuderOverledenOfOnbevoegdToken);
         }
-        logger.debug("4b.1 Ouder, echtgenoot of partner overleden of onbevoegd tot gezag? -> {}",
-                answer);
+
+        logger.debug("4b.1 Ouder, echtgenoot of partner overleden of onbevoegd tot gezag? {}", answer);
         gezagsBepaling.getArAntwoordenModel().setV04B01(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }

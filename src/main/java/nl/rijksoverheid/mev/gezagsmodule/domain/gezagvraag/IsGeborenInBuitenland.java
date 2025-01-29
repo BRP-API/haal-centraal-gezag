@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class IsGeborenInBuitenland implements GezagVraag {
 
-    private static final Logger logger =
-            LoggerFactory.getLogger(IsGeborenInBuitenland.class);
+    private static final Logger logger = LoggerFactory.getLogger(IsGeborenInBuitenland.class);
     private static final String QUESTION_ID = "v1.3a";
     private static final String GEBOORTELAND_CODE_NEDERLAND = "6030";
     private static final String V1_3A_JA = "Ja";
@@ -19,7 +18,6 @@ public class IsGeborenInBuitenland implements GezagVraag {
 
     @Override
     public String getQuestionId() {
-
         return QUESTION_ID;
     }
 
@@ -40,9 +38,6 @@ public class IsGeborenInBuitenland implements GezagVraag {
     @Override
     public GezagVraagResult perform(final GezagsBepaling gezagsBepaling) {
         final var plPersoon = gezagsBepaling.getPlPersoon();
-        if (plPersoon == null) {
-            throw new IllegalStateException("Persoonslijst van bevraagde persoon ontbreekt.");
-        }
         final var geboorteland = plPersoon.getPersoon().getGeboorteland();
         if (geboorteland == null || geboorteland.isEmpty()) {
             gezagsBepaling.addMissendeGegegevens("Geboorteland van bevraagde persoon");

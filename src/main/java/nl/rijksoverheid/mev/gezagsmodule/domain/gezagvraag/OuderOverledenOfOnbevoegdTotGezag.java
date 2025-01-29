@@ -13,14 +13,12 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * v4a_3 "Ja" / "Nee" in verschillende varianten, afhankelijk van de status (overleden / onbevoegd)
- * van ouder1 / ouder2.
+ * v4a_3 "Ja" / "Nee" in verschillende varianten,
  */
 @Component
 public class OuderOverledenOfOnbevoegdTotGezag implements GezagVraag {
 
-    private static final Logger logger = LoggerFactory.getLogger(
-            OuderOverledenOfOnbevoegdTotGezag.class);
+    private static final Logger logger = LoggerFactory.getLogger(OuderOverledenOfOnbevoegdTotGezag.class);
     private static final String QUESTION_ID = "v4a.3";
     private static final String V4A_3_NEE_OUDER1 = "Nee_ouder1";
     private static final String V4A_3_NEE_OUDER2 = "Nee_ouder2";
@@ -46,10 +44,6 @@ public class OuderOverledenOfOnbevoegdTotGezag implements GezagVraag {
     public GezagVraagResult perform(final GezagsBepaling gezagsBepaling) {
         String answer = null;
         final var plPersoon = gezagsBepaling.getPlPersoon();
-        if (plPersoon == null) {
-            throw new IllegalStateException(
-                    "Preconditie: Persoonslijst (kind) ontbreekt in GezagsBepaling.");
-        }
         final var heeftOuder1Burgerservicenummer =
                 plPersoon.getOuder1AsOptional().map(Ouder1::getBurgerservicenummer).isPresent();
         final var heeftOuder2Burgerservicenummer =
@@ -60,6 +54,7 @@ public class OuderOverledenOfOnbevoegdTotGezag implements GezagVraag {
                     "Ouder moet een BSN hebben"
             );
         }
+
         final var persoonslijstOuder1 = gezagsBepaling.getPlOuder1();
         final var persoonslijstOuder2 = gezagsBepaling.getPlOuder2();
         if (persoonslijstOuder1 == null && persoonslijstOuder2 == null) {
@@ -91,7 +86,7 @@ public class OuderOverledenOfOnbevoegdTotGezag implements GezagVraag {
             final var key = new String(tokenArray);
             answer = JA_ANTWOORDEN.get(key);
         }
-        logger.debug("4a.3 Ouder overleden of onbevoegd tot gezag? -> {}", answer);
+        logger.debug("4a.3 Ouder overleden of onbevoegd tot gezag? {}", answer);
         gezagsBepaling.getArAntwoordenModel().setV04A03(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }
