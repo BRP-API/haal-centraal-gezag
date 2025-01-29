@@ -363,13 +363,6 @@ Functionaliteit: Tg033 - Paassen-Pauw - Twee gehuwde vrouwen met 4 kinderen
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000085 |
-    En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde           |
-      | type                             | GezamenlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048        |
-      | ouder.burgerservicenummer        | 000000012        |
-      | derde.burgerservicenummer        | 000000024        |
-      | derde.type                       | Derde            |
 
   Scenario: Lg01_177 - huwelijkspartner van vrouw, geen meemoeder van de kinderen, bij 1 kind gezamenlijk gezag
     # Meerderjarig
@@ -384,13 +377,6 @@ Functionaliteit: Tg033 - Paassen-Pauw - Twee gehuwde vrouwen met 4 kinderen
       | naam                             | waarde           |
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
-      | ouder.burgerservicenummer        | 000000012        |
-      | derde.burgerservicenummer        | 000000024        |
-      | derde.type                       | Derde            |
-    En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde           |
-      | type                             | GezamenlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048        |
       | ouder.burgerservicenummer        | 000000012        |
       | derde.burgerservicenummer        | 000000024        |
       | derde.type                       | Derde            |

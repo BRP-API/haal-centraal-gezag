@@ -165,35 +165,27 @@ Functionaliteit: Tg017 - Rooyakkers-Ros - Getrouwd met kind in Cat.11 1D
       | ingangsdatum geldigheid (85.10)      | 20200301                    |
 
 
-  Scenario: Lg01_097 - gehuwd, 1 minderjarig kind, gerechtelijke uitspraak 1D
+  Scenario: Lg01_097 - gehuwd, 1 minderjarig kind
     # Meerderjarig
+    # Route: 2m - Wie heeft gezag?: meerderjarig, gezag is niet van toepassing (NVT)
     Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
     Dan heeft de response een persoon met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
-    En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde           |
-      | type                             | GezamenlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036        |
-      | ouder.burgerservicenummer        | 000000024        |
-      | derde.type                       | OnbekendeDerde   |
+    En heeft de persoon geen gezag
 
-  Scenario: Lg01_098 - gehuwd, 1 minderjarig kind, gerechtelijke uitspraak 1D
+  Scenario: Lg01_098 - gehuwd, 1 minderjarig kind
     # Meerderjarig
+    # Route: 2m - Wie heeft gezag?: meerderjarig, gezag is niet van toepassing (NVT)
     Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
     Dan heeft de response een persoon met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
-    En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde           |
-      | type                             | GezamenlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036        |
-      | ouder.burgerservicenummer        | 000000024        |
-      | derde.type                       | OnbekendeDerde   |
+    En heeft de persoon geen gezag
 
   Scenario: Lg01_099 - ouders gehuwd, indicatie gezag 1D
     # Route: 4 - Wie heeft gezag?: voogdij (V)
