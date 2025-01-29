@@ -221,16 +221,10 @@ public class GezagsBepaling {
                 }
                 int geboortedatum = Integer.parseInt(plPersoon.getPersoon().getGeboortedatum());
                 Persoonslijst ouder = Objects.requireNonNullElse(plOuder1, plOuder2);
-                HopRelatie hopGeborenInRelatie = getHopGeborenInRelatie(ouder, geboortedatum);
-
-                if (hopGeborenInRelatie == null) {
-                    return null;
-                }
-
-                String burgerservicenummerNietOuder = hopGeborenInRelatie.getPartner();
-                brpService.getPersoonslijst(burgerservicenummerNietOuder)
-                    .ifPresent(nietOuder ->
-                        plNietOuder = nietOuder);
+                getHopGeborenInRelatie(ouder, geboortedatum)
+                    .map(HopRelatie::getPartner)
+                    .flatMap(brpService::getPersoonslijst)
+                    .ifPresent(nietOuder -> plNietOuder = nietOuder);
             } catch (GezagException ex) {
                 logger.debug(ex.getMessage());
                 return null;
@@ -248,8 +242,10 @@ public class GezagsBepaling {
         return plOuder1 == null ^ plOuder2 == null;
     }
 
-    private HopRelatie getHopGeborenInRelatie(Persoonslijst ouder, int geboortedatum) {
-        HopRelaties hopRelaties = ouder.getHopRelaties();
-        return hopRelaties != null ? hopRelaties.geborenInRelatie(geboortedatum) : null;
+    private Optional<HopRelatie> getHopGeborenInRelatie(Persoonslijst ouder, int geboortedatum) {
+        var hopRelaties = ouder.getHopRelaties();
+        if (hopRelaties == null) return Optional.empty();
+
+        return Optional.ofNullable(hopRelaties.geborenInRelatie(geboortedatum));
     }
 }
