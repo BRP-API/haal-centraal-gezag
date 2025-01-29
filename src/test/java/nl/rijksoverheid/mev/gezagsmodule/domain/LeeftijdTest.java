@@ -55,7 +55,7 @@ class LeeftijdTest {
 
     @Test
     void leeftijdVoorPersoonDieMorgenMeerderjarigWordt() {
-        String geboorteDatum = getDateFor(17, 11, 30);
+        String geboorteDatum = getDateFor(17, 11, 1);
 
         Leeftijd leeftijd = Leeftijd.of(geboorteDatum);
 
