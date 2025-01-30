@@ -8,8 +8,16 @@ Functionaliteit: Geen ouder
     Gegeven de persoon 'Bert' met burgerservicenummer '000000048'
     * is minderjarig
 
-  Regel: Als er geen juridische ouder is en geen gerechtelijke uitspraak dan is er tijdelijk geen gezag
+  Regel: Als er geen of alleen onbekende ouders zijn, dan is er tijdelijk geen gezag
 
-    Voorbeeld: Er is geen juridische ouder en geen gerechtelijke uitspraak over gezag
+    Voorbeeld: De ouders zijn onbekend
+      Gegeven persoon 'Bert'
+      * is met onbekende ouders ingeschreven
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat beide ouders onbekend zijn'
+
+    Voorbeeld: Er is een onbekende ouder
+      Gegeven persoon 'Bert'
+      * is als vondeling ingeschreven
       Als gezag wordt gevraagd van 'Bert'
       Dan is er tijdelijk geen gezag over 'Bert' met de toelichting 'Tijdelijk geen gezag omdat beide ouders onbekend zijn'

@@ -48,3 +48,4 @@ Functionaliteit: Twee ouders met relatie
       En 'Gerda' en 'Bert' zijn 2 jaar geleden gescheiden
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
+ 

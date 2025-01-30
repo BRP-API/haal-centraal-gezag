@@ -77,6 +77,37 @@ Functionaliteit: Gezag niet te bepalen
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag is niet te bepalen omdat minderjarige buiten Nederland heeft verbleven.'
 
+  # bespreken: Zijn er uitzonderingen waarbij er wel gezag te bepalen is na geëmigreerd geweest?
+  # - Ouders gehuwd voor en na emigratie
+  # - Minderjarige geadopteerd
+  # - gehuwde ouders voor en na emigratie die voor emigratie al beide gezag hadden
+  # - erkenning voor 1-1-2023 en gewoond in land waar dan wel gezag voor beide ouders (bijv. Spanje)
+  # - gehuwde ouders en ten minste één ouder woont in NL en minderjarige ook in NL
+  # - immigratie minderjarige met 2 gehuwde ouders
+  # - twee ouders en erkenning na 1-1-2023
+  # - na gerechtelijke uitspraak ook na emigratie/remigratie
+  # - ook na emigratie bij gezamenlijk gezag van rechtswege
+  # - in NL geboren minderjarige heeft maar één ouder (moeder) die ongehuwd is
+  # - ...
+  # - een ouder niet in BRP: wel gezag bepalen
+
+  # haags kinderbeschermingsgezag 1996 (door NL geratificeerd 2011): minderjarige die in NL gewone vaste verblijfplaats heeft, krijgt gezag naar NL recht
+  # inschrijving in BRP betekent niet altijd dat de gewone verblijfplaats in NL is. bijv. expat, studeren in NL zijn voorbeelden niet gewone verblijfplaats (ook als dat voor jaren is)
+  # wel vaste verblijfplaats:
+  # - na tijdelijk VOW (land 0000 plus onderzoek geweest naar verblijfplaats)
+
+  # Als bij vertrek er gezamenlijk ouderlijk gezag was dan hebben ze dat bij terugkomst nog steeds. Dus bij alle gehuwde ouders?
+  # Evt. gerechtelijke uitspraak in het buitenland kan de burger dan zelf tonen.
+
+  # NL woont in buitenland (België, Duitsland)? oplossing nog onduidelijk, maar wel grote groep
+
+  # toelichting toevoegen: behoudens buitenlandse uitspraak --> geen toelichting doen want advies is laten inschrijven in gezagsregister
+
+  # reparatiehuwelijk: gezagsbeëindigende maatregel of toewijzing gezag. 
+  # - niet te zien of het gezagsbeëindigende maatregel of toewijzing gezag was
+  # - Heidi gaat bespreken hoe we hiermee om moeten gaan
+  # - voor nu zo laten als eerder beschreven
+
   Regel: Gezag kan worden bepaald als de minderjarige na verblijf in het buitenland in Nederland is geadopteerd.
 
     Voorbeeld: Minderjarige is geïmmigreerd naar Nederland en daarna geadopteerd in Nederland.
