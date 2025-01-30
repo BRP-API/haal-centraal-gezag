@@ -9,13 +9,14 @@ import java.util.Objects;
  * Ouder1 voor persoon
  */
 @Categorie(number = "02", name = "ouder 1")
-public class Ouder1 extends PotentieelInOnderzoek {
+public class Ouder1 extends PotentieelInOnderzoek implements WithAktenummer {
 
     @VeldNummer(number = "020120", name = "burgerservicenummer van ouder 1")
     private final String burgerservicenummer;
-
     @VeldNummer(number = "020240", name = "geslachtsnaam van ouder 1")
     private final String geslachtsnaam;
+    @VeldNummer(number = "020410", name = "geslachts aanduiding van ouder 1")
+    private final String geslachtsAanduiding;
     @VeldNummer(number = "028120", name = "aktenummer van ouder 1")
     private final String aktenummer;
     @VeldNummer(number = "026210", name = "datum ingang familiebetrekking van ouder 1")
@@ -30,6 +31,7 @@ public class Ouder1 extends PotentieelInOnderzoek {
 
         burgerservicenummer = burgerServiceNrAsString;
         geslachtsnaam = lo3PlPersoonRecord.getGeslachtsNaam();
+        geslachtsAanduiding = Objects.toString(lo3PlPersoonRecord.getGeslachtsAand(), null);
         aktenummer = lo3PlPersoonRecord.getAkteNr();
         datumIngangFamilieBetrekking = Objects.toString(lo3PlPersoonRecord.getFamilieBetrekStartDatum(), null);
         aanduidingGegevensInOnderzoek = onderzoekGegevensAanduidingAsString;
@@ -48,12 +50,19 @@ public class Ouder1 extends PotentieelInOnderzoek {
         return geslachtsnaam;
     }
 
+    public String getGeslachtsAanduiding() {
+        registerIfInOnderzoek("geslachtsAanduiding", getClass());
+
+        return geslachtsAanduiding;
+    }
+
     public String getDatumIngangFamiliebetrekking() {
         registerIfInOnderzoek("datumIngangFamilieBetrekking", getClass());
 
         return datumIngangFamilieBetrekking;
     }
 
+    @Override
     public String getAktenummer() {
         registerIfInOnderzoek("aktenummer", getClass());
 
