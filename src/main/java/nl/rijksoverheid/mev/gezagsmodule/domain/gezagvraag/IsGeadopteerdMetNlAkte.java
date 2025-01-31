@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class IsGeadopteerdMetNlAkte implements GezagVraag {
 
-    private static final Logger logger =
-            LoggerFactory.getLogger(IsGeadopteerdMetNlAkte.class);
+    private static final Logger logger = LoggerFactory.getLogger(IsGeadopteerdMetNlAkte.class);
     private static final String QUESTION_ID = "v1.3b";
     private static final String V1_3B_JA = "Ja";
     private static final String V1_3B_NEE = "Nee";
@@ -24,11 +23,10 @@ public class IsGeadopteerdMetNlAkte implements GezagVraag {
     @Override
     public GezagVraagResult perform(final GezagsBepaling gezagsBepaling) {
         final var plPersoon = gezagsBepaling.getPlPersoon();
-        if (plPersoon == null) {
-            throw new IllegalStateException("Persoonslijst ontbreekt in gezagsBepaling");
-        }
-        final var answer = plPersoon.geadopteerdMetNlAkte() ? V1_3B_JA : V1_3B_NEE;
-        logger.debug("1.3b Is deze minderjarige geadopteerd met een NL-akte? -> {}", answer);
+
+        var answer = plPersoon.geadopteerdMetNlAkte() ? V1_3B_JA : V1_3B_NEE;
+
+        logger.debug("1.3b Is deze minderjarige geadopteerd met een NL-akte? {}", answer);
         gezagsBepaling.getArAntwoordenModel().setV0103B(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }

@@ -83,7 +83,6 @@ public class GezagService {
      */
     public List<AbstractGezagsrelatie> getGezagResultaat(final String burgerservicenummer,
             final String burgerservicenummerPersoon) throws GezagException {
-
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         List<AbstractGezagsrelatie> gezagsRelaties = new ArrayList<>();
         String route = null;
@@ -98,7 +97,7 @@ public class GezagService {
                     gezagsBepaling = new GezagsBepaling(burgerservicenummer,
                             burgerservicenummerPersoon, persoonslijst, brpService,
                             vragenlijstService.getVragenMap(),
-                            gezagsVragenMapFactory.getGezagVraagFunctionsMap());
+                            gezagsVragenMapFactory.getGezagVragen());
                     arAntwoordenModel = gezagsBepaling.start();
                 } else {
                     route = ROUTE_MEERDERJARIG;
@@ -151,10 +150,8 @@ public class GezagService {
                     arAntwoordenModel.getUitleg(),
                     route
             );
-            logger.info(
-                    """
-                            Gezag bepaald voor persoon "{}": {}
-                            {}""",
+            logger.info("""
+                    Gezag bepaald voor persoon "{}": {} {}""",
                     burgerservicenummer, value("gezag_resultaat", gezagResultaat),
                     value("antwoorden_model", arAntwoordenModel)
             );
@@ -164,7 +161,6 @@ public class GezagService {
 
     private void setConfiguredValues(final ARAntwoordenModel arAntwoordenModel,
             final boolean persoonslijstExists) throws AfleidingsregelException {
-
         ARAntwoordenModel configuredARAntwoordenModel = beslissingsmatrixService.getARAntwoordenModel(
                 arAntwoordenModel);
         arAntwoordenModel.setSoortGezag(configuredARAntwoordenModel.getSoortGezag());

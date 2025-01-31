@@ -8,5 +8,8 @@ public interface GezagVraag {
      */
     GezagVraagResult perform(GezagsBepaling gezagsBepaling);
 
+    /**
+     * @return de vraag id, correspondeerd met hoofdstroomschema
+     */
     String getQuestionId();
 }

@@ -5,14 +5,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * v1_2 3 mogelijke antwoorden: - "Ja" (minderjarig en niet overleden) - "Nee_meerderjarig" (geen
- * minderjarige) - "Nee_overleden" (als minderjarige overleden).
+ * v1_2
+ * <p>3 mogelijke antwoorden: - "Ja" (minderjarig en niet overleden) - "Nee_meerderjarig" (geen
+ * minderjarige) - "Nee_overleden" (als minderjarige overleden).</p>
  */
 @Component
 public class IsPersoonMinderjarigEnNietOverleden implements GezagVraag {
 
-    private static final Logger logger = LoggerFactory.getLogger(
-            IsPersoonMinderjarigEnNietOverleden.class);
+    private static final Logger logger = LoggerFactory.getLogger(IsPersoonMinderjarigEnNietOverleden.class);
     private static final String QUESTION_ID = "v1.2";
     private static final String V1_2_JA = "Ja";
     private static final String V1_2_NEE_MEERDERJARIG = "Nee_meerderjarig";
@@ -26,11 +26,10 @@ public class IsPersoonMinderjarigEnNietOverleden implements GezagVraag {
     @Override
     public GezagVraagResult perform(final GezagsBepaling gezagsBepaling) {
         final var plPersoon = gezagsBepaling.getPlPersoon();
-        if (plPersoon == null) {
-            throw new IllegalStateException("Persoonslijst van bevraagde persoon ontbreekt.");
-        }
-        final var isMinderjarig = plPersoon.minderjarig();
-        final var isAlsMinderjarigOverleden = plPersoon.alsMinderjarigeOverleden();
+
+        boolean isMinderjarig = plPersoon.minderjarig();
+        boolean isAlsMinderjarigOverleden = plPersoon.alsMinderjarigeOverleden();
+
         String answer;
         if (isAlsMinderjarigOverleden) {
             answer = V1_2_NEE_OVERLEDEN;
@@ -39,7 +38,8 @@ public class IsPersoonMinderjarigEnNietOverleden implements GezagVraag {
         } else {
             answer = V1_2_NEE_MEERDERJARIG;
         }
-        logger.debug("1.2 Is persoon minderjarig en niet overleden? -> {}", answer);
+
+        logger.debug("1.2 Is persoon minderjarig en niet overleden? {}", answer);
         gezagsBepaling.getArAntwoordenModel().setV0102(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }
