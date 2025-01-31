@@ -3,22 +3,12 @@ package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 import lombok.Getter;
 import nl.rijksoverheid.mev.exception.AfleidingsregelException;
 import nl.rijksoverheid.mev.exception.GezagException;
-import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
-import nl.rijksoverheid.mev.gezagsmodule.domain.HopRelatie;
-import nl.rijksoverheid.mev.gezagsmodule.domain.HopRelaties;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
-import nl.rijksoverheid.mev.gezagsmodule.domain.VeldenInOnderzoek;
+import nl.rijksoverheid.mev.gezagsmodule.domain.*;
 import nl.rijksoverheid.mev.gezagsmodule.service.BrpService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Gezag bepaling bevat alle informatie voor een gezag bepaling voor een persoon
@@ -27,8 +17,8 @@ public class GezagsBepaling {
 
     private static final Logger logger = LoggerFactory.getLogger(GezagsBepaling.class);
     private static final Set<String> TE_NEGEREN_VELDEN_IN_ONDERZOEK = Set.of(
-            "burgerservicenummer van persoon",
-            "gemeente van inschrijving"
+        "burgerservicenummer van persoon",
+        "gemeente van inschrijving"
     );
     @Getter
     private UUID errorTraceCode;
@@ -50,21 +40,20 @@ public class GezagsBepaling {
     private final ARAntwoordenModel arAntwoordenModel;
 
     public GezagsBepaling(
-            final String burgerservicenummer,
-            final String burgerservicenummerPersoon,
-            final Persoonslijst plPersoon,
-            final BrpService brpService,
-            final Map<String, Map<String, String>> hoofdstroomschema,
-            final Map<String, GezagVraag> vragenMap
+        final String burgerservicenummer,
+        final String burgerservicenummerPersoon,
+        final Persoonslijst plPersoon,
+        final BrpService brpService,
+        final Map<String, Map<String, String>> hoofdstroomschema,
+        final Map<String, GezagVraag> vragenMap
     ) {
-
         this.burgerservicenummer = burgerservicenummer;
         this.burgerservicenummerPersoon = burgerservicenummerPersoon;
         this.plPersoon = plPersoon;
         this.brpService = brpService;
         this.hoofdstroomschema = hoofdstroomschema;
-        arAntwoordenModel = new ARAntwoordenModel();
         this.vragenMap = vragenMap;
+        arAntwoordenModel = new ARAntwoordenModel();
         missendeGegegevens = new ArrayList<>();
     }
 
@@ -72,17 +61,17 @@ public class GezagsBepaling {
      * Start de gezag bepaling
      */
     public ARAntwoordenModel start() {
-        var result = vragenMap.get("v1.1").perform(this);
-        this.next(result.questionId(), result.answer());
-        return arAntwoordenModel;
-    }
+        String nextQuestion = "v1.1";
 
-    public void next(final String currentQuestion, final String answer) {
+        GezagVraagResult result;
+        boolean hasNextQuestion = true;
         try {
-            Map<String, String> antwoordEnActieParen = hoofdstroomschema.get(currentQuestion);
-            if (antwoordEnActieParen != null && antwoordEnActieParen.containsKey(answer)) {
-                var result = vragenMap.get(antwoordEnActieParen.get(answer)).perform(this);
-                this.next(result.questionId(), result.answer());
+            while (hasNextQuestion) {
+                result = vragenMap.get(nextQuestion).perform(this);
+                nextQuestion = determineNext(result.questionId(), result.answer());
+                if(nextQuestion == null) {
+                    hasNextQuestion = false;
+                }
             }
         } catch (AfleidingsregelException ex) {
             addMissendeGegegevens(ex.getMissendVeld());
@@ -93,6 +82,17 @@ public class GezagsBepaling {
             arAntwoordenModel.setRoute("0");
             arAntwoordenModel.setException(ex);
         }
+
+        return arAntwoordenModel;
+    }
+
+    public String determineNext(final String currentQuestion, final String answer) {
+        Map<String, String> antwoordEnActieParen = hoofdstroomschema.get(currentQuestion);
+        if (antwoordEnActieParen != null && antwoordEnActieParen.containsKey(answer)) {
+            return antwoordEnActieParen.get(answer);
+        }
+
+        return null;
     }
 
     /**
@@ -100,7 +100,7 @@ public class GezagsBepaling {
      */
     public String getBurgerservicenummerOuder1() {
         return plOuder1 != null && plOuder1.getPersoon() != null ? plOuder1.getPersoon()
-                .getBurgerservicenummer() : null;
+            .getBurgerservicenummer() : null;
     }
 
     /**
@@ -108,7 +108,7 @@ public class GezagsBepaling {
      */
     public String getBurgerservicenummerOuder2() {
         return plOuder2 != null && plOuder2.getPersoon() != null ? plOuder2.getPersoon()
-                .getBurgerservicenummer() : null;
+            .getBurgerservicenummer() : null;
     }
 
     /**
@@ -116,7 +116,7 @@ public class GezagsBepaling {
      */
     public String getBurgerservicenummerNietOuder() {
         return plNietOuder != null && plNietOuder.getPersoon() != null ? plNietOuder.getPersoon()
-                .getBurgerservicenummer() : null;
+            .getBurgerservicenummer() : null;
     }
 
     /**
@@ -137,9 +137,9 @@ public class GezagsBepaling {
             logger.info("De volgende velden zijn in onderzoek: {}", veldenInOnderzoek);
         }
         return veldenInOnderzoek.stream()
-                .anyMatch(veldInOnderzoek ->
-                        TE_NEGEREN_VELDEN_IN_ONDERZOEK.stream().noneMatch(veldInOnderzoek::contains)
-                );
+            .anyMatch(veldInOnderzoek ->
+                TE_NEGEREN_VELDEN_IN_ONDERZOEK.stream().noneMatch(veldInOnderzoek::contains)
+            );
     }
 
     /**
@@ -167,7 +167,6 @@ public class GezagsBepaling {
         missendeGegegevens.add(missendGegegeven);
     }
 
-
     /**
      * @return ouder 1 of null
      */
@@ -175,14 +174,14 @@ public class GezagsBepaling {
         if (plOuder1 == null) {
             try {
                 if (plPersoon.getOuder1() != null
-                        && plPersoon.getOuder1().getBurgerservicenummer() != null) {
+                    && plPersoon.getOuder1().getBurgerservicenummer() != null) {
                     brpService.getPersoonslijst(
-                                    plPersoon.getOuder1().getBurgerservicenummer())
-                            .ifPresent(ouder1 -> {
-                                ouder1.setHopRelaties(new HopRelaties());
-                                ouder1.checkHopRelaties();
-                                plOuder1 = ouder1;
-                            });
+                            plPersoon.getOuder1().getBurgerservicenummer())
+                        .ifPresent(ouder1 -> {
+                            ouder1.setHopRelaties(new HopRelaties());
+                            ouder1.checkHopRelaties();
+                            plOuder1 = ouder1;
+                        });
                 }
             } catch (GezagException ex) {
                 logger.debug(ex.getMessage());
@@ -198,14 +197,14 @@ public class GezagsBepaling {
         if (plOuder2 == null) {
             try {
                 if (plPersoon.getOuder2() != null
-                        && plPersoon.getOuder2().getBurgerservicenummer() != null) {
+                    && plPersoon.getOuder2().getBurgerservicenummer() != null) {
                     brpService.getPersoonslijst(
-                                    plPersoon.getOuder2().getBurgerservicenummer())
-                            .ifPresent(ouder2 -> {
-                                ouder2.setHopRelaties(new HopRelaties());
-                                ouder2.checkHopRelaties();
-                                plOuder2 = ouder2;
-                            });
+                            plPersoon.getOuder2().getBurgerservicenummer())
+                        .ifPresent(ouder2 -> {
+                            ouder2.setHopRelaties(new HopRelaties());
+                            ouder2.checkHopRelaties();
+                            plOuder2 = ouder2;
+                        });
                 }
             } catch (GezagException ex) {
                 logger.debug(ex.getMessage());
@@ -231,8 +230,8 @@ public class GezagsBepaling {
                 }
                 String burgerservicenummerNietOuder = hopGeborenInRelatie.getPartner();
                 brpService.getPersoonslijst(burgerservicenummerNietOuder)
-                        .ifPresent(nietOuder ->
-                                plNietOuder = nietOuder);
+                    .ifPresent(nietOuder ->
+                        plNietOuder = nietOuder);
             } catch (GezagException ex) {
                 logger.debug(ex.getMessage());
                 return null;
@@ -243,7 +242,7 @@ public class GezagsBepaling {
 
     private boolean isValidPersoon(Persoonslijst plPersoon) {
         return plPersoon != null && plPersoon.getPersoon() != null
-                && plPersoon.getPersoon().getGeboortedatum() != null;
+            && plPersoon.getPersoon().getGeboortedatum() != null;
     }
 
     private boolean isOneParentPresent(Persoonslijst plOuder1, Persoonslijst plOuder2) {

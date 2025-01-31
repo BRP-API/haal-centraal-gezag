@@ -9,8 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
- * v4a_2 Mogelijke antwoorden: - Ja_ouder1 - Ja_ouder2 - Ja_beiden_onder_curatele,
- * Ja_beiden_minderjarig, Ja_beiden_overleden, etc. - Nee
+ * v4a_2 Ja / nee voor beide ouders in verschillende varianten
  */
 @Component
 public class OudersOverledenOfOnbevoegdTotGezag implements GezagVraag {
@@ -51,9 +50,7 @@ public class OudersOverledenOfOnbevoegdTotGezag implements GezagVraag {
         if (isOuder1OverledenOfOnbevoegd && isOuder2OverledenOfOnbevoegd) {
             final var isOuder1OverledenOfOnbevoegdToken = optionalIsOuder1OverledenOfOnbevoegdToken.get();
             final var isOuder2OverledenOfOnbevoegdToken = optionalIsOuder2OverledenOfOnbevoegdToken.get();
-            final var key = "%c%c".formatted(isOuder1OverledenOfOnbevoegdToken,
-                    isOuder2OverledenOfOnbevoegdToken);
-            answer = JA_BEIDEN_ANTWOORDEN.get(key);
+            answer = JA_BEIDEN_ANTWOORDEN.get(isOuder1OverledenOfOnbevoegdToken + isOuder2OverledenOfOnbevoegdToken);
         } else if (isOuder1OverledenOfOnbevoegd) {
             answer = V4A_2_JA_OUDER1;
         } else if (isOuder2OverledenOfOnbevoegd) {
@@ -61,25 +58,25 @@ public class OudersOverledenOfOnbevoegdTotGezag implements GezagVraag {
         } else {
             answer = V4A_2_NEE;
         }
-        logger.debug("4a.2 Ouders overleden of onbevoegd tot gezag? -> {}", answer);
+
+        logger.debug("4a.2 Ouders overleden of onbevoegd tot gezag? {}", answer);
         gezagsBepaling.getArAntwoordenModel().setV04A02(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }
 
     /**
-     * Kopie van de oorspronkelijke 'preconditieCheckOudersGeregistreerd()' (aangepast voor een
-     * functionele benadering).
+     * TODO: Naar eigen class?
      */
-    private void preconditieCheckOudersGeregistreerd(final GezagsBepaling gb) {
-        final var plPersoon = gb.getPlPersoon();
+    private void preconditieCheckOudersGeregistreerd(final GezagsBepaling gezagsBepaling) {
+        final var plPersoon = gezagsBepaling.getPlPersoon();
         if (!plPersoon.heeftTweeOuders()) {
             throw new AfleidingsregelException(
                     "Preconditie: Kind moet twee ouders hebben",
                     "Van de bevraagde persoon zijn geen twee ouders bekend"
             );
         }
-        preconditieCheckGeregistreerd("ouder1", gb.getPlOuder1());
-        preconditieCheckGeregistreerd("ouder2", gb.getPlOuder2());
+        preconditieCheckGeregistreerd("ouder1", gezagsBepaling.getPlOuder1());
+        preconditieCheckGeregistreerd("ouder2", gezagsBepaling.getPlOuder2());
     }
 
     private void preconditieCheckGeregistreerd(final String beschrijving,

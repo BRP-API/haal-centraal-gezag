@@ -20,14 +20,18 @@ import static java.util.Comparator.nullsFirst;
 @Component
 public class IsErSprakeVanEenRecenteGebeurtenis implements GezagVraag {
 
-    private static final Logger logger =
-            LoggerFactory.getLogger(IsErSprakeVanEenRecenteGebeurtenis.class);
+    private static final Logger logger = LoggerFactory.getLogger(IsErSprakeVanEenRecenteGebeurtenis.class);
     private static final String QUESTION_ID = "v3.1";
     private static final String V3_1_JA = "Ja";
     private static final String V3_1_NEE = "Nee";
     private static final String INDICATIE_GEZAG_BEIDE_OUDERS = "12";
     private static final String INDICATIE_GEZAG_OUDER1 = "1";
     private static final String INDICATIE_GEZAG_OUDER2 = "2";
+
+    @Override
+    public String getQuestionId() {
+        return QUESTION_ID;
+    }
 
     @Override
     public GezagVraagResult perform(final GezagsBepaling gezagsBepaling) {
@@ -76,28 +80,23 @@ public class IsErSprakeVanEenRecenteGebeurtenis implements GezagVraag {
         return new GezagVraagResult(QUESTION_ID, answer);
     }
 
-    @Override
-    public String getQuestionId() {
-
-        return QUESTION_ID;
-    }
-
     private boolean nuGehuwdOudersNaGeldigheidsdatum(final Persoonslijst plOuder1,
                                                      final Persoonslijst plOuder2,
                                                      final String geldigheidsdatum) {
         if (plOuder1 == null || plOuder2 == null) {
             return false;
         }
-        final var hopListOuder1 = getHuwelijkOfPartnerschap(
+        var hopListOuder1 = getHuwelijkOfPartnerschap(
                 plOuder1, plOuder2.getPersoon().getBurgerservicenummer());
-        final var hopListOuder2 = getHuwelijkOfPartnerschap(
+        var hopListOuder2 = getHuwelijkOfPartnerschap(
                 plOuder2, plOuder1.getPersoon().getBurgerservicenummer());
         if (hopListOuder1.isEmpty() || hopListOuder2.isEmpty()) {
             return false;
         }
-        final var hopOuder1Actueel = hopListOuder1.get(hopListOuder1.size() - 1)
+
+        var hopOuder1Actueel = hopListOuder1.get(hopListOuder1.size() - 1)
                 .getDatumVoltrokken();
-        final var hopOuder2Actueel = hopListOuder2.get(hopListOuder2.size() - 1)
+        var hopOuder2Actueel = hopListOuder2.get(hopListOuder2.size() - 1)
                 .getDatumVoltrokken();
         return (org.apache.commons.lang3.StringUtils.isNotBlank(hopOuder1Actueel)
                 && org.apache.commons.lang3.StringUtils.isNotBlank(hopOuder2Actueel))
@@ -108,7 +107,7 @@ public class IsErSprakeVanEenRecenteGebeurtenis implements GezagVraag {
 
     private List<HuwelijkOfPartnerschap> getHuwelijkOfPartnerschap(final Persoonslijst plOuder,
                                                                    final String bsnPartner) {
-        final var hopList = new ArrayList<HuwelijkOfPartnerschap>();
+        var hopList = new ArrayList<HuwelijkOfPartnerschap>();
         if (plOuder.getHuwelijkOfPartnerschappen() != null) {
             for (final var hop : plOuder.getHuwelijkOfPartnerschappen()) {
                 if ((hop.getDatumVoltrokken() != null || hop.getDatumOntbinding() != null)

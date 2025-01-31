@@ -16,17 +16,14 @@ class GezagsVragenMapFactoryTest {
             "when getGezagVraagFunctionsMap is called " +
             "then the returned map has the expected entries and correct mapping.")
     void testGetGezagVraagFunctionsMap() {
-        // GIVEN two mock GezagVraagFunction objects with unique question IDs
         final var mockFunction1 = mock(GezagVraag.class);
         when(mockFunction1.getQuestionId()).thenReturn("v1.1");
         GezagVraag mockFunction2 = mock(GezagVraag.class);
         when(mockFunction2.getQuestionId()).thenReturn("v2.1");
-        // and a GezagsVragenMapFactory created with these mocks
+
         final var factory = new GezagsVragenMapFactory(List.of(mockFunction1, mockFunction2));
-        // WHEN we call getGezagVraagFunctionsMap
-        final var resultMap = factory.getGezagVraagFunctionsMap();
-        // THEN the map size matches the number of mocks,
-        // and each key corresponds to its respective GezagVraagFunction.
+        final var resultMap = factory.getGezagVragen();
+
         assertEquals(2, resultMap.size(), "The map should contain two entries");
         assertSame(mockFunction1, resultMap.get("v1.1"), "Expected mockFunction1 under key 'v1.1'");
         assertSame(mockFunction2, resultMap.get("v2.1"), "Expected mockFunction2 under key 'v2.1'");

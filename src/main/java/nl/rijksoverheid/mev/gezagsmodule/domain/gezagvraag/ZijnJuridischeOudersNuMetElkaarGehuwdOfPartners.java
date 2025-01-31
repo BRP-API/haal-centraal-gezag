@@ -16,8 +16,7 @@ import java.util.Objects;
 @Component
 public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVraag {
 
-    private static final Logger logger = LoggerFactory.getLogger(
-            ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners.class);
+    private static final Logger logger = LoggerFactory.getLogger(ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners.class);
     private static final String QUESTION_ID = "v2a.1";
     private static final String V2A_1_JA_GEHUWD_OF_PARTNERS = "Ja";
     private static final String V2A_1_NEE = "Nee";
@@ -32,15 +31,13 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
     @Override
     public GezagVraagResult perform(final GezagsBepaling gezagsBepaling) {
         final var plPersoon = gezagsBepaling.getPlPersoon();
-        if (plPersoon == null) {
-            throw new IllegalStateException("Persoonslijst van bevraagde persoon ontbreekt.");
-        }
         final var geboortedatumKind = plPersoon.getPersoon().getGeboortedatum();
         preconditieCheckOudersGeregistreerd(gezagsBepaling);
+
         final var plOuder1 = gezagsBepaling.getPlOuder1();
         final var plOuder2 = gezagsBepaling.getPlOuder2();
-        final var hopOuder1 = ouderGetHetHuwelijkOfPartnerschap(plOuder1, plOuder2);
-        final var hopOuder2 = ouderGetHetHuwelijkOfPartnerschap(plOuder2, plOuder1);
+        final var hopOuder1 = getOuderHuwelijkOfPartnerschap(plOuder1, plOuder2);
+        final var hopOuder2 = getOuderHuwelijkOfPartnerschap(plOuder2, plOuder1);
         String answer;
         if (hopOuder1 == null || hopOuder2 == null) {
             answer = V2A_1_NEE_NA_GEBOORTE_NOOIT_GEHUWD_PARTNERS_GEWEEST_MET_ELKAAR;
@@ -56,12 +53,13 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
         } else {
             answer = V2A_1_NEE;
         }
-        logger.debug("2a.1 Zijn beide juridische ouders nu met elkaar gehuwd/partners? -> {}",
-                answer);
+
+        logger.debug("2a.1 Zijn beide juridische ouders nu met elkaar gehuwd/partners? {}", answer);
         gezagsBepaling.getArAntwoordenModel().setV02A01(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }
 
+    // TODO: naar eigen classe? duplicatie er uit
     private void preconditieCheckOudersGeregistreerd(final GezagsBepaling gezagsBepaling) {
         final var plPersoon = gezagsBepaling.getPlPersoon();
         if (!plPersoon.heeftTweeOuders()) {
@@ -85,7 +83,7 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
         }
     }
 
-    private HuwelijkOfPartnerschap ouderGetHetHuwelijkOfPartnerschap(
+    private HuwelijkOfPartnerschap getOuderHuwelijkOfPartnerschap(
             final Persoonslijst persoonslijst1, final Persoonslijst persoonslijst2) {
         if (persoonslijst1 == null || persoonslijst2 == null) {
             return null;
@@ -102,11 +100,7 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
 
     private boolean ouderGescheiden(final HuwelijkOfPartnerschap hop,
                                     final String geboortedatumKind) {
-
-        if (hop == null) {
-            return false;
-        }
-        if (hop.getRedenOntbinding() != null && "S".equals(hop.getRedenOntbinding())) {
+        if (hop != null && "S".equals(hop.getRedenOntbinding())) {
             return Integer.parseInt(hop.getDatumOntbinding()) < Integer.parseInt(geboortedatumKind);
         }
         return false;
