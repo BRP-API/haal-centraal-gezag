@@ -44,11 +44,11 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | 010330               | geboorteland             |
       | 010000               | hele categorie           |
 
-    Abstract Scenario: gezag wordt bepaald met aktenummer van persoon in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: gezag wordt bepaald met aktenummer van persoon in onderzoek er is sprake van TweehoofdigOuderlijkGezag
       Gegeven persoon 'Nandy'
       * zijn de volgende gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
-      | <aanduiding onderzoek>          |
+      | 018120                          |
       * heeft 'Jorine' als ouder 1
       * is geadopteerd door 'Bastiaan' als ouder 2
       Als gezag wordt gezocht met de volgende parameters
@@ -69,10 +69,33 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
 
-      Voorbeelden:
-      | aanduiding onderzoek | omschrijving             |
-      | 018120               | aktenummer               |
-      | 518120               | aktenummer historische   |
+    Scenario: gezag wordt bepaald met historisch aktenummer van persoon in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+      Gegeven persoon 'Nandy'
+      * zijn de volgende gegevens gewijzigd
+      | aanduiding in onderzoek (83.10) |
+      | 518120                          |
+      * zijn de volgende gegevens gewijzigd
+      | aanduiding in onderzoek (83.10) |
+      | |
+      * heeft 'Jorine' als ouder 1
+      * is geadopteerd door 'Bastiaan' als ouder 2
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam                             | waarde                    |
+      | type                             | TweehoofdigOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | true                      |
+      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000012 |
+      En heeft 'gezag' een 'ouder' met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000024 |
 
     Abstract Scenario: gezag wordt bepaald met gegeven van huwelijk: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
       Gegeven 'Jorine' en 'Bastiaan' zijn met elkaar gehuwd met de volgende gegevens
@@ -330,3 +353,48 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
         | minderjarige.burgerservicenummer | 000000036                 |
         | inOnderzoek                      | true                      |
         
+    Scenario: gezag wordt bepaald met historich aktenummer van ouder 1 in onderzoek er is sprake van EenhoofdigOuderlijkGezag
+      Gegeven persoon 'Nandy'
+        * is erkend door 'Jorine' als ouder 1 met erkenning bij geboorteaangifte
+        * zijn van ouder 1 de volgende gegevens gewijzigd
+        | aanduiding in onderzoek (83.10) | datum ingang familierechtelijke betrekking (62.10)  |
+        | 528120                          | gisteren - 17 jaar                                  | 
+        * zijn van ouder 1 de volgende gegevens gewijzigd
+        | aanduiding in onderzoek (83.10) | datum ingang familierechtelijke betrekking (62.10)  |
+        |                                 | gisteren - 17 jaar                                  | 
+        * heeft 'Bastiaan' als ouder 2
+      Als gezag wordt gezocht met de volgende parameters
+        | naam                | waarde    |
+        | burgerservicenummer | 000000036 |
+        Dan heeft de response een persoon met de volgende gegevens
+        | naam                | waarde    |
+        | burgerservicenummer | 000000036 |
+        En heeft de persoon een 'gezag' met de volgende gegevens
+        | naam                             | waarde                    |
+        | type                             | EenhoofdigOuderlijkGezag  |
+        | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | true                      |
+        | ouder.burgerservicenummer        | 000000024                 |
+        
+    Scenario: gezag wordt bepaald met historich aktenummer van ouder 2 in onderzoek er is sprake van EenhoofdigOuderlijkGezag
+      Gegeven persoon 'Nandy'
+        * heeft 'Jorine' als ouder 1
+        * is erkend door 'Bastiaan' als ouder 2 met erkenning bij geboorteaangifte
+        * zijn van ouder 2 de volgende gegevens gewijzigd
+        | aanduiding in onderzoek (83.10) | datum ingang familierechtelijke betrekking (62.10)  |
+        | 538120                          | gisteren - 17 jaar                                  | 
+        * zijn van ouder 2 de volgende gegevens gewijzigd
+        | aanduiding in onderzoek (83.10) | datum ingang familierechtelijke betrekking (62.10)  |
+        |                                 | gisteren - 17 jaar                                  | 
+      Als gezag wordt gezocht met de volgende parameters
+        | naam                | waarde    |
+        | burgerservicenummer | 000000036 |
+        Dan heeft de response een persoon met de volgende gegevens
+        | naam                | waarde    |
+        | burgerservicenummer | 000000036 |
+        En heeft de persoon een 'gezag' met de volgende gegevens
+        | naam                             | waarde                    |
+        | type                             | EenhoofdigOuderlijkGezag  |
+        | minderjarige.burgerservicenummer | 000000036                 |
+        | inOnderzoek                      | true                      |
+        | ouder.burgerservicenummer        | 000000012                 |
