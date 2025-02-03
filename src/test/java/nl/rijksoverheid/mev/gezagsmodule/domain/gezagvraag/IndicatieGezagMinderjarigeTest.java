@@ -1,8 +1,5 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Gezagsverhouding;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
@@ -11,6 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class IndicatieGezagMinderjarigeTest {
@@ -28,7 +29,6 @@ class IndicatieGezagMinderjarigeTest {
 
     @BeforeEach
     public void setup() {
-
         persoonslijst = new Persoonslijst();
         when(gezagsBepaling.getPlPersoon()).thenReturn(persoonslijst);
         when(gezagsBepaling.getArAntwoordenModel()).thenReturn(arAntwoordenModel);
@@ -37,35 +37,38 @@ class IndicatieGezagMinderjarigeTest {
 
     @Test
     void indicatieGezagMinderjarigeNoGezagsverhouding() {
+        var antwoord = classUnderTest.perform(gezagsBepaling);
 
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0302(null);
+        assertThat(antwoord.answer()).isEqualTo(null);
         verify(gezagsBepaling).addMissendeGegegevens(MISSING_GEZAGSVERHOUDING);
     }
 
     @Test
     void indicatieGezagMinderjarigeEmptyGezagsverhouding() {
-
         persoonslijst.setGezagsverhouding(gezagsverhouding);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0302(null);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(null);
     }
 
     @Test
     void indicatieGezagMinderjarigeGezagsverhoudingWithEmptyIndicatieGezag() {
-
         when(gezagsverhouding.getIndicatieGezagMinderjarige()).thenReturn("");
         persoonslijst.setGezagsverhouding(gezagsverhouding);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0302("");
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo("");
     }
 
     @Test
     void indicatieGezagMinderjarigeGezagsverhoudingWithValue() {
-
         when(gezagsverhouding.getIndicatieGezagMinderjarige()).thenReturn(GEZAGSVERHOUDING_VALUE);
         persoonslijst.setGezagsverhouding(gezagsverhouding);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0302(GEZAGSVERHOUDING_VALUE);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(GEZAGSVERHOUDING_VALUE);
     }
 }

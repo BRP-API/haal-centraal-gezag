@@ -1,18 +1,14 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder1;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder2;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
+import nl.rijksoverheid.mev.gezagsmodule.domain.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class HoeveelJuridischeOudersHeeftMinderjarigeTest {
@@ -38,7 +34,6 @@ class HoeveelJuridischeOudersHeeftMinderjarigeTest {
 
     @BeforeEach
     public void setup() {
-
         persoonslijst = new Persoonslijst();
         persoonslijst.setPersoon(persoon);
         when(gezagsBepaling.getPlPersoon()).thenReturn(persoonslijst);
@@ -48,73 +43,80 @@ class HoeveelJuridischeOudersHeeftMinderjarigeTest {
 
     @Test
     void hoeveelJuridischeOudersHeeftMinderjarigeWithoutValues() {
+        var antwoord = classUnderTest.perform(gezagsBepaling);
 
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0201(GEEN_OUDERS);
+        assertThat(antwoord.answer()).isEqualTo(GEEN_OUDERS);
     }
 
     @Test
     void hoeveelJuridischeOudersWithOneParentOuder1NotHavingGeslachtsnaam() {
-
         persoonslijst.setOuder1(ouder1);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0201(GEEN_OUDERS);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(GEEN_OUDERS);
     }
 
     @Test
     void hoeveelJuridischeOudersWithOneParentOuder2NotHavingGeslachtsnaam() {
-
         persoonslijst.setOuder2(ouder2);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0201(GEEN_OUDERS);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(GEEN_OUDERS);
     }
 
     @Test
     void hoeveelJuridischeOudersWithOneParentPuntOuder() {
-
         when(ouder1.getGeslachtsnaam()).thenReturn(INDICATION_PUNTOUDER);
         persoonslijst.setOuder1(ouder1);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0201(PUNTOUDERS);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(PUNTOUDERS);
     }
 
     @Test
     void hoeveelJuridischeOudersWithOneParentOuder1() {
-
         when(ouder1.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         persoonslijst.setOuder1(ouder1);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0201(EEN_OUDER);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(EEN_OUDER);
     }
 
     @Test
     void hoeveelJuridischeOudersWithOneParentOuder2() {
-
         when(ouder2.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         persoonslijst.setOuder2(ouder2);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0201(EEN_OUDER);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(EEN_OUDER);
     }
 
     @Test
     void hoeveelJuridischeOudersWithTwoParents() {
-
         when(ouder1.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         when(ouder2.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         persoonslijst.setOuder1(ouder1);
         persoonslijst.setOuder2(ouder2);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0201(TWEE_OUDERS);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(TWEE_OUDERS);
     }
 
     @Test
     void hoeveelJuridischeOudersWithTwoParentsOneBeingPuntOuder() {
-
         when(ouder1.getGeslachtsnaam()).thenReturn(INDICATION_PUNTOUDER);
         when(ouder2.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         persoonslijst.setOuder1(ouder1);
         persoonslijst.setOuder2(ouder2);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0201(PUNTOUDERS);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(PUNTOUDERS);
     }
 }

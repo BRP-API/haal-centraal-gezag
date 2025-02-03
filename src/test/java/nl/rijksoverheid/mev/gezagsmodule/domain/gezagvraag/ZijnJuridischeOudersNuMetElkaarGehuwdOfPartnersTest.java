@@ -1,21 +1,17 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import nl.rijksoverheid.mev.exception.AfleidingsregelException;
-import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder1;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder2;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
+import nl.rijksoverheid.mev.gezagsmodule.domain.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
 
 /**
  * TODO: verdere testen schrijven
@@ -47,7 +43,6 @@ class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartnersTest {
 
     @BeforeEach
     public void setup() {
-
         persoonslijst = new Persoonslijst();
         persoonslijst.setPersoon(persoon);
         when(gezagsBepaling.getPlPersoon()).thenReturn(persoonslijst);
@@ -56,46 +51,48 @@ class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartnersTest {
 
     @Test
     void zijnJuridischeOudersNuMetElkaarGehuwdOfPartnersWithoutValues() {
-
         AfleidingsregelException exception = assertThrows(AfleidingsregelException.class,
-                () -> classUnderTest.perform(gezagsBepaling));
+            () -> classUnderTest.perform(gezagsBepaling));
+
         assertTrue(exception.getMessage().contains(INDICATION_EXCEPTION_TWO_PARENTS));
     }
 
     @Test
     void zijnJuridischeOudersNuMetElkaarGehuwdOfPartnersWithOneEmptyParent() {
-
         persoonslijst.setOuder1(ouder1);
+
         AfleidingsregelException exception = assertThrows(AfleidingsregelException.class,
-                () -> classUnderTest.perform(gezagsBepaling));
+            () -> classUnderTest.perform(gezagsBepaling));
+
         assertTrue(exception.getMessage().contains(INDICATION_EXCEPTION_TWO_PARENTS));
     }
 
     @Test
     void zijnJuridischeOudersNuMetElkaarGehuwdOfPartnersWithTwoEmptyParent() {
-
         persoonslijst.setOuder1(ouder1);
         persoonslijst.setOuder2(ouder2);
+
         AfleidingsregelException exception = assertThrows(AfleidingsregelException.class,
-                () -> classUnderTest.perform(gezagsBepaling));
+            () -> classUnderTest.perform(gezagsBepaling));
+
         assertTrue(exception.getMessage().contains(INDICATION_EXCEPTION_TWO_PARENTS));
     }
 
     @Test
     void zijnJuridischeOudersNuMetElkaarGehuwdOfPartnersWithParentsHavingGeslachtsnaam() {
-
         when(ouder1.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         when(ouder2.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         persoonslijst.setOuder1(ouder1);
         persoonslijst.setOuder2(ouder2);
+
         AfleidingsregelException exception = assertThrows(AfleidingsregelException.class,
-                () -> classUnderTest.perform(gezagsBepaling));
+            () -> classUnderTest.perform(gezagsBepaling));
+
         assertTrue(exception.getMessage().contains(INDICATION_EXCEPTION_PARENT_ONE_NOT_REGISTERED));
     }
 
     @Test
     void zijnJuridischeOudersNuMetElkaarGehuwdOfPartnersWithOneParent() {
-
         when(ouder1.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         when(ouder2.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         persoonslijst.setOuder1(ouder1);
@@ -103,14 +100,15 @@ class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartnersTest {
         when(persoonslijstOuder1.isNietIngeschrevenInRNI()).thenReturn(true);
         when(persoonslijstOuder1.isNietGeemigreerd()).thenReturn(true);
         when(gezagsBepaling.getPlOuder1()).thenReturn(persoonslijstOuder1);
+
         AfleidingsregelException exception = assertThrows(AfleidingsregelException.class,
-                () -> classUnderTest.perform(gezagsBepaling));
+            () -> classUnderTest.perform(gezagsBepaling));
+
         assertTrue(exception.getMessage().contains(INDICATION_EXCEPTION_PARENT_TWO_NOT_REGISTERED));
     }
 
     @Test
     void zijnJuridischeOudersNuMetElkaarGehuwdOfPartnersBothParentsRegistred() {
-
         when(gezagsBepaling.getArAntwoordenModel()).thenReturn(arAntwoordenModel);
         when(ouder1.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
         when(ouder2.getGeslachtsnaam()).thenReturn(GESLACHTSNAAM);
@@ -122,9 +120,10 @@ class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartnersTest {
         when(persoonslijstOuder2.isNietIngeschrevenInRNI()).thenReturn(true);
         when(persoonslijstOuder2.isNietGeemigreerd()).thenReturn(true);
         when(gezagsBepaling.getPlOuder2()).thenReturn(persoonslijstOuder2);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV02A01(
-                V2A_1_NEE_NA_GEBOORTE_NOOIT_GEHUWD_PARTNERS_GEWEEST_MET_ELKAAR);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(V2A_1_NEE_NA_GEBOORTE_NOOIT_GEHUWD_PARTNERS_GEWEEST_MET_ELKAAR);
     }
 }
 

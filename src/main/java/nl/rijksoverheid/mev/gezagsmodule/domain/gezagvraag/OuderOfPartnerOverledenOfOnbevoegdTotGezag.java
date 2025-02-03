@@ -21,10 +21,6 @@ public class OuderOfPartnerOverledenOfOnbevoegdTotGezag implements GezagVraag {
     private static final String V4B_1_JA_OUDER2 = "Ja_ouder2";
     private static final String V4B_1_JA_NIET_OUDER1 = "Ja_nietouder1";
     private static final String V4B_1_JA_NIET_OUDER2 = "Ja_nietouder2";
-    /**
-     * Beslissingstabel met drie inputs: (ouder1 of ouder2?), bool 'ouderOverledenOfOnbevoegd', bool
-     * 'nietOuderOverledenOfOnbevoegd'
-     */
     private static final Map<String, String> ouderOfPartnerOverledenOfOnbevoegdTotGezagMap = Map.of(
             "ouder1,true,true", V4B_1_JA_BEIDEN,
             "ouder1,true,false", V4B_1_JA_OUDER1,
@@ -35,10 +31,6 @@ public class OuderOfPartnerOverledenOfOnbevoegdTotGezag implements GezagVraag {
             "ouder2,false,true", V4B_1_JA_NIET_OUDER2,
             "ouder2,false,false", V4B_1_NEE
     );
-    /**
-     * Als we 'Ja_beiden' hebben, checken we tokens (bv. 'cc', 'cm', 'mm', 'oo', etc.) en geven een
-     * meer specifieke antwoord-string terug.
-     */
     private static final Map<String, String> JA_BEIDEN_ANTWOORDEN = Map.of(
             "cc", "Ja_beiden_onder_curatele",
             "cm", "Ja_ouder_onder_curatele_en_niet_ouder_minderjarig",
@@ -72,9 +64,8 @@ public class OuderOfPartnerOverledenOfOnbevoegdTotGezag implements GezagVraag {
                     "Preconditie: niet_ouder moet geregistreerd staan in BRP",
                     "Voor de bevraagde persoon moet niet_ouder geregistreerd staan in BRP");
         }
-        final var optionalIsNietOuderOverledenOfOnbevoegdToken =
-                persoonslijstNietOuder.isOverledenOfOnbevoegdEncoded();
-        final var isNietOuderOverledenOfOnbevoegd = optionalIsNietOuderOverledenOfOnbevoegdToken.isPresent();
+        final var optionalIsNietOuderOverledenOfOnbevoegdToken = persoonslijstNietOuder.isOverledenOfOnbevoegdEncoded();
+        boolean isNietOuderOverledenOfOnbevoegd = optionalIsNietOuderOverledenOfOnbevoegdToken.isPresent();
 
         String key = persoonslijstOuder1 != null
             ? "ouder1," + persoonslijstOuder1.isOverledenOfOnbevoegd() + "," + isNietOuderOverledenOfOnbevoegd
@@ -89,10 +80,13 @@ public class OuderOfPartnerOverledenOfOnbevoegdTotGezag implements GezagVraag {
                     .orElseThrow();
             final var isNietOuderOverledenOfOnbevoegdToken =
                     optionalIsNietOuderOverledenOfOnbevoegdToken.orElseThrow();
-            answer = JA_BEIDEN_ANTWOORDEN.get(isOuderOverledenOfOnbevoegdToken + isNietOuderOverledenOfOnbevoegdToken);
+            var key2 = "%c%c".formatted(isOuderOverledenOfOnbevoegdToken, isNietOuderOverledenOfOnbevoegdToken);
+            answer = JA_BEIDEN_ANTWOORDEN.get(key2);
         }
 
-        logger.debug("4b.1 Ouder, echtgenoot of partner overleden of onbevoegd tot gezag? {}", answer);
+        logger.debug("""
+            4b.1 Ouder, echtgenoot of partner overleden of onbevoegd tot gezag?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV04B01(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }

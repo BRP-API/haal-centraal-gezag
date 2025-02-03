@@ -5,6 +5,7 @@ import nl.rijksoverheid.mev.exception.GezagException;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder1;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder2;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
+import nl.rijksoverheid.mev.gezagsmodule.domain.PreconditieChecker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -44,7 +45,7 @@ public class IsStaandeHuwelijkOfPartnerschapGeboren implements GezagVraag {
         Ouder2 lOuder2 = plPersoon.getOuder2();
         if (lOuder1 != null && isValideGeslachtsnaam(lOuder1.getGeslachtsnaam())) {
             final var plOuder1 = gezagsBepaling.getPlOuder1();
-            preconditieCheckGeregistreerd(OUDER_1, plOuder1);
+            PreconditieChecker.preconditieCheckGeregistreerd(OUDER_1, plOuder1);
             if (heeftOuderRelatieBijGeboorteKind(plOuder1, geboorteDatumKind)
                     && !plPersoon.ontkenningOuderschapDoorOuder2()) {
                 answer = V2B_1_JA;
@@ -52,14 +53,16 @@ public class IsStaandeHuwelijkOfPartnerschapGeboren implements GezagVraag {
         }
         if (lOuder2 != null && isValideGeslachtsnaam(lOuder2.getGeslachtsnaam())) {
             final var plOuder2 = gezagsBepaling.getPlOuder2();
-            preconditieCheckGeregistreerd(OUDER_2, plOuder2);
+            PreconditieChecker.preconditieCheckGeregistreerd(OUDER_2, plOuder2);
             if (heeftOuderRelatieBijGeboorteKind(plOuder2, geboorteDatumKind)
                     && !plPersoon.ontkenningOuderschapDoorOuder1()) {
                 answer = V2B_1_JA;
             }
         }
 
-        logger.debug("2b.1 Is het kind staande huwelijk of partnerschap geboren? {}", answer);
+        logger.debug("""
+            2b.1 Is het kind staande huwelijk of partnerschap geboren?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV02B01(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }
@@ -74,19 +77,5 @@ public class IsStaandeHuwelijkOfPartnerschapGeboren implements GezagVraag {
             return geborenInRelatie != null;
         }
         return false;
-    }
-
-    // TODO: naar eigen class?
-    private void preconditieCheckGeregistreerd(final String beschrijving,
-                                              final Persoonslijst plOuder) throws GezagException {
-        boolean ouderGeregistreerdInBrp =
-                plOuder != null
-                        && plOuder.isNietIngeschrevenInRNI()
-                        && plOuder.isNietGeemigreerd();
-        if (!ouderGeregistreerdInBrp) {
-            throw new AfleidingsregelException(
-                    "Preconditie: " + beschrijving + " moet in BRP geregistreerd staan",
-                    beschrijving + " van bevraagde persoon is niet in BRP geregistreerd");
-        }
     }
 }

@@ -1,8 +1,5 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
@@ -12,9 +9,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-/**
- * TODO: verdere testen schrijven
- */
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 class IsStaandeHuwelijkOfPartnerschapGeborenTest {
 
@@ -30,7 +27,6 @@ class IsStaandeHuwelijkOfPartnerschapGeborenTest {
 
     @BeforeEach
     public void setup() {
-
         persoonslijst = new Persoonslijst();
         persoonslijst.setPersoon(persoon);
         when(gezagsBepaling.getPlPersoon()).thenReturn(persoonslijst);
@@ -40,8 +36,8 @@ class IsStaandeHuwelijkOfPartnerschapGeborenTest {
 
     @Test
     void isStaandeHuwelijkOfPartnerschapGeborenWithoutValues() {
+        var antwoord = classUnderTest.perform(gezagsBepaling);
 
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV02B01(V2B_1_NEE);
+        assertThat(antwoord.answer()).isEqualTo(V2B_1_NEE);
     }
 }

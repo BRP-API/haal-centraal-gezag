@@ -86,7 +86,10 @@ public class OuderOverledenOfOnbevoegdTotGezag implements GezagVraag {
             final var key = new String(tokenArray);
             answer = JA_ANTWOORDEN.get(key);
         }
-        logger.debug("4a.3 Ouder overleden of onbevoegd tot gezag? {}", answer);
+
+        logger.debug("""
+            4a.3 Ouder overleden of onbevoegd tot gezag?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV04A03(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }

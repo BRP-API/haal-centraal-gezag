@@ -26,7 +26,9 @@ public class IsUitspraakGezagAanwezig implements GezagVraag {
 
         final var answer = plPersoon.heefIndicatieGezag() ? V1_4_JA : V1_4_NEE;
 
-        logger.debug("1.4 Uitspraak gezag aanwezig? {}", answer);
+        logger.debug("""
+            1.4 Uitspraak gezag aanwezig?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV0104(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }

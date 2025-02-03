@@ -1,8 +1,5 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
@@ -11,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class IsGeadopteerdMetNlAkteTest {
@@ -29,7 +29,6 @@ class IsGeadopteerdMetNlAkteTest {
 
     @BeforeEach
     public void setup() {
-
         Persoonslijst persoonslijst = new Persoonslijst();
         persoonslijst.setPersoon(persoon);
         when(gezagsBepaling.getPlPersoon()).thenReturn(persoonslijst);
@@ -39,24 +38,26 @@ class IsGeadopteerdMetNlAkteTest {
 
     @Test
     void isGeadopteerdMetNlAkteWithoutAktenummer() {
+        var antwoord = classUnderTest.perform(gezagsBepaling);
 
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0103B(V1_3B_NEE);
+        assertThat(antwoord.answer()).isEqualTo(V1_3B_NEE);
     }
 
     @Test
     void isGeadopteerdMetNlAkteWithAktenummerNotBeingAdoptie() {
-
         when(persoon.getAktenummer()).thenReturn(AKTE_ERKENNING);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0103B(V1_3B_NEE);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(V1_3B_NEE);
     }
 
     @Test
     void isGeadopteerdMetNlAkteWithAktenummerBeingAdoptie() {
-
         when(persoon.getAktenummer()).thenReturn(AKTE_ADOPTIE);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0103B(V1_3B_JA);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(V1_3B_JA);
     }
 }

@@ -55,7 +55,7 @@ class LeeftijdTest {
 
     @Test
     void leeftijdVoorPersoonDieMorgenMeerderjarigWordt() {
-        String geboorteDatum = getDateFor(17, 11, 30);
+        String geboorteDatum = getDateFor(18, 0, -1);
 
         Leeftijd leeftijd = Leeftijd.of(geboorteDatum);
 
@@ -147,14 +147,15 @@ class LeeftijdTest {
         return LocalDate.now()
             .minusYears(yearsAgo)
             .minusMonths(monthsAgo)
-            .minusDays(daysAgo).format(FORMATTER);
+            .minusDays(daysAgo)
+            .format(FORMATTER);
     }
 
     private String makeDayUnknown(final String geboorteDatum) {
-        return geboorteDatum.substring(0,6) + "00";
+        return geboorteDatum.substring(0, 6) + "00";
     }
 
     private String makeMonthUnknown(final String geboorteDatum) {
-        return geboorteDatum.substring(0,4) + "00" + geboorteDatum.substring(6,8);
+        return geboorteDatum.substring(0, 4) + "00" + geboorteDatum.substring(6, 8);
     }
 }

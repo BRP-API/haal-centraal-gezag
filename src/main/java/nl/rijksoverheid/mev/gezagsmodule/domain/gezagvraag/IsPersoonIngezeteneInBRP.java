@@ -45,7 +45,10 @@ public class IsPersoonIngezeteneInBRP implements GezagVraag {
         final var answer = REGISTRATIE_NIET_INGEZETENE.equals(gemeenteVanInschrijving)
                 ? V1_1_NEE
                 : V1_1_JA;
-        logger.debug("1.1 Staat persoon (minderjarige) als ingezetene in de BRP? {}", answer);
+
+        logger.debug("""
+            1.1 Staat persoon (minderjarige) als ingezetene in de BRP?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV0101(answer);
         return new GezagVraagResult(getQuestionId(), answer);
     }

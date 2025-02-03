@@ -24,8 +24,9 @@ public class HoeveelJuridischeOudersHeeftMinderjarige implements GezagVraag {
 
         var answer = plPersoon.hoeveelJuridischeOuders();
 
-        logger.debug("2.1 Hoeveel juridische ouders heeft de minderjarige? {}", answer);
-
+        logger.debug("""
+            2.1 Hoeveel juridische ouders heeft de minderjarige?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV0201(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }

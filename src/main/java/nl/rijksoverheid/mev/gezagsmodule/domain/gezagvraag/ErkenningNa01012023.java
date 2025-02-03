@@ -54,7 +54,9 @@ public class ErkenningNa01012023 implements GezagVraag {
         }
 
         if (answer != null) {
-            logger.debug("2a.3 Erkenning voor of na 1-1-2023? {}", answer);
+            logger.debug("""
+                2a.3 Erkenning voor of na 1-1-2023?
+                {}""", answer);
             gezagsBepaling.getArAntwoordenModel().setV02A03(answer);
             return new GezagVraagResult(QUESTION_ID, answer);
         } else {

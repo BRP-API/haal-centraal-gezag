@@ -1,20 +1,21 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import java.util.List;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 class GezagsVragenMapFactoryTest {
 
     @Test
     @DisplayName("Given two mock GezagVraagFunctions with distinct question IDs " +
-            "when getGezagVraagFunctionsMap is called " +
-            "then the returned map has the expected entries and correct mapping.")
+        "when getGezagVraagFunctionsMap is called " +
+        "then the returned map has the expected entries and correct mapping.")
     void testGetGezagVraagFunctionsMap() {
         final var mockFunction1 = mock(GezagVraag.class);
         when(mockFunction1.getQuestionId()).thenReturn("v1.1");

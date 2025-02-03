@@ -1,8 +1,5 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
@@ -12,6 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class IsPersoonIngezeteneInBRPTest {
@@ -35,7 +36,6 @@ class IsPersoonIngezeteneInBRPTest {
 
     @BeforeEach
     public void setup() {
-
         persoonslijst = new Persoonslijst();
         persoonslijst.setPersoon(persoon);
         when(gezagsBepaling.getPlPersoon()).thenReturn(persoonslijst);
@@ -44,45 +44,49 @@ class IsPersoonIngezeteneInBRPTest {
 
     @Test
     void isPersoonIngezeteneInBRPWithoutValues() {
-
         classUnderTest.perform(gezagsBepaling);
+
         verify(gezagsBepaling).addMissendeGegegevens(INDICATION_MISSING_VERBLIJFPLAATS);
     }
 
     @Test
     void isPersoonIngezeteneInBRPWithEmptyVerblijfsplaats() {
-
         persoonslijst.setVerblijfplaats(verblijfplaats);
+
         classUnderTest.perform(gezagsBepaling);
+
         verify(gezagsBepaling).addMissendeGegegevens(INDICATION_MISSING_GEMEENTE_VAN_INSCHRIJVING);
     }
 
     @Test
     void isPersoonIngezeteneInBRPWithEmptyGemeenteVanInschrijving() {
-
         when(verblijfplaats.getGemeenteVanInschrijving()).thenReturn("");
         persoonslijst.setVerblijfplaats(verblijfplaats);
+
         classUnderTest.perform(gezagsBepaling);
+
         verify(gezagsBepaling).addMissendeGegegevens(INDICATION_MISSING_GEMEENTE_VAN_INSCHRIJVING);
     }
 
     @Test
     void isPersoonIngezeteneInBRPGemeenteVanInschrijvingNotRNI() {
-
         when(gezagsBepaling.getArAntwoordenModel()).thenReturn(arAntwoordenModel);
         when(verblijfplaats.getGemeenteVanInschrijving()).thenReturn(NOT_RNI);
         persoonslijst.setVerblijfplaats(verblijfplaats);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0101(V1_1_JA);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(V1_1_JA);
     }
 
     @Test
     void isPersoonIngezeteneInBRPGemeenteVanInschrijvingRNI() {
-
         when(gezagsBepaling.getArAntwoordenModel()).thenReturn(arAntwoordenModel);
         when(verblijfplaats.getGemeenteVanInschrijving()).thenReturn(RNI);
         persoonslijst.setVerblijfplaats(verblijfplaats);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0101(V1_1_NEE);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(V1_1_NEE);
     }
 }

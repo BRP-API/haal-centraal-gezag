@@ -72,10 +72,10 @@ public class IsErSprakeVanEenRecenteGebeurtenis implements GezagVraag {
         if (answer == null) {
             answer = V3_1_NEE;
         }
+
         logger.debug("""
-                3.1 Is er door een recente gebeurtenis het gezag toch (weer) van rechtswege,
-                ondanks dat er eerder een uitspraak is gedaan?
-                {}""", answer);
+            3.1 Is er door een recente gebeurtenis het gezag toch (weer) van rechtswege, ondanks dat er eerder een uitspraak is gedaan?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV0301(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }

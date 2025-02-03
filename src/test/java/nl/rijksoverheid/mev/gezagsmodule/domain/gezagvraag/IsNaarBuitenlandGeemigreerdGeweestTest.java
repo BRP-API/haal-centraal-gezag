@@ -1,8 +1,5 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
@@ -12,6 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class IsNaarBuitenlandGeemigreerdGeweestTest {
@@ -35,7 +36,6 @@ class IsNaarBuitenlandGeemigreerdGeweestTest {
 
     @BeforeEach
     public void setup() {
-
         persoonslijst = new Persoonslijst();
         persoonslijst.setPersoon(persoon);
         when(gezagsBepaling.getArAntwoordenModel()).thenReturn(arAntwoordenModel);
@@ -45,56 +45,61 @@ class IsNaarBuitenlandGeemigreerdGeweestTest {
 
     @Test
     void isNaarBuitenlandGeemigreerdGeweestWithoutValues() {
+        var antwoord = classUnderTest.perform(gezagsBepaling);
 
-        classUnderTest.perform(gezagsBepaling);
         verify(gezagsBepaling).addMissendeGegegevens(INDICATION_MISSING_GEBOORTELAND);
-        verify(arAntwoordenModel).setV0103(null);
+        assertThat(antwoord.answer()).isEqualTo(null);
     }
 
     @Test
     void isNaarBuitenlandGeemigreerdGeweestWithEmptyGeboorteland() {
-
         when(persoon.getGeboorteland()).thenReturn("");
-        classUnderTest.perform(gezagsBepaling);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
         verify(gezagsBepaling).addMissendeGegegevens(INDICATION_MISSING_GEBOORTELAND);
-        verify(arAntwoordenModel).setV0103(null);
+        assertThat(antwoord.answer()).isEqualTo(null);
     }
 
     @Test
     void isNaarBuitenlandGeemigreerdGeweestWithGeboortelandAndNotHavingVerblijfplaats() {
-
         when(persoon.getGeboorteland()).thenReturn(CODE_IS_NEDERLAND);
-        classUnderTest.perform(gezagsBepaling);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
         verify(gezagsBepaling).addMissendeGegegevens(INDICATION_MISSING_VERBLIJFPLAATS);
-        verify(arAntwoordenModel).setV0103(null);
+        assertThat(antwoord.answer()).isEqualTo(null);
     }
 
     @Test
     void isNaarBuitenlandGeemigreerdGeweestWithGeboortelandAndVerblijfplaats() {
-
         persoonslijst.setVerblijfplaats(verblijfplaats);
         when(persoon.getGeboorteland()).thenReturn(CODE_IS_NEDERLAND);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0103(V1_3_NEE);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(V1_3_NEE);
     }
 
     @Test
     void isNaarBuitenlandGeemigreerdGeweestWithGeboortelandNederlandAndVerblijfplaatsDatumVestigingNederlandLeeg() {
-
         persoonslijst.setVerblijfplaats(verblijfplaats);
         when(verblijfplaats.getDatumVestigingInNederland()).thenReturn("");
         when(persoon.getGeboorteland()).thenReturn(CODE_IS_NEDERLAND);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0103(V1_3_NEE);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(V1_3_NEE);
     }
 
     @Test
     void isNaarBuitenlandGeemigreerdGeweestWithGeboortelandNederlandAndVerblijfplaatsDatumVestigingNederlandGevuld() {
-
         persoonslijst.setVerblijfplaats(verblijfplaats);
         when(verblijfplaats.getDatumVestigingInNederland()).thenReturn(DATE_01012023);
         when(persoon.getGeboorteland()).thenReturn(CODE_IS_NEDERLAND);
-        classUnderTest.perform(gezagsBepaling);
-        verify(arAntwoordenModel).setV0103(V1_3_JA);
+
+        var antwoord = classUnderTest.perform(gezagsBepaling);
+
+        assertThat(antwoord.answer()).isEqualTo(V1_3_JA);
     }
 }

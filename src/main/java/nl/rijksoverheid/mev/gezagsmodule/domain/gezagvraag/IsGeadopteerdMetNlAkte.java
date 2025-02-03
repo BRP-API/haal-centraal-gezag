@@ -26,7 +26,9 @@ public class IsGeadopteerdMetNlAkte implements GezagVraag {
 
         var answer = plPersoon.geadopteerdMetNlAkte() ? V1_3B_JA : V1_3B_NEE;
 
-        logger.debug("1.3b Is deze minderjarige geadopteerd met een NL-akte? {}", answer);
+        logger.debug("""
+            1.3b Is deze minderjarige geadopteerd met een NL-akte?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV0103B(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }

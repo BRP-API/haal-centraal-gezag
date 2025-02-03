@@ -10,15 +10,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class IsNaarBuitenlandGeemigreerdGeweest implements GezagVraag {
-    private static final Logger logger =
-            LoggerFactory.getLogger(IsNaarBuitenlandGeemigreerdGeweest.class);
+    private static final Logger logger = LoggerFactory.getLogger(IsNaarBuitenlandGeemigreerdGeweest.class);
     private static final String QUESTION_ID = "v1.3";
     private static final String V1_3_JA = "Ja";
     private static final String V1_3_NEE = "Nee";
 
     @Override
     public String getQuestionId() {
-
         return QUESTION_ID;
     }
 
@@ -30,7 +28,7 @@ public class IsNaarBuitenlandGeemigreerdGeweest implements GezagVraag {
 
         String answer = null;
         if (geboorteland == null || geboorteland.isEmpty()) {
-            gezagsBepaling.getArAntwoordenModel().setV0103(null);
+            gezagsBepaling.addMissendeGegegevens("Geboorteland van bevraagde persoon");
         } else if (verblijfplaats == null) {
             gezagsBepaling.addMissendeGegegevens("Verblijfplaats van bevraagde persoon");
         } else if (geboorteland.equals("6030")
@@ -41,7 +39,9 @@ public class IsNaarBuitenlandGeemigreerdGeweest implements GezagVraag {
             answer = V1_3_NEE;
         }
 
-        logger.debug("1.3 Is minderjarige naar het buitenland geëmigreerd geweest? {}", answer);
+        logger.debug("""
+            1.3 Is minderjarige naar het buitenland geëmigreerd geweest?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV0103(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
     }

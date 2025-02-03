@@ -3,6 +3,7 @@ package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 import nl.rijksoverheid.mev.exception.AfleidingsregelException;
 import nl.rijksoverheid.mev.gezagsmodule.domain.HuwelijkOfPartnerschap;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
+import nl.rijksoverheid.mev.gezagsmodule.domain.PreconditieChecker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -20,8 +21,7 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
     private static final String QUESTION_ID = "v2a.1";
     private static final String V2A_1_JA_GEHUWD_OF_PARTNERS = "Ja";
     private static final String V2A_1_NEE = "Nee";
-    private static final String V2A_1_NEE_NA_GEBOORTE_NOOIT_GEHUWD_PARTNERS_GEWEEST_MET_ELKAAR
-            = "Nee_nooit";
+    private static final String V2A_1_NEE_NA_GEBOORTE_NOOIT_GEHUWD_PARTNERS_GEWEEST_MET_ELKAAR = "Nee_nooit";
 
     @Override
     public String getQuestionId() {
@@ -32,7 +32,7 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
     public GezagVraagResult perform(final GezagsBepaling gezagsBepaling) {
         final var plPersoon = gezagsBepaling.getPlPersoon();
         final var geboortedatumKind = plPersoon.getPersoon().getGeboortedatum();
-        preconditieCheckOudersGeregistreerd(gezagsBepaling);
+        PreconditieChecker.preconditieCheckOudersGeregistreerd(gezagsBepaling);
 
         final var plOuder1 = gezagsBepaling.getPlOuder1();
         final var plOuder2 = gezagsBepaling.getPlOuder2();
@@ -54,33 +54,11 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
             answer = V2A_1_NEE;
         }
 
-        logger.debug("2a.1 Zijn beide juridische ouders nu met elkaar gehuwd/partners? {}", answer);
+        logger.debug("""
+            2a.1 Zijn beide juridische ouders nu met elkaar gehuwd/partners?
+            {}""", answer);
         gezagsBepaling.getArAntwoordenModel().setV02A01(answer);
         return new GezagVraagResult(QUESTION_ID, answer);
-    }
-
-    // TODO: naar eigen classe? duplicatie er uit
-    private void preconditieCheckOudersGeregistreerd(final GezagsBepaling gezagsBepaling) {
-        final var plPersoon = gezagsBepaling.getPlPersoon();
-        if (!plPersoon.heeftTweeOuders()) {
-            throw new AfleidingsregelException(
-                    "Preconditie: Kind moet twee ouders hebben",
-                    "Van de bevraagde persoon zijn geen twee ouders bekend");
-        }
-        preconditieCheckGeregistreerd("ouder1", gezagsBepaling.getPlOuder1());
-        preconditieCheckGeregistreerd("ouder2", gezagsBepaling.getPlOuder2());
-    }
-
-    private void preconditieCheckGeregistreerd(final String beschrijving,
-                                               final Persoonslijst plOuder) {
-        final var ouderGeregistreerdInBrp = plOuder != null
-                && plOuder.isNietIngeschrevenInRNI()
-                && plOuder.isNietGeemigreerd();
-        if (!ouderGeregistreerdInBrp) {
-            throw new AfleidingsregelException(
-                    "Preconditie: " + beschrijving + " moet in BRP geregistreerd staan",
-                    beschrijving + " van bevraagde persoon is niet in BRP geregistreerd");
-        }
     }
 
     private HuwelijkOfPartnerschap getOuderHuwelijkOfPartnerschap(
