@@ -20,21 +20,7 @@ public class IsGeborenInBuitenland implements GezagVraag {
     public String getQuestionId() {
         return QUESTION_ID;
     }
-
-    /**
-     * Determines if a person is born outside of the Netherlands based on their birth country.
-     * <p>
-     * If the person is born outside of the Netherlands, the method returns an answer indicating "Ja" (Yes).
-     * Otherwise, it returns "Nee" (No).
-     * <p>
-     * If required data is missing, the method logs the missing information and returns null as the answer.
-     *
-     * @param gezagsBepaling Object containing data about the person being queried. This includes their personal list data.
-     *                       The object must not be null, and it must contain a valid person entry with a birth country.
-     * @return A {@code GezagVraagResult} instance containing the question identifier and the result ("Ja" or "Nee").
-     * Returns {@code null} as the answer if required data is missing.
-     * @throws IllegalStateException if the person's personal list is missing.
-     */
+    
     @Override
     public GezagVraagResult perform(final GezagsBepaling gezagsBepaling) {
         final var plPersoon = gezagsBepaling.getPlPersoon();

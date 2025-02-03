@@ -128,7 +128,7 @@ public class ErkenningNa01012023 implements GezagVraag {
         }
         return false;
     }
-    
+
     private String bepaalGezagOpBasisVanGeboortemoeder(
         final Ouder1 persoonOuder1,
         final Ouder2 persoonOuder2) {
