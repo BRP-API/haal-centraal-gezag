@@ -1,10 +1,6 @@
 package nl.rijksoverheid.mev.gezagsmodule.service;
 
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder1;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder2;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
-import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
 import nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag.GezagsBepaling;
 import org.openapitools.model.*;
 import org.slf4j.Logger;
@@ -13,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @Service
 public class GezagsrelatieService {
@@ -65,9 +59,13 @@ public class GezagsrelatieService {
                     burgerservicenummerOuder2);
                 case "GG" -> createGezamenlijkGezag(
                     burgerservicenummer,
+                    burgerservicenummerNietOuder,
                     arAntwoordenModel.hasOuder1Gezag(),
+                    burgerservicenummerOuder1,
+                    burgerservicenummerOuder2,
+                    burgerservicenummerPersoon,
                     gezagsrelaties,
-                    gezagsBepaling);
+                    arAntwoordenModel.isGezamenlijkGezagVanwegeGerechtelijkeUitspraak());
                 case "V" -> createVoogdij(
                     bevraagdePersoonIsDeMinderjarige,
                     burgerservicenummerPersoon,
@@ -142,28 +140,18 @@ public class GezagsrelatieService {
 
     private AbstractGezagsrelatie createGezamenlijkGezag(
         final String burgerservicenummer,
+        final String burgerservicenummerNietOuder,
         final boolean ouder1Gezag,
+        final String burgerservicenummerOuder1,
+        final String burgerservicenummerOuder2,
+        final String burgerservicenummerBevraagdePersoon,
         final List<AbstractGezagsrelatie> gezagsrelaties,
-        final GezagsBepaling gezagsBepaling
+        final boolean isGezamenlijkGezagVanwegeGerechtelijkeUitspraak
     ) {
-        var persoonslijstPersoon = gezagsBepaling.getPlPersoon();
-        Objects.requireNonNull(persoonslijstPersoon);
-
-        var burgerservicenummerOuder1 = persoonslijstPersoon.getOuder1AsOptional()
-            .map(Ouder1::getBurgerservicenummer)
-            .orElse(null);
-        var burgerservicenummerOuder2 = persoonslijstPersoon.getOuder2AsOptional()
-            .map(Ouder2::getBurgerservicenummer)
-            .orElse(null);
         var gezagOuder = ouder1Gezag && burgerservicenummerOuder1 != null
             ? new GezagOuder().burgerservicenummer(burgerservicenummerOuder1)
             : new GezagOuder().burgerservicenummer(burgerservicenummerOuder2);
-
-        var burgerservicenummerNietOuder = Optional.ofNullable(gezagsBepaling.getPlNietOuder())
-            .map(Persoonslijst::getPersoon)
-            .map(Persoon::getBurgerservicenummer)
-            .orElse(null);
-        var derde = burgerservicenummerNietOuder == null
+        var derde = burgerservicenummerNietOuder == null || isGezamenlijkGezagVanwegeGerechtelijkeUitspraak
             ? new OnbekendeDerde()
             : new Derde().burgerservicenummer(burgerservicenummerNietOuder);
 
@@ -172,7 +160,6 @@ public class GezagsrelatieService {
             .ouder(gezagOuder)
             .derde(derde)
             .type(TYPE_GEZAMELIJK_GEZAG);
-        var burgerservicenummerBevraagdePersoon = gezagsBepaling.getBurgerservicenummerPersoon();
         if (hasGezamenlijkGezagBevraagdePersoon(gezamenlijkGezag, burgerservicenummerBevraagdePersoon)) {
             gezagsrelaties.add(gezamenlijkGezag);
         }
