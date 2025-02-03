@@ -91,10 +91,6 @@ public class ErkenningNa01012023 implements GezagVraag {
         return true;
     }
 
-    /**
-     * Bepaalt of erkenning door (ouder1 of ouder2) op of na 01-01-2023 is, en zet het antwoord op
-     * "Na". Als er geen erkenning is, of het is vóór 01-01-2023, return null.
-     */
     private String isPersoonErkendOpOfNa01012023(
         final boolean isPersoonErkend,
         final Ouder1 persoonOuder1,
@@ -110,10 +106,6 @@ public class ErkenningNa01012023 implements GezagVraag {
         return null;
     }
 
-    /**
-     * Stel vast door welke ouder de ongeboren vrucht erkend is. Als answer nog niet gevuld is (=
-     * null), vullen we het op basis van de ouder die erkend heeft.
-     */
     private String doorWelkeOuderErkend(final Persoonslijst plPersoon) {
         final var ouder1Erkend = plPersoon.ongeborenVruchtDoorOuder1ErkendOfGerechtelijkeVaststelling();
         final var ouder2Erkend = plPersoon.ongeborenVruchtDoorOuder2ErkendOfGerechtelijkeVaststelling();
@@ -126,10 +118,6 @@ public class ErkenningNa01012023 implements GezagVraag {
         return null;
     }
 
-    /**
-     * Check of de persoon feitelijk vóór 01-01-2023 geboren is, in het geval er wel een ongeboren
-     * vrucht erkenning was, maar nog geen 'answer' is gezet.
-     */
     private boolean isPersoonGeborenVoor01012023(
         final boolean persoonErkend,
         final boolean persoonOngeborenVruchtErkend,
@@ -140,14 +128,7 @@ public class ErkenningNa01012023 implements GezagVraag {
         }
         return false;
     }
-
-    /**
-     * Geboortemoeder bepaling:
-     * - als 1 van de ouders vrouw is en de andere niet, is de vrouw de moeder
-     *
-     * @param persoonOuder1 ouder 1 van de persoon
-     * @param persoonOuder2 ouder 2 van de persoon
-     */
+    
     private String bepaalGezagOpBasisVanGeboortemoeder(
         final Ouder1 persoonOuder1,
         final Ouder2 persoonOuder2) {
