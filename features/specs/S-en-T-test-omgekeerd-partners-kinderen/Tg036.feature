@@ -234,7 +234,7 @@ Functionaliteit: Tg036 - Taher – Gegevens in onderzoek
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000012                |
-      | toelichting                      | true                     |
+      | inOnderzoek                      | true                     |
 
   Scenario: Lg01_189 - minderjarig kind, 010000 in onderzoek
     Als gezag wordt gezocht met de volgende parameters
@@ -248,7 +248,7 @@ Functionaliteit: Tg036 - Taher – Gegevens in onderzoek
       | type                             | EenhoofdigOuderlijkGezag  |
       | minderjarige.burgerservicenummer | 000000024                 |
       | ouder.burgerservicenummer        | 000000012                 |
-      | toelichting                      | true                      |
+      | inOnderzoek                      | true                      |
 
   Scenario: Lg01_190 - minderjarig kind, 080000 in onderzoek
     # Route: 40o1 - Wie heeft gezag?: moeder (OG1)
