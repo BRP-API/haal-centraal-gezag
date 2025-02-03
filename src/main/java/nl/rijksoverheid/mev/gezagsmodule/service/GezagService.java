@@ -150,8 +150,7 @@ public class GezagService {
                     arAntwoordenModel.getUitleg(),
                     route
             );
-            logger.info("""
-                    Gezag bepaald voor persoon "{}": {} {}""",
+            logger.info("Gezag bepaald voor persoon \"{}\": {} {}",
                     burgerservicenummer, value("gezag_resultaat", gezagResultaat),
                     value("antwoorden_model", arAntwoordenModel)
             );
