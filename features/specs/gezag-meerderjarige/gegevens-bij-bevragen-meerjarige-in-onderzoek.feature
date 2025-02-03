@@ -52,7 +52,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |      
+      | minderjarige.burgerservicenummer | 000000048                 |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -62,7 +62,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000061                 |      
+      | minderjarige.burgerservicenummer | 000000061                 |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -71,10 +71,10 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | aanduiding onderzoek | omschrijving             | 
+      | aanduiding onderzoek | omschrijving             |
       | 010310               | geboortedatum            |
-      | 010330               | geboorteland             | 
-      | 010000               | hele categorie           | 
+      | 010330               | geboorteland             |
+      | 010000               | hele categorie           |
 
     Abstract Scenario: gezag wordt bepaald met gegeven van de ouder 2: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
       Gegeven persoon 'Roel'
@@ -122,5 +122,5 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | aanduiding onderzoek | omschrijving             | 
-      | 010000               | hele categorie           | 
+      | aanduiding onderzoek | omschrijving             |
+      | 010000               | hele categorie           |
