@@ -1,7 +1,5 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
-import nl.rijksoverheid.mev.exception.AfleidingsregelException;
-import nl.rijksoverheid.mev.exception.GezagException;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder1;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Ouder2;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
@@ -47,7 +45,7 @@ public class IsStaandeHuwelijkOfPartnerschapGeboren implements GezagVraag {
             final var plOuder1 = gezagsBepaling.getPlOuder1();
             PreconditieChecker.preconditieCheckGeregistreerd(OUDER_1, plOuder1);
             if (heeftOuderRelatieBijGeboorteKind(plOuder1, geboorteDatumKind)
-                    && !plPersoon.ontkenningOuderschapDoorOuder2()) {
+                && !plPersoon.ontkenningOuderschapDoorOuder2()) {
                 answer = V2B_1_JA;
             }
         }
@@ -55,7 +53,7 @@ public class IsStaandeHuwelijkOfPartnerschapGeboren implements GezagVraag {
             final var plOuder2 = gezagsBepaling.getPlOuder2();
             PreconditieChecker.preconditieCheckGeregistreerd(OUDER_2, plOuder2);
             if (heeftOuderRelatieBijGeboorteKind(plOuder2, geboorteDatumKind)
-                    && !plPersoon.ontkenningOuderschapDoorOuder1()) {
+                && !plPersoon.ontkenningOuderschapDoorOuder1()) {
                 answer = V2B_1_JA;
             }
         }
@@ -73,7 +71,7 @@ public class IsStaandeHuwelijkOfPartnerschapGeboren implements GezagVraag {
         if (!hopPlOuder.isEmpty() && hopPlOuder.get(0).getBsnPartner() != null) {
             final var hopRelaties = plOuder.getHopRelaties();
             final var geborenInRelatie =
-                    hopRelaties.geborenInRelatie(Integer.parseInt(geboortedatum));
+                hopRelaties.geborenInRelatie(Integer.parseInt(geboortedatum));
             return geborenInRelatie != null;
         }
         return false;

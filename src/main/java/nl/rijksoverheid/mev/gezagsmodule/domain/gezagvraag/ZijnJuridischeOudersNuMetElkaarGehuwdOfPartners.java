@@ -1,6 +1,5 @@
 package nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag;
 
-import nl.rijksoverheid.mev.exception.AfleidingsregelException;
 import nl.rijksoverheid.mev.gezagsmodule.domain.HuwelijkOfPartnerschap;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
 import nl.rijksoverheid.mev.gezagsmodule.domain.PreconditieChecker;
@@ -48,7 +47,7 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
                 answer = V2A_1_NEE;
             }
         } else if (ouderGescheiden(hopOuder1, geboortedatumKind)
-                || ouderGescheiden(hopOuder2, geboortedatumKind)) {
+            || ouderGescheiden(hopOuder2, geboortedatumKind)) {
             answer = V2A_1_NEE_NA_GEBOORTE_NOOIT_GEHUWD_PARTNERS_GEWEEST_MET_ELKAAR;
         } else {
             answer = V2A_1_NEE;
@@ -62,14 +61,14 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
     }
 
     private HuwelijkOfPartnerschap getOuderHuwelijkOfPartnerschap(
-            final Persoonslijst persoonslijst1, final Persoonslijst persoonslijst2) {
+        final Persoonslijst persoonslijst1, final Persoonslijst persoonslijst2) {
         if (persoonslijst1 == null || persoonslijst2 == null) {
             return null;
         }
         for (final var hop : persoonslijst1.getHuwelijkOfPartnerschappen()) {
             if (persoonslijst2.getPersoon() != null
-                    && Objects.equals(persoonslijst2.getPersoon().getBurgerservicenummer(),
-                    hop.getBsnPartner())) {
+                && Objects.equals(persoonslijst2.getPersoon().getBurgerservicenummer(),
+                hop.getBsnPartner())) {
                 return hop;
             }
         }
@@ -85,8 +84,8 @@ public class ZijnJuridischeOudersNuMetElkaarGehuwdOfPartners implements GezagVra
     }
 
     private boolean isHuwelijkOfPartnerschapTussenOudersActueel(
-            final HuwelijkOfPartnerschap hopOuder1, final HuwelijkOfPartnerschap hopOuder2) {
+        final HuwelijkOfPartnerschap hopOuder1, final HuwelijkOfPartnerschap hopOuder2) {
         return org.apache.commons.lang3.StringUtils.isNotBlank(hopOuder1.getDatumVoltrokken())
-                && org.apache.commons.lang3.StringUtils.isNotBlank(hopOuder2.getDatumVoltrokken());
+            && org.apache.commons.lang3.StringUtils.isNotBlank(hopOuder2.getDatumVoltrokken());
     }
 }

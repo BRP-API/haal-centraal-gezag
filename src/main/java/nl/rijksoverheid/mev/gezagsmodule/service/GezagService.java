@@ -1,12 +1,5 @@
 package nl.rijksoverheid.mev.gezagsmodule.service;
 
-import static net.logstash.logback.argument.StructuredArguments.value;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import nl.rijksoverheid.mev.exception.AfleidingsregelException;
 import nl.rijksoverheid.mev.exception.GezagException;
@@ -24,6 +17,10 @@ import org.openapitools.model.GezagNietTeBepalen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import java.util.*;
+
+import static net.logstash.logback.argument.StructuredArguments.value;
 
 /**
  * Service voor bepalen gezag
@@ -54,19 +51,19 @@ public class GezagService {
      * @return lijst gezagsrelaties of lijst gezagsrelatie 'N'
      */
     public List<AbstractGezagsrelatie> getGezag(final Set<String> burgerservicenummers,
-            final String burgerservicenummerPersoon) {
+                                                final String burgerservicenummerPersoon) {
 
         List<AbstractGezagsrelatie> gezagsRelaties = new ArrayList<>();
         for (String burgerservicenummer : burgerservicenummers) {
             try {
                 gezagsRelaties.addAll(
-                        getGezagResultaat(burgerservicenummer, burgerservicenummerPersoon));
+                    getGezagResultaat(burgerservicenummer, burgerservicenummerPersoon));
             } catch (AfleidingsregelException ex) {
                 logger.error(
-                        "Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven",
-                        ex);
+                    "Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven",
+                    ex);
                 gezagsRelaties.add(new GezagNietTeBepalen().toelichting(
-                        "Gezagsrelatie kon niet worden bepaald vanwege een onverwachte exceptie, resultaat 'N' wordt als antwoord gegeven"));
+                    "Gezagsrelatie kon niet worden bepaald vanwege een onverwachte exceptie, resultaat 'N' wordt als antwoord gegeven"));
             }
         }
         return gezagsRelaties;
@@ -82,7 +79,7 @@ public class GezagService {
      * @throws AfleidingsregelException wanneer gezag niet kan worden bepaald
      */
     public List<AbstractGezagsrelatie> getGezagResultaat(final String burgerservicenummer,
-            final String burgerservicenummerPersoon) throws GezagException {
+                                                         final String burgerservicenummerPersoon) throws GezagException {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         List<AbstractGezagsrelatie> gezagsRelaties = new ArrayList<>();
         String route = null;
@@ -95,9 +92,9 @@ public class GezagService {
                 Persoon persoon = persoonslijst.getPersoon();
                 if (persoon != null && Leeftijd.of(persoon.getGeboortedatum()).isMinderjarig()) {
                     gezagsBepaling = new GezagsBepaling(burgerservicenummer,
-                            burgerservicenummerPersoon, persoonslijst, brpService,
-                            vragenlijstService.getVragenMap(),
-                            gezagsVragenMapFactory.getGezagVragen());
+                        burgerservicenummerPersoon, persoonslijst, brpService,
+                        vragenlijstService.getVragenMap(),
+                        gezagsVragenMapFactory.getGezagVragen());
                     arAntwoordenModel = gezagsBepaling.start();
                 } else {
                     route = ROUTE_MEERDERJARIG;
@@ -107,13 +104,13 @@ public class GezagService {
             arAntwoordenModel.setException(ex);
         }
         boolean hasVeldenInOnderzoek =
-                gezagsBepaling != null && gezagsBepaling.warenVeldenInOnderzoek();
+            gezagsBepaling != null && gezagsBepaling.warenVeldenInOnderzoek();
         if (hasVeldenInOnderzoek) {
             arAntwoordenModel.setException(new VeldInOnderzoekException(
-                    "Preconditie: Velden mogen niet in onderzoek staan"));
+                "Preconditie: Velden mogen niet in onderzoek staan"));
         }
         route = (route == null ? beslissingsmatrixService.findMatchingRoute(arAntwoordenModel,
-                gezagsBepaling) : route);
+            gezagsBepaling) : route);
         arAntwoordenModel.setRoute(route);
         setConfiguredValues(arAntwoordenModel, plPersoon.isPresent());
         String unformattedUitleg = arAntwoordenModel.getUitleg();
@@ -126,48 +123,48 @@ public class GezagService {
             arAntwoordenModel.setGezagNietOuder1(DEFAULT_NEE);
             arAntwoordenModel.setGezagNietOuder2(DEFAULT_NEE);
             arAntwoordenModel.setUitleg(toelichtingService.decorateToelichting(unformattedUitleg,
-                    gezagsBepaling.getVeldenInOnderzoek(), null));
+                gezagsBepaling.getVeldenInOnderzoek(), null));
         }
         if (gezagsBepaling != null) {
             List<String> missendeGegegevens = gezagsBepaling.getMissendeGegegevens();
             UUID errorTraceCode = gezagsBepaling.getErrorTraceCode();
             if (errorTraceCode != null) {
                 String toelichting = toelichtingService.setErrorReferenceToelichting(
-                        unformattedUitleg, errorTraceCode.toString());
+                    unformattedUitleg, errorTraceCode.toString());
                 arAntwoordenModel.setUitleg(toelichting);
             } else if (!missendeGegegevens.isEmpty()) {
                 String toelichting = toelichtingService.decorateToelichting(unformattedUitleg, null,
-                        missendeGegegevens);
+                    missendeGegegevens);
                 arAntwoordenModel.setUitleg(toelichting);
             }
             gezagsRelaties = gezagsrelatieService.bepaalGezagsrelaties(arAntwoordenModel,
-                    gezagsBepaling);
+                gezagsBepaling);
         }
         if (logger.isInfoEnabled()) {
             var gezagResultaat = new GezagResultaat(
-                    loggingContext.getPlIdBy(burgerservicenummer),
-                    arAntwoordenModel.getSoortGezag(),
-                    arAntwoordenModel.getUitleg(),
-                    route
+                loggingContext.getPlIdBy(burgerservicenummer),
+                arAntwoordenModel.getSoortGezag(),
+                arAntwoordenModel.getUitleg(),
+                route
             );
             logger.info("Gezag bepaald voor persoon \"{}\": {} {}",
-                    burgerservicenummer, value("gezag_resultaat", gezagResultaat),
-                    value("antwoorden_model", arAntwoordenModel)
+                burgerservicenummer, value("gezag_resultaat", gezagResultaat),
+                value("antwoorden_model", arAntwoordenModel)
             );
         }
         return gezagsRelaties;
     }
 
     private void setConfiguredValues(final ARAntwoordenModel arAntwoordenModel,
-            final boolean persoonslijstExists) throws AfleidingsregelException {
+                                     final boolean persoonslijstExists) throws AfleidingsregelException {
         ARAntwoordenModel configuredARAntwoordenModel = beslissingsmatrixService.getARAntwoordenModel(
-                arAntwoordenModel);
+            arAntwoordenModel);
         arAntwoordenModel.setSoortGezag(configuredARAntwoordenModel.getSoortGezag());
         arAntwoordenModel.setGezagOuder1(configuredARAntwoordenModel.getGezagOuder1());
         arAntwoordenModel.setGezagOuder2(configuredARAntwoordenModel.getGezagOuder2());
         arAntwoordenModel.setGezagNietOuder1(configuredARAntwoordenModel.getGezagNietOuder1());
         arAntwoordenModel.setGezagNietOuder2(configuredARAntwoordenModel.getGezagNietOuder2());
         arAntwoordenModel.setUitleg((!persoonslijstExists ? TOELICHTING_ONBEKEND_PERSOON :
-                configuredARAntwoordenModel.getUitleg()));
+            configuredARAntwoordenModel.getUitleg()));
     }
 }

@@ -10,9 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Comparator.comparing;
-import static java.util.Comparator.naturalOrder;
-import static java.util.Comparator.nullsFirst;
+import static java.util.Comparator.*;
 
 /**
  * v3.1 Ja, als er sprake is van een recente gebeurtenis, anders Nee
@@ -45,27 +43,27 @@ public class IsErSprakeVanEenRecenteGebeurtenis implements GezagVraag {
         final var indicatieGezagMinderjarige = gezagsverhouding.getIndicatieGezagMinderjarige();
         final var ingangsdatumGeldigheidGezag = gezagsverhouding.getIngangsdatumGeldigheidGezag();
         if (indicatieGezagMinderjarige != null
-                && indicatieGezagMinderjarige.equals(INDICATIE_GEZAG_BEIDE_OUDERS)
-                && !plPersoon.heeftTweeOuders()) {
+            && indicatieGezagMinderjarige.equals(INDICATIE_GEZAG_BEIDE_OUDERS)
+            && !plPersoon.heeftTweeOuders()) {
             answer = V3_1_JA;
         }
         if (!gezagsverhouding.hasIngangsdatumGeldigheidGezag()) {
             throw new AfleidingsregelException(
-                    "Preconditie: Ingangsdatum geldigheid gezag moet een valide datum bevatten",
-                    "ingangsdatum geldigheid van gezagsverhouding");
+                "Preconditie: Ingangsdatum geldigheid gezag moet een valide datum bevatten",
+                "ingangsdatum geldigheid van gezagsverhouding");
         }
         if (plPersoon.adoptieNaIngangGeldigheidsdatum()) {
             answer = V3_1_JA;
         }
         if (indicatieGezagMinderjarige != null
-                && (indicatieGezagMinderjarige.equals(INDICATIE_GEZAG_OUDER1)
-                || indicatieGezagMinderjarige.equals(INDICATIE_GEZAG_OUDER2))
-                && plPersoon.heeftTweeOuders()
-                && plPersoon.beideOudersHebbenEenBSN()) {
+            && (indicatieGezagMinderjarige.equals(INDICATIE_GEZAG_OUDER1)
+            || indicatieGezagMinderjarige.equals(INDICATIE_GEZAG_OUDER2))
+            && plPersoon.heeftTweeOuders()
+            && plPersoon.beideOudersHebbenEenBSN()) {
             final var lplOuder1 = gezagsBepaling.getPlOuder1();
             final var lplOuder2 = gezagsBepaling.getPlOuder2();
             if (nuGehuwdOudersNaGeldigheidsdatum(lplOuder1, lplOuder2,
-                    ingangsdatumGeldigheidGezag)) {
+                ingangsdatumGeldigheidGezag)) {
                 answer = V3_1_JA;
             }
         }
@@ -87,22 +85,22 @@ public class IsErSprakeVanEenRecenteGebeurtenis implements GezagVraag {
             return false;
         }
         var hopListOuder1 = getHuwelijkOfPartnerschap(
-                plOuder1, plOuder2.getPersoon().getBurgerservicenummer());
+            plOuder1, plOuder2.getPersoon().getBurgerservicenummer());
         var hopListOuder2 = getHuwelijkOfPartnerschap(
-                plOuder2, plOuder1.getPersoon().getBurgerservicenummer());
+            plOuder2, plOuder1.getPersoon().getBurgerservicenummer());
         if (hopListOuder1.isEmpty() || hopListOuder2.isEmpty()) {
             return false;
         }
 
         var hopOuder1Actueel = hopListOuder1.get(hopListOuder1.size() - 1)
-                .getDatumVoltrokken();
+            .getDatumVoltrokken();
         var hopOuder2Actueel = hopListOuder2.get(hopListOuder2.size() - 1)
-                .getDatumVoltrokken();
+            .getDatumVoltrokken();
         return (org.apache.commons.lang3.StringUtils.isNotBlank(hopOuder1Actueel)
-                && org.apache.commons.lang3.StringUtils.isNotBlank(hopOuder2Actueel))
-                && (Integer.parseInt(geldigheidsdatum) <= Integer.parseInt(hopOuder1Actueel))
-                && (Integer.parseInt(geldigheidsdatum) <= Integer.parseInt(hopOuder2Actueel))
-                && (hopListOuder1.size() > 1) && (hopListOuder2.size() > 1);
+            && org.apache.commons.lang3.StringUtils.isNotBlank(hopOuder2Actueel))
+            && (Integer.parseInt(geldigheidsdatum) <= Integer.parseInt(hopOuder1Actueel))
+            && (Integer.parseInt(geldigheidsdatum) <= Integer.parseInt(hopOuder2Actueel))
+            && (hopListOuder1.size() > 1) && (hopListOuder2.size() > 1);
     }
 
     private List<HuwelijkOfPartnerschap> getHuwelijkOfPartnerschap(final Persoonslijst plOuder,
@@ -111,13 +109,13 @@ public class IsErSprakeVanEenRecenteGebeurtenis implements GezagVraag {
         if (plOuder.getHuwelijkOfPartnerschappen() != null) {
             for (final var hop : plOuder.getHuwelijkOfPartnerschappen()) {
                 if ((hop.getDatumVoltrokken() != null || hop.getDatumOntbinding() != null)
-                        && bsnPartner.equals(hop.getBsnPartner())) {
+                    && bsnPartner.equals(hop.getBsnPartner())) {
                     hopList.add(hop);
                 }
             }
         }
         hopList.sort(
-                comparing(HuwelijkOfPartnerschap::getDatumVoltrokken, nullsFirst(naturalOrder())));
+            comparing(HuwelijkOfPartnerschap::getDatumVoltrokken, nullsFirst(naturalOrder())));
         return hopList;
     }
 }

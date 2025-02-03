@@ -69,7 +69,7 @@ public class GezagsBepaling {
             while (hasNextQuestion) {
                 result = vragenMap.get(nextQuestion).perform(this);
                 nextQuestion = determineNext(result.questionId(), result.answer());
-                if(nextQuestion == null) {
+                if (nextQuestion == null) {
                     hasNextQuestion = false;
                 }
             }
