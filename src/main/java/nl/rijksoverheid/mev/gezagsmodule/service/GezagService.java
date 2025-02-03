@@ -8,6 +8,7 @@ import nl.rijksoverheid.mev.gezagsmodule.domain.Leeftijd;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoonslijst;
 import nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag.GezagsBepaling;
+import nl.rijksoverheid.mev.gezagsmodule.domain.gezagvraag.GezagsVragenMapFactory;
 import nl.rijksoverheid.mev.logging.GezagResultaat;
 import nl.rijksoverheid.mev.logging.LoggingContext;
 import org.openapitools.model.AbstractGezagsrelatie;
@@ -26,36 +27,41 @@ import static net.logstash.logback.argument.StructuredArguments.value;
 @Service
 @RequiredArgsConstructor
 public class GezagService {
+
     private static final Logger logger = LoggerFactory.getLogger(GezagService.class);
     private static final String ROUTE_MEERDERJARIG = "2m";
     private static final String TOELICHTING_ONBEKEND_PERSOON = "Voor het opgegeven burgerservicenummer kon geen persoonslijst worden gevonden";
-
     private final GezagsrelatieService gezagsrelatieService;
     private final VragenlijstService vragenlijstService;
     private final BrpService brpService;
     private final BeslissingsmatrixService beslissingsmatrixService;
     private final LoggingContext loggingContext;
     private final ToelichtingService toelichtingService;
+    private final GezagsVragenMapFactory gezagsVragenMapFactory;
 
     /**
      * Bepaal gezag van kind
      *
      * @param burgerservicenummers       de burgerservicenummers om gezag voor te bepalen
-     * @param burgerservicenummerPersoon het burgerservicenummer van de persoon waar de gezag bepaling voor plaats vind
+     * @param burgerservicenummerPersoon het burgerservicenummer van de persoon waar de gezag
+     *                                   bepaling voor plaats vind
      * @return lijst gezagsrelaties of lijst gezagsrelatie 'N'
      */
-    public List<AbstractGezagsrelatie> getGezag(final Set<String> burgerservicenummers, final String burgerservicenummerPersoon) {
+    public List<AbstractGezagsrelatie> getGezag(final Set<String> burgerservicenummers,
+                                                final String burgerservicenummerPersoon) {
         List<AbstractGezagsrelatie> gezagsRelaties = new ArrayList<>();
         for (String burgerservicenummer : burgerservicenummers) {
             try {
-                gezagsRelaties.addAll(getGezagResultaat(burgerservicenummer, burgerservicenummerPersoon));
+                gezagsRelaties.addAll(
+                    getGezagResultaat(burgerservicenummer, burgerservicenummerPersoon));
             } catch (AfleidingsregelException ex) {
-                logger.error("Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven", ex);
+                logger.error(
+                    "Gezagsrelatie kon niet worden bepaald, dit is een urgent probleem! Resultaat 'N' wordt als antwoord gegeven",
+                    ex);
                 gezagsRelaties.add(new GezagNietTeBepalen().toelichting(
                     "Gezagsrelatie kon niet worden bepaald vanwege een onverwachte exceptie, resultaat 'N' wordt als antwoord gegeven"));
             }
         }
-
         return gezagsRelaties;
     }
 
@@ -63,11 +69,13 @@ public class GezagService {
      * Bepaal gezag afleidingsresultaat
      *
      * @param burgerservicenummer        het burgerservicenummers om gezag voor te bepalen
-     * @param burgerservicenummerPersoon het burgerservicenummer van de persoon waar de gezag bepaling voor plaats vind
+     * @param burgerservicenummerPersoon het burgerservicenummer van de persoon waar de gezag
+     *                                   bepaling voor plaats vind
      * @return gezagsafleidingsresultaat
      * @throws AfleidingsregelException wanneer gezag niet kan worden bepaald
      */
-    public List<AbstractGezagsrelatie> getGezagResultaat(final String burgerservicenummer, final String burgerservicenummerPersoon) throws GezagException {
+    public List<AbstractGezagsrelatie> getGezagResultaat(final String burgerservicenummer,
+                                                         final String burgerservicenummerPersoon) throws GezagException {
         ARAntwoordenModel arAntwoordenModel = new ARAntwoordenModel();
         List<AbstractGezagsrelatie> gezagsRelaties = new ArrayList<>();
         String route = null;
@@ -79,7 +87,10 @@ public class GezagService {
                 Persoonslijst persoonslijst = plPersoon.get();
                 Persoon persoon = persoonslijst.getPersoon();
                 if (persoon != null && Leeftijd.of(persoon.getGeboortedatum()).isMinderjarig()) {
-                    gezagsBepaling = new GezagsBepaling(burgerservicenummer, burgerservicenummerPersoon, persoonslijst, brpService, vragenlijstService.getVragenMap());
+                    gezagsBepaling = new GezagsBepaling(burgerservicenummer,
+                        burgerservicenummerPersoon, persoonslijst, brpService,
+                        vragenlijstService.getVragenMap(),
+                        gezagsVragenMapFactory.getGezagVragen());
                     arAntwoordenModel = gezagsBepaling.start();
                 } else {
                     route = ROUTE_MEERDERJARIG;
@@ -115,18 +126,18 @@ public class GezagService {
                 arAntwoordenModel.getUitleg(),
                 route
             );
-            logger.info(
-                """
-                   Gezag bepaald voor persoon "{}": {}
-                   {}""",
-                burgerservicenummer, value("gezag_resultaat", gezagResultaat), value("antwoorden_model", arAntwoordenModel)
+            logger.info("Gezag bepaald voor persoon \"{}\": {} {}",
+                burgerservicenummer, value("gezag_resultaat", gezagResultaat),
+                value("antwoorden_model", arAntwoordenModel)
             );
         }
         return gezagsRelaties;
     }
 
-    private void setConfiguredValues(final ARAntwoordenModel arAntwoordenModel, final boolean persoonslijstExists) throws AfleidingsregelException {
-        ARAntwoordenModel configuredARAntwoordenModel = beslissingsmatrixService.getARAntwoordenModel(arAntwoordenModel);
+    private void setConfiguredValues(final ARAntwoordenModel arAntwoordenModel,
+                                     final boolean persoonslijstExists) throws AfleidingsregelException {
+        ARAntwoordenModel configuredARAntwoordenModel = beslissingsmatrixService.getARAntwoordenModel(
+            arAntwoordenModel);
         arAntwoordenModel.setSoortGezag(configuredARAntwoordenModel.getSoortGezag());
         arAntwoordenModel.setGezagOuder1(configuredARAntwoordenModel.getGezagOuder1());
         arAntwoordenModel.setGezagOuder2(configuredARAntwoordenModel.getGezagOuder2());
