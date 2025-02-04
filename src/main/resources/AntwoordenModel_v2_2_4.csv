@@ -16,8 +16,6 @@ Ja,Ja,Nee,Nee,,Ja,,,,,,,,,,,,4ee,N,Nee,Nee,Nee,Nee,420,gezag is niet te bepalen 
 Ja,Ja,Nee,Ja,Ja,Ja,,,,,,,,,,,,4aee,N,Nee,Nee,Nee,Nee,421,gezag is niet te bepalen omdat de volgende relevante gegevens ontbreken: %s
 Ja,Ja,Nee,Nee,,Ja,,,,,,Nee,,,,,,4eee,N,Nee,Nee,Nee,Nee,430,gezag is niet te bepalen omdat de volgende relevante gegevens ontbreken: %s
 Ja,Ja,Nee,Ja,Ja,Ja,,,,,,Nee,,,,,,4aeee,N,Nee,Nee,Nee,Nee,431,gezag is niet te bepalen omdat de volgende relevante gegevens ontbreken: %s
-Ja,Ja,Nee,Nee,,Ja,,,,,,Nee,1D,,,,,4,GG,Ja,Nee,Nee,Ja,450,Ingezeten - minderjarig - categorie 11 ouder1 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag
-Ja,Ja,Nee,Ja,Ja,Ja,,,,,,Nee,1D,,,,,4a,GG,Ja,Nee,Nee,Ja,451,Ingezeten - minderjarig - adoptie NL akte - categorie 11 ouder1 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag na adoptie
 Ja,Ja,Nee,Nee,,Ja,,,,,,Nee,1D,,,Nee,,4n,GG,Ja,Nee,Nee,Ja,450,Ingezeten - minderjarig - categorie 11 ouder1 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag
 Ja,Ja,Nee,Ja,Ja,Ja,,,,,,Nee,1D,,,Nee,,4an,GG,Ja,Nee,Nee,Ja,451,Ingezeten - minderjarig - adoptie NL akte - categorie 11 ouder1 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag na adoptie
 Ja,Ja,Nee,Nee,,Ja,,,,,,Nee,1D,,,Ja_nietouder1,,4no1,OG1,Nee,Ja,Nee,Nee,450,Ingezeten - minderjarig - categorie 11 ouder1 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag - niet-ouder1 overleden of onbevoegd
@@ -46,8 +44,6 @@ Ja,Ja,Nee,Ja,Ja,Ja,,,,,,Nee,1D,,,Ja_ouder_onder_curatele_en_niet_ouder_minderjar
 Ja,Ja,Nee,Ja,Ja,Ja,,,,,,Nee,1D,,,Ja_ouder_minderjarig_en_niet_ouder_overleden,,4amo,G,Nee,Nee,Nee,Nee,451,Tijdelijk geen gezag omdat ouder minderjarig is en niet-ouder overleden is.
 Ja,Ja,Nee,Ja,Ja,Ja,,,,,,Nee,1D,,,Ja_ouder_minderjarig_en_niet_ouder_onder_curatele,,4amc,G,Nee,Nee,Nee,Nee,451,Tijdelijk geen gezag omdat ouder minderjarig is en niet-ouder onder curatele staat.
 Ja,Ja,Nee,Ja,Ja,Ja,,,,,,Nee,1D,,,Ja_beiden_minderjarig,,4amm,G,Nee,Nee,Nee,Nee,451,Tijdelijk geen gezag omdat beide ouders overleden zijn.
-Ja,Ja,Nee,Nee,,Ja,,,,,,Nee,2D,,,,,5,GG,Nee,Ja,Ja,Nee,550,Ingezeten - minderjarig - categorie 11 ouder2 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag
-Ja,Ja,Nee,Ja,Ja,Ja,,,,,,Nee,2D,,,,,5a,GG,Nee,Ja,Ja,Nee,551,Ingezeten - minderjarig - adoptie NL akte - categorie 11 ouder2 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag na adoptie
 Ja,Ja,Nee,Nee,,Ja,,,,,,Nee,2D,,,Nee,,5n,GG,Nee,Ja,Ja,Nee,550,Ingezeten - minderjarig - categorie 11 ouder2 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag
 Ja,Ja,Nee,Ja,Ja,Ja,,,,,,Nee,2D,,,Nee,,5an,GG,Nee,Ja,Ja,Nee,551,Ingezeten - minderjarig - adoptie NL akte - categorie 11 ouder2 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag na adoptie
 Ja,Ja,Nee,Nee,,Ja,,,,,,Nee,2D,,,Ja_nietouder1,,5no1,OG1,Nee,Ja,Nee,Nee,550,Ingezeten - minderjarig - categorie 11 ouder2 en een derde - soort gezag is GG - Er is sprake van gezamenlijk gezag n.a.v. een gerechtelijke uitspraak over gezag - niet-ouder1 overleden of onbevoegd
