@@ -105,7 +105,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
 
   Regel: Uitspraak gezag met indicatie dat er sprake is van gezamelijk gezag is opgenomen vanuit het Gezagsregister
 
-  Scenario: De moeder heeft samen met de vader gezamelijk gezag over het kind resulteerd in Voogdij
+  Scenario: De moeder heeft samen met een onbekende derde gezamenlijk gezag over het kind resulteert in GezamenlijkGezag
     Gegeven voor 'Nathan' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | 1D                                   | 20230101                        |
@@ -122,7 +122,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | ouder.burgerservicenummer        | 000000012        |
       | derde.type                       | OnbekendeDerde   |
 
-  Scenario: De moeder heeft samen met de vader als niet ouder gezamelijk gezag over het kind resulteerd in Voogdij
+  Scenario: De moeder heeft samen met een onbekende derde gezamenlijk gezag over het kind resulteert in GezamenlijkGezag
     Gegeven de persoon 'Iefke' met burgerservicenummer '000000061'
     * is meerderjarig
     Gegeven de persoon 'Paul' met burgerservicenummer '000000085'
@@ -154,7 +154,7 @@ Functionaliteit: 3.2 - Achterhalen gezag na uitspraak
       | ouder.burgerservicenummer        | 000000061        |
       | derde.type                       | OnbekendeDerde   |
 
-  Scenario: De vader heeft samen met een voogd gezamelijk gezag over het kind resulteerd in Voogdij
+  Scenario: De vader heeft samen met een onbekende derde gezamenlijk gezag over het kind resulteert in GezamenlijkGezag
     Gegeven voor 'Nathan' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | 2D                                   | 20230101                        |
