@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * v4b1 "Ja_..." of "Nee" als ouder of partner overleden of onbevoegd is.
@@ -58,13 +59,12 @@ public class OuderOfPartnerOverledenOfOnbevoegdTotGezag implements GezagVraag {
                 "Preconditie: Minimaal 1 ouder moet geregistreerd staan in BRP",
                 "Voor de bevraagde persoon moet minimaal 1 ouder geregistreerd staan in BRP");
         }
-        final var persoonslijstNietOuder = gezagsBepaling.getPlNietOuder();
-        if (persoonslijstNietOuder == null) {
-            throw new AfleidingsregelException(
-                "Preconditie: niet_ouder moet geregistreerd staan in BRP",
-                "Voor de bevraagde persoon moet niet_ouder geregistreerd staan in BRP");
-        }
-        final var optionalIsNietOuderOverledenOfOnbevoegdToken = persoonslijstNietOuder.isOverledenOfOnbevoegdEncoded();
+        final var persoonslijstNietOuder = gezagsBepaling.isGezamenlijkGezagVanwegeGerechtelijkeUitspraak()
+            ? null
+            : gezagsBepaling.getPlNietOuder();
+        final var optionalIsNietOuderOverledenOfOnbevoegdToken = persoonslijstNietOuder == null
+            ? Optional.<Character>empty()
+            : persoonslijstNietOuder.isOverledenOfOnbevoegdEncoded();
         boolean isNietOuderOverledenOfOnbevoegd = optionalIsNietOuderOverledenOfOnbevoegdToken.isPresent();
 
         String key = persoonslijstOuder1 != null

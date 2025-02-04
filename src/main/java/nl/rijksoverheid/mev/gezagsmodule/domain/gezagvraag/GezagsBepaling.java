@@ -95,6 +95,10 @@ public class GezagsBepaling {
         return null;
     }
 
+    public boolean isGezamenlijkGezagVanwegeGerechtelijkeUitspraak() {
+        return arAntwoordenModel.isGezamenlijkGezagVanwegeGerechtelijkeUitspraak();
+    }
+
     /**
      * @return burgerservicenummer van ouder 1 of null wanneer ouder 1 geen waarde heeft
      */

@@ -599,10 +599,10 @@ Functionaliteit: Tg016 - Petersen-Perquin & Peereboom-Peek & Pauwels-Platje
       | naam                | waarde    |
       | burgerservicenummer | 000000048 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                                                  |
-      | type                             | TijdelijkGeenGezag                                      |
-      | minderjarige.burgerservicenummer | 000000048                                               |
-      | toelichting                      | Tijdelijk geen gezag omdat beide ouders overleden zijn. |
+      | naam                             | waarde    |
+      | type                             | Voogdij   |
+      | minderjarige.burgerservicenummer | 000000048 |
+    En heeft 'gezag' geen derden
 
   Scenario: Lg01_091 - huwelijk tussen 2 vrouwen vóór 01-04-2014, huwelijkspartner niet automatisch ouder van kind, partner overleden
     # Meerderjarig
