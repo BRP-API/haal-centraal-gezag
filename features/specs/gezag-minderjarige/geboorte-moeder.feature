@@ -69,7 +69,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | GezagNietTeBepalen                                                                                |
         | minderjarige.burgerservicenummer | 000000036                                                                                         |
         | toelichting                      | gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is. |
-      
+
     Scenario: Voor een kind waarvan een ouder de geslachtsaanduiding vrouw heeft, kan worden bepaald wie gezag heeft er is sprake van EenhoofdigOuderlijkGezag
       Gegeven persoon 'Vanessa'
       * heeft 'Noah' als ouder 1 met de volgende gegevens
@@ -86,7 +86,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                   |
         | type                             | EenhoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                |
-        | ouder.burgerservicenummer        | 000000012                |
+        | ouder.burgerservicenummer        | 000000012                |        
 
     Scenario: Voor een kind waarvan de tweede ouder de geslachtsaanduiding vrouw heeft, kan worden bepaald wie gezag heeft er is sprake van EenhoofdigOuderlijkGezag
       Gegeven persoon 'Vanessa'
@@ -104,7 +104,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                   |
         | type                             | EenhoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                |
-        | ouder.burgerservicenummer        | 000000024                |
+        | ouder.burgerservicenummer        | 000000024                |        
 
     Scenario: Voor een kind waarvan een ouder de geslachtsaanduiding vrouw heeft en de andere man, kan worden bepaald wie gezag heeft er is sprake van EenhoofdigOuderlijkGezag
       Gegeven persoon 'Vanessa'
@@ -124,7 +124,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                             | waarde                   |
         | type                             | EenhoofdigOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                |
-        | ouder.burgerservicenummer        | 000000012                |
+        | ouder.burgerservicenummer        | 000000012                |        
 
     Scenario: Voor een kind waarvan beide ouders de geslachtsaanduiding vrouw hebben, kan niet worden bepaald wie gezag heeft er is sprake van GezagNietTeBepalen
       Gegeven persoon 'Vanessa'
@@ -145,7 +145,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | type                             | GezagNietTeBepalen                                                                                |
         | minderjarige.burgerservicenummer | 000000036                                                                                         |
         | toelichting                      | gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is. |
-    
+
   Regel: een kind geboren na 01-01-2023
     
     Scenario: Voor een kind waarvan beide ouders geen geslachtsaanduiding hebben, kan gezag worden bepaald er is sprake van TweehoofdigOuderlijkGezag
@@ -166,7 +166,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
-        | minderjarige.burgerservicenummer | 000000036                 |
+        | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -192,7 +192,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
-        | minderjarige.burgerservicenummer | 000000036                 |
+        | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -218,7 +218,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
-        | minderjarige.burgerservicenummer | 000000036                 |
+        | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -244,7 +244,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
-        | minderjarige.burgerservicenummer | 000000036                 |
+        | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -270,7 +270,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
-        | minderjarige.burgerservicenummer | 000000036                 |
+        | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
@@ -296,11 +296,10 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
         | type                             | TweehoofdigOuderlijkGezag |
-        | minderjarige.burgerservicenummer | 000000036                 |
+        | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000012 |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
         | burgerservicenummer | 000000024 |
-  

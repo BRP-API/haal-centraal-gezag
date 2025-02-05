@@ -221,3 +221,4 @@ Functionaliteit: Tg004 - Custers - Bij geboorte minderjarige moeders
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
       | ouder.burgerservicenummer        | 000000036                |
+      

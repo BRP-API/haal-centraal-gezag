@@ -51,7 +51,7 @@ Functionaliteit: 1.4 - is uitspraak gezag aanwezig
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
+      | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -73,7 +73,7 @@ Functionaliteit: 1.4 - is uitspraak gezag aanwezig
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
+      | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -106,10 +106,11 @@ Functionaliteit: 1.4 - is uitspraak gezag aanwezig
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                                                                                                                                      |
-      | type                             | GezagNietTeBepalen                                                                                                                          |
-      | minderjarige.burgerservicenummer | 000000036                                                                                                                                   |
-      | toelichting                      | Gezag is niet te bepalen, omdat de volgende relevante gegevens in onderzoek staan. Persoonslijst van persoon: indicatie gezag minderjarige. |
+      | naam                             | waarde                         |
+      | type                             | EenhoofdigOuderlijkGezag       |
+      | minderjarige.burgerservicenummer | 000000036                      |
+      | ouder.burgerservicenummer        | 000000012                      |  
+      | inOnderzoek                      | true                           |
 
   Scenario: Voor het kind een uitspraak gedaan, deze uitspraak stond in onderzoek er is sprake van EenhoofdigOuderlijkGezag
     Gegeven voor 'Babette' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
@@ -129,7 +130,7 @@ Functionaliteit: 1.4 - is uitspraak gezag aanwezig
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |
+      | ouder.burgerservicenummer        | 000000012                |      
 
   Regel: Uitspraak gezag is aanwezig
 
@@ -148,4 +149,4 @@ Functionaliteit: 1.4 - is uitspraak gezag aanwezig
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000024                |
+      | ouder.burgerservicenummer        | 000000024                |      

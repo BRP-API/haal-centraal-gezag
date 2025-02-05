@@ -160,5 +160,5 @@ Functionaliteit: Tg032 - Oostingh - Alleen maar minderjarigen incl. moeder
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
+      | minderjarige.burgerservicenummer | 000000036 |      
     En heeft 'gezag' geen derden

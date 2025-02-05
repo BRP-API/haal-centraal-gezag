@@ -70,7 +70,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - ontkenning
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | <ouder bsn>              |
+      | ouder.burgerservicenummer        | <ouder bsn>              |      
 
       Voorbeelden:
       | ouder | naam ouder | soort wijziging | ouder bsn |
@@ -103,7 +103,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - ontkenning
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' geen derden
 
       Voorbeelden:

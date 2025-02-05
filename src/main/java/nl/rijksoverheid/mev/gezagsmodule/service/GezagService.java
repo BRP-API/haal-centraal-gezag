@@ -3,7 +3,6 @@ package nl.rijksoverheid.mev.gezagsmodule.service;
 import lombok.RequiredArgsConstructor;
 import nl.rijksoverheid.mev.exception.AfleidingsregelException;
 import nl.rijksoverheid.mev.exception.GezagException;
-import nl.rijksoverheid.mev.exception.VeldInOnderzoekException;
 import nl.rijksoverheid.mev.gezagsmodule.domain.ARAntwoordenModel;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Leeftijd;
 import nl.rijksoverheid.mev.gezagsmodule.domain.Persoon;
@@ -30,8 +29,6 @@ import static net.logstash.logback.argument.StructuredArguments.value;
 public class GezagService {
 
     private static final Logger logger = LoggerFactory.getLogger(GezagService.class);
-    private static final String DEFAULT_NEE = "Nee";
-    private static final String SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD = "N";
     private static final String ROUTE_MEERDERJARIG = "2m";
     private static final String TOELICHTING_ONBEKEND_PERSOON = "Voor het opgegeven burgerservicenummer kon geen persoonslijst worden gevonden";
     private final GezagsrelatieService gezagsrelatieService;
@@ -52,7 +49,6 @@ public class GezagService {
      */
     public List<AbstractGezagsrelatie> getGezag(final Set<String> burgerservicenummers,
                                                 final String burgerservicenummerPersoon) {
-
         List<AbstractGezagsrelatie> gezagsRelaties = new ArrayList<>();
         for (String burgerservicenummer : burgerservicenummers) {
             try {
@@ -103,43 +99,26 @@ public class GezagService {
         } catch (AfleidingsregelException ex) {
             arAntwoordenModel.setException(ex);
         }
-        boolean hasVeldenInOnderzoek =
-            gezagsBepaling != null && gezagsBepaling.warenVeldenInOnderzoek();
-        if (hasVeldenInOnderzoek) {
-            arAntwoordenModel.setException(new VeldInOnderzoekException(
-                "Preconditie: Velden mogen niet in onderzoek staan"));
-        }
-        route = (route == null ? beslissingsmatrixService.findMatchingRoute(arAntwoordenModel,
-            gezagsBepaling) : route);
+
+        route = (route == null ? beslissingsmatrixService.findMatchingRoute(arAntwoordenModel, gezagsBepaling) : route);
         arAntwoordenModel.setRoute(route);
         setConfiguredValues(arAntwoordenModel, plPersoon.isPresent());
-        String unformattedUitleg = arAntwoordenModel.getUitleg();
-        if (hasVeldenInOnderzoek) {
-            route = route + "i";
-            arAntwoordenModel.setRoute(arAntwoordenModel.getRoute() + "i");
-            arAntwoordenModel.setSoortGezag(SOORT_GEZAG_KAN_NIET_WORDEN_BEPAALD);
-            arAntwoordenModel.setGezagOuder1(DEFAULT_NEE);
-            arAntwoordenModel.setGezagOuder2(DEFAULT_NEE);
-            arAntwoordenModel.setGezagNietOuder1(DEFAULT_NEE);
-            arAntwoordenModel.setGezagNietOuder2(DEFAULT_NEE);
-            arAntwoordenModel.setUitleg(toelichtingService.decorateToelichting(unformattedUitleg,
-                gezagsBepaling.getVeldenInOnderzoek(), null));
-        }
+
         if (gezagsBepaling != null) {
             List<String> missendeGegegevens = gezagsBepaling.getMissendeGegegevens();
             UUID errorTraceCode = gezagsBepaling.getErrorTraceCode();
+
+            String toelichting = arAntwoordenModel.getUitleg();
             if (errorTraceCode != null) {
-                String toelichting = toelichtingService.setErrorReferenceToelichting(
-                    unformattedUitleg, errorTraceCode.toString());
-                arAntwoordenModel.setUitleg(toelichting);
+                toelichting = toelichtingService.setErrorReferenceToelichting(toelichting, errorTraceCode.toString());
             } else if (!missendeGegegevens.isEmpty()) {
-                String toelichting = toelichtingService.decorateToelichting(unformattedUitleg, null,
-                    missendeGegegevens);
-                arAntwoordenModel.setUitleg(toelichting);
+                toelichting = toelichtingService.decorateToelichting(toelichting, missendeGegegevens);
             }
-            gezagsRelaties = gezagsrelatieService.bepaalGezagsrelaties(arAntwoordenModel,
-                gezagsBepaling);
+            arAntwoordenModel.setUitleg(toelichting);
+
+            gezagsRelaties = gezagsrelatieService.bepaalGezagsrelaties(arAntwoordenModel, gezagsBepaling);
         }
+
         if (logger.isInfoEnabled()) {
             var gezagResultaat = new GezagResultaat(
                 loggingContext.getPlIdBy(burgerservicenummer),

@@ -52,7 +52,7 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000024        |
-      | derde.burgerservicenummer        | 000000012        |
+      | derde.burgerservicenummer        | 000000012        |      
 
     Scenario: persoon heeft van rechtswege gezamenlijk gezag over het minderjarige kind van diens partners er is sprake van TweehoofdigOuderlijkGezag
       Gegeven persoon 'Linda'
@@ -66,7 +66,7 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
+      | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -89,7 +89,7 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -112,7 +112,7 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -133,7 +133,7 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -155,7 +155,7 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |
+      | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |

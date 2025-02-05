@@ -22,7 +22,7 @@ public class Gezagsverhouding extends PotentieelInOnderzoek {
     @VeldNummer(number = "113210", name = "indicatie gezag minderjarige")
     private final String indicatieGezagMinderjarige;
 
-    // Aanduiding dat de ingeschrevene onder curatele is gestel
+    // Aanduiding dat de ingeschrevene onder curatele is gesteld
     @VeldNummer(number = "113310", name = "indicatie curatele register")
     private final String indicatieCurateleRegister;
 

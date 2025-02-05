@@ -75,7 +75,7 @@ Functionaliteit: gezag van een meerderjarige die niet in de BRP staat ingeschrev
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
+      | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000048 |

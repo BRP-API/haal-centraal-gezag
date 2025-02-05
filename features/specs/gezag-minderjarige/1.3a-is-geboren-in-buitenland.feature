@@ -58,7 +58,7 @@ Functionaliteit: 1.3a - is geboren in het buitenland
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |
+      | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
