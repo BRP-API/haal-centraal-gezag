@@ -43,7 +43,7 @@ public class GezagsrelatieService {
         String burgerservicenummerNietOuder = gezagsBepaling.getBurgerservicenummerNietOuder();
 
         boolean bevraagdePersoonIsDeMinderjarige = burgerservicenummer.equals(burgerservicenummerPersoon);
-        if (tenminsteEenRelatieMetPersoon(bevraagdePersoonIsDeMinderjarige, burgerservicenummerPersoon, burgerservicenummerOuder1, burgerservicenummerOuder2, burgerservicenummerNietOuder)) {
+        if (tenminsteEenRelatieMetPersoon(bevraagdePersoonIsDeMinderjarige, burgerservicenummerPersoon, burgerservicenummerOuder1, burgerservicenummerOuder2, burgerservicenummerNietOuder, arAntwoordenModel)) {
             String soortGezag = arAntwoordenModel.getSoortGezag();
             AbstractGezagsrelatie gezag = switch (soortGezag) {
                 case "OG1" -> createEenhoofdelijkOuderlijkGezag(
@@ -63,7 +63,6 @@ public class GezagsrelatieService {
                     arAntwoordenModel.hasOuder1Gezag(),
                     burgerservicenummerOuder1,
                     burgerservicenummerOuder2,
-                    burgerservicenummerPersoon,
                     gezagsrelaties,
                     arAntwoordenModel.isGezamenlijkGezagVanwegeGerechtelijkeUitspraak());
                 case "V" -> createVoogdij(
@@ -144,7 +143,6 @@ public class GezagsrelatieService {
         final boolean ouder1Gezag,
         final String burgerservicenummerOuder1,
         final String burgerservicenummerOuder2,
-        final String burgerservicenummerBevraagdePersoon,
         final List<AbstractGezagsrelatie> gezagsrelaties,
         final boolean isGezamenlijkGezagVanwegeGerechtelijkeUitspraak
     ) {
@@ -155,34 +153,11 @@ public class GezagsrelatieService {
             ? new OnbekendeDerde()
             : new Derde().burgerservicenummer(burgerservicenummerNietOuder);
 
-        var gezamenlijkGezag = new GezamenlijkGezag()
+        return new GezamenlijkGezag()
             .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
             .ouder(gezagOuder)
             .derde(derde)
             .type(TYPE_GEZAMELIJK_GEZAG);
-        if (hasGezamenlijkGezagBevraagdePersoon(gezamenlijkGezag, burgerservicenummerBevraagdePersoon)) {
-            gezagsrelaties.add(gezamenlijkGezag);
-        }
-        return gezamenlijkGezag;
-    }
-
-    private boolean hasGezamenlijkGezagBevraagdePersoon(
-        GezamenlijkGezag gezamenlijkGezag,
-        String burgerservicenummerBevraagdePersoon
-    ) {
-        var minderjarige = gezamenlijkGezag.getMinderjarige().orElseThrow(); // not optional, change the OpenAPI Specification
-        if (minderjarige.getBurgerservicenummer().equals(burgerservicenummerBevraagdePersoon)) return true;
-
-        var gezagOuder = gezamenlijkGezag.getOuder().orElseThrow(); // not optional, change the OpenAPI Specification
-        if (gezagOuder.getBurgerservicenummer().equals(burgerservicenummerBevraagdePersoon)) return true;
-
-        return gezamenlijkGezag.getDerde()
-            .map(derde -> switch (derde) {
-                case OnbekendeDerde onbekendeDerde -> false;
-                case Derde bekendeDerde -> bekendeDerde.getBurgerservicenummer().orElseThrow().equals(burgerservicenummerBevraagdePersoon); // not optional, change the OpenAPI Specification
-                default -> throw new IllegalStateException("Unexpected value: " + derde);
-            })
-            .orElse(false);
     }
 
     private AbstractGezagsrelatie createVoogdij(
@@ -237,10 +212,11 @@ public class GezagsrelatieService {
         final String burgerservicenummerPersoon,
         final String burgerservicenummerOuder1,
         final String burgerservicenummerOuder2,
-        final String burgerservicenummerNietOuder) {
+        final String burgerservicenummerNietOuder,
+        final ARAntwoordenModel arAntwoordenModel) {
         return bevraagdePersoonIsDeMinderjarige ||
-            burgerservicenummerPersoon.equals(burgerservicenummerOuder1) ||
-            burgerservicenummerPersoon.equals(burgerservicenummerOuder2) ||
-            burgerservicenummerPersoon.equals(burgerservicenummerNietOuder);
+            burgerservicenummerPersoon.equals(burgerservicenummerOuder1) && arAntwoordenModel.hasOuder1Gezag() ||
+            burgerservicenummerPersoon.equals(burgerservicenummerOuder2) && arAntwoordenModel.hasOuder2Gezag() ||
+            burgerservicenummerPersoon.equals(burgerservicenummerNietOuder) && !arAntwoordenModel.isGezamenlijkGezagVanwegeGerechtelijkeUitspraak();
     }
 }
