@@ -77,7 +77,7 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | 010000               | hele categorie           |
 
     Abstract Scenario: gezag wordt bepaald met gegeven van de ouder 2: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
-      Gegeven persoon 'Roel'
+      Gegeven persoon '<persoon>'
       * zijn de volgende gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
       | <aanduiding onderzoek>          |
@@ -122,5 +122,6 @@ Functionaliteit: wanneer gegevens in onderzoek staan wordt een gezag uitspraak g
       | burgerservicenummer | 000000024 |
 
       Voorbeelden:
-      | aanduiding onderzoek | omschrijving             |
-      | 010000               | hele categorie           |
+      | aanduiding onderzoek | omschrijving                       | persoon |
+      | 010000               | hele categorie van deze ouder      | Roel    |
+      | 010000               | hele categorie van de andere ouder | Rianne  |

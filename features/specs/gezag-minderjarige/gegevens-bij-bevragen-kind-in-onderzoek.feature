@@ -276,7 +276,6 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
           | 020120               | burgerservicenummer                        |
           | 020240               | geslachtsnaam                              |
           | 026210               | datum ingang familierechtelijke betrekking |
-          | 028120               | aktenummer                                 |
           | 020000               | hele groep                                 |
 
       Abstract Scenario: gezag wordt bepaald met gegeven van ouder 2: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
@@ -308,7 +307,6 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
           | 030120               | burgerservicenummer                        |
           | 030240               | geslachtsnaam                              |
           | 036210               | datum ingang familierechtelijke betrekking |
-          | 038120               | aktenummer                                 |
           | 030000               | hele groep                                 |
 
     Scenario: gezag wordt bepaald met gegeven geslachtsnaam van ouder 1 in onderzoek, er is sprake van EenhoofdigOuderlijkGezag
