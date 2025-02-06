@@ -116,10 +116,10 @@ public class LoggingFilter extends OncePerRequestFilter implements ApplicationCo
         var responseContentType = response.getContentType();
         var responseStatusCode = response.getStatus();
 
-        MDC.put("request.method", requestMethod);
-        MDC.put("request.mime_type", requestContentType);
-        MDC.put("response.mime_type", responseContentType);
-        MDC.put("response.status_code", String.valueOf(responseStatusCode));
+        MDC.put("http.request.method", requestMethod);
+        MDC.put("http.request.mime_type", requestContentType);
+        MDC.put("http.response.mime_type", responseContentType);
+        MDC.put("http.response.status_code", String.valueOf(responseStatusCode));
 
         return new Http(requestMethod, responseStatusCode);
     }
