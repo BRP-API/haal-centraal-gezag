@@ -222,8 +222,9 @@ Functionaliteit: Tg034 - Ruijgrok-Rademaker – Twee gehuwde vrouwen met 2 kinde
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000024 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000024    |
 
   Scenario: Lg01_183 - 1 ouder, moeder gehuwd, huwelijkspartner moeder alleen gezag (moeder onder curatele)
     # Route: 43o1 - Wie heeft gezag?: meemoeder (V)
@@ -238,8 +239,9 @@ Functionaliteit: Tg034 - Ruijgrok-Rademaker – Twee gehuwde vrouwen met 2 kinde
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |      
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000024 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000024    |
 
   Scenario: Lg01_184 - 1 ouder, moeder gehuwd, huwelijkspartner moeder geen gezag (moeder onder curatele, indicatie gezag 1
     # Route: 12 - Wie heeft gezag?: niet te bepalen (G )

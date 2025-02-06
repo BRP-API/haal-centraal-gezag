@@ -87,7 +87,7 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | minderjarige.burgerservicenummer | 000000024        |
       | ouder.burgerservicenummer        | 000000012        |
       | derde.burgerservicenummer        | 000000036        |
-      | derde.type                       | Derde            |
+      | derde.type                       | BekendeDerde     |
 
   Regel: De ouder of partner is overleden
 
@@ -108,8 +108,9 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000024 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | burgerservicenummer |
-      | 000000036           |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000036    |
 
   Scenario: De partner is overleden er is sprake van EenhoofdigOuderlijkGezag
     En persoon 'Quincy'
@@ -168,8 +169,9 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000024 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | burgerservicenummer |
-      | 000000036           |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000036    |
 
   Scenario: De partner is minderjarig er is sprake van EenhoofdigOuderlijkGezag
     Gegeven persoon 'Quincy'
@@ -226,8 +228,9 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000024 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | burgerservicenummer |
-      | 000000036           |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000036    |
 
   Scenario: De partner is onder curatele er is sprake van EenhoofdigOuderlijkGezag
     Gegeven persoon 'Quincy'
@@ -287,8 +290,9 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000024 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | burgerservicenummer |
-      | 000000036           |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000036    |
 
   Scenario: De partner is minderjarig en overleden er is sprake van EenhoofdigOuderlijkGezag
     Gegeven persoon 'Quincy'
@@ -348,8 +352,9 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000024 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | burgerservicenummer |
-      | 000000036           |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000036    |
 
   Scenario: De partner is minderjarig en onder curatele er is sprake van EenhoofdigOuderlijkGezag
     Gegeven persoon 'Quincy'
@@ -410,8 +415,9 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000024 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | burgerservicenummer |
-      | 000000036           |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000036    |
 
   Scenario: De partner is onder curatele en overleden er is sprake van EenhoofdigOuderlijkGezag
     Gegeven persoon 'Quincy'
@@ -475,8 +481,9 @@ Functionaliteit: 4b.1 - Ouder of partner overleden of onbevoegd tot gezag
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000024 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | burgerservicenummer |
-      | 000000036           |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000036    |
 
   Scenario: De partner is minderjarig, onder curatele en overleden er is sprake van EenhoofdigOuderlijkGezag
     Gegeven persoon 'Quincy'

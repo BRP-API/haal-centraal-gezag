@@ -3,10 +3,10 @@
 Functionaliteit: in verschillende situaties heeft een niet ouder (ook) het gezag over een minderjarige
 
   Een `niet ouder` is iemand die gezag heeft over een minderjarige maar niet de ouder is.
-  Dat wil zeggen, de persoon is: 
+  Dat wil zeggen, de persoon is:
   - niet de moeder uit wie het kind geboren is
   - niet iemand die het kind erkend heeft
-  - niet iemand die het kind geadopteerd heeft  
+  - niet iemand die het kind geadopteerd heeft
   Een `niet ouder` kan een vader zijn, maar ook een oma, opa, peetoom of andere relatie.
 
   De gezag relatie voor een `niet ouder` met een minderjarige onstaat vanuit rechtswege of vanuit een gerechtelijke uitspraak.
@@ -42,7 +42,7 @@ Functionaliteit: in verschillende situaties heeft een niet ouder (ook) het gezag
         | naam                             | waarde               |
         | type                             | GezamenlijkGezag     |
         | minderjarige.burgerservicenummer | 000000036            |
-        | derde.type                       | Derde                |
+        | derde.type                       | BekendeDerde         |
         | derde.burgerservicenummer        | 000000024            |
         | ouder.burgerservicenummer        | 000000012            |
 
@@ -68,8 +68,9 @@ Functionaliteit: in verschillende situaties heeft een niet ouder (ook) het gezag
         | type                             | Voogdij              |
         | minderjarige.burgerservicenummer | 000000036            |
       En heeft 'gezag' een 'derde' met de volgende gegevens
-        | burgerservicenummer |
-        | 000000024           |
+        | naam                | waarde       |
+        | type                | BekendeDerde |
+        | burgerservicenummer | 000000024    |
 
       Voorbeelden:
       | burgerservicenummer |
@@ -192,7 +193,7 @@ Functionaliteit: in verschillende situaties heeft een niet ouder (ook) het gezag
     Abstract Scenario: gehuwd bij geboorte van rechtswege gezag gevolgd door een gerechtelijke uitspraak 1D er is niet bekend wie de niet ouder (derde) is er is sprake van GezamelijkGezag
       Gegeven persoon 'Yves'
       * heeft 'Annabel' als ouder 1
-      En 'Annabel' en 'Rupert' zijn met elkaar gehuwd met de volgende gegevens 
+      En 'Annabel' en 'Rupert' zijn met elkaar gehuwd met de volgende gegevens
         | datum huwelijkssluiting/aangaan geregistreerd partnerschap (06.10) |
         | vandaag - 18 jaar                                                  |
       Gegeven voor 'Yves' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens

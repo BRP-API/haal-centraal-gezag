@@ -143,12 +143,7 @@ components:
               $ref: "#/components/schemas/GezagOuder"
             minderjarige:
               $ref: "#/components/schemas/Minderjarige"
-    Meerderjarige:
-      type: object
-      properties:
-        burgerservicenummer:
-          $ref: "#/components/schemas/Burgerservicenummer"
-    AbstractDerde:
+    Derde:
       type: object
       required:
         - type
@@ -158,18 +153,18 @@ components:
       discriminator:
         propertyName: type
         mapping:
-          Derde: '#/components/schemas/Derde'
+          BekendeDerde: '#/components/schemas/BekendeDerde'
           OnbekendeDerde: '#/components/schemas/OnbekendeDerde'
-    Derde:
+    BekendeDerde:
       allOf:
-        - $ref: '#/components/schemas/AbstractDerde'
+        - $ref: '#/components/schemas/Derde'
         - type: object
           properties:
             burgerservicenummer:
               $ref: "#/components/schemas/Burgerservicenummer"
     OnbekendeDerde:
       allOf:
-        - $ref: '#/components/schemas/AbstractDerde'
+        - $ref: '#/components/schemas/Derde'
     GezamenlijkGezag:
       allOf:
         - $ref: "#/components/schemas/AbstractGezagsrelatie"
@@ -178,7 +173,7 @@ components:
             ouder:
               $ref: "#/components/schemas/GezagOuder"
             derde:
-              $ref: '#/components/schemas/AbstractDerde'
+              $ref: '#/components/schemas/Derde'
             minderjarige:
               $ref: "#/components/schemas/Minderjarige"
     Voogdij:
@@ -189,7 +184,7 @@ components:
             derden:
               type: array
               items:
-                $ref: "#/components/schemas/Meerderjarige"
+                $ref: "#/components/schemas/BekendeDerde"
               minItems: 0
               maxItems: 2
             minderjarige:

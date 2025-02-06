@@ -151,7 +151,7 @@ public class GezagsrelatieService {
             : new GezagOuder().burgerservicenummer(burgerservicenummerOuder2);
         var derde = burgerservicenummerNietOuder == null || isGezamenlijkGezagVanwegeGerechtelijkeUitspraak
             ? new OnbekendeDerde()
-            : new Derde().burgerservicenummer(burgerservicenummerNietOuder);
+            : new BekendeDerde().burgerservicenummer(burgerservicenummerNietOuder);
 
         return new GezamenlijkGezag()
             .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
@@ -172,7 +172,7 @@ public class GezagsrelatieService {
                 .type(TYPE_VOOGDIJ);
 
             if (nietOuderGezag && burgerservicenummerNietOuder != null) {
-                gezag.addDerdenItem(new Meerderjarige().burgerservicenummer(burgerservicenummerNietOuder));
+                gezag.addDerdenItem(new BekendeDerde().burgerservicenummer(burgerservicenummerNietOuder));
             }
 
             return gezag;

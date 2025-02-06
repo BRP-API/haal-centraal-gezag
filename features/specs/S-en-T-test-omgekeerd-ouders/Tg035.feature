@@ -177,8 +177,9 @@ Functionaliteit: Tg035 - Saasveld-Suijdema - Vanuit gezamenlijk gezag komt moede
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000024 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000024    |
 
   Scenario: Lg01_187 - 1 ouder, moeder gehuwd, meemoeder geen ouder, moeder overleden
     # Route: 43o1 - Wie heeft gezag?: meemoeder (V)
@@ -193,5 +194,6 @@ Functionaliteit: Tg035 - Saasveld-Suijdema - Vanuit gezamenlijk gezag komt moede
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000036 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000024 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000024    |

@@ -329,14 +329,16 @@ Functionaliteit: Tg039 - Tubbergen-Tintelen – 2 vrouwen met geregistreerd part
       | minderjarige.burgerservicenummer | 000000061 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
       | naam                | waarde    |
+      | type                | BekendeDerde |
       | burgerservicenummer | 000000012 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000073 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000012 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000012    |
 
   Scenario: Lg01_210 - geregistreerd partnerschap met vrouw, overleden
     # Meerderjarig
@@ -390,8 +392,9 @@ Functionaliteit: Tg039 - Tubbergen-Tintelen – 2 vrouwen met geregistreerd part
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000061 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000012 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000012    |
 
   Scenario: Lg01_214 - juridisch alleen moeder, moeder overleden, geregistreerd partner moeder geen ouder wel gezag, moeder categorie 03
     # Route: 43o2 - Wie heeft gezag?: partner moeder (V)
@@ -406,5 +409,6 @@ Functionaliteit: Tg039 - Tubbergen-Tintelen – 2 vrouwen met geregistreerd part
       | type                             | Voogdij   |
       | minderjarige.burgerservicenummer | 000000073 |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000012 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000012    |
