@@ -43,9 +43,9 @@ Functionaliteit: Twee ouders geen relatie
   Regel: Als de ouders na de geboorte van minderjarige niet met elkaar gehuwd zijn (geweest) en geen partnerschap hebben (gehad) en de minderjarige is erkend voor 1 januari 2023 dan heeft de geboortemoeder eenhoofdig ouderlijk gezag
 
     Voorbeeld: Ouders zijn nooit met elkaar gehuwd geweest en minderjarige is erkend voor 1 januari 2023
-      Gegeven 'Bert' is geboren op 30-11-2022
+      Gegeven 'Bert' is geboren op 29-11-2022
       * heeft 'Gerda' als ouder vanaf de geboortedatum
-      En 'Bert' is erkend door 'Aart' op 29-12-2022
+      En 'Bert' is erkend door 'Aart' op 30-12-2022
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 

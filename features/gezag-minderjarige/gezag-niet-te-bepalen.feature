@@ -107,60 +107,190 @@ Functionaliteit: Gezag niet te bepalen
       Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Voorbeeld: Minderjarige is nooit ingezetene van Nederland geweest en is als niet-ingezetene ingeschreven
-      # registreren we dan ouders?
+      # Wanneer minderjarige nooit ingezetene is geweest, zijn er geen oudergegevens geregistreerd
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'Gezag is niet te bepalen omdat minderjarige niet in Nederland woont.'
-
 
   @nieuw
   Regel: Als minderjarige in het buitenland heeft verbleven en op het moment van emigratie van rechtswege gezamenlijk (ouderlijk) gezag had, dan is dat nu nog zo
 
   @nieuw
   Regel: Als er een gerechtelijke uitspraak over het gezag over een minderjarige die geldig was op het moment van emigratie, dan geldt die nog steeds na emigratie
-    Voorbeelden gezag 1, 2, 12, 1D, 2D, D
-    Voorbeeld persoon is geëmigreerd
-    Voorbeeld persoon is geëmigreerd geweest (geremigreerd)
-    Voorbeeld twee ouders, gezag 1, emigratie naar Spanje: blijft alleen ouder 1, niet van rechtswege volgens Spaans recht beide ouders
+
+    Voorbeeld: Er is een gerechtelijke uitspraak gezag toegewezen en daarna is de minderjarige geëmigreerd
+      Gegeven persoon 'Bert'
+      * heeft 'Aart' en 'Gerda' als ouders
+      En er is 2 jaar geleden een gerechtelijke uitspraak over het gezag geweest waarbij het gezag over 'Bert' is toegewezen aan <toegewezen aan>
+      En 'Bert' is 1 jaar geleden geëmigreerd naar België
+      Dan is het gezag over 'Bert' <gezag uitspraak>
+
+      Voorbeelden:
+        | toegewezen aan             | gezag uitspraak                                               |
+        | 'Gerda'                    | eenhoofdig ouderlijk gezag met ouder 'Gerda'                  |
+        | 'Aart'                     | eenhoofdig ouderlijk gezag met ouder 'Aart'                   |
+        | beide ouders               | gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart' |
+        | een voogdijinstelling      | voogdij                                                       |
+        | ouder 'Gerda' en een derde | gezamenlijk gezag met ouder 'Gerda' en een onbekende derde    |
+        | ouder 'Aart' en een derde  | gezamenlijk gezag met ouder 'Aart' en een onbekende derde     |
+
+    Voorbeeld: Er is een gerechtelijke uitspraak gezag toegewezen, daarna is de minderjarige geëmigreerd en vervolgens weer geïmmigreerd
+      Gegeven persoon 'Bert'
+      * heeft 'Aart' en 'Gerda' als ouders
+      En er is 2 jaar geleden een gerechtelijke uitspraak over het gezag geweest waarbij het gezag over 'Bert' is toegewezen aan <toegewezen aan>
+      En 'Bert' is 1 jaar geleden geëmigreerd naar België
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      Dan is het gezag over 'Bert' <gezag uitspraak>
+
+      Voorbeelden:
+        | toegewezen aan             | gezag uitspraak                                               |
+        | 'Gerda'                    | eenhoofdig ouderlijk gezag met ouder 'Gerda'                  |
+        | 'Aart'                     | eenhoofdig ouderlijk gezag met ouder 'Aart'                   |
+        | beide ouders               | gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart' |
+        | een voogdijinstelling      | voogdij                                                       |
+        | ouder 'Gerda' en een derde | gezamenlijk gezag met ouder 'Gerda' en een onbekende derde    |
+        | ouder 'Aart' en een derde  | gezamenlijk gezag met ouder 'Aart' en een onbekende derde     |
 
   @nieuw
-  Regel: Als minderjarige de gewone verblijfplaats is of was in een land waar de andere ouder van rechtswege ook gezag krijgt, dan geldt gezamenlijk ouderlijk gezag
+  Regel: Als voor een minderjarige de gewone verblijfplaats is of was in een land waar de andere ouder van rechtswege ook gezag krijgt, dan geldt gezamenlijk ouderlijk gezag
     # Wanneer is iets de gewone verblijfplaats? Hoe bepalen we dat? Minimale verblijfperiode? Inschrijving RNI? Ten minste één ouder/beide ouders op zelfde adres/land?
 
-    Voorbeeld: ongehuwde ouders erkend voor 1-1-2023 en minderjarige verblijft/heeft verbleven in Spanje samen met beide ouders
+    Voorbeeld: ongehuwde ouders erkend voor 1-1-2023 en minderjarige verblijft sinds kort in Spanje samen met beide ouders
+      # Gerda en Aart zijn niet gehuwd
+      Gegeven 'Bert' is geboren op 26-05-2021
+      * heeft 'Aart' en 'Gerda' als ouders
+      En 'Bert' is 1 maand geleden geëmigreerd naar Spanje
+      En 'Gerda' is 1 maand geleden geëmigreerd naar Spanje
+      En 'Aart' is 1 maand geleden geëmigreerd naar Spanje
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Voorbeeld: ongehuwde ouders erkend voor 1-1-2023 en minderjarige verblijft/heeft verbleven in Spanje samen met de moeder, de vader is al die tijd in NL verbleven
+      # Gerda en Aart zijn niet gehuwd
+      Gegeven 'Bert' is geboren op 26-05-2021
+      * heeft 'Aart' en 'Gerda' als ouders
+      En 'Bert' is 1 jaar geleden geëmigreerd naar Spanje
+      En 'Gerda' is 1 jaar geleden geëmigreerd naar Spanje
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Voorbeeld: ongehuwde ouders erkend voor 1-1-2023 en minderjarige verblijft/heeft verbleven in Spanje samen met de vader zonder gezag, de moeder is al die tijd in NL verbleven
+      # Gerda en Aart zijn niet gehuwd
+      Gegeven 'Bert' is geboren op 26-05-2021
+      * heeft 'Aart' en 'Gerda' als ouders
+      En 'Bert' is 1 jaar geleden geëmigreerd naar Spanje
+      En 'Aart' is 1 jaar geleden geëmigreerd naar Spanje
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
     Voorbeeld: ongehuwde ouders erkend voor 1-1-2023 en minderjarige geboren in Spanje en geïmmigreerd naar Nederland
+      # Gerda en Aart zijn niet gehuwd
+      Gegeven persoon 'Bert'
+      * is geboren op 26-05-2021
+      * is geboren in Spanje
+      En is op 30-7-2021 geïmmigreerd
+      * heeft 'Aart' en 'Gerda' als ouders
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
   @nieuw
-  Regel: minderjarige die niet in NL geboren is uit met elkaar gehuwde ouders en hier de vaste verblijfplaats heeft, krijgt gezag volgens Nederlands recht gezamenlijk ouderlijk gezag
+  Regel: minderjarige die niet in NL geboren is uit met elkaar gehuwde ouders en hier de vaste verblijfplaats heeft, krijgt volgens Nederlands recht gezamenlijk ouderlijk gezag
 
-    Voorbeeld: minderjarige met elkaar gehuwde ouders is geboren in en geïmmigreerd uit Afghanistan: gezamenlijk ouderlijk gezag
+    Voorbeeld: minderjarige met elkaar gehuwde ouders is geboren in en is samen met de ouders geïmmigreerd uit Afghanistan
+      Gegeven 'Gerda' en 'Aart' zijn met elkaar gehuwd
+      En persoon 'Bert'
+      * is geboren in Afghanistan
+      * heeft 'Aart' en 'Gerda' als ouders
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      En 'Gerda' is vorige maand geïmmigreerd naar Nederland
+      En 'Aart' is vorig jaar geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
   @nieuw
   Regel: minderjarige met twee ouders die niet in NL geboren is na 1-1-2023 en hier de vaste verblijfplaats heeft, krijgt gezag volgens Nederlands recht gezamenlijk ouderlijk gezag
 
-    Voorbeeld: minderjarige erkend (geboren) na 1-1-2023 met (mogelijk) ongehuwde ouders en geïmmigreerd uit Afghanistan: gezamenlijk ouderlijk gezag
+    Voorbeeld: minderjarige geboren na 1-1-2023 en met alleen de moeder geïmmigreerd uit Afghanistan
+      Gegeven persoon 'Bert'
+      * is geboren op 26-05-2023
+      * is geboren in Afghanistan
+      * heeft 'Gerda' als ouder
+      * heeft 'Luciano' als ouder die niet met burgerservicenummer is ingeschreven in de BRP
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      En 'Gerda' is vorige maand geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Luciano'
+
+    Voorbeeld: minderjarige geboren na 1-1-2023 en is zonder de ouders geïmmigreerd uit Afghanistan
+      Gegeven persoon 'Bert'
+      * is geboren op 26-05-2023
+      * is geboren in Afghanistan
+      * heeft 'Gerda' en 'Aart' als ouder die niet met burgerservicenummer zijn ingeschreven in de BRP
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
   @nieuw
   Regel: minderjarige met één ouder die ongehuwd was bij geboorte heeft eenhoofdig ouderlijk gezag
 
     Voorbeeld: minderjarige is geëmigreerd
+      Gegeven persoon 'Bert'
+      * heeft 'Gerda' als ouder
+      En 'Bert' is 1 jaar geleden geëmigreerd naar België
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
     Voorbeeld: minderjarige is geëmigreerd geweest
+      Gegeven persoon 'Bert'
+      * heeft 'Gerda' als ouder
+      En 'Bert' is 1 jaar geleden geëmigreerd naar België
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
-    Voorbeeld: minderjarige is in het buitenland geboren
+    # weten we hier of moeder gehuwd was tijdens geboorte? 
+    # We weten alleen of moeder gehuwd was bij geboorte minderjarige als zij ook ingezetene is of was en partner heeft opgegeven
+    Voorbeeld: minderjarige is in het buitenland geboren en daarna geïmmigreerd
+      Gegeven persoon 'Bert'
+      * is geboren in België
+      * heeft 'Gerda' als ouder
+      En 'Bert' is 1 jaar geleden geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
 
   @nieuw
   Regel: minderjarige met één ouder die gehuwd was bij geboorte heeft gezamenlijk gezag met partner
 
     Voorbeeld: minderjarige is geëmigreerd
+      Gegeven 'Gerda' en 'Ariana' zijn 7 jaar geleden gehuwd
+      En persoon 'Bert'
+      * is 6 jaar geleden geboren
+      * heeft 'Gerda' als ouder
+      En 'Bert' is 1 jaar geleden geëmigreerd naar België
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk gezag met ouder 'Gerda' en derde 'Ariane'
 
     Voorbeeld: minderjarige is geëmigreerd geweest
+      Gegeven 'Gerda' en 'Ariana' zijn 7 jaar geleden gehuwd
+      En persoon 'Bert'
+      * is 6 jaar geleden geboren
+      * heeft 'Gerda' als ouder
+      En 'Bert' is 1 jaar geleden geëmigreerd naar België
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk gezag met ouder 'Gerda' en derde 'Ariane'
 
     Voorbeeld: minderjarige is in het buitenland geboren
+      Gegeven 'Gerda' en 'Ariana' zijn 7 jaar geleden gehuwd
+      En persoon 'Bert'
+      * is 6 jaar geleden geboren
+      * is geboren in België
+      * heeft 'Gerda' als ouder
+      En 'Bert' is vorige maand geïmmigreerd naar Nederland
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' gezamenlijk gezag met ouder 'Gerda' en derde 'Ariane'
+
+
+
   # opmerking toevoegen: uitgangspunt is dat eventuele gezagsbeperkende maatregelen in het buitenland door de meerderjarige zelf in het centraal gezagsregister moet worden ingeschreven 
   # bespreken: Zijn er uitzonderingen waarbij er wel gezag te bepalen is na geëmigreerd geweest?
   # - Ouders gehuwd voor en na emigratie
