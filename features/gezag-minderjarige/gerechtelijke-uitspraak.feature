@@ -101,7 +101,7 @@ Functionaliteit: Gerechtelijke uitspraak
       Gegeven persoon 'Bert'
       * heeft 'Gerda' als ouder
       * heeft 'Aart' als ouder
-      En in een gerechtelijke uitspraak is het gezag toegewezen beide ouders
+      En in een gerechtelijke uitspraak is het gezag toegewezen aan beide ouders
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' gezamenlijk ouderlijk gezag met ouder 'Gerda' en ouder 'Aart'
 
