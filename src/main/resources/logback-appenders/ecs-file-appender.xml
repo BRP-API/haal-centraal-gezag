@@ -12,7 +12,6 @@
             </fieldNames>
             <version>${ecs.version}</version>
             <mdcEntryWriter class="net.logstash.logback.composite.loggingevent.mdc.BooleanMdcEntryWriter"/>
-            <mdcEntryWriter class="net.logstash.logback.composite.loggingevent.mdc.DoubleMdcEntryWriter"/>
             <mdcEntryWriter class="net.logstash.logback.composite.loggingevent.mdc.LongMdcEntryWriter"/>
         </encoder>
         <file>${LOG_FILE}</file>

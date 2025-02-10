@@ -26,6 +26,8 @@
                     <mask>"authorization":"***MASKED***"</mask>
                 </valueMask>
             </jsonGeneratorDecorator>
+            <mdcEntryWriter class="net.logstash.logback.composite.loggingevent.mdc.BooleanMdcEntryWriter"/>
+            <mdcEntryWriter class="net.logstash.logback.composite.loggingevent.mdc.LongMdcEntryWriter"/>
             <version>${ecs.version}</version>
         </encoder>
     </appender>
