@@ -51,6 +51,8 @@ public class ErkenningNa01012023 implements GezagVraag {
         boolean persoonGeborenVoor01012023 = isPersoonGeborenVoor01012023(persoonErkend, persoonOngeborenVruchtErkend, plPersoon, answer);
         if (persoonGeborenVoor01012023) {
             answer = bepaalGezagOpBasisVanGeboortemoeder(persoonOuder1, persoonOuder2);
+        } else if(answer == null){
+            answer = V2A_3_NA;
         }
 
         if (answer != null) {
