@@ -55,18 +55,11 @@ public class ErkenningNa01012023 implements GezagVraag {
             answer = V2A_3_NA;
         }
 
-        if (answer != null) {
-            logger.debug("""
-                2a.3 Erkenning voor of na 1-1-2023?
-                {}""", answer);
-            gezagsBepaling.getArAntwoordenModel().setV02A03(answer);
-            return new GezagVraagResult(QUESTION_ID, answer);
-        } else {
-            throw new AfleidingsregelException(
-                "Preconditie: vraag 2a.3 - Geboortemoeder niet te bepalen",
-                "Geboortemoeder van bevraagde persoon niet te bepalen"
-            );
-        }
+        logger.debug("""
+            2a.3 Erkenning voor of na 1-1-2023?
+            {}""", answer);
+        gezagsBepaling.getArAntwoordenModel().setV02A03(answer);
+        return new GezagVraagResult(QUESTION_ID, answer);
     }
 
     private boolean requirementsForRuleAreMet(
