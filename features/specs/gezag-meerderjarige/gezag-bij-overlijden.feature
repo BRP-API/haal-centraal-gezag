@@ -25,7 +25,7 @@ Functionaliteit: het overlijden van een persoon heeft invloed op de gezagsuitspr
       * is in Nederland geboren
       * heeft 'Hendrik' als ouder 1
 
-  Regel: een gezagsbevraging voor een meerderjarige levert een gezagsresultaat op
+  Regel: een gezagsbevraging voor een meerderjarige levert zijn gezagsrelatie met zijn niet overleden minderjarige kinderen
 
     Scenario: voor een meerderjarige wordt gezag over alle drie de kinderen geleverd
       Als gezag wordt gezocht met de volgende parameters
