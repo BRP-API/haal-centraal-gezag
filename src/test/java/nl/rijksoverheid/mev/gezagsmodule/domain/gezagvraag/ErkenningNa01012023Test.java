@@ -86,14 +86,13 @@ class ErkenningNa01012023Test {
 
     @Test
     void erkenningNa01012023HavingBothParentsAndNoAktenummer() {
+        when(gezagsBepaling.getArAntwoordenModel()).thenReturn(arAntwoordenModel);
         persoonslijst.setOuder1(ouder1);
         persoonslijst.setOuder2(ouder2);
 
-        AfleidingsregelException exception = assertThrows(AfleidingsregelException.class,
-            () -> classUnderTest.perform(gezagsBepaling));
+        var antwoord = classUnderTest.perform(gezagsBepaling);
 
-        assertNotNull(exception);
-        assertTrue(exception.getMessage().contains(PRECONDITION_INDICATION_UNKNOWN_MOTHER));
+        assertThat(antwoord.answer()).isEqualTo(V2A_3_NA);
     }
 
     @Test
