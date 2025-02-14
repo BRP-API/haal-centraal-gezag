@@ -44,6 +44,55 @@ async function executeStatements(client, statements) {
     return pkId;
 }
 
+async function truncate(tableName) {
+    if (!global.pool) {
+        global.logger.info('geen pool');
+        return;
+    }
+
+    const client = await global.pool.connect();
+    try {
+        await client.query('BEGIN');
+
+        await executeAndLogTruncateStatement(client, tableName);
+
+        await client.query('COMMIT');
+    }
+    catch (ex) {
+        global.logger.error(ex.message);
+        await client.query('ROLLBACK');
+    }
+    finally {
+        client?.release();
+    }
+}
+
+async function select(tableName, columnNames) {
+    if (!global.pool) {
+        global.logger.info('geen pool');
+        return;
+    }
+
+    const client = await global.pool.connect();
+    let result = [];
+    try {
+        await client.query('BEGIN');
+
+        result = await executeAndLogStatement(client, selectStatement(tableName, columnNames));
+
+        await client.query('COMMIT');
+    }
+    catch (ex) {
+        global.logger.error(ex.message);
+        await client.query('ROLLBACK');
+    }
+    finally {
+        client?.release();
+    }
+
+    return result;
+}
+
 async function execute(sqlStatements) {
     if(!global.pool) {
         global.logger.info('geen pool');
@@ -69,14 +118,32 @@ async function execute(sqlStatements) {
     }
 }
 
-function deleteStatement(tabelNaam, id) {
+function selectStatement(tabelNaam, columnNames, filterColumn='pl_id', filterValue='1') {
+    return {
+        text: `SELECT ${columnNames.join(', ')} FROM public.${tabelNaam} WHERE ${filterColumn} = ${filterValue}`,
+        values: []
+    }
+}
+
+function deleteStatement(tabelNaam, id = undefined) {
     return {
         text: `DELETE FROM public.${tableNameMap.get(tabelNaam)}`,
         values: []
     }
 }
 
-async function executeAndLogDeleteStatement(client, tabelNaam, id=undefined) {
+function truncateStatement(tabelNaam, id = undefined) {
+    return {
+        text: `DELETE FROM public.${tabelNaam}`,
+        values: []
+    }
+}
+
+async function executeAndLogTruncateStatement(client, tabelNaam, id = undefined) {
+    return await executeAndLogStatement(client, truncateStatement(tabelNaam, id));
+}
+
+async function executeAndLogDeleteStatement(client, tabelNaam, id = undefined) {
     return await executeAndLogStatement(client, deleteStatement(tabelNaam, id));
 }
 
@@ -231,5 +298,7 @@ async function rollback(sqlContext, sqlData) {
 
 module.exports = {
     execute,
-    rollback
+    rollback,
+    truncate,
+    select
 }
