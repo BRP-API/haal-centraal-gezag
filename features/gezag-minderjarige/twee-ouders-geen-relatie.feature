@@ -82,6 +82,17 @@ Functionaliteit: Twee ouders geen relatie
       Als gezag wordt gevraagd van 'Bert'
       Dan is het gezag over 'Bert' niet te bepalen met de toelichting 'gezag kan niet worden bepaald omdat niet kan worden vastgesteld welke ouder de geboortemoeder is.'
 
+    Voorbeeld: Minderjarige is geboren voor 1 januari 2023 in een huwelijk van twee vrouwen en is als ongeboren vrucht erkend door de bekende donor
+      Gegeven persoon 'Gerda'
+      * is een vrouw
+      En persoon 'Ariana'
+      * is een vrouw
+      En 'Gerda' en 'Ariana' zijn op 1-6-2019 gehuwd
+      En 'Bert' is geboren op 30-11-2022
+      * heeft 'Aart' en 'Gerda' als ouders vanaf de geboortedatum
+      Als gezag wordt gevraagd van 'Bert'
+      Dan is het gezag over 'Bert' eenhoofdig ouderlijk gezag met ouder 'Gerda'
+
   Regel: Als minderjarige vóór de geboorte is erkend na 1 januari 2023, dan hebben de moeder en de erkenner gezamenlijk ouderlijk gezag
     ⁠Als de bekende donor vóór de geboorte erkent, dan heeft de bekende donor met de geboortemoeder gezamenlijk het gezag. De echtgenote (de meemoeder) heeft dan niks: is geen ouder en heeft geen gezag. (de tenzij van 1:253sa BW)
 
