@@ -1,7 +1,7 @@
 # language: nl
 Functionaliteit: Leveren gezag wanneer er een persoonslijst wordt gevonden met opschorting reden F (Fout) of W (Wissen)
 
-  Regel: Wanneer de gevraagde persoonslijst opschorting F (Fout) of W (Wissen) heeft, wordt een foutmelding gegeven
+  Regel: Wanneer de gevraagde persoonslijst opschorting F (Fout) of W (Wissen) heeft, wordt geen gezag geleverd
 
     Abstract Scenario: Er is een persoonslijst met opschorting <opschorting reden>
       Gegeven de persoon 'Gerda' met burgerservicenummer '000000012'
