@@ -259,6 +259,18 @@ Given(/^bijhouding van de persoonsgegevens van '(.*)' is opgeschort met de volge
     );
 });
 
+Given(/^de persoonslijst van '(.*)' is opgeschort met reden '(.)'$/, function (aanduiding, redenOpschortingBijhouding) {
+    const datumOpschortingBijhouden = 'gisteren - 2 jaar';
+    
+    aanvullenInschrijving(
+        getPersoon(this.context, aanduiding),
+        arrayOfArraysToDataTable([
+            ['datum opschorting bijhouding (67.10)', datumOpschortingBijhouden],
+            ['reden opschorting bijhouding (67.20)', redenOpschortingBijhouding]
+        ])
+    );
+});
+
 Given(/^heeft de volgende gegevens$/, function (dataTable) {
     aanvullenPersoon(
         getPersoon(this.context, undefined),
