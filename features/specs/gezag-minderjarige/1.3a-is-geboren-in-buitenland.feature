@@ -67,6 +67,10 @@ Functionaliteit: 1.3a - is geboren in het buitenland
       | burgerservicenummer | 000000024 |
 
   Scenario: Van een kind met onbekend geboorteland kan het gezag niet worden bepaald
+    Gegeven persoon 'Nona' 
+    * heeft de volgende gegevens
+    | geboorteland (03.30) |
+    |                      |
     Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
