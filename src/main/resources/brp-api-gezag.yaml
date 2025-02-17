@@ -95,6 +95,9 @@ components:
       properties:
         type:
           type: string
+        inOnderzoek:
+          type: boolean
+          description: Geeft aan dat de gezagsrelatie in onderzoek is.
       discriminator:
         propertyName: type
         mapping:
@@ -172,11 +175,19 @@ components:
     TijdelijkGeenGezag:
       allOf:
         - $ref: "#/components/schemas/AbstractGezagsrelatie"
+        - type: object
+          properties:
+            minderjarige:
+              $ref: "#/components/schemas/Minderjarige"
+            toelichting:
+              type: string
     GezagNietTeBepalen:
       allOf:
         - $ref: "#/components/schemas/AbstractGezagsrelatie"
         - type: object
           properties:
+            minderjarige:
+              $ref: "#/components/schemas/Minderjarige"
             toelichting:
               type: string
     Gezag:

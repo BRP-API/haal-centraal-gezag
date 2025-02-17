@@ -28,11 +28,23 @@ runs:
       run: sleep 5s
       shell: bash
 
-    - name: Validate functional specification
+    - name: Validate step definitions
       run: |
-        ./scripts/specs-verify.sh
+        ./scripts/verify-step-definitions.sh
       shell: bash
 
+    - name: Validate functional specification
+      run: |
+        ./scripts/verify-functional-specification.sh
+      shell: bash
+
+    - name: Genereer test result summary en voeg het toe aan Github Step Summary
+      if: always()
+      run: |
+        node ./scripts/generate-step-summary.js
+        echo "### Cucumber Test Reports" >> $GITHUB_STEP_SUMMARY
+        cat test-reports/cucumber-js/gezag/step-summary.txt >> $GITHUB_STEP_SUMMARY
+      shell: bash
     - name: Stop containers
       if: always()
       run: |
