@@ -17,7 +17,7 @@ const { createPersoon,
 } = require('./persoon-2');
 const { toDbColumnName } = require('./brp');
 
-const { toBRPDate } = require('./brpDatum');
+const { toBRPDate, toDateOrString } = require('./brpDatum');
 
 function getPersoon(context, aanduiding) {
     return !aanduiding
@@ -736,6 +736,22 @@ Given(/^is geboren op (\d*)-(\d*)-(\d*)$/, function (dag, maand, jaar) {
         getPersoon(this.context, undefined),
         arrayOfArraysToDataTable([
             ['geboortedatum (03.10)', toBRPDate(dag, maand, jaar)]
+        ])
+    );
+});
+
+Given(/^is (.*) geboren$/, function (relatieveDatum) {
+    if (/(\d+) jaar geleden/.test(relatieveDatum)) {
+        const years = relatieveDatum.match(/(\d+)/)[0];
+        relatieveDatum = `vandaag - ${years} jaar`;
+    }
+
+    let brpDatum = toDateOrString(relatieveDatum);
+
+    aanvullenPersoon(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['geboortedatum (03.10)', brpDatum]
         ])
     );
 });

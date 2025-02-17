@@ -67,18 +67,29 @@ async function truncate(tableName) {
     }
 }
 
-async function select(tableName, columnNames) {
+async function select(tableName, dataTable) {
+    if(!dataTable) {
+        global.logger.info('geen datatabel');
+        return;
+    }
+
     if (!global.pool) {
         global.logger.info('geen pool');
         return;
     }
+
+    let columnNames = dataTable.rawTable[0];
+    let columnValues = dataTable.rawTable[1];
+    let plIdIndex = columnNames.indexOf('pl_id');
+    let whereColumn = columnNames[plIdIndex];
+    let whereValue = columnValues[plIdIndex];
 
     const client = await global.pool.connect();
     let result = [];
     try {
         await client.query('BEGIN');
 
-        result = await executeAndLogStatement(client, selectStatement(tableName, columnNames));
+        result = await executeAndLogStatement(client, selectStatement(tableName, columnNames, whereColumn, whereValue));
 
         await client.query('COMMIT');
     }
@@ -118,9 +129,9 @@ async function execute(sqlStatements) {
     }
 }
 
-function selectStatement(tabelNaam, columnNames, filterColumn='pl_id', filterValue='1') {
+function selectStatement(tabelNaam, columnNames, whereColumn='pl_id', whereValue='1') {
     return {
-        text: `SELECT ${columnNames.join(', ')} FROM public.${tabelNaam} WHERE ${filterColumn} = ${filterValue}`,
+        text: `SELECT ${columnNames.join(', ')} FROM public.${tabelNaam} WHERE ${whereColumn} = ${whereValue}`,
         values: []
     }
 }
