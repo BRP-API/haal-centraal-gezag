@@ -117,3 +117,26 @@ Functionaliteit: gezag van een meerderjarige over een kind
         | D               | een derde                    |
         |               1 | de andere ouder              |
         |              1D | de andere ouder en een derde |
+
+    Abstract Scenario: vader heeft geen gezag over minderjarig kind omdat gezag niet kan worden bepaald
+      Gegeven de persoon 'Aart' met burgerservicenummer '000000012'
+      * is ingeschreven in de BRP
+      * is meerderjarig
+      En de persoon 'Gerda' met burgerservicenummer '000000024'
+      * is ingeschreven in de BRP
+      * is meerderjarig
+      En 'Aart' en 'Gerda' zijn met elkaar gehuwd
+      En de persoon 'Bert' met burgerservicenummer '000000036'
+      * is ingeschreven in de BRP
+      * is minderjarig
+      * is in Nederland geboren
+      * is geëmigreerd geweest
+      * heeft 'Gerda' als ouder 1
+      * heeft 'Aart' als ouder 2
+      Als gezag wordt gezocht met de volgende parameters
+        | naam                | waarde    |
+        | burgerservicenummer | 000000012 |
+      Dan heeft de response een persoon met de volgende gegevens
+        | naam                | waarde    |
+        | burgerservicenummer | 000000012 |
+      En heeft de persoon geen gezag
