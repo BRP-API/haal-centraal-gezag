@@ -740,7 +740,7 @@ Given(/^is geboren op (\d*)-(\d*)-(\d*)$/, function (dag, maand, jaar) {
     );
 });
 
-Given(/^is (.*) geboren$/, function (relatieveDatum) {
+Given(/^is (?!in\b)(.*) geboren$/, function (relatieveDatum) {
     if (/(\d+) jaar geleden/.test(relatieveDatum)) {
         const years = relatieveDatum.match(/(\d+)/)[0];
         relatieveDatum = `vandaag - ${years} jaar`;
