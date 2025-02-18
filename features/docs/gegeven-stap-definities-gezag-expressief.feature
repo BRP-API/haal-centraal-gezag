@@ -257,9 +257,11 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     1 |       0 |                       0518 | <relatieve datum> |
 
       Voorbeelden:
-        | relatieve datum | land naam | land code |
-        | 1 maand geleden | België    |      5010 |
-        |  2 jaar geleden | Spanje    |      6037 |
+        | relatieve datum | land naam  | land code |
+        | 1 maand geleden | België     |      5010 |
+        |  2 jaar geleden | Spanje     |      6037 |
+        |  2 jaar geleden | Duitsland  |      6029 |
+        |  2 jaar geleden | Afganistan |      6023 |
 
   Regel: Huwelijk wordt toegevoegd als persoon_type 'R' voor beide betrokken personen
     # To Do: welke gegevens van een persoon worden meegenomen - want zijn relevant - in de relatie?
