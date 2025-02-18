@@ -522,13 +522,54 @@ function gegevenHeeftPersoonAlsOuder(context, aanduiding, ouderType, dataTable) 
     )
 }
 
-Given(/^heeft '(.*)' als ouder ([1-2])$/, function (aanduiding, ouderType) {
+function gegevenHeeftNietIngeschrevenPersoonAlsOuder(context, aanduiding, ouderType, dataTable) {
+    const kind = getPersoon(context, undefined);
+
+    createOuder(
+        kind,
+        ouderType,
+        arrayOfArraysToDataTable([
+            ['burgerservicenummer (01.20)', ''],
+            ['geslachtsnaam (02.40)', aanduiding]
+        ], dataTable)
+    );
+}
+
+Given(/^heeft '(.*)' als ouder [1-2]$/, function (aanduiding, ouderType) {
     const ouderData = arrayOfArraysToDataTable([
         ['datum ingang familierechtelijke betrekking (62.10)', 'gisteren - 17 jaar']
     ]);
 
     gegevenHeeftPersoonAlsOuder(this.context, aanduiding, ouderType, ouderData);
 });
+
+Given(/^heeft '(.*)' als ouder$/, function (aanduiding) {
+    const ouderData = arrayOfArraysToDataTable([
+        ['datum ingang familierechtelijke betrekking (62.10)', 'gisteren - 17 jaar']
+    ]);
+
+    gegevenHeeftPersoonAlsOuder(this.context, aanduiding, '1', ouderData);
+});
+
+Given(/^heeft '(.*)' als ouder die niet met burgerservicenummer is ingeschreven in de BRP$/, function (aanduiding) {
+    const ouderData = arrayOfArraysToDataTable([
+        ['geslachtsnaam (02.40)', aanduiding],
+        ['datum ingang familierechtelijke betrekking (62.10)', 'gisteren - 17 jaar'],
+        ['geboortedatum (03.10)', 'gisteren - 45 jaar']
+    ]);
+
+    gegevenHeeftNietIngeschrevenPersoonAlsOuder(this.context, aanduiding, '2', ouderData);
+});
+
+Given(/^heeft '(.*)' en '(.*)' als ouders$/, function (aanduiding1, aanduiding2) {
+    const ouderData = arrayOfArraysToDataTable([
+        ['datum ingang familierechtelijke betrekking (62.10)', 'gisteren - 17 jaar']
+    ]);
+
+    gegevenHeeftPersoonAlsOuder(this.context, aanduiding1, '1', ouderData);
+    gegevenHeeftPersoonAlsOuder(this.context, aanduiding2, '2', ouderData);
+});
+
 
 Given(/^heeft '(.*)' als ouder ([1-2]) met de volgende gegevens$/, function (aanduiding, ouderType, dataTable) {
     gegevenHeeftPersoonAlsOuder(this.context, aanduiding, ouderType, dataTable);

@@ -257,11 +257,11 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     1 |       0 |                       0518 | <relatieve datum> |
 
       Voorbeelden:
-        | relatieve datum   | land naam   | land code |
-        | vorige maand | België      |      5010 |
-        |    2 jaar geleden | Spanje      |      6037 |
-        |    2 jaar geleden | Duitsland   |      6029 |
-        |    2 jaar geleden | Afghanistan |      6023 |
+        | relatieve datum | land naam   | land code |
+        | vorige maand    | België      |      5010 |
+        |  2 jaar geleden | Spanje      |      6037 |
+        |  2 jaar geleden | Duitsland   |      6029 |
+        |  2 jaar geleden | Afghanistan |      6023 |
 
   Regel: Huwelijk wordt toegevoegd als persoon_type 'R' voor beide betrokken personen
     # To Do: welke gegevens van een persoon worden meegenomen - want zijn relevant - in de relatie?
@@ -421,11 +421,11 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     1 | K            |         0 |       0 |         000000036 | Theo           |                    | 1AA0100 |
       En heeft de persoon 'Theo' de volgende rij in tabel 'lo3_pl'
         | pl_id | geheim_ind |
-        |     3 |          0 |
+        |     2 |          0 |
       En heeft de persoon 'Theo' de volgende rijen in tabel 'lo3_pl_persoon'
         | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_datum     | geboorte_land_code | akte_nr | familie_betrek_start_datum |
-        |     3 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |
-        |     3 |            1 |         0 |       0 |         000000012 | Arjan          |                    |                    | 1AA0100 | gisteren - 17 jaar         |
+        |     2 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |
+        |     2 |            1 |         0 |       0 |         000000012 | Arjan          |                    |                    | 1AA0100 | gisteren - 17 jaar         |
 
     Scenario: neem geboortedatum van de ouder over: heeft '{naam}' als ouder
       Gegeven de persoon 'Arjan' met burgerservicenummer '000000012'
@@ -443,11 +443,11 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     1 | K            |         0 |       0 |         000000036 | Theo           |                 |                    | 1AA0100 |
       En heeft de persoon 'Theo' de volgende rij in tabel 'lo3_pl'
         | pl_id | geheim_ind |
-        |     3 |          0 |
+        |     2 |          0 |
       En heeft de persoon 'Theo' de volgende rijen in tabel 'lo3_pl_persoon'
         | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_datum     | geboorte_land_code | akte_nr | familie_betrek_start_datum |
-        |     3 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |
-        |     3 |            1 |         0 |       0 |         000000012 | Arjan          | <geboortedatum>    |                    | 1AA0100 | gisteren - 17 jaar         |
+        |     2 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |
+        |     2 |            1 |         0 |       0 |         000000012 | Arjan          | <geboortedatum>    |                    | 1AA0100 | gisteren - 17 jaar         |
 
       Voorbeelden:
         | eigenschap ouder       | geboortedatum      |
@@ -471,11 +471,11 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     1 | K            |         0 |       0 |         000000036 | Theo           |                 |                    | 1AA0100 |                       |
       En heeft de persoon 'Theo' de volgende rij in tabel 'lo3_pl'
         | pl_id | geheim_ind |
-        |     3 |          0 |
+        |     2 |          0 |
       En heeft de persoon 'Theo' de volgende rijen in tabel 'lo3_pl_persoon'
         | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_datum     | geboorte_land_code | akte_nr | familie_betrek_start_datum | geslachts_aand        |
-        |     3 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |                       |
-        |     3 |            1 |         0 |       0 |         000000012 | Arjan          | <geboortedatum>    |                    | 1AA0100 | gisteren - 17 jaar         | <geslachtsaanduiding> |
+        |     2 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |                       |
+        |     2 |            1 |         0 |       0 |         000000012 | Arjan          | <geboortedatum>    |                    | 1AA0100 | gisteren - 17 jaar         | <geslachtsaanduiding> |
 
       Voorbeelden:
         | eigenschap ouder | geslachtsaanduiding |
@@ -498,12 +498,12 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     1 | K            |         0 |       0 |         000000036 | Theo           |                    | 1AA0100 |
       En heeft de persoon 'Theo' de volgende rij in tabel 'lo3_pl'
         | pl_id | geheim_ind |
-        |     3 |          0 |
+        |     2 |          0 |
       En heeft de persoon 'Theo' de volgende rijen in tabel 'lo3_pl_persoon'
         | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_datum     | geboorte_land_code | akte_nr | familie_betrek_start_datum |
-        |     3 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |
-        |     3 |            1 |         0 |       0 |         000000012 | Arjan          |                    |                    | 1AA0100 | gisteren - 17 jaar         |
-        |     3 |            2 |         0 |       0 |                   | Tosca          | gisteren - 45 jaar |                    | 1AA0100 | gisteren - 17 jaar         |
+        |     2 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |
+        |     2 |            1 |         0 |       0 |         000000012 | Arjan          |                    |                    | 1AA0100 | gisteren - 17 jaar         |
+        |     2 |            2 |         0 |       0 |                   | Tosca          | gisteren - 45 jaar |                    | 1AA0100 | gisteren - 17 jaar         |
 
   Regel: Een gerechtelijke uitspraak wordt vastgelegd in de gezagsverhouding
 
