@@ -158,19 +158,38 @@ Given(/^is meerderjarig(?:, niet overleden en staat niet onder curatele)?$/, fun
     );
 });
 
-
 /***
  * Geboorteland standaardwaarden met aktenummer
  */
-Given(/^is in ([Nederland|België|het buitenland]) geboren$/, function (land) {
+Given(/^is in Nederland geboren$/, function () {
     let landGeboorte = '6030'; // Nederland
     const nummerAkte = '1AA0100';
 
-    if(land == 'België') {
-        landGeboorte = '5010';
-    }else if(land == 'het buitenland') {
-        landGeboorte = '9999';
-    }
+    aanvullenPersoon(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['geboorteland (03.30)', landGeboorte],
+            ['aktenummer (81.20)', nummerAkte]
+        ])
+    );
+});
+
+Given(/^is in België geboren$/, function () {
+    let landGeboorte = '5010'; // Nederland
+    const nummerAkte = '1AA0100';
+
+    aanvullenPersoon(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['geboorteland (03.30)', landGeboorte],
+            ['aktenummer (81.20)', nummerAkte]
+        ])
+    );
+});
+
+Given(/^is in het buitenland geboren$/, function () {
+    let landGeboorte = '9999'; // Nederland
+    const nummerAkte = '1AA0100';
 
     aanvullenPersoon(
         getPersoon(this.context, undefined),
@@ -200,14 +219,13 @@ Given(/^is geboren in het buitenland/, function () {
 
 Given(/^is geboren in België/, function () {
     const codeVanLand = '5010';
-        aanvullenPersoon(
-            getPersoon(this.context, undefined),
-            arrayOfArraysToDataTable([
-                ['geboorteland (03.30)', codeVanLand]
-            ])
-        );
-    });
-
+    aanvullenPersoon(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['geboorteland (03.30)', codeVanLand]
+        ])
+    );
+});
 
 Given(/^voor '(.*)' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens$/, function (aanduiding, dataTable) {
     createGezagsverhouding(
