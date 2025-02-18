@@ -541,14 +541,14 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     3 |       0 | <indicatie gezag>     | gisteren - 1 jaar      |
 
       Voorbeelden:
-        | gezag uitspraak                                                    | indicatie gezag | stapdefinitie                                                                          |
-        | in een gerechtelijke uitspraak is het gezag toegewezen aan 'Arjan' |               1 | in een gerechtelijke uitspraak is het gezag toegewezen aan '{naam}'                    |
-        | in een gerechtelijke uitspraak is het gezag toegewezen aan 'Tosca' |               2 | in een gerechtelijke uitspraak is het gezag toegewezen aan '{naam}'                    |
-        | het gezag toegewezen aan beide ouders                              |              12 | in een gerechtelijke uitspraak is het gezag toegewezen aan beide ouders                |
-        | een voogdijinstelling tot voogd benoemd                            | D               | in een gerechtelijke uitspraak is een voogdijinstelling tot voogd benoemd              |
-        | een derde tot voogd benoemd                                        | D               | in een gerechtelijke uitspraak is een derde tot voogd benoemd                          |
-        | het gezag toegewezen aan ouder 'Arjan' en een derde                |              1D | in een gerechtelijke uitspraak is het gezag toegewezen aan ouder '{naam}' en een derde |
-        | het gezag toegewezen aan ouder 'Tosca' en een derde                |              2D | in een gerechtelijke uitspraak is het gezag toegewezen aan ouder '{naam}' en een derde |
+        | gezag uitspraak                                     | indicatie gezag | stapdefinitie                                                                          |
+        | het gezag toegewezen aan 'Arjan'                    |               1 | in een gerechtelijke uitspraak is het gezag toegewezen aan '{naam}'                    |
+        | het gezag toegewezen aan 'Tosca'                    |               2 | in een gerechtelijke uitspraak is het gezag toegewezen aan '{naam}'                    |
+        | het gezag toegewezen aan beide ouders               |              12 | in een gerechtelijke uitspraak is het gezag toegewezen aan beide ouders                |
+        | een voogdijinstelling tot voogd benoemd             | D               | in een gerechtelijke uitspraak is een voogdijinstelling tot voogd benoemd              |
+        | een derde tot voogd benoemd                         | D               | in een gerechtelijke uitspraak is een derde tot voogd benoemd                          |
+        | het gezag toegewezen aan ouder 'Arjan' en een derde |              1D | in een gerechtelijke uitspraak is het gezag toegewezen aan ouder '{naam}' en een derde |
+        | het gezag toegewezen aan ouder 'Tosca' en een derde |              2D | in een gerechtelijke uitspraak is het gezag toegewezen aan ouder '{naam}' en een derde |
 
     Scenario: {relatievedatum} is in een gerechtelijke uitspraak het gezag toegewezen aan <gezaghebbende in stapdefinitie>
       Gegeven de persoon 'Arjan' met burgerservicenummer '000000012'
