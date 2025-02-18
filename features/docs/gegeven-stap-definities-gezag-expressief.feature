@@ -466,16 +466,16 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         | pl_id | geheim_ind |
         |     1 |          0 |
       En heeft de persoon 'Arjan' de volgende rijen in tabel 'lo3_pl_persoon'
-        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_datum  | geboorte_land_code | akte_nr | geslachts_aand        |
-        |     1 | P            |         0 |       0 |         000000012 | Arjan          | <geboortedatum> |               6030 | 1AA0100 | <geslachtsaanduiding> |
-        |     1 | K            |         0 |       0 |         000000036 | Theo           |                 |                    | 1AA0100 |                       |
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code | akte_nr | geslachts_aand        |
+        |     1 | P            |         0 |       0 |         000000012 | Arjan          |               6030 | 1AA0100 | <geslachtsaanduiding> |
+        |     1 | K            |         0 |       0 |         000000036 | Theo           |                    | 1AA0100 |                       |
       En heeft de persoon 'Theo' de volgende rij in tabel 'lo3_pl'
         | pl_id | geheim_ind |
         |     2 |          0 |
       En heeft de persoon 'Theo' de volgende rijen in tabel 'lo3_pl_persoon'
         | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_datum     | geboorte_land_code | akte_nr | familie_betrek_start_datum | geslachts_aand        |
         |     2 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |                       |
-        |     2 |            1 |         0 |       0 |         000000012 | Arjan          | <geboortedatum>    |                    | 1AA0100 | gisteren - 17 jaar         | <geslachtsaanduiding> |
+        |     2 |            1 |         0 |       0 |         000000012 | Arjan          |                    |                    | 1AA0100 | gisteren - 17 jaar         | <geslachtsaanduiding> |
 
       Voorbeelden:
         | eigenschap ouder | geslachtsaanduiding |
@@ -504,6 +504,72 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     2 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |               6030 | 1AA0100 |                            |
         |     2 |            1 |         0 |       0 |         000000012 | Arjan          |                    |                    | 1AA0100 | gisteren - 17 jaar         |
         |     2 |            2 |         0 |       0 |                   | Tosca          | gisteren - 45 jaar |                    | 1AA0100 | gisteren - 17 jaar         |
+
+    Scenario: '{naam}' is op {datum} geadopteerd door '{naam}' en '{naam}'
+      Gegeven de persoon 'Arjan' met burgerservicenummer '000000012'
+      * is een man
+      En de persoon 'Tosca' met burgerservicenummer '000000024'
+      * is een vrouw
+      En de persoon 'Theo' met burgerservicenummer '000000036'
+      * is minderjarig
+      * is geboren in Duitsland
+      En 'Theo' is op 30-11-2019 geadopteerd door 'Tosca' en 'Theo'
+      Als de sql statements gegenereerd uit de gegeven stappen zijn uitgevoerd
+      Dan heeft de persoon 'Arjan' de volgende rij in tabel 'lo3_pl'
+        | pl_id | geheim_ind |
+        |     1 |          0 |
+      En heeft de persoon 'Arjan' de volgende rijen in tabel 'lo3_pl_persoon'
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code | geslachts_aand | akte_nr |
+        |     1 | P            |         0 |       0 |         000000012 | Arjan          |               6030 | M              | 1AA0100 |
+        |     1 | K            |         0 |       0 |         000000036 | Theo           |                    |                | 1AQ0100 |
+      En heeft de persoon 'Tosca' de volgende rij in tabel 'lo3_pl'
+        | pl_id | geheim_ind |
+        |     2 |          0 |
+      En heeft de persoon 'Tosca' de volgende rijen in tabel 'lo3_pl_persoon'
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code | geslachts_aand | akte_nr |
+        |     2 | P            |         0 |       0 |         000000024 | Arjan          |               6030 | V              | 1AA0100 |
+        |     2 | K            |         0 |       0 |         000000036 | Theo           |                    |                | 1AQ0100 |
+      En heeft de persoon 'Theo' de volgende rij in tabel 'lo3_pl'
+        | pl_id | geheim_ind |
+        |     3 |          0 |
+      En heeft de persoon 'Theo' de volgende rijen in tabel 'lo3_pl_persoon'
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_datum     | geslachts_aand | geboorte_land_code | akte_nr | familie_betrek_start_datum |
+        |     3 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |                |               6029 | 1AQ0100 |                            |
+        |     3 |            1 |         0 |       0 |                   | Tosca          |                    | V              |                    | 1AQ0100 |                   20191130 |
+        |     3 |            2 |         0 |       0 |         000000012 | Arjan          |                    | M              |                    | 1AQ0100 |                   20191130 |
+
+    Scenario: '{naam}' is in het buitenland geadopteerd door '{naam}' en '{naam}' op {datum}
+      Gegeven de persoon 'Arjan' met burgerservicenummer '000000012'
+      * is een man
+      En de persoon 'Tosca' met burgerservicenummer '000000024'
+      * is een vrouw
+      En de persoon 'Theo' met burgerservicenummer '000000036'
+      * is minderjarig
+      * is geboren in Duitsland
+      En 'Theo' is in het buitenland geadopteerd door 'Tosca' en 'Theo' op 30-11-2019
+      Als de sql statements gegenereerd uit de gegeven stappen zijn uitgevoerd
+      Dan heeft de persoon 'Arjan' de volgende rij in tabel 'lo3_pl'
+        | pl_id | geheim_ind |
+        |     1 |          0 |
+      En heeft de persoon 'Arjan' de volgende rijen in tabel 'lo3_pl_persoon'
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code | geslachts_aand | akte_nr | doc_beschrijving |
+        |     1 | P            |         0 |       0 |         000000012 | Arjan          |               6030 | M              | 1AA0100 |                  |
+        |     1 | K            |         0 |       0 |         000000036 | Theo           |                    |                |         | ad akte 6029     |
+      En heeft de persoon 'Tosca' de volgende rij in tabel 'lo3_pl'
+        | pl_id | geheim_ind |
+        |     2 |          0 |
+      En heeft de persoon 'Tosca' de volgende rijen in tabel 'lo3_pl_persoon'
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code | geslachts_aand | akte_nr | doc_beschrijving |
+        |     2 | P            |         0 |       0 |         000000024 | Arjan          |               6030 | V              | 1AA0100 |                  |
+        |     2 | K            |         0 |       0 |         000000036 | Theo           |                    |                |         | ad akte 6029     |
+      En heeft de persoon 'Theo' de volgende rij in tabel 'lo3_pl'
+        | pl_id | geheim_ind |
+        |     3 |          0 |
+      En heeft de persoon 'Theo' de volgende rijen in tabel 'lo3_pl_persoon'
+        | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_datum     | geslachts_aand | geboorte_land_code | doc_beschrijving | familie_betrek_start_datum |
+        |     3 | P            |         0 |       0 |         000000036 | Theo           | gisteren - 17 jaar |                |               6029 | ad akte 6029     |                            |
+        |     3 |            1 |         0 |       0 |                   | Tosca          |                    | V              |                    | ad akte 6029     |                   20191130 |
+        |     3 |            2 |         0 |       0 |         000000012 | Arjan          |                    | M              |                    | ad akte 6029     |                   20191130 |
 
   Regel: Een gerechtelijke uitspraak wordt vastgelegd in de gezagsverhouding
 
