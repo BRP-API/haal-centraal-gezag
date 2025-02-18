@@ -45,7 +45,8 @@ public class IsStaandeHuwelijkOfPartnerschapGeboren implements GezagVraag {
             final var plOuder1 = gezagsBepaling.getPlOuder1();
             PreconditieChecker.preconditieCheckGeregistreerd(OUDER_1, plOuder1);
             if (heeftOuderRelatieBijGeboorteKind(plOuder1, geboorteDatumKind)
-                && !plPersoon.ontkenningOuderschapDoorOuder2()) {
+                && !plPersoon.ontkenningOuderschapDoorOuder2()
+                && !plPersoon.ontkenningErkenningDoorOuder2()) {
                 answer = V2B_1_JA;
             }
         }
@@ -53,7 +54,8 @@ public class IsStaandeHuwelijkOfPartnerschapGeboren implements GezagVraag {
             final var plOuder2 = gezagsBepaling.getPlOuder2();
             PreconditieChecker.preconditieCheckGeregistreerd(OUDER_2, plOuder2);
             if (heeftOuderRelatieBijGeboorteKind(plOuder2, geboorteDatumKind)
-                && !plPersoon.ontkenningOuderschapDoorOuder1()) {
+                && !plPersoon.ontkenningOuderschapDoorOuder1()
+                && !plPersoon.ontkenningErkenningDoorOuder1()) {
                 answer = V2B_1_JA;
             }
         }

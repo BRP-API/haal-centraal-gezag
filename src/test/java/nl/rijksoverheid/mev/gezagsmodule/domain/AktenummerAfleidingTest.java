@@ -11,7 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class AktenummerAfleidingTest {
 
     private static final String AKTE_ERKENNING = "1AC0109";
-    private static final String AKTE_ONTKENNING = "1AE0109";
+    private static final String AKTE_ONTKENNING_OUDERSCHAP = "1AE0109";
+    private static final String AKTE_ONTKENNING_ERKENNING = "1AF0109";
     private static final String AKTE_ONGEBOREN_VRUCHT = "1AA0109";
     private static final String AKTE_ADOPTIE = "1AQ0109";
 
@@ -127,7 +128,7 @@ class AktenummerAfleidingTest {
 
     @Test
     void ontkenningOuderschapDoorOuderVaststellingWithCorrectAktenummerInCurrent() {
-        WithAktenummer current = new AktenummerTest(AKTE_ONTKENNING);
+        WithAktenummer current = new AktenummerTest(AKTE_ONTKENNING_OUDERSCHAP);
         List<WithAktenummer> history = new ArrayList<>();
 
         boolean result = AktenummerAfleiding.ontkenningOuderschapDoorOuder(current, history);
@@ -138,7 +139,7 @@ class AktenummerAfleidingTest {
     @Test
     void ontkenningOuderschapDoorOuderWithCorrectAktenummerInHistory() {
         WithAktenummer current = null;
-        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ONTKENNING));
+        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ONTKENNING_OUDERSCHAP));
 
         boolean result = AktenummerAfleiding.ontkenningOuderschapDoorOuder(current, history);
 
@@ -147,8 +148,8 @@ class AktenummerAfleidingTest {
 
     @Test
     void ontkenningOuderschapDoorOuderWithCorrectAktenummerInCurrentAndHistory() {
-        WithAktenummer current = new AktenummerTest(AKTE_ONTKENNING);
-        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ONTKENNING));
+        WithAktenummer current = new AktenummerTest(AKTE_ONTKENNING_OUDERSCHAP);
+        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ONTKENNING_OUDERSCHAP));
 
         boolean result = AktenummerAfleiding.ontkenningOuderschapDoorOuder(current, history);
 
@@ -158,7 +159,7 @@ class AktenummerAfleidingTest {
     @Test
     void ontkenningOuderschapDoorOuderWithIncorrectAktenummerInCurrentAndCorrectInHistory() {
         WithAktenummer current = new AktenummerTest(AKTE_ERKENNING);
-        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ONTKENNING));
+        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ONTKENNING_OUDERSCHAP));
 
         boolean result = AktenummerAfleiding.ontkenningOuderschapDoorOuder(current, history);
 
@@ -167,10 +168,90 @@ class AktenummerAfleidingTest {
 
     @Test
     void ontkenningOuderschapDoorOuderWithCorrectAktenummerInCurrentAndIncorrectInHistory() {
-        WithAktenummer current = new AktenummerTest(AKTE_ONTKENNING);
+        WithAktenummer current = new AktenummerTest(AKTE_ONTKENNING_OUDERSCHAP);
         List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ADOPTIE));
 
         boolean result = AktenummerAfleiding.ontkenningOuderschapDoorOuder(current, history);
+
+        assertTrue(result);
+    }
+
+    @Test
+    void ontkenningErkenningDoorOuderWithoutValues() {
+        WithAktenummer current = null;
+        List<WithAktenummer> history = null;
+
+        boolean result = AktenummerAfleiding.ontkenningErkenningDoorOuder(current, history);
+
+        assertFalse(result);
+    }
+
+    @Test
+    void ontkenningErkenningDoorOuderWithEmptyCurrentAndNoHistory() {
+        WithAktenummer current = new AktenummerTest(null);
+        List<WithAktenummer> history = null;
+
+        boolean result = AktenummerAfleiding.ontkenningErkenningDoorOuder(current, history);
+
+        assertFalse(result);
+    }
+
+    @Test
+    void ontkenningErkenningDoorOuderWithEmptyCurrentAndEmptyHistory() {
+        WithAktenummer current = new AktenummerTest(null);
+        List<WithAktenummer> history = new ArrayList<>();
+
+        boolean result = AktenummerAfleiding.ontkenningErkenningDoorOuder(current, history);
+
+        assertFalse(result);
+    }
+
+    @Test
+    void ontkenningErkenningDoorOuderVaststellingWithCorrectAktenummerInCurrent() {
+        WithAktenummer current = new AktenummerTest(AKTE_ONTKENNING_ERKENNING);
+        List<WithAktenummer> history = new ArrayList<>();
+
+        boolean result = AktenummerAfleiding.ontkenningErkenningDoorOuder(current, history);
+
+        assertTrue(result);
+    }
+
+    @Test
+    void ontkenningErkenningDoorOuderWithCorrectAktenummerInHistory() {
+        WithAktenummer current = null;
+        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ONTKENNING_ERKENNING));
+
+        boolean result = AktenummerAfleiding.ontkenningErkenningDoorOuder(current, history);
+
+        assertTrue(result);
+    }
+
+    @Test
+    void ontkenningErkenningDoorOuderWithCorrectAktenummerInCurrentAndHistory() {
+        WithAktenummer current = new AktenummerTest(AKTE_ONTKENNING_ERKENNING);
+        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ONTKENNING_ERKENNING));
+
+        boolean result = AktenummerAfleiding.ontkenningErkenningDoorOuder(current, history);
+
+        assertTrue(result);
+    }
+
+    @Test
+    void ontkenningErkenningDoorOuderWithIncorrectAktenummerInCurrentAndCorrectInHistory() {
+        WithAktenummer current = new AktenummerTest(AKTE_ERKENNING);
+        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ONTKENNING_ERKENNING));
+
+        boolean result = AktenummerAfleiding.ontkenningErkenningDoorOuder(current, history);
+
+        assertTrue(result);
+    }
+
+    @Test
+    void ontkenningErkenningDoorOuderWithCorrectAktenummerInCurrentAndIncorrectInHistory() {
+        WithAktenummer current = new AktenummerTest(AKTE_ONTKENNING_ERKENNING);
+        List<WithAktenummer> history = List.of(new AktenummerTest(AKTE_ADOPTIE));
+
+        boolean result = AktenummerAfleiding.ontkenningErkenningDoorOuder(current, history);
 
         assertTrue(result);
     }
