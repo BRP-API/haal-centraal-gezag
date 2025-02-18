@@ -409,6 +409,23 @@ Given(/^'(.*)' en '(.*)' zijn met elkaar gehuwd$/, function (aanduiding1, aandui
     gegevenDePersonenZijnGehuwd(this.context, aanduiding1, aanduiding2, huwelijkData);
 });
 
+Given(/^'(.*)' en '(.*)' zijn (?!met elkaar)(.*) gehuwd$/, function (aanduiding1, aanduiding2, relatieveDatum) {
+    if (/(\d+) jaar geleden/.test(relatieveDatum)) {
+        const years = relatieveDatum.match(/(\d+)/)[0];
+        relatieveDatum = `vandaag - ${years} jaar`;
+    }
+    const plaatsHuwelijk = '0518';
+    const landHuwelijk = '6030';
+
+    const huwelijkData = arrayOfArraysToDataTable([
+        ['datum huwelijkssluiting/aangaan geregistreerd partnerschap (06.10)', relatieveDatum],
+        ['plaats huwelijkssluiting/aangaan geregistreerd partnerschap (06.20)', plaatsHuwelijk],
+        ['land huwelijkssluiting/aangaan geregistreerd partnerschap (06.30)', landHuwelijk],
+    ]);
+
+    gegevenDePersonenZijnGehuwd(this.context, aanduiding1, aanduiding2, huwelijkData);
+});
+
 Given(/^'(.*)' en '(.*)' zijn met elkaar gehuwd met de volgende gegevens$/, function (aanduiding1, aanduiding2, dataTable) {
     gegevenDePersonenZijnGehuwd(this.context, aanduiding1, aanduiding2, dataTable);
 });
@@ -416,6 +433,7 @@ Given(/^'(.*)' en '(.*)' zijn met elkaar gehuwd met de volgende gegevens$/, func
 Given(/^beide ouders zijn nooit met elkaar getrouwd geweest en hebben nooit een geregistreerd partnerschap gehad$/, function () {
     // doe niets
 });
+
 
 function gegevenDePersonenZijnGescheiden(context, aanduiding1, aanduiding2, dataTable) {
     const persoon1 = getPersoon(context, aanduiding1);
@@ -445,6 +463,23 @@ Given(/^'(.*)' en '(.*)' zijn gescheiden$/, function (aanduiding1, aanduiding2) 
 
     const scheidingData = arrayOfArraysToDataTable([
         ['datum ontbinding huwelijk/geregistreerd partnerschap (07.10)', datumScheiding],
+        ['plaats ontbinding huwelijk/geregistreerd partnerschap (07.20)', plaatsScheiding],
+        ['land ontbinding huwelijk/geregistreerd partnerschap (07.30)', landScheiding],
+    ])
+
+    gegevenDePersonenZijnGescheiden(this.context, aanduiding1, aanduiding2, scheidingData);
+});
+
+Given(/^'(.*)' en '(.*)' zijn (.*) gescheiden$/, function (aanduiding1, aanduiding2, relatieveDatum) {
+    if (/(\d+) jaar geleden/.test(relatieveDatum)) {
+        const years = relatieveDatum.match(/(\d+)/)[0];
+        relatieveDatum = `vandaag - ${years} jaar`;
+    }
+    const plaatsScheiding = '0518';
+    const landScheiding = '6030';
+
+    const scheidingData = arrayOfArraysToDataTable([
+        ['datum ontbinding huwelijk/geregistreerd partnerschap (07.10)', relatieveDatum],
         ['plaats ontbinding huwelijk/geregistreerd partnerschap (07.20)', plaatsScheiding],
         ['land ontbinding huwelijk/geregistreerd partnerschap (07.30)', landScheiding],
     ])
@@ -750,6 +785,44 @@ Given(/^(?:de persoon(?: '(.*)')? )?is op (\d*)-(\d*)-(\d*) geïmmigreerd?$/, fu
         arrayOfArraysToDataTable([
             ['datum vestiging in Nederland (14.20)', datumVestiging],
             ['gemeente van inschrijving (09.10)', gemeenteVanInschrijving]
+        ]),
+        false
+    );
+});
+
+Given(/^(?:(?:de persoon )?'(.*)' )?is (.*) geïmmigreerd naar Nederland$/, function (aanduiding, relatieveDatum) {
+    if (/(\d+) jaar geleden/.test(relatieveDatum)) {
+        const years = relatieveDatum.match(/(\d+)/)[0];
+        relatieveDatum = `vandaag - ${years} jaar`;
+    }
+
+    let brpDatum = toDateOrString(relatieveDatum);
+    const gemeenteVanInschrijving = '0518';
+
+    wijzigVerblijfplaats(
+        getPersoon(this.context, aanduiding),
+        arrayOfArraysToDataTable([
+            ['datum vestiging in Nederland (14.20)', brpDatum],
+            ['gemeente van inschrijving (09.10)', gemeenteVanInschrijving]
+        ]),
+        false
+    );
+});
+
+Given(/^(?:(?:de persoon )?'(.*)' )?is (.*) geëmigreerd naar (.*)$/, async function (aanduiding, relatieveDatum, landNaam) {
+    if (/(\d+) jaar geleden/.test(relatieveDatum)) {
+        const years = relatieveDatum.match(/(\d+)/)[0];
+        relatieveDatum = `vandaag - ${years} jaar`;
+    }
+
+    let brpDatum = toDateOrString(relatieveDatum);
+    let codeVanLand = await selectFirstOrDefault('lo3_land', ['land_code'], 'land_naam', landNaam, '6030');
+
+    wijzigVerblijfplaats(
+        getPersoon(this.context, aanduiding),
+        arrayOfArraysToDataTable([
+            ['land vanwaar ingeschreven (14.10)', codeVanLand],
+            ['datum aanvang adres buitenland (13.20)', brpDatum],
         ]),
         false
     );
