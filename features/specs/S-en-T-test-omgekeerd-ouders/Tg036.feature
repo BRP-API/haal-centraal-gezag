@@ -244,11 +244,11 @@ Functionaliteit: Tg036 - Taher – Gegevens in onderzoek
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                      |
-      | type                             | EenhoofdigOuderlijkGezag    |
-      | minderjarige.burgerservicenummer | 000000024                   |
-      | ouder.burgerservicenummer        | 000000012                   |
-      | inOnderzoek                      | true                        |
+      | naam                             | waarde                   |
+      | type                             | EenhoofdigOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000024                |
+      | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | true                     |
 
   Scenario: Lg01_190 - minderjarig kind, 080000 in onderzoek
     # Route: 40o1 - Wie heeft gezag?: moeder (OG1)
@@ -272,11 +272,11 @@ Functionaliteit: Tg036 - Taher – Gegevens in onderzoek
       | naam                | waarde    |
       | burgerservicenummer | 000000048 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                      |
-      | type                             | EenhoofdigOuderlijkGezag    |
-      | minderjarige.burgerservicenummer | 000000048                   |
-      | ouder.burgerservicenummer        | 000000012                   |
-      | inOnderzoek                      | true                        |
+      | naam                             | waarde                   |
+      | type                             | EenhoofdigOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000048                |
+      | ouder.burgerservicenummer        | 000000012                |
+      | inOnderzoek                      | true                     |
 
   Scenario: Lg01_192 - minderjarig kind, 010320 in onderzoek
     # Route: 40o1 - Wie heeft gezag?: moeder (OG1)

@@ -357,10 +357,10 @@ Functionaliteit: Tg025 - Geus-Goverwelle - Gegevens in onderzoek
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                       |
-      | type                             | GezamenlijkOuderlijkGezag    |
-      | minderjarige.burgerservicenummer | 000000036                    |
-      | inOnderzoek                      | true                         |
+      | naam                             | waarde                    |
+      | type                             | GezamenlijkOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | true                      |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -376,10 +376,10 @@ Functionaliteit: Tg025 - Geus-Goverwelle - Gegevens in onderzoek
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                       |
-      | type                             | GezamenlijkOuderlijkGezag    |
-      | minderjarige.burgerservicenummer | 000000036                    |
-      | inOnderzoek                      | true                         |
+      | naam                             | waarde                    |
+      | type                             | GezamenlijkOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | true                      |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -395,10 +395,10 @@ Functionaliteit: Tg025 - Geus-Goverwelle - Gegevens in onderzoek
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                       |
-      | type                             | GezamenlijkOuderlijkGezag    |
-      | minderjarige.burgerservicenummer | 000000036                    |
-      | inOnderzoek                      | true                         |
+      | naam                             | waarde                    |
+      | type                             | GezamenlijkOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | true                      |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |

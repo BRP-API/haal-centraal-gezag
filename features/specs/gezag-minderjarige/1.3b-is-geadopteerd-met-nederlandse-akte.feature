@@ -43,7 +43,7 @@ Functionaliteit: 1.3b - is geadopteerd met nederlandse akte
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Het kind is geadopteerd door één ouder als ouder 2 er is sprake van EenhoofdigOuderlijkGezag
     Gegeven 'Carlo' is geadopteerd door 'Mohammed' als ouder 2
@@ -57,7 +57,7 @@ Functionaliteit: 1.3b - is geadopteerd met nederlandse akte
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000024                |      
+      | ouder.burgerservicenummer        | 000000024                |
 
   Scenario: Het kind is geadopteerd door twee ouders er is sprake van GezamenlijkOuderlijkGezag
     Gegeven 'Carlo' is geadopteerd door 'Fabia' als ouder 1
@@ -71,7 +71,7 @@ Functionaliteit: 1.3b - is geadopteerd met nederlandse akte
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -95,7 +95,7 @@ Functionaliteit: 1.3b - is geadopteerd met nederlandse akte
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Het kind is geadopteerd door twee ouders, de adoptie is als historisch gegeven opgenomen er is sprake van GezamenlijkOuderlijkGezag
     Gegeven 'Carlo' is geadopteerd door 'Fabia' als ouder 1
@@ -113,7 +113,7 @@ Functionaliteit: 1.3b - is geadopteerd met nederlandse akte
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -135,7 +135,7 @@ Functionaliteit: 1.3b - is geadopteerd met nederlandse akte
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |

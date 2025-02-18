@@ -357,17 +357,17 @@ Functionaliteit: Tg025 - Geus-Goverwelle - Gegevens in onderzoek
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                     |
-      | type                             | GezamenlijkOuderlijkGezag  |
-      | minderjarige.burgerservicenummer | 000000036                  |
-      | inOnderzoek                      | true                       |
+      | naam                             | waarde                    |
+      | type                             | GezamenlijkOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | true                      |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
-    
+
   Scenario: Lg01_135 - gehuwd, kinderen, in onderzoek 026210, 030000, 050200, 080000, 090330
     Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
@@ -376,10 +376,10 @@ Functionaliteit: Tg025 - Geus-Goverwelle - Gegevens in onderzoek
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                        |
-      | type                             | GezamenlijkOuderlijkGezag     |
-      | minderjarige.burgerservicenummer | 000000036                     |
-      | inOnderzoek                      | true                          | 
+      | naam                             | waarde                    |
+      | type                             | GezamenlijkOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | true                      |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -395,10 +395,10 @@ Functionaliteit: Tg025 - Geus-Goverwelle - Gegevens in onderzoek
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde                     |
-      | type                             | GezamenlijkOuderlijkGezag  |
-      | minderjarige.burgerservicenummer | 000000036                  |
-      | inOnderzoek                      | true                       |
+      | naam                             | waarde                    |
+      | type                             | GezamenlijkOuderlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036                 |
+      | inOnderzoek                      | true                      |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |

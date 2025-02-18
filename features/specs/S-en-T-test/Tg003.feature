@@ -378,12 +378,12 @@ Functionaliteit: Tg003 - Bloem-Berendsen-Bolder - Ongehuwd met niet-erkende kind
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Lg01_011 - moeder opgenomen in categorie 02, categorie 03 leeg, geen categorie 11
     # Route: 40o1 - Wie heeft gezag?: moeder (OG1)
@@ -397,7 +397,7 @@ Functionaliteit: Tg003 - Bloem-Berendsen-Bolder - Ongehuwd met niet-erkende kind
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Lg01_012 - moeder opgenomen in categorie 03, categorie 02 leeg, geen categorie 11
     # Route: 40o2 - Wie heeft gezag?: moeder (OG1)
@@ -411,7 +411,7 @@ Functionaliteit: Tg003 - Bloem-Berendsen-Bolder - Ongehuwd met niet-erkende kind
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Lg01_106 - overleden
     # Meerderjarig
@@ -460,5 +460,5 @@ Functionaliteit: Tg003 - Bloem-Berendsen-Bolder - Ongehuwd met niet-erkende kind
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000085 |      
+      | minderjarige.burgerservicenummer | 000000085 |
     En heeft 'gezag' geen derden

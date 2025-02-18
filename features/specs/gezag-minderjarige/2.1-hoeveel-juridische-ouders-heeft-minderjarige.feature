@@ -58,7 +58,7 @@ Functionaliteit: 2.1 - hoeveel juridische ouders heeft minderjarige
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -81,7 +81,7 @@ Functionaliteit: 2.1 - hoeveel juridische ouders heeft minderjarige
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Voor het kind is 1 ouder bekend als ouder 2 er is sprake van EenhoofdigOuderlijkGezag
     Gegeven  persoon 'Gert'
@@ -96,7 +96,7 @@ Functionaliteit: 2.1 - hoeveel juridische ouders heeft minderjarige
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000024                |      
+      | ouder.burgerservicenummer        | 000000024                |
 
   Regel: Kind heeft geen juridische ouders
 

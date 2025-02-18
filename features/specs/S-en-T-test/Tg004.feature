@@ -206,7 +206,7 @@ Functionaliteit: Tg004 - Custers - Bij geboorte minderjarige moeders
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
-      | ouder.burgerservicenummer        | 000000036                |      
+      | ouder.burgerservicenummer        | 000000036                |
 
   Scenario: Lg01_016 - minderjarig niet erkend kind, moeder minderjarig, bij geboorte, inmiddels meerderjarig, geen categorie 11
     # Route: 40o1 - Wie heeft gezag?: Ouder1 eenhoofdig ouderlijk gezag (OG1)

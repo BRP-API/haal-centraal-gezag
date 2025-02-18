@@ -282,12 +282,12 @@ Functionaliteit: Tg038 - Savelskoul-Steenbergen - twee ongehuwde ouders  met 1 e
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000024                |      
+      | ouder.burgerservicenummer        | 000000024                |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
-      | ouder.burgerservicenummer        | 000000024                |      
+      | ouder.burgerservicenummer        | 000000024                |
 
   Scenario: Lg01_205 - geadopteerd door niet gehuwde ouders, indicatie gezag 12,  adoptiemoeder overleden,  indicatie gezag 12
     # Route: 8 - Wie heeft gezag?: vader (OG1)
@@ -301,7 +301,7 @@ Functionaliteit: Tg038 - Savelskoul-Steenbergen - twee ongehuwde ouders  met 1 e
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000024                |      
+      | ouder.burgerservicenummer        | 000000024                |
 
   Scenario: Lg01_206 - geboren en erkend na 01-01-2023, moeder overleden, geen indicatie gezag
     # Route: 53n1 - Wie heeft gezag?: vader (OG1)

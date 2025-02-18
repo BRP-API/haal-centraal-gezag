@@ -83,7 +83,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000024                |
       | ouder.burgerservicenummer        | 000000012                |
-      
+
   Scenario: De vader (ouder 2 van 'Thea') is niet overleden, minderjarig of onder curatele er is sprake van EenhoofdigOuderlijkGezag
     Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
@@ -95,7 +95,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000061                |
-      | ouder.burgerservicenummer        | 000000036                |      
+      | ouder.burgerservicenummer        | 000000036                |
 
   Regel: De ouder is overleden
 
@@ -279,7 +279,7 @@ Functionaliteit: 4a.3 - Ouder overleden of onbevoegd tot gezag
       | type                             | TijdelijkGeenGezag                                |
       | minderjarige.burgerservicenummer | 000000024                                         |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder overleden is. |
-      
+
   Scenario: De vader (ouder 2 van 'Thea') is onder curatele, overleden en minderjarig er is TijdelijkGeenGezag
     Gegeven persoon 'Rik'
     * is minderjarig

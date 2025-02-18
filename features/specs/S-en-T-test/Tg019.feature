@@ -420,5 +420,5 @@ Functionaliteit: Tg019 - Aa-Abels - Ouders overleden zelfde dag
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000061 |      
+      | minderjarige.burgerservicenummer | 000000061 |
     En heeft 'gezag' geen derden

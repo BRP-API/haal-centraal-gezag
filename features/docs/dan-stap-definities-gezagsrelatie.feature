@@ -22,8 +22,8 @@ Functionaliteit: Gezagsrelatie dan stap definities
     }
     """
     Dan heeft de response een persoon met een 'gezag' met de volgende gegevens
-    | type                      | minderjarige.burgerservicenummer |
-    | GezamenlijkOuderlijkGezag | 000000012                        |
+      | type                      | minderjarige.burgerservicenummer |
+      | GezamenlijkOuderlijkGezag | 000000012                        |
 
   Scenario: Dan heeft de persoon een 'gezag' met de volgende gegevens
     Gegeven de response body is gelijk aan
@@ -50,11 +50,11 @@ Functionaliteit: Gezagsrelatie dan stap definities
     }
     """
     Dan heeft de response een persoon met een 'gezag' met de volgende gegevens
-    | type                      | minderjarige.burgerservicenummer |
-    | GezamenlijkOuderlijkGezag | 000000012                        |
+      | type                      | minderjarige.burgerservicenummer |
+      | GezamenlijkOuderlijkGezag | 000000012                        |
     En heeft de persoon een 'gezag' met de volgende gegevens
-    | type             | minderjarige.burgerservicenummer |
-    | GezamenlijkGezag | 000000013                        |
+      | type             | minderjarige.burgerservicenummer |
+      | GezamenlijkGezag | 000000013                        |
 
   Scenario: Dan heeft (het) 'gezag' (nog) een 'ouder' met de volgende gegevens
     Gegeven de response body is gelijk aan
@@ -83,14 +83,14 @@ Functionaliteit: Gezagsrelatie dan stap definities
     }
     """
     Dan heeft de response een persoon met een 'gezag' met de volgende gegevens
-    | type                      | minderjarige.burgerservicenummer |
-    | GezamenlijkOuderlijkGezag | 000000012                        |
+      | type                      | minderjarige.burgerservicenummer |
+      | GezamenlijkOuderlijkGezag | 000000012                        |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
-    | burgerservicenummer |
-    | 000000024           |
+      | burgerservicenummer |
+      | 000000024           |
     En heeft het 'gezag' nog een 'ouder' met de volgende gegevens
-    | burgerservicenummer |
-    | 000000048           |
+      | burgerservicenummer |
+      | 000000048           |
 
   Scenario: Dan heeft (het) 'gezag' een 'derde' met de volgende gegevens
     Gegeven de response body is gelijk aan
@@ -119,14 +119,14 @@ Functionaliteit: Gezagsrelatie dan stap definities
     }
     """
     Dan heeft de response een persoon met een 'gezag' met de volgende gegevens
-    | type    | minderjarige.burgerservicenummer |
-    | Voogdij | 000000012                        |
+      | type    | minderjarige.burgerservicenummer |
+      | Voogdij | 000000012                        |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-    | burgerservicenummer |
-    | 000000024           |
+      | burgerservicenummer |
+      | 000000024           |
     En heeft 'gezag' een 'derde' met de volgende gegevens
-    | burgerservicenummer |
-    | 000000048           |
+      | burgerservicenummer |
+      | 000000048           |
 
   Scenario: Dan heeft de response een persoon zonder 'gezag' gegevens
     Gegeven de response body is gelijk aan
@@ -154,8 +154,8 @@ Functionaliteit: Gezagsrelatie dan stap definities
     }
     """
     Dan heeft de response een persoon met de volgende gegevens
-    | burgerservicenummer|
-    | 000000061 |
+      | burgerservicenummer |
+      | 000000061           |
     En heeft de persoon geen gezag
 
   Scenario: Dan heeft (het) 'gezag' geen derden
@@ -178,6 +178,6 @@ Functionaliteit: Gezagsrelatie dan stap definities
     }
     """
     Dan heeft de response een persoon met een 'gezag' met de volgende gegevens
-    | type    | minderjarige.burgerservicenummer |
-    | Voogdij | 000000012                        |
+      | type    | minderjarige.burgerservicenummer |
+      | Voogdij | 000000012                        |
     En heeft het 'gezag' geen derden

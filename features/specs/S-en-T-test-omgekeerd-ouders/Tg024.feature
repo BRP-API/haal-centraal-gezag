@@ -317,7 +317,7 @@ Functionaliteit: Tg024 - Felsen-Freitag - Nietig verklaring huwelijk en Nietig v
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -337,7 +337,7 @@ Functionaliteit: Tg024 - Felsen-Freitag - Nietig verklaring huwelijk en Nietig v
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -348,7 +348,7 @@ Functionaliteit: Tg024 - Felsen-Freitag - Nietig verklaring huwelijk en Nietig v
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
-      | ouder.burgerservicenummer        | 000000024                |      
+      | ouder.burgerservicenummer        | 000000024                |
 
   Scenario: Lg01_132 - geboren uit huwelijk ouders wat later nietig is verklaard
     # Route: 45 - Wie heeft gezag?: beide ouders (OG2)
@@ -361,7 +361,7 @@ Functionaliteit: Tg024 - Felsen-Freitag - Nietig verklaring huwelijk en Nietig v
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |

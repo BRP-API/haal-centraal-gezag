@@ -686,7 +686,7 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -696,7 +696,7 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |      
+      | minderjarige.burgerservicenummer | 000000048                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -716,7 +716,7 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -726,7 +726,7 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |      
+      | minderjarige.burgerservicenummer | 000000048                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -745,7 +745,7 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -764,7 +764,7 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |      
+      | minderjarige.burgerservicenummer | 000000048                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -785,11 +785,11 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000085                |
-      | ouder.burgerservicenummer        | 000000061                |      
+      | ouder.burgerservicenummer        | 000000061                |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000097                 |      
+      | minderjarige.burgerservicenummer | 000000097                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000061 |
@@ -809,7 +809,7 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000097                 |      
+      | minderjarige.burgerservicenummer | 000000097                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000061 |
@@ -829,7 +829,7 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000085                |
-      | ouder.burgerservicenummer        | 000000061                |      
+      | ouder.burgerservicenummer        | 000000061                |
 
   Scenario: Lg01_039 - erkend kind, ouders gescheiden vóór de geboortedatum, in categorie 11 aanduiding '12'
     # Route: 7 - Wie heeft gezag?: beide ouders (OG2)
@@ -842,7 +842,7 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000097                 |      
+      | minderjarige.burgerservicenummer | 000000097                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000061 |
@@ -861,5 +861,5 @@ Functionaliteit: Tg008 - Gerritsen-Groningen-Gouda
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000103 |      
+      | minderjarige.burgerservicenummer | 000000103 |
     En heeft 'gezag' geen derden

@@ -355,7 +355,7 @@ Functionaliteit: Tg026 - Hendriksman-Hamersma-Huisman - Erkenning voor, bij en n
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |      
+      | minderjarige.burgerservicenummer | 000000048                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -365,7 +365,7 @@ Functionaliteit: Tg026 - Hendriksman-Hamersma-Huisman - Erkenning voor, bij en n
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000061                 |      
+      | minderjarige.burgerservicenummer | 000000061                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -375,7 +375,7 @@ Functionaliteit: Tg026 - Hendriksman-Hamersma-Huisman - Erkenning voor, bij en n
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000073                 |      
+      | minderjarige.burgerservicenummer | 000000073                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -395,7 +395,7 @@ Functionaliteit: Tg026 - Hendriksman-Hamersma-Huisman - Erkenning voor, bij en n
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |      
+      | minderjarige.burgerservicenummer | 000000048                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -405,7 +405,7 @@ Functionaliteit: Tg026 - Hendriksman-Hamersma-Huisman - Erkenning voor, bij en n
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000061                 |      
+      | minderjarige.burgerservicenummer | 000000061                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -415,7 +415,7 @@ Functionaliteit: Tg026 - Hendriksman-Hamersma-Huisman - Erkenning voor, bij en n
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000073                 |      
+      | minderjarige.burgerservicenummer | 000000073                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -434,7 +434,7 @@ Functionaliteit: Tg026 - Hendriksman-Hamersma-Huisman - Erkenning voor, bij en n
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000048                 |      
+      | minderjarige.burgerservicenummer | 000000048                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -453,7 +453,7 @@ Functionaliteit: Tg026 - Hendriksman-Hamersma-Huisman - Erkenning voor, bij en n
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000061                 |      
+      | minderjarige.burgerservicenummer | 000000061                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
@@ -472,7 +472,7 @@ Functionaliteit: Tg026 - Hendriksman-Hamersma-Huisman - Erkenning voor, bij en n
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | GezamenlijkOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000073                 |      
+      | minderjarige.burgerservicenummer | 000000073                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |

@@ -233,12 +233,12 @@ Functionaliteit: Tg007 - Frederiks-Faassen
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000048                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Lg01_029 - gehuwd, 1 minderjarig kind erkend vóór huwelijk, 1 minderjarig kind geboren ná huwelijk, onder curatele
     # Meerderjarig
@@ -263,7 +263,7 @@ Functionaliteit: Tg007 - Frederiks-Faassen
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Lg01_031 - minderjarig erkend kind, ouders inmiddels gehuwd, vader (Ouder2) onder curatele
     # Route: 51 - Wie heeft gezag?: moeder (OG1)

@@ -198,5 +198,5 @@ Functionaliteit: Tg017 - Rooyakkers-Ros - Getrouwd met kind in Cat.11 1D
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |      
+      | minderjarige.burgerservicenummer | 000000036 |
     En heeft 'gezag' geen derden
