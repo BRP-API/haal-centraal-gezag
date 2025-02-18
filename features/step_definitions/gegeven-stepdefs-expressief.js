@@ -535,7 +535,7 @@ function gegevenHeeftNietIngeschrevenPersoonAlsOuder(context, aanduiding, ouderT
     );
 }
 
-Given(/^heeft '(.*)' als ouder [1-2]$/, function (aanduiding, ouderType) {
+Given(/^heeft '(.*)' als ouder ([1-2])$/, function (aanduiding, ouderType) {
     const ouderData = arrayOfArraysToDataTable([
         ['datum ingang familierechtelijke betrekking (62.10)', 'gisteren - 17 jaar']
     ]);
