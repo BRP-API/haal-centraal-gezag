@@ -103,16 +103,23 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         | 31-12-2022 |      20221231 |
         |   1-1-2023 |      20230101 |
 
-    Scenario: is geboren in België
+    Abstract Scenario: is geboren in {land}
       Gegeven de persoon 'Tosca' met burgerservicenummer '000000012'
-      * is geboren in België
+      * is geboren in <land>
       Als de sql statements gegenereerd uit de gegeven stappen zijn uitgevoerd
       Dan heeft de persoon 'Tosca' de volgende rij in tabel 'lo3_pl'
         | pl_id | geheim_ind |
         |     1 |          0 |
       En heeft de persoon 'Tosca' de volgende rijen in tabel 'lo3_pl_persoon'
         | pl_id | persoon_type | stapel_nr | volg_nr | burger_service_nr | geslachts_naam | geboorte_land_code |
-        |     1 | P            |         0 |       0 |         000000012 | Tosca          |               5010 |
+        |     1 | P            |         0 |       0 |         000000012 | Tosca          | <land code>        |
+
+      Voorbeelden:
+        | land       | landcode |
+        | België     |     5010 |
+        | Spanje     |     6037 |
+        | Duitsland  |     6029 |
+        | Afganistan |     6023 |
 
   Regel: Geslachtsaanduiding wordt toegevoegd aan de persoon
 
