@@ -9,6 +9,7 @@ public class AktenummerAfleiding {
 
     private static final char TABEL_39_AKTEAANDUIDING_ERKENNING_BIJ_DE_GEBOORTE_AANGIFTE = 'B';
     private static final char TABEL_39_AKTEAANDUIDING_ONTKENNING_OUDERSCHAP = 'E';
+    private static final char TABEL_39_AKTEAANDUIDING_ONTKENNING_OUDERSCHAP_NA_ERKENNING = 'F';
     private static final char TABEL_39_AKTEAANDUIDING_ERKENNING_NA_DE_GEBOORTEAANGIFTE = 'C';
     private static final char TABEL_39_AKTEAANDUIDING_NOTARIELE_AKTE_VAN_ERKENNING = 'J';
     private static final char TABEL_39_AKTEAANDUIDING_ADOPTIE = 'Q';
@@ -47,7 +48,7 @@ public class AktenummerAfleiding {
     }
 
     /**
-     * Bepaal of de gegeven persoon (een ouder) de erkenning heeft ontkend.
+     * Bepaal of de gegeven persoon (een ouder) ouderschap heeft ontkend.
      * Hierbij is als 3e karakter de indicatie opgenomen: E
      *
      * @param current  de huidige gegevens
@@ -56,6 +57,18 @@ public class AktenummerAfleiding {
      */
     public static boolean ontkenningOuderschapDoorOuder(final WithAktenummer current, final List<WithAktenummer> historic) {
         return controleerAkteNummers(current, historic, Set.of(TABEL_39_AKTEAANDUIDING_ONTKENNING_OUDERSCHAP));
+    }
+
+    /**
+     * Bepaal of de gegeven persoon (een ouder) de erkenning heeft ontkend
+     * Hierbij is als 3e karakter de indicatie opgenomen: F
+     *
+     * @param current  de huidige gegevens
+     * @param historic de historische gegevens
+     * @return of de gegeven persoon de erkenning heeft ontkend
+     */
+    public static boolean ontkenningErkenningDoorOuder(final WithAktenummer current, final List<WithAktenummer> historic) {
+        return controleerAkteNummers(current, historic, Set.of(TABEL_39_AKTEAANDUIDING_ONTKENNING_OUDERSCHAP_NA_ERKENNING));
     }
 
     /**
