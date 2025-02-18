@@ -738,6 +738,20 @@ Given(/^is ingeschreven in de RNI met de volgende gegevens$/, function (dataTabl
     gegevenPersoonIsIngeschrevenInGemeente(this.context, undefined, dataTable);
 });
 
+Given(/^(?:de persoon(?: '(.*)')? )?is op (\d*)-(\d*)-(\d*) geïmmigreerd?$/, function (aanduiding, dag, maand, jaar) {
+    const datumVestiging = toBRPDate(dag, maand, jaar);
+    const gemeenteVanInschrijving = '0518';
+
+    wijzigVerblijfplaats(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['datum vestiging in Nederland (14.20)', datumVestiging],
+            ['gemeente van inschrijving (09.10)', gemeenteVanInschrijving]
+        ]),
+        false
+    );
+});
+
 Given(/^(?:de persoon(?: '(.*)')? )?is niet geëmigreerd geweest$/, function (_) {
     // doe niets
 });
