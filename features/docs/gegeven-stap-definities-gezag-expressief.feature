@@ -115,11 +115,11 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     1 | P            |         0 |       0 |         000000012 | Tosca          | <land code>        |
 
       Voorbeelden:
-        | land       | landcode |
-        | België     |     5010 |
-        | Spanje     |     6037 |
-        | Duitsland  |     6029 |
-        | Afganistan |     6023 |
+        | land        | landcode |
+        | België      |     5010 |
+        | Spanje      |     6037 |
+        | Duitsland   |     6029 |
+        | Afghanistan |     6023 |
 
   Regel: Geslachtsaanduiding wordt toegevoegd aan de persoon
 
@@ -240,7 +240,7 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         | vorige maand    |
 
     Scenario: '{naam}' is {relatievedatum} geëmigreerd naar {landnaam}
-      Gegeven de persoon 'Tosca' met burgerservicenummer '000000012'
+      Gegeven de persoon 'Tosca' met burgerservicenummer '000000012's
       En 'Tosca' is 1 maand geleden geëmigreerd naar <land naam>
       Als de sql statements gegenereerd uit de gegeven stappen zijn uitgevoerd
       Dan heeft de persoon 'Tosca' de volgende rij in tabel 'lo3_pl'
@@ -257,11 +257,11 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
         |     1 |       0 |                       0518 | <relatieve datum> |
 
       Voorbeelden:
-        | relatieve datum | land naam  | land code |
-        | 1 maand geleden | België     |      5010 |
-        |  2 jaar geleden | Spanje     |      6037 |
-        |  2 jaar geleden | Duitsland  |      6029 |
-        |  2 jaar geleden | Afganistan |      6023 |
+        | relatieve datum | land naam   | land code |
+        | 1 maand geleden | België      |      5010 |
+        |  2 jaar geleden | Spanje      |      6037 |
+        |  2 jaar geleden | Duitsland   |      6029 |
+        |  2 jaar geleden | Afghanistan |      6023 |
 
   Regel: Huwelijk wordt toegevoegd als persoon_type 'R' voor beide betrokken personen
     # To Do: welke gegevens van een persoon worden meegenomen - want zijn relevant - in de relatie?

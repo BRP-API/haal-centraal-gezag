@@ -104,6 +104,29 @@ async function select(tableName, dataTable) {
     return result;
 }
 
+async function selectFirstOrDefault(tabelNaam, columnNames, whereColumnName, whereValue, defaultValue='') {
+    let statement = selectStatement(tabelNaam, columnNames, whereColumnName, `'${whereValue}'`);
+
+    const client = await global.pool.connect();
+    let result = [];
+    try {
+        await client.query('BEGIN');
+
+        result = await executeAndLogStatement(client, statement);
+
+        await client.query('COMMIT');
+    }
+    catch (ex) {
+        global.logger.error(ex.message);
+        await client.query('ROLLBACK');
+    }
+    finally {
+        client?.release();
+    }
+
+    return result.rows ? result.rows[0][columnNames[0]] + '' : defaultValue;
+}
+
 async function execute(sqlStatements) {
     if(!global.pool) {
         global.logger.info('geen pool');
@@ -311,5 +334,6 @@ module.exports = {
     execute,
     rollback,
     truncate,
-    select
+    select,
+    selectFirstOrDefault
 }

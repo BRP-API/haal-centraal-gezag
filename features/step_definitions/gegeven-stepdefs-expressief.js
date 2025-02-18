@@ -18,6 +18,8 @@ const { createPersoon,
 } = require('./persoon-2');
 const { toDbColumnName } = require('./brp');
 
+const { selectFirstOrDefault } = require('./postgresqlHelpers-2');
+
 const { toBRPDate, toDateOrString } = require('./brpDatum');
 
 function getPersoon(context, aanduiding) {
@@ -217,8 +219,9 @@ Given(/^is geboren in het buitenland/, function () {
     );
 });
 
-Given(/^is geboren in België/, function () {
-    const codeVanLand = '5010';
+Given(/^is geboren in (.*)/, async function (landNaam) {
+    let codeVanLand = await selectFirstOrDefault('lo3_land', ['land_code'], 'land_naam', landNaam, '6030');
+
     aanvullenPersoon(
         getPersoon(this.context, undefined),
         arrayOfArraysToDataTable([
