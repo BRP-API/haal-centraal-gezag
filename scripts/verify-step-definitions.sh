@@ -10,3 +10,10 @@ npx cucumber-js -f json:./test-reports/cucumber-js/step-definitions/test-result-
                 features/docs \
                 --tags "not @integratie" \
                 --tags "not @skip-verify"
+
+npx cucumber-js -f json:./test-reports/cucumber-js/step-definitions/test-result-met-dependency-integratie.json \
+                -f summary:./test-reports/cucumber-js/step-definitions/test-result-met-dependency-integratie-summary.txt \
+                -f summary \
+                features/docs \
+                --tags "@integratie" \
+                --tags "not @skip-verify"

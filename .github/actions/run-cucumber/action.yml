@@ -34,29 +34,31 @@ runs:
       shell: bash
 
     - name: Validate functional specification
+      if: always()
       run: |
         ./scripts/verify-functional-specification.sh
       shell: bash
-
+      
     - name: Genereer test result summary en voeg het toe aan Github Step Summary
       if: always()
       run: |
         node ./scripts/generate-step-summary.js
         echo "### Cucumber Test Reports" >> $GITHUB_STEP_SUMMARY
-        cat test-reports/cucumber-js/gezag/step-summary.txt >> $GITHUB_STEP_SUMMARY
+        cat ./test-reports/cucumber-js/gezag/step-summary.txt >> $GITHUB_STEP_SUMMARY
       shell: bash
+      
     - name: Stop containers
       if: always()
       run: |
         ./scripts/containers-stop.sh ci
       shell: bash
-
+      
     - name: Generate test report
       if: always()
       run: |
         node ./scripts/generate-cucumber-reports.js
       shell: bash
-
+      
     - name: Upload test report
       if: always()
       uses: actions/upload-artifact@v4
@@ -65,3 +67,5 @@ runs:
         path: |
           test-reports
           test-data/logs
+          
+      

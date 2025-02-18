@@ -44,6 +44,89 @@ async function executeStatements(client, statements) {
     return pkId;
 }
 
+async function truncate(tableName) {
+    if (!global.pool) {
+        global.logger.info('geen pool');
+        return;
+    }
+
+    const client = await global.pool.connect();
+    try {
+        await client.query('BEGIN');
+
+        await executeAndLogTruncateStatement(client, tableName);
+
+        await client.query('COMMIT');
+    }
+    catch (ex) {
+        global.logger.error(ex.message);
+        await client.query('ROLLBACK');
+    }
+    finally {
+        client?.release();
+    }
+}
+
+async function select(tableName, dataTable) {
+    if(!dataTable) {
+        global.logger.info('geen datatabel');
+        return;
+    }
+
+    if (!global.pool) {
+        global.logger.info('geen pool');
+        return;
+    }
+
+    let columnNames = dataTable.rawTable[0];
+    let columnValues = dataTable.rawTable[1];
+    let plIdIndex = columnNames.indexOf('pl_id');
+    let whereColumn = columnNames[plIdIndex];
+    let whereValue = columnValues[plIdIndex];
+
+    const client = await global.pool.connect();
+    let result = [];
+    try {
+        await client.query('BEGIN');
+
+        result = await executeAndLogStatement(client, selectStatement(tableName, columnNames, whereColumn, whereValue));
+
+        await client.query('COMMIT');
+    }
+    catch (ex) {
+        global.logger.error(ex.message);
+        await client.query('ROLLBACK');
+    }
+    finally {
+        client?.release();
+    }
+
+    return result;
+}
+
+async function selectFirstOrDefault(tabelNaam, columnNames, whereColumnName, whereValue, defaultValue='') {
+    let statement = selectStatement(tabelNaam, columnNames, whereColumnName, `'${whereValue}'`);
+
+    const client = await global.pool.connect();
+    let result = [];
+    try {
+        await client.query('BEGIN');
+
+        result = await executeAndLogStatement(client, statement);
+
+        await client.query('COMMIT');
+    }
+    catch (ex) {
+        global.logger.error(ex.message);
+        await client.query('ROLLBACK');
+    }
+    finally {
+        client?.release();
+    }
+
+    return result.rows ? result.rows[0][columnNames[0]] + '' : defaultValue;
+}
+
 async function execute(sqlStatements) {
     if(!global.pool) {
         global.logger.info('geen pool');
@@ -69,14 +152,32 @@ async function execute(sqlStatements) {
     }
 }
 
-function deleteStatement(tabelNaam, id) {
+function selectStatement(tabelNaam, columnNames, whereColumn='pl_id', whereValue='1') {
+    return {
+        text: `SELECT ${columnNames.join(', ')} FROM public.${tabelNaam} WHERE ${whereColumn} = ${whereValue}`,
+        values: []
+    }
+}
+
+function deleteStatement(tabelNaam, id = undefined) {
     return {
         text: `DELETE FROM public.${tableNameMap.get(tabelNaam)}`,
         values: []
     }
 }
 
-async function executeAndLogDeleteStatement(client, tabelNaam, id=undefined) {
+function truncateStatement(tabelNaam, id = undefined) {
+    return {
+        text: `DELETE FROM public.${tabelNaam}`,
+        values: []
+    }
+}
+
+async function executeAndLogTruncateStatement(client, tabelNaam, id = undefined) {
+    return await executeAndLogStatement(client, truncateStatement(tabelNaam, id));
+}
+
+async function executeAndLogDeleteStatement(client, tabelNaam, id = undefined) {
     return await executeAndLogStatement(client, deleteStatement(tabelNaam, id));
 }
 
@@ -231,5 +332,8 @@ async function rollback(sqlContext, sqlData) {
 
 module.exports = {
     execute,
-    rollback
+    rollback,
+    truncate,
+    select,
+    selectFirstOrDefault
 }

@@ -229,6 +229,12 @@ function createSubSubCollectieObjectenInLastSubCollectieObjectInLastCollectieObj
     expectedSubObject[toCollectieNaam(naamSubSubColObj)] = createCollectie(context, dataTable);
 }
 
+function createLeegObjectInLastCollectieObject(context, naamColObj, naamSubColObj) {
+    let expectedObject = getLastCollectieObjectFromExpected(context, naamColObj);
+
+    expectedObject[toCollectieNaam(naamSubColObj)] = []
+}
+
 module.exports = {
     createVelden,
     createCollectieObject,
@@ -244,5 +250,6 @@ module.exports = {
     createSubCollectieObjectMetObjectVeldInLastCollectieObject,
     createObjectVeldInLastSubCollectieObjectInLastCollectieObject,
     createSubSubCollectieObjectInLastSubCollectieObjectInLastCollectieObject,
-    createSubSubCollectieObjectenInLastSubCollectieObjectInLastCollectieObject
+    createSubSubCollectieObjectenInLastSubCollectieObjectInLastCollectieObject,
+    createLeegObjectInLastCollectieObject
 };

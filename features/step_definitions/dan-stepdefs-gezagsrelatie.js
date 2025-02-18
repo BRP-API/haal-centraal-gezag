@@ -4,7 +4,8 @@ const { createCollectieObjectMetSubCollectieObject,
         createSubCollectieObjectInLastCollectieObject,
         createSubCollectieObjectenInLastCollectieObject,
         createSubSubCollectieObjectInLastSubCollectieObjectInLastCollectieObject,
-        createSubSubCollectieObjectenInLastSubCollectieObjectInLastCollectieObject } = require('./dataTable2ObjectFactory');
+        createSubSubCollectieObjectenInLastSubCollectieObjectInLastCollectieObject,
+        createLeegObjectInLastCollectieObject } = require('./dataTable2ObjectFactory');
 
 Then(/^heeft de response een persoon met een 'gezag' met ?(?:alleen)? de volgende gegevens$/, function (dataTable) {
     this.context.verifyResponse = true;
@@ -32,4 +33,8 @@ Then(/^heeft de persoon geen gezag$/, function () {
 
 Then(/^heeft ?(?:het)? 'gezag' geen derden$/, function () {
     createSubSubCollectieObjectenInLastSubCollectieObjectInLastCollectieObject(this.context, 'persoon', 'gezag', 'derde');
+});
+
+Then(/^heeft deze persoon geen gezaghouder$/, function () {
+    createLeegObjectInLastCollectieObject(this.context, 'persoon', 'gezag');
 });
