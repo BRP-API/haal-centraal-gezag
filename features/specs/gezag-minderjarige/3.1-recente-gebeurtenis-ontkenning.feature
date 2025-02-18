@@ -74,13 +74,9 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - ontkenning
       Voorbeelden:
       | ouder | naam ouder | soort wijziging | ouder bsn |
       | 1     |            | gewijzigd       | 000000024 |
-      | 1     | .          | gewijzigd       | 000000024 |
       | 1     |            | gecorrigeerd    | 000000024 |
-      | 1     | .          | gecorrigeerd    | 000000024 |
       | 2     |            | gewijzigd       | 000000012 |
-      | 2     | .          | gewijzigd       | 000000012 |
       | 2     |            | gecorrigeerd    | 000000012 |
-      | 2     | .          | gecorrigeerd    | 000000012 |
  
     Abstract Scenario: er is uitspraak gezag voogdij en erkenning door ouder 2 is ontkend of vernietigd er is sprake van Voogdij
       Gegeven voor 'Kees' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
