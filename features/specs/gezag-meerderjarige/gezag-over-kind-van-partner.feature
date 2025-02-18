@@ -16,13 +16,13 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
   met de moeder, ook niet als het kind na 1 januari 2023 wordt geboren.
 
   Dit kan bijvoorbeeld voorkomen in de volgende situatie:
-  • U hebt als vader of moeder alleen het gezag. Bijvoorbeeld na een scheiding of overlijden van uw partner. 
+  • U hebt als vader of moeder alleen het gezag. Bijvoorbeeld na een scheiding of overlijden van uw partner.
   • U wilt met uw nieuwe partner het gezamenlijk gezag hebben.
 
   Wanneer je als partner gezamenlijk gezag hebt met de ouder van het kind is dit niet zichtbaar in uw eigen gegevens.
   De relatie is opgenomen in de gegevens van het kind en moet via deze gegevens worden bepaald.
-  
-  Bij de gezagbepaling worden daarom de gegevens van de kinderen opgehaald van u en de kinderen van uw partner. 
+
+  Bij de gezagbepaling worden daarom de gegevens van de kinderen opgehaald van u en de kinderen van uw partner.
   Vervolgens worden potentiële gezagsrelaties bepaald vanuit de gegevens van de kinderen. Hierbij is het belangrijk dat als een kind erkend is, de erkenning na 1 januari 2023 is gedaan.
 
     Achtergrond:
@@ -52,7 +52,8 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000024        |
-      | derde.burgerservicenummer        | 000000012        |      
+      | derde.burgerservicenummer        | 000000012        |
+      | derde.type                       | BekendeDerde            |
 
     Scenario: persoon heeft van rechtswege gezamenlijk gezag over het minderjarige kind van diens partners er is sprake van TweehoofdigOuderlijkGezag
       Gegeven persoon 'Linda'
@@ -66,16 +67,16 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000036                 |      
+      | minderjarige.burgerservicenummer | 000000036                 |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
-      
+
   Regel: wanneer de ouder komt te overlijden of onder curatele komt te staan heeft de partner alleen het gezag over het kind
-      
+
     Scenario: de partner van ouder onder curatele heeft gezag over een binnen het huwelijk geboren niet-erkend kind er is sprake van Voogdij
       Gegeven persoon 'Laura'
       * is onder curatele gesteld
@@ -89,11 +90,12 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |      
+      | minderjarige.burgerservicenummer | 000000036 |
       En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000012 |
-      
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000012    |
+
     Scenario: de ex-partner van ouder onder curatele heeft gezag over een binnen het huwelijk geboren niet-erkend kind er is sprake van Voogdij
       Gegeven persoon 'Laura'
       * is onder curatele gesteld
@@ -112,10 +114,11 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |      
+      | minderjarige.burgerservicenummer | 000000036 |
       En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000012 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000012    |
 
     Scenario: de (ex)partner van overleden ouder heeft gezag over een binnen het huwelijk geboren niet-erkend kind er is sprake van Voogdij
       Gegeven 'Laura' en 'Ludo' zijn met elkaar gehuwd
@@ -133,10 +136,11 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |      
+      | minderjarige.burgerservicenummer | 000000036 |
       En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000012 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000012    |
 
     Scenario: de inmiddels met een ander getrouwde (ex)partner van overleden ouder heeft gezag over een binnen het huwelijk geboren niet-erkend kind er is sprake van Voogdij
       Gegeven 'Laura' en 'Ludo' zijn met elkaar gehuwd
@@ -155,7 +159,8 @@ Functionaliteit: gezamenlijk gezag van een meerderjarige over een kind van een (
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde    |
       | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000036 |      
+      | minderjarige.burgerservicenummer | 000000036 |
       En heeft 'gezag' een 'derde' met de volgende gegevens
-      | naam                | waarde    |
-      | burgerservicenummer | 000000012 |
+      | naam                | waarde       |
+      | type                | BekendeDerde |
+      | burgerservicenummer | 000000012    |

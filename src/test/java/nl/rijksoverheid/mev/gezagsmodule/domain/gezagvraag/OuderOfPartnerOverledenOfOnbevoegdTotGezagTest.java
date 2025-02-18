@@ -26,7 +26,6 @@ class OuderOfPartnerOverledenOfOnbevoegdTotGezagTest {
     private static final String V4B_1_JA_OUDER2 = "Ja_ouder2";
     private static final String V4B_1_JA_NIET_OUDER1 = "Ja_nietouder1";
     private static final String INDICATION_EXCEPTION_MINIMAL_ONE_PARENT = "Preconditie: Minimaal 1 ouder moet geregistreerd staan";
-    private static final String INDICATION_EXCEPTION_NIET_OUDER = "Preconditie: niet_ouder moet geregistreerd";
     @Mock
     private GezagsBepaling gezagsBepaling;
     @Mock
@@ -50,26 +49,6 @@ class OuderOfPartnerOverledenOfOnbevoegdTotGezagTest {
             () -> classUnderTest.perform(gezagsBepaling));
 
         assertTrue(exception.getMessage().contains(INDICATION_EXCEPTION_MINIMAL_ONE_PARENT));
-    }
-
-    @Test
-    void ouderOfPartnerOverledenOfOnbevoegdTotGezagWithOuder1() {
-        when(gezagsBepaling.getPlOuder1()).thenReturn(persoonslijstOuder1);
-
-        AfleidingsregelException exception = assertThrows(AfleidingsregelException.class,
-            () -> classUnderTest.perform(gezagsBepaling));
-
-        assertTrue(exception.getMessage().contains(INDICATION_EXCEPTION_NIET_OUDER));
-    }
-
-    @Test
-    void ouderOfPartnerOverledenOfOnbevoegdTotGezagWithOuder2() {
-        when(gezagsBepaling.getPlOuder2()).thenReturn(persoonslijstOuder2);
-
-        AfleidingsregelException exception = assertThrows(AfleidingsregelException.class,
-            () -> classUnderTest.perform(gezagsBepaling));
-
-        assertTrue(exception.getMessage().contains(INDICATION_EXCEPTION_NIET_OUDER));
     }
 
     @Test

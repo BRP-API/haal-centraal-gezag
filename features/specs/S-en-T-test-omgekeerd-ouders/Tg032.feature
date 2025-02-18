@@ -149,8 +149,7 @@ Functionaliteit: Tg032 - Oostingh - Alleen maar minderjarigen incl. moeder
       | minderjarige.burgerservicenummer | 000000024                                           |
       | toelichting                      | Tijdelijk geen gezag omdat de ouder minderjarig is. |
 
-  Scenario: Lg01_175 - minderjarige moeder, wel categorie 11
-    # Route: 4 - Wie heeft gezag?: moeder en derde (V)
+  Scenario: Lg01_175 - minderjarige moeder, gerechtelijke uitspraak (1D), moeder onbevoegd
     Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |

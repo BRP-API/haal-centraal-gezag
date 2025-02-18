@@ -88,7 +88,8 @@ Functionaliteit: 2b.1 - is staande huwelijk of partnerschap geboren
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000012        |
-      | derde.burgerservicenummer        | 000000024        |      
+      | derde.burgerservicenummer        | 000000024        |
+      | derde.type                       | BekendeDerde     |
 
   Scenario: Huwelijk / partnerschap van ouders heeft plaatsgevonden nadat het kind is geboren er is sprake van EenhoofdigOuderlijkGezag
     Gegeven 'Saskia' en 'Maarten' zijn met elkaar gehuwd met de volgende gegevens
@@ -104,7 +105,7 @@ Functionaliteit: 2b.1 - is staande huwelijk of partnerschap geboren
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Regel: Kind is geboren met ouders die niet langer getrouwd zijn
 
@@ -125,7 +126,7 @@ Functionaliteit: 2b.1 - is staande huwelijk of partnerschap geboren
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Huwelijk / partnerschap van ouders is ontbonden nadat het kind werd geboren er is sprake van GezamenlijkGezag
     Gegeven 'Saskia' en 'Maarten' zijn met elkaar gehuwd met de volgende gegevens
@@ -145,7 +146,8 @@ Functionaliteit: 2b.1 - is staande huwelijk of partnerschap geboren
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000012        |
-      | derde.burgerservicenummer        | 000000024        |      
+      | derde.burgerservicenummer        | 000000024        |
+      | derde.type                       | BekendeDerde     |
 
   Regel: Kind is geboren met ouders die nooit getrouwd geweest zijn
 
@@ -166,4 +168,4 @@ Functionaliteit: 2b.1 - is staande huwelijk of partnerschap geboren
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |

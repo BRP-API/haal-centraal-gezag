@@ -228,10 +228,10 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | minderjarige.burgerservicenummer | 000000036                |
       | ouder.burgerservicenummer        | 000000012                |      
 
-    Scenario: geen 'recente gebeurtenis' omdat de gerechtelijke uitspraak tot gezag <omschrijving uitspraak> is er is sprake van Voogdij
+    Scenario: geen 'recente gebeurtenis' omdat de gerechtelijke uitspraak tot gezag een derde is er is sprake van Voogdij
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
-      | <indicatie gezag>                    | gisteren - 5 jaar               |
+      | D                                    | gisteren - 5 jaar               |
       En 'Laura' en 'Lido' zijn met elkaar gehuwd met de volgende gegevens
       | datum huwelijkssluiting/aangaan geregistreerd partnerschap (06.10) |
       | gisteren - 20 jaar                                                 |
@@ -253,11 +253,36 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | minderjarige.burgerservicenummer | 000000036 |      
       En heeft 'gezag' geen derden
 
+    Scenario: geen 'recente gebeurtenis' omdat de gerechtelijke uitspraak tot gezag <omschrijving uitspraak> is er is sprake van GezamenlijkGezag
+      Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
+      | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
+      | <indicatie gezag>                    | gisteren - 5 jaar               |
+      En 'Laura' en 'Lido' zijn met elkaar gehuwd met de volgende gegevens
+      | datum huwelijkssluiting/aangaan geregistreerd partnerschap (06.10) |
+      | gisteren - 20 jaar                                                 |
+      En 'Laura' en 'Lido' zijn gescheiden met de volgende gegevens
+      | datum ontbinding huwelijk/geregistreerd partnerschap (07.10) |
+      | gisteren - 6 jaar                                            |
+      En 'Laura' en 'Lido' zijn met elkaar gehuwd met de volgende gegevens
+      | datum huwelijkssluiting/aangaan geregistreerd partnerschap (06.10) |
+      | gisteren - 2 jaar                                                  |
+      Als gezag wordt gezocht met de volgende parameters
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      Dan heeft de response een persoon met de volgende gegevens
+      | naam                | waarde    |
+      | burgerservicenummer | 000000036 |
+      En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam                             | waarde           |
+      | type                             | GezamenlijkGezag |
+      | minderjarige.burgerservicenummer | 000000036        |
+      | ouder.burgerservicenummer        | <ouder>          |
+      | derde.type                       | OnbekendeDerde   |
+
       Voorbeelden:
-      | indicatie gezag | omschrijving uitspraak |
-      | D               | een derde              |
-      | 1D              | ouder 1 en een derde   |
-      | 2D              | ouder 2 en een derde   |
+      | indicatie gezag | omschrijving uitspraak | ouder     |
+      | 1D              | ouder 1 en een derde   | 000000012 |
+      | 2D              | ouder 2 en een derde   | 000000024 |
 
   Regel: Onjuist opgenomen (gecorrigeerde) huwelijks- of partnerschapsgegevens worden genegeerd
     

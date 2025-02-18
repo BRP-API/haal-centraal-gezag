@@ -45,6 +45,10 @@ public class ARAntwoordenModel {
     @EqualsAndHashCode.Exclude
     private String uitleg = null;
 
+    public boolean isGezamenlijkGezagVanwegeGerechtelijkeUitspraak() {
+        return "1D".equals(v0302) || "2D".equals(v0302);
+    }
+
     public boolean hasOuder1Gezag() {
         return gezagOuder1 != null && gezagOuder1.equals("Ja");
     }

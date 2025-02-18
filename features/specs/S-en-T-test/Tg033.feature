@@ -346,22 +346,29 @@ Functionaliteit: Tg033 - Paassen-Pauw - Twee gehuwde vrouwen met 4 kinderen
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000012        |
-      | derde.burgerservicenummer        | 000000024        |      
+      | derde.burgerservicenummer        | 000000024        |
+      | derde.type                       | BekendeDerde            |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000061                |
-      | ouder.burgerservicenummer        | 000000012                |           
+      | ouder.burgerservicenummer        | 000000012                |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000073                 |      
+      | minderjarige.burgerservicenummer | 000000073                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000085 |
+    En heeft de persoon een 'gezag' met de volgende gegevens
+      | naam                             | waarde           |
+      | type                             | GezamenlijkGezag |
+      | minderjarige.burgerservicenummer | 000000048        |
+      | ouder.burgerservicenummer        | 000000012        |
+      | derde.type                       | OnbekendeDerde   |
 
   Scenario: Lg01_177 - huwelijkspartner van vrouw, geen meemoeder van de kinderen, bij 1 kind gezamenlijk gezag
     # Meerderjarig
@@ -377,7 +384,8 @@ Functionaliteit: Tg033 - Paassen-Pauw - Twee gehuwde vrouwen met 4 kinderen
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000012        |
-      | derde.burgerservicenummer        | 000000024        |      
+      | derde.burgerservicenummer        | 000000024        |
+      | derde.type                       | BekendeDerde            |
 
   Scenario: Lg01_178 - 1 ouder, moeder gehuwd, gezamenlijk gezag moeder en meemoeder
     # Route: 41 - Wie heeft gezag?: moeder en meemoeder (GG)
@@ -392,9 +400,10 @@ Functionaliteit: Tg033 - Paassen-Pauw - Twee gehuwde vrouwen met 4 kinderen
       | type                             | GezamenlijkGezag |
       | minderjarige.burgerservicenummer | 000000036        |
       | ouder.burgerservicenummer        | 000000012        |
-      | derde.burgerservicenummer        | 000000024        |      
+      | derde.burgerservicenummer        | 000000024        |
+      | derde.type                       | BekendeDerde            |
 
-  Scenario: Lg01_179 - 1 ouder, moeder gehuwd, indicatie gezag 1D geen gezamenlijk gezag moeder en meemoeder
+  Scenario: Lg01_179 - 1 ouder, moeder gehuwd, indicatie gezag 1D, gezamenlijk gezag moeder en meemoeder
     # Route: 4 - Wie heeft gezag?: moeder en derde (V)
     Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
@@ -403,10 +412,11 @@ Functionaliteit: Tg033 - Paassen-Pauw - Twee gehuwde vrouwen met 4 kinderen
       | naam                | waarde    |
       | burgerservicenummer | 000000048 |
     En heeft de persoon een 'gezag' met de volgende gegevens
-      | naam                             | waarde    |
-      | type                             | Voogdij   |
-      | minderjarige.burgerservicenummer | 000000048 |      
-    En heeft 'gezag' geen derden
+      | naam                             | waarde           |
+      | type                             | GezamenlijkGezag |
+      | minderjarige.burgerservicenummer | 000000048        |
+      | ouder.burgerservicenummer        | 000000012        |
+      | derde.type                       | OnbekendeDerde   |
 
   Scenario: Lg01_180 - 1 ouder, moeder gehuwd na geboorte kind, geen gezamenlijk gezag
     # Route: 40o1 - Wie heeft gezag?: moeder (OG1)
@@ -420,7 +430,7 @@ Functionaliteit: Tg033 - Paassen-Pauw - Twee gehuwde vrouwen met 4 kinderen
       | naam                             | waarde                   |
       | type                             | EenhoofdigOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000061                |
-      | ouder.burgerservicenummer        | 000000012                |      
+      | ouder.burgerservicenummer        | 000000012                |
 
   Scenario: Lg01_198 - minderjarige geboren na 01-01-2023 uit gehuwde moeder en bekende donor, erkend voor geboorte door ander dan partner
     # Route: 54n - Wie heeft gezag?: moeder (OG2)
@@ -433,7 +443,7 @@ Functionaliteit: Tg033 - Paassen-Pauw - Twee gehuwde vrouwen met 4 kinderen
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000073                 |      
+      | minderjarige.burgerservicenummer | 000000073                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |
@@ -453,7 +463,7 @@ Functionaliteit: Tg033 - Paassen-Pauw - Twee gehuwde vrouwen met 4 kinderen
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
       | type                             | TweehoofdigOuderlijkGezag |
-      | minderjarige.burgerservicenummer | 000000073                 |      
+      | minderjarige.burgerservicenummer | 000000073                 |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
       | burgerservicenummer | 000000012 |

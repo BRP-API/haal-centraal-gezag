@@ -302,7 +302,7 @@ class GezagsrelatieServiceTest {
         GezamenlijkGezag gezag = (GezamenlijkGezag) gezagsRelaties.getFirst();
         assertEquals(minderjarige, gezag.getMinderjarige().get().getBurgerservicenummer());
         assertEquals(ouder1, gezag.getOuder().get().getBurgerservicenummer());
-        assertEquals(nietOuder, gezag.getDerde().get().getBurgerservicenummer().get());
+        assertEquals(nietOuder, gezag.getDerde().map(it -> (BekendeDerde) it).get().getBurgerservicenummer().get());
     }
 
     @Test
