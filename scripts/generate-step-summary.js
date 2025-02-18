@@ -7,6 +7,7 @@ fs.writeFileSync(outputFile, '', 'utf8');
 
 const fileMap = new Map([
     ["./../test-reports/cucumber-js/step-definitions/test-result-zonder-dependency-integratie-summary.txt", "docs (zonder integratie)"],
+    ["./../test-reports/cucumber-js/step-definitions/test-result-met-dependency-integratie-summary.txt", "docs (met integratie)"],
     ["./../test-reports/cucumber-js/gezag/test-result-summary.txt", "functionele specificaties"]
 ]);
 
