@@ -142,7 +142,7 @@ class GezagsrelatieServiceTest {
         List<AbstractGezagsrelatie> gezagsRelaties = classUnderTest.bepaalGezagsrelaties(arAntwoordenModel, gezagsBepaling);
 
         assertFalse(gezagsRelaties.isEmpty());
-        TweehoofdigOuderlijkGezag gezag = (TweehoofdigOuderlijkGezag) gezagsRelaties.getFirst();
+        GezamenlijkOuderlijkGezag gezag = (GezamenlijkOuderlijkGezag) gezagsRelaties.getFirst();
         assertEquals(minderjarige, gezag.getMinderjarige().get().getBurgerservicenummer());
     }
 
@@ -162,7 +162,7 @@ class GezagsrelatieServiceTest {
         List<AbstractGezagsrelatie> gezagsRelaties = classUnderTest.bepaalGezagsrelaties(arAntwoordenModel, gezagsBepaling);
 
         assertFalse(gezagsRelaties.isEmpty());
-        TweehoofdigOuderlijkGezag gezag = (TweehoofdigOuderlijkGezag) gezagsRelaties.getFirst();
+        GezamenlijkOuderlijkGezag gezag = (GezamenlijkOuderlijkGezag) gezagsRelaties.getFirst();
         assertEquals(minderjarige, gezag.getMinderjarige().get().getBurgerservicenummer());
         assertEquals(ouder1, gezag.getOuders().get(0).getBurgerservicenummer());
     }
@@ -185,7 +185,7 @@ class GezagsrelatieServiceTest {
         List<AbstractGezagsrelatie> gezagsRelaties = classUnderTest.bepaalGezagsrelaties(arAntwoordenModel, gezagsBepaling);
 
         assertFalse(gezagsRelaties.isEmpty());
-        TweehoofdigOuderlijkGezag gezag = (TweehoofdigOuderlijkGezag) gezagsRelaties.getFirst();
+        GezamenlijkOuderlijkGezag gezag = (GezamenlijkOuderlijkGezag) gezagsRelaties.getFirst();
         assertEquals(minderjarige, gezag.getMinderjarige().get().getBurgerservicenummer());
         assertEquals(ouder1, gezag.getOuders().get(0).getBurgerservicenummer());
         assertEquals(ouder2, gezag.getOuders().get(1).getBurgerservicenummer());
@@ -326,7 +326,7 @@ class GezagsrelatieServiceTest {
         List<AbstractGezagsrelatie> gezagsRelaties = classUnderTest.bepaalGezagsrelaties(arAntwoordenModel, gezagsBepaling);
 
         assertFalse(gezagsRelaties.isEmpty());
-        TweehoofdigOuderlijkGezag gezag = (TweehoofdigOuderlijkGezag) gezagsRelaties.getFirst();
+        GezamenlijkOuderlijkGezag gezag = (GezamenlijkOuderlijkGezag) gezagsRelaties.getFirst();
         assertTrue(gezag.getInOnderzoek().get());
     }
 }

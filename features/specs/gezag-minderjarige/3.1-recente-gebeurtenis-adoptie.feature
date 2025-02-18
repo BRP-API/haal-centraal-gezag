@@ -40,7 +40,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
 
   Regel: Als adoptie heeft plaatsgevonden na de gerechtelijke uitspraak over gezag, wordt het gezag van rechtswege bepaald
 
-    Abstract Scenario: Een kind is geadopteerd door beide ouders na een gerechtelijke uitspraak er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: Een kind is geadopteerd door beide ouders na een gerechtelijke uitspraak er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | <indicatie gezag>                    | gisteren - 5 jaar               |
@@ -58,7 +58,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -76,7 +76,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | 2D              |
       | D               |
 
-    Abstract Scenario: Een kind is geadopteerd door <adoptie ouder> na de gerechtelijke uitspraak er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: Een kind is geadopteerd door <adoptie ouder> na de gerechtelijke uitspraak er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | D                                    | gisteren - 5 jaar               |
@@ -94,7 +94,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -212,7 +212,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
 
   Regel: Als de datum van de gerechtelijke uitspraak over gezag gedeeltelijk onbekend is, wordt de eerste dag van de maand van de onzekerheidsperiode aangenomen
 
-    Abstract Scenario: gezag wordt van rechtswege bepaald voor minderjarige die is geadopteerd en <omschrijving> er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt van rechtswege bepaald voor minderjarige die is geadopteerd en <omschrijving> er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | D                                    | <datum uitspraak gezag>         |
@@ -230,7 +230,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -305,7 +305,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
 
   Regel: Als de datum adoptie gedeeltelijk onbekend is, wordt de eerste dag van de maand van de onzekerheidsperiode aangenomen
 
-    Abstract Scenario: gezag wordt van rechtswege bepaald voor minderjarige die is geadopteerd en <omschrijving> er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt van rechtswege bepaald voor minderjarige die is geadopteerd en <omschrijving> er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | D                                    | 20210617                        |
@@ -323,7 +323,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -372,7 +372,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
 
   Regel: Als datum familierechtelijke betrekking in onderzoek staat is het gezag niet te bepalen
 
-    Abstract Scenario: gezag wordt bepaald wanneer <omschrijving> in onderzoek staat er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt bepaald wanneer <omschrijving> in onderzoek staat er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | D                                    | gisteren - 5 jaar               |
@@ -390,7 +390,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | inOnderzoek                      | true                      |
       | minderjarige.burgerservicenummer | 000000036                 |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
@@ -409,7 +409,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       |                            | 036200                    | hele groep familierechtelijke betrekking van ouder 2   |
       |                            | 036210                    | datum ingang familierechtelijke betrekking van ouder 2 |
 
-    Scenario: gezag wordt bepaald als het onderzoek op de familierechtelijke betrekking is beëindigd er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: gezag wordt bepaald als het onderzoek op de familierechtelijke betrekking is beëindigd er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | D                                    | gisteren - 5 jaar               |
@@ -427,7 +427,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -436,7 +436,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
 
-    Abstract Scenario: gezag kan worden bepaald wanneer het onderzoek op de familierechtelijke betrekking is beëindigd voor een ouder en niet beëindigd voor de andere ouder er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag kan worden bepaald wanneer het onderzoek op de familierechtelijke betrekking is beëindigd voor een ouder en niet beëindigd voor de andere ouder er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Bert' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | D                                    | gisteren - 5 jaar               |
@@ -454,7 +454,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - adoptie
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
       | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens

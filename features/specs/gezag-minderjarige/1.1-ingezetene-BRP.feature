@@ -43,7 +43,7 @@ Functionaliteit: 1.1 - Staat het kind (minderjarige) als ingezetene in de BRP?
       | minderjarige.burgerservicenummer | 000000036                                                            |
       | toelichting                      | gezag is niet te bepalen omdat minderjarige niet in Nederland woont. |
 
-  Scenario: een ingezeten kind met twee ouders er is sprake van TweehoofdigOuderlijkGezag
+  Scenario: een ingezeten kind met twee ouders er is sprake van GezamenlijkOuderlijkGezag
     Gegeven persoon 'Zoe'
     * is ingeschreven in de BRP
     Als gezag wordt gezocht met de volgende parameters
@@ -54,7 +54,7 @@ Functionaliteit: 1.1 - Staat het kind (minderjarige) als ingezetene in de BRP?
       | burgerservicenummer | 000000036 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |

@@ -148,7 +148,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
 
   Regel: een kind geboren na 01-01-2023
     
-    Scenario: Voor een kind waarvan beide ouders geen geslachtsaanduiding hebben, kan gezag worden bepaald er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: Voor een kind waarvan beide ouders geen geslachtsaanduiding hebben, kan gezag worden bepaald er is sprake van GezamenlijkOuderlijkGezag
       Gegeven persoon 'Vanessa'
       * is geboren op 02-02-2023
       * heeft 'Noah' als ouder 1 met de volgende gegevens    
@@ -165,7 +165,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
-        | type                             | TweehoofdigOuderlijkGezag |
+        | type                             | GezamenlijkOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
@@ -174,7 +174,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                | waarde    |
         | burgerservicenummer | 000000024 |
     
-    Scenario: Voor een kind waarvan beide ouders een onbekende geslachtsaanduiding hebben, kan gezag worden bepaald er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: Voor een kind waarvan beide ouders een onbekende geslachtsaanduiding hebben, kan gezag worden bepaald er is sprake van GezamenlijkOuderlijkGezag
       Gegeven persoon 'Vanessa'
       * is geboren op 02-02-2023
       * heeft 'Noah' als ouder 1 met de volgende gegevens    
@@ -191,7 +191,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
-        | type                             | TweehoofdigOuderlijkGezag |
+        | type                             | GezamenlijkOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
@@ -200,7 +200,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                | waarde    |
         | burgerservicenummer | 000000024 |
     
-    Scenario: Voor een kind waarvan een ouder de geslachtsaanduiding vrouw heeft, kan worden bepaald wie gezag heeft er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: Voor een kind waarvan een ouder de geslachtsaanduiding vrouw heeft, kan worden bepaald wie gezag heeft er is sprake van GezamenlijkOuderlijkGezag
       Gegeven persoon 'Vanessa'
       * is geboren op 02-02-2023
       * heeft 'Noah' als ouder 1 met de volgende gegevens    
@@ -217,7 +217,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
-        | type                             | TweehoofdigOuderlijkGezag |
+        | type                             | GezamenlijkOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
@@ -226,7 +226,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                | waarde    |
         | burgerservicenummer | 000000024 |
     
-    Scenario: Voor een kind waarvan de tweede ouder de geslachtsaanduiding vrouw heeft, kan worden bepaald wie gezag heeft er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: Voor een kind waarvan de tweede ouder de geslachtsaanduiding vrouw heeft, kan worden bepaald wie gezag heeft er is sprake van GezamenlijkOuderlijkGezag
       Gegeven persoon 'Vanessa'
       * is geboren op 02-02-2023
       * heeft 'Noah' als ouder 1 met de volgende gegevens    
@@ -243,7 +243,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
-        | type                             | TweehoofdigOuderlijkGezag |
+        | type                             | GezamenlijkOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
@@ -252,7 +252,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                | waarde    |
         | burgerservicenummer | 000000024 |
     
-    Scenario: Voor een kind waarvan een ouder de geslachtsaanduiding vrouw heeft en de andere man, kan worden bepaald wie gezag heeft er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: Voor een kind waarvan een ouder de geslachtsaanduiding vrouw heeft en de andere man, kan worden bepaald wie gezag heeft er is sprake van GezamenlijkOuderlijkGezag
       Gegeven persoon 'Vanessa'
       * is geboren op 02-02-2023
       * heeft 'Noah' als ouder 1 met de volgende gegevens
@@ -269,7 +269,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
-        | type                             | TweehoofdigOuderlijkGezag |
+        | type                             | GezamenlijkOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
@@ -278,7 +278,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | naam                | waarde    |
         | burgerservicenummer | 000000024 |
     
-    Scenario: Voor een kind waarvan beide ouders de geslachtsaanduiding vrouw hebben, kan worden bepaald wie gezag heeft er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: Voor een kind waarvan beide ouders de geslachtsaanduiding vrouw hebben, kan worden bepaald wie gezag heeft er is sprake van GezamenlijkOuderlijkGezag
       Gegeven persoon 'Vanessa'
       * is geboren op 02-02-2023
       * heeft 'Noah' als ouder 1 met de volgende gegevens
@@ -295,7 +295,7 @@ Functionaliteit: Wie is de geboortemoeder van het kind?
         | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
-        | type                             | TweehoofdigOuderlijkGezag |
+        | type                             | GezamenlijkOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |        
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |

@@ -934,7 +934,7 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | ouder.burgerservicenummer        | 000000061                |      
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000127                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -979,7 +979,7 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | burgerservicenummer | 000000097 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000127                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -1026,7 +1026,7 @@ Functionaliteit: Tg013 - Maasland-Meindersma-Meer-Meulengraaf-Mann - Bijzondere 
       | burgerservicenummer | 000000127 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000127                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |

@@ -41,7 +41,7 @@ Functionaliteit: 1.4 - is uitspraak gezag aanwezig
 
   Regel: Geen uitspraak gezag van toepassing
 
-  Scenario: Voor het kind is geen uitspraak gezag aanwezig er is sprake van TweehoofdigOuderlijkGezag
+  Scenario: Voor het kind is geen uitspraak gezag aanwezig er is sprake van GezamenlijkOuderlijkGezag
     Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
@@ -50,7 +50,7 @@ Functionaliteit: 1.4 - is uitspraak gezag aanwezig
       | burgerservicenummer | 000000036 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -59,7 +59,7 @@ Functionaliteit: 1.4 - is uitspraak gezag aanwezig
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
 
-  Scenario: Voor het kind een uitspraak gedaan maar is geen indicatie betreft gezag er is sprake van TweehoofdigOuderlijkGezag
+  Scenario: Voor het kind een uitspraak gedaan maar is geen indicatie betreft gezag er is sprake van GezamenlijkOuderlijkGezag
     Gegeven voor 'Babette' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
       | naam                               | waarde   |
       | indicatie curateleregister (33.10) | 1        |
@@ -72,7 +72,7 @@ Functionaliteit: 1.4 - is uitspraak gezag aanwezig
       | burgerservicenummer | 000000036 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |

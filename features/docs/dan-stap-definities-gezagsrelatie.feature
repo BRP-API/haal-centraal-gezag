@@ -11,7 +11,7 @@ Functionaliteit: Gezagsrelatie dan stap definities
         {
           "gezag": [
             {
-              "type": "TweehoofdigOuderlijkGezag",
+              "type": "GezamenlijkOuderlijkGezag",
               "minderjarige": {
                 "burgerservicenummer": "000000012"
               }
@@ -23,7 +23,7 @@ Functionaliteit: Gezagsrelatie dan stap definities
     """
     Dan heeft de response een persoon met een 'gezag' met de volgende gegevens
     | type                      | minderjarige.burgerservicenummer |
-    | TweehoofdigOuderlijkGezag | 000000012                        |
+    | GezamenlijkOuderlijkGezag | 000000012                        |
 
   Scenario: Dan heeft de persoon een 'gezag' met de volgende gegevens
     Gegeven de response body is gelijk aan
@@ -33,7 +33,7 @@ Functionaliteit: Gezagsrelatie dan stap definities
         {
           "gezag": [
             {
-              "type": "TweehoofdigOuderlijkGezag",
+              "type": "GezamenlijkOuderlijkGezag",
               "minderjarige": {
                 "burgerservicenummer": "000000012"
               }
@@ -51,7 +51,7 @@ Functionaliteit: Gezagsrelatie dan stap definities
     """
     Dan heeft de response een persoon met een 'gezag' met de volgende gegevens
     | type                      | minderjarige.burgerservicenummer |
-    | TweehoofdigOuderlijkGezag | 000000012                        |
+    | GezamenlijkOuderlijkGezag | 000000012                        |
     En heeft de persoon een 'gezag' met de volgende gegevens
     | type             | minderjarige.burgerservicenummer |
     | GezamenlijkGezag | 000000013                        |
@@ -64,7 +64,7 @@ Functionaliteit: Gezagsrelatie dan stap definities
         {
           "gezag": [
             {
-              "type": "TweehoofdigOuderlijkGezag",
+              "type": "GezamenlijkOuderlijkGezag",
               "minderjarige": {
                 "burgerservicenummer": "000000012"
               },
@@ -84,7 +84,7 @@ Functionaliteit: Gezagsrelatie dan stap definities
     """
     Dan heeft de response een persoon met een 'gezag' met de volgende gegevens
     | type                      | minderjarige.burgerservicenummer |
-    | TweehoofdigOuderlijkGezag | 000000012                        |
+    | GezamenlijkOuderlijkGezag | 000000012                        |
     En heeft 'gezag' een 'ouder' met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |

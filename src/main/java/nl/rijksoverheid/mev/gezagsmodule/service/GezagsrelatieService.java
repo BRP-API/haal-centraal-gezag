@@ -14,7 +14,7 @@ import java.util.List;
 public class GezagsrelatieService {
 
     private static final Logger logger = LoggerFactory.getLogger(GezagsrelatieService.class);
-    private static final String TYPE_TWEEHOOFDIG_OUDERLIJK_GEZAG = "TweehoofdigOuderlijkGezag";
+    private static final String TYPE_GEZAMENLIJK_OUDERLIJK_GEZAG = "GezamenlijkOuderlijkGezag";
     private static final String TYPE_EENHOOFDIG_OUDERLIJK_GEZAG = "EenhoofdigOuderlijkGezag";
     private static final String TYPE_GEZAMELIJK_GEZAG = "GezamenlijkGezag";
     private static final String TYPE_VOOGDIJ = "Voogdij";
@@ -53,7 +53,7 @@ public class GezagsrelatieService {
                     burgerservicenummerOuder2,
                     burgerservicenummer,
                     burgerservicenummerPersoon);
-                case "OG2" -> createTweehoofdigOuderlijkGezag(
+                case "OG2" -> createGezamenlijkOuderlijkGezag(
                     burgerservicenummer,
                     burgerservicenummerOuder1,
                     burgerservicenummerOuder2);
@@ -124,15 +124,15 @@ public class GezagsrelatieService {
         return null;
     }
 
-    private AbstractGezagsrelatie createTweehoofdigOuderlijkGezag(
+    private AbstractGezagsrelatie createGezamenlijkOuderlijkGezag(
         final String burgerservicenummer,
         final String burgerservicenummerOuder1,
         final String burgerservicenummerOuder2) {
-        return new TweehoofdigOuderlijkGezag()
+        return new GezamenlijkOuderlijkGezag()
             .minderjarige(new Minderjarige().burgerservicenummer(burgerservicenummer))
             .addOudersItem(new GezagOuder().burgerservicenummer(burgerservicenummerOuder1))
             .addOudersItem(new GezagOuder().burgerservicenummer(burgerservicenummerOuder2))
-            .type(TYPE_TWEEHOOFDIG_OUDERLIJK_GEZAG);
+            .type(TYPE_GEZAMENLIJK_OUDERLIJK_GEZAG);
     }
 
     private AbstractGezagsrelatie createGezamenlijkGezag(

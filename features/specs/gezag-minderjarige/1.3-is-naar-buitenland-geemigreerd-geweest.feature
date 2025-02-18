@@ -35,7 +35,7 @@ Functionaliteit: 1.3 - is naar buitenland geëmigreerd geweest
 
   Regel: Gezag wordt bepaald voor kinderen die onafgebroken in Nederland hebben gewoond
 
-  Scenario: Een kind met twee ouders dat altijd in Nederland heeft gewoond er is sprake van TweehoofdigOuderlijkGezag
+  Scenario: Een kind met twee ouders dat altijd in Nederland heeft gewoond er is sprake van GezamenlijkOuderlijkGezag
     Als gezag wordt gezocht met de volgende parameters
       | naam                | waarde    |
       | burgerservicenummer | 000000036 |
@@ -44,7 +44,7 @@ Functionaliteit: 1.3 - is naar buitenland geëmigreerd geweest
       | burgerservicenummer | 000000036 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |

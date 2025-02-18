@@ -101,7 +101,7 @@ components:
       discriminator:
         propertyName: type
         mapping:
-          TweehoofdigOuderlijkGezag: "#/components/schemas/TweehoofdigOuderlijkGezag"
+          GezamenlijkOuderlijkGezag: "#/components/schemas/GezamenlijkOuderlijkGezag"
           EenhoofdigOuderlijkGezag: "#/components/schemas/EenhoofdigOuderlijkGezag"
           GezamenlijkGezag: "#/components/schemas/GezamenlijkGezag"
           Voogdij: "#/components/schemas/Voogdij"
@@ -121,7 +121,7 @@ components:
           $ref: "#/components/schemas/Burgerservicenummer"
       required:
         - burgerservicenummer
-    TweehoofdigOuderlijkGezag:
+    GezamenlijkOuderlijkGezag:
       allOf:
         - $ref: "#/components/schemas/AbstractGezagsrelatie"
         - type: object

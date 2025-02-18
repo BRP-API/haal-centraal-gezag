@@ -88,7 +88,7 @@ Functionaliteit: 1.2 - Is persoon minderjarig en niet overleden?
 
   Regel: het bepalen van gezag gaat verder wanneer het kind minderjarig is
 
-  Scenario: Wanneer gezag wordt opgevraagd van een kind die minderjarig is, wordt tweehoofdig ouderlijk gezag teruggeven.
+  Scenario: Wanneer gezag wordt opgevraagd van een kind die minderjarig is, wordt gezamenlijk ouderlijk gezag teruggeven.
     Gegeven persoon 'Linda'
     * is minderjarig
     Als gezag wordt gezocht met de volgende parameters
@@ -99,7 +99,7 @@ Functionaliteit: 1.2 - Is persoon minderjarig en niet overleden?
       | burgerservicenummer | 000000036 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |

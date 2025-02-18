@@ -12,7 +12,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       * is in Nederland geboren
       * is ingeschreven in de BRP
 
-    Abstract Scenario: gezag wordt bepaald met gegeven van persoon: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt bepaald met gegeven van persoon: <omschrijving> in onderzoek er is sprake van GezamenlijkOuderlijkGezag
       Gegeven persoon 'Nandy'
       * zijn de volgende gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
@@ -28,7 +28,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
       | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
@@ -44,7 +44,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | 010330               | geboorteland             |
       | 010000               | hele categorie           |
 
-    Scenario: gezag wordt bepaald met aktenummer van persoon in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: gezag wordt bepaald met aktenummer van persoon in onderzoek er is sprake van GezamenlijkOuderlijkGezag
       Gegeven persoon 'Nandy'
       * zijn de volgende gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
@@ -59,7 +59,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
       | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
@@ -69,7 +69,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
 
-    Scenario: gezag wordt bepaald met historisch aktenummer van persoon in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Scenario: gezag wordt bepaald met historisch aktenummer van persoon in onderzoek er is sprake van GezamenlijkOuderlijkGezag
       Gegeven persoon 'Nandy'
       * zijn de volgende gegevens gewijzigd
       | aanduiding in onderzoek (83.10) |
@@ -87,7 +87,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
       | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
@@ -97,7 +97,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | naam                | waarde    |
       | burgerservicenummer | 000000024 |
 
-    Abstract Scenario: gezag wordt bepaald met gegeven van huwelijk: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt bepaald met gegeven van huwelijk: <omschrijving> in onderzoek er is sprake van GezamenlijkOuderlijkGezag
       Gegeven 'Jorine' en 'Bastiaan' zijn met elkaar gehuwd met de volgende gegevens
       | datum huwelijkssluiting/aangaan geregistreerd partnerschap (06.10) | aanduiding in onderzoek (83.10) |
       | gisteren - 2 jaar                                                  | <aanduiding onderzoek>          |
@@ -112,7 +112,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
       | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
@@ -130,7 +130,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | 050610               | datum aangaan huwelijk of partnerschap      |
       | 050710               | datum ontbinding huwelijk of partnerschap   |
 
-    Abstract Scenario: gezag wordt bepaald met gegeven van huwelijk bij scheiding: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt bepaald met gegeven van huwelijk bij scheiding: <omschrijving> in onderzoek er is sprake van GezamenlijkOuderlijkGezag
       Gegeven 'Jorine' en 'Bastiaan' zijn met elkaar gehuwd
       En 'Jorine' en 'Bastiaan' zijn gescheiden met de volgende gegevens
       | datum ontbinding huwelijk/geregistreerd partnerschap (07.10) | aanduiding in onderzoek (83.10) |
@@ -146,7 +146,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
       | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
@@ -160,7 +160,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
       | aanduiding onderzoek | omschrijving                                |
       | 050740               | reden ontbinding huwelijk of partnerschap   |
 
-    Abstract Scenario: gezag wordt bepaald met gegeven van gerechtelijke uitspraak: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt bepaald met gegeven van gerechtelijke uitspraak: <omschrijving> in onderzoek er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Nandy' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens
         | naam                                 | waarde                  |
         | indicatie gezag minderjarige (32.10) | 12                      |
@@ -177,7 +177,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
         | burgerservicenummer | 000000036 |
         En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
-        | type                             | TweehoofdigOuderlijkGezag |
+        | type                             | GezamenlijkOuderlijkGezag |
         | minderjarige.burgerservicenummer | 000000036                 |
         | inOnderzoek                      | true                      |
         En heeft 'gezag' een 'ouder' met de volgende gegevens
@@ -247,7 +247,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
         | 110000               | hele groep                      |
         | 113310               | indicatie curatele register     |
 
-      Abstract Scenario: gezag wordt bepaald met gegeven van ouder 1: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+      Abstract Scenario: gezag wordt bepaald met gegeven van ouder 1: <omschrijving> in onderzoek er is sprake van GezamenlijkOuderlijkGezag
         En persoon 'Nandy'
         * heeft 'Jorine' als ouder 1 met de volgende gegevens
           | aanduiding in onderzoek (83.10) | datum ingang familierechtelijke betrekking (62.10) |
@@ -261,7 +261,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
           | burgerservicenummer | 000000036 |
           En heeft de persoon een 'gezag' met de volgende gegevens
           | naam                             | waarde                    |
-          | type                             | TweehoofdigOuderlijkGezag |
+          | type                             | GezamenlijkOuderlijkGezag |
           | minderjarige.burgerservicenummer | 000000036                 |
           | inOnderzoek                      | true                      |
           En heeft 'gezag' een 'ouder' met de volgende gegevens
@@ -278,7 +278,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
           | 026210               | datum ingang familierechtelijke betrekking |
           | 020000               | hele groep                                 |
 
-      Abstract Scenario: gezag wordt bepaald met gegeven van ouder 2: <omschrijving> in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+      Abstract Scenario: gezag wordt bepaald met gegeven van ouder 2: <omschrijving> in onderzoek er is sprake van GezamenlijkOuderlijkGezag
         En persoon 'Nandy'
         * heeft 'Jorine' als ouder 1
         * heeft 'Bastiaan' als ouder 2 met de volgende gegevens
@@ -292,7 +292,7 @@ Functionaliteit: wanneer gegevens van het kind in onderzoek staan wordt een geza
           | burgerservicenummer | 000000036 |
           En heeft de persoon een 'gezag' met de volgende gegevens
           | naam                             | waarde                    |
-          | type                             | TweehoofdigOuderlijkGezag |
+          | type                             | GezamenlijkOuderlijkGezag |
           | minderjarige.burgerservicenummer | 000000036                 |
           | inOnderzoek                      | true                      |
           En heeft 'gezag' een 'ouder' met de volgende gegevens

@@ -55,7 +55,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
 
   Regel: Als de ouders met elkaar zijn hertrouwd of opnieuw partnerschap zijn aangegaan na gerechtelijke uitspraak tot gezag voor één van beide ouders, wordt het gezag van rechtswege bepaald
 
-    Abstract Scenario: gezag wordt van rechtswege bepaald voor minderjarige waarbij na gerechtelijke uitspraak tot gezag ouder<indicatie gezag> de ouders zijn hertrouwd er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt van rechtswege bepaald voor minderjarige waarbij na gerechtelijke uitspraak tot gezag ouder<indicatie gezag> de ouders zijn hertrouwd er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens 
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | <indicatie gezag>                    | gisteren - 5 jaar               |
@@ -76,7 +76,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -90,7 +90,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | 1               |
       | 2               |
 
-    Abstract Scenario: gezag wordt van rechtswege bepaald voor minderjarige waarbij <omschrijving> er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: gezag wordt van rechtswege bepaald voor minderjarige waarbij <omschrijving> er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens 
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | 1                                    | gisteren - 5 jaar               |
@@ -111,7 +111,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -166,7 +166,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -342,7 +342,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
 
   Regel: Als het huwelijk of partnerschap in staat onderzoek, is het gezag wel te bepalen
 
-    Abstract Scenario: Gezag wordt van rechtswege bepaald na reparatiehuwelijk en <omschrijving> staat in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: Gezag wordt van rechtswege bepaald na reparatiehuwelijk en <omschrijving> staat in onderzoek er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens 
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | 1                                    | gisteren - 5 jaar               |
@@ -363,7 +363,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
       En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |
@@ -380,7 +380,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | 050620               | plaats aangaan huwelijk of partnerschap     |
       | 050670               | land aangaan huwelijk of partnerschap       |
 
-    Abstract Scenario: Gezag wordt van rechtswege bepaald na reparatiehuwelijk en <omschrijving> staat in onderzoek er is sprake van TweehoofdigOuderlijkGezag
+    Abstract Scenario: Gezag wordt van rechtswege bepaald na reparatiehuwelijk en <omschrijving> staat in onderzoek er is sprake van GezamenlijkOuderlijkGezag
       Gegeven voor 'Linda' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens 
       | indicatie gezag minderjarige (32.10) | ingangsdatum geldigheid (85.10) |
       | 1                                    | gisteren - 5 jaar               |
@@ -401,7 +401,7 @@ Functionaliteit: 3.1 - is er sprake van een recente gebeurtenis - hertrouwen
       | burgerservicenummer | 000000036 |
       En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |
       | inOnderzoek                      | true                      |
       En heeft 'gezag' een 'ouder' met de volgende gegevens

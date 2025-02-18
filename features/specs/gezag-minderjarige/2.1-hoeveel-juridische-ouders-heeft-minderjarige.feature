@@ -44,7 +44,7 @@ Functionaliteit: 2.1 - hoeveel juridische ouders heeft minderjarige
 
   Regel: Kind heeft twee juridische ouders
 
-  Scenario: Beide ouders staan geregistreerd voor het kind er is sprake van TweehoofdigOuderlijkGezag
+  Scenario: Beide ouders staan geregistreerd voor het kind er is sprake van GezamenlijkOuderlijkGezag
     Gegeven 'Gertruda' en 'Gerrit' zijn met elkaar gehuwd
     Gegeven persoon 'Gert'
     * heeft 'Gertruda' als ouder 1
@@ -57,7 +57,7 @@ Functionaliteit: 2.1 - hoeveel juridische ouders heeft minderjarige
       | burgerservicenummer | 000000036 |
     En heeft de persoon een 'gezag' met de volgende gegevens
       | naam                             | waarde                    |
-      | type                             | TweehoofdigOuderlijkGezag |
+      | type                             | GezamenlijkOuderlijkGezag |
       | minderjarige.burgerservicenummer | 000000036                 |      
     En heeft 'gezag' een 'ouder' met de volgende gegevens
       | naam                | waarde    |

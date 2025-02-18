@@ -3,7 +3,7 @@ Functionaliteit: gezag van een meerderjarige over een kind
 
   Regel: een meerderjarige die gezag heeft over een minderjarig kind krijgt de gezagsrelatie geleverd
 
-    Abstract Scenario: persoon heeft tweehoofdig ouderlijk gezag over het minderjarige kind
+    Abstract Scenario: persoon heeft gezamenlijk ouderlijk gezag over het minderjarige kind
       Gegeven de persoon 'Aart' met burgerservicenummer '000000012'
       * is ingeschreven in de BRP
       * is meerderjarig
@@ -26,7 +26,7 @@ Functionaliteit: gezag van een meerderjarige over een kind
         | burgerservicenummer | <burgerservicenummer> |
       En heeft de persoon een 'gezag' met de volgende gegevens
         | naam                             | waarde                    |
-        | type                             | TweehoofdigOuderlijkGezag |
+        | type                             | GezamenlijkOuderlijkGezag |
         | minderjarige.burgerservicenummer |                 000000036 |
       En heeft 'gezag' een 'ouder' met de volgende gegevens
         | naam                | waarde    |
