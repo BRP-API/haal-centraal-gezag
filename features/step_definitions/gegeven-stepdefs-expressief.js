@@ -135,6 +135,18 @@ Given(/^is minderjarig/, function () {
     );
 });
 
+Given(/^is een ([man|vrouw])/, function (geslacht) {
+    let geslachtsAanduiding = geslacht === 'man' ? 'M' : 'V';
+
+    aanvullenPersoon(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['geslachtsaanduiding (04.10)', geslachtsAanduiding]
+        ])
+    );
+});
+
+
 Given(/^is meerderjarig(?:, niet overleden en staat niet onder curatele)?$/, function () {
     const datumGeboorte = 'gisteren - 45 jaar';
 
@@ -146,9 +158,19 @@ Given(/^is meerderjarig(?:, niet overleden en staat niet onder curatele)?$/, fun
     );
 });
 
-Given(/^is in Nederland geboren$/, function () {
-    const landGeboorte = '6030';
+
+/***
+ * Geboorteland standaardwaarden met aktenummer
+ */
+Given(/^is in ([Nederland|België|het buitenland]) geboren$/, function (land) {
+    let landGeboorte = '6030'; // Nederland
     const nummerAkte = '1AA0100';
+
+    if(land == 'België') {
+        landGeboorte = '5010';
+    }else if(land == 'het buitenland') {
+        landGeboorte = '9999';
+    }
 
     aanvullenPersoon(
         getPersoon(this.context, undefined),
@@ -159,18 +181,33 @@ Given(/^is in Nederland geboren$/, function () {
     );
 });
 
-Given(/^is in het buitenland geboren$/, function () {
-    const landGeboorte = '9999'; // any code except 6030
-    const nummerAkte = '1AA0100';
-
+/**
+ * Geboorteland standaardwaarden zonder aktenummer
+ * 
+ * Op dit moment wordt standaard landcode 6003 gebruikt.
+ * Deze gegeven stap is voor testen waar het niet relevant is uit welk land de persoon geadopteerd is,
+ * alleen dat de persoon in het buitenland is geboren.
+ */
+Given(/^is geboren in het buitenland/, function () {
+    const codeVanLand = '6003';
     aanvullenPersoon(
         getPersoon(this.context, undefined),
         arrayOfArraysToDataTable([
-            ['geboorteland (03.30)', landGeboorte],
-            ['aktenummer (81.20)', nummerAkte]
+            ['geboorteland (03.30)', codeVanLand]
         ])
     );
 });
+
+Given(/^is geboren in België/, function () {
+    const codeVanLand = '5010';
+        aanvullenPersoon(
+            getPersoon(this.context, undefined),
+            arrayOfArraysToDataTable([
+                ['geboorteland (03.30)', codeVanLand]
+            ])
+        );
+    });
+
 
 Given(/^voor '(.*)' is een gerechtelijke uitspraak over het gezag gedaan met de volgende gegevens$/, function (aanduiding, dataTable) {
     createGezagsverhouding(
@@ -575,6 +612,61 @@ function gegevenPersoonIsIngeschrevenInGemeente(context, aanduiding, dataTable) 
     );
 }
 
+Given(/^de gemeente heeft vastgesteld dat de minderjarige niet op het adres verblijft$/, function () {
+    const codeVanGemeente = '0518';
+    const aanduidingInOnderzoek = '089999';
+
+    wijzigVerblijfplaats(
+        getPersoon(this.context, undefined),
+        arrayOfArraysToDataTable([
+            ['gemeente van inschrijving (09.10)', codeVanGemeente],
+            ['aanduiding in onderzoek (83.10)', aanduidingInOnderzoek]
+        ]),
+        false
+    );
+});
+
+
+Given(/^is ingeschreven in een Nederlandse gemeente$/, function () {
+    const codeVanGemeente = '0518';
+
+    gegevenPersoonIsIngeschrevenInGemeente(
+        this.context,
+        undefined,
+        arrayOfArraysToDataTable([
+            ['gemeente van inschrijving (09.10)', codeVanGemeente]
+        ])
+    );
+});
+
+Given(/^is ingeschreven als niet-ingezetene met een verblijfplaats in België$/, function () {
+    const codeVanGemeente = '1999';
+    const codeVanLand = '5010';
+
+    gegevenPersoonIsIngeschrevenInGemeente(
+        this.context,
+        undefined,
+        arrayOfArraysToDataTable([
+            ['gemeente van inschrijving (09.10)', codeVanGemeente],
+            ['land adres buitenland (13.10)', codeVanLand]
+        ])
+    );
+});
+
+Given(/^is ingeschreven als niet-ingezetene met een volledig onbekende verblijfplaats$/, function () {
+    const codeVanGemeente = '1999';
+    const codeVanLand = '0000';
+
+    gegevenPersoonIsIngeschrevenInGemeente(
+        this.context,
+        undefined,
+        arrayOfArraysToDataTable([
+            ['gemeente van inschrijving (09.10)', codeVanGemeente],
+            ['land adres buitenland (13.10)', codeVanLand]
+        ])
+    );
+});
+
 Given(/^is ingeschreven in de BRP$/, function () {
     gegevenPersoonIsIngeschrevenInGemeente(
         this.context,
@@ -692,23 +784,7 @@ Given(/^is geëmigreerd naar het buitenland/, function () {
         verblijfplaats
     );
 });
-
-/**
- * Op dit moment wordt standaard landcode 6003 gebruikt.
- * Deze gegeven stap is voor testen waar het niet relevant is uit welk land de persoon geadopteerd is,
- * alleen dat de persoon in het buitenland is geboren.
- */
-Given(/^is geboren in het buitenland/, function () {
-    const codeVanLand = '6003';
-
-    aanvullenPersoon(
-        getPersoon(this.context, undefined),
-        arrayOfArraysToDataTable([
-            ['geboorteland (03.30)', codeVanLand]
-        ])
-    );
-});
-
+ 
 Given(/^verblijft in Nederland/, function () {
     const verblijfplaats = arrayOfArraysToDataTable([
         ['datum vestiging in Nederland (14.20)', 'vandaag - 1 jaar'],
@@ -765,9 +841,9 @@ Given(/^is erkend door '(.*)' als ouder ([1-2]) met gerechtelijke vaststelling o
     gegevenIsErkendDoorPersoonAlsOuder(this.context, aanduidingOuder, ErkenningsType.GerechtelijkeVaststellingOuderschap, ouderType, ouderData);
 });
 
-Given(/^is geboren op (\d*)-(\d*)-(\d*)$/, function (dag, maand, jaar) {
+Given(/^(?:'(.*)' )?is geboren op (\d*)-(\d*)-(\d*)$/, function (aanduiding, dag, maand, jaar) {
     aanvullenPersoon(
-        getPersoon(this.context, undefined),
+        getPersoon(this.context, aanduiding),
         arrayOfArraysToDataTable([
             ['geboortedatum (03.10)', toBRPDate(dag, maand, jaar)]
         ])

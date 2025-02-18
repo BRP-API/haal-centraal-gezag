@@ -2,8 +2,8 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const { execute, truncate, select } = require('./postgresqlHelpers-2');
 const { generateSqlStatementsFrom } = require('./sqlStatementsFactory');
 
-Given(/de tabel '(.*)' bevat geen rijen/, async function (tabel) {
-    await truncate(tabel);
+Given(/de tabel '(.*)' bevat geen rijen/, async function (tabelNaam) {
+    await truncate(tabelNaam);
 });
 
 

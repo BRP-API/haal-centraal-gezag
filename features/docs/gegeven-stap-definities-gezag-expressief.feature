@@ -5,6 +5,7 @@ Functionaliteit: Stap definities ten behoeve van specificeren gezagsrelaties
   Achtergrond:
     Gegeven de tabel 'lo3_pl' bevat geen rijen
     En de tabel 'lo3_pl_persoon' bevat geen rijen
+    En de tabel 'lo3_pl_verblijfplaats' bevat geen rijen
 
   Regel: Een persoon benoemen we functioneel met een naam en technisch met een burgerservicenummer
     Standaard is een persoon in Nederland geboren met een Nederlandse geboorteakte.
